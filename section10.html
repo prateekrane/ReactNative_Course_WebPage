@@ -1,174 +1,335 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 10 · Backend Basics — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 10 · Backend Basics — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 10 · Backend Basics</div>
+        </div>
+        <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 10 — BACKEND BASICS</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">Backend Basics</h1>
+            <p>
+              Handle secrets safely, write real server endpoints directly inside
+              your Expo Router project, stream data efficiently, and deploy it
+              all with EAS Hosting.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>4</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 10 · Backend Basics</div>
-      
-    </div>
-    <div class="content">
+          <!-- ============ S10 TOPIC 1 ============ -->
+          <section class="topic" id="environment-variables">
+            <div class="topic-num">TOPIC 1 / 4</div>
+            <h2>Environment Variables</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 10 — BACKEND BASICS</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Backend Basics</h1>
-  <p>Handle secrets safely, write real server endpoints directly inside your Expo Router project, stream data efficiently, and deploy it all with EAS Hosting.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>4</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              API keys, server URLs, and secrets should never be hardcoded
+              directly into your source code — especially since your JS bundle
+              can, with effort, be inspected by anyone who has your app
+              installed. Environment variables keep configuration separate from
+              code.
+            </p>
 
-<!-- ============ S10 TOPIC 1 ============ -->
-<section class="topic" id="environment-variables">
-  <div class="topic-num">TOPIC 1 / 4</div>
-  <h2>Environment Variables</h2>
-
-  <p>API keys, server URLs, and secrets should never be hardcoded directly into your source code — especially since your JS bundle can, with effort, be inspected by anyone who has your app installed. Environment variables keep configuration separate from code.</p>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">.env</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>EXPO_PUBLIC_API_URL=https://api.myapp.com
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">.env</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>EXPO_PUBLIC_API_URL=https://api.myapp.com
 EXPO_PUBLIC_ANALYTICS_KEY=abc123</code></pre>
-  </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/index.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">const</span> apiUrl = process.env.EXPO_PUBLIC_API_URL;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/index.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">const</span> apiUrl = process.env.EXPO_PUBLIC_API_URL;
 <span class="tok-fn">fetch</span>(<span class="tok-fn">apiUrl</span> + <span class="tok-str">'/posts'</span>);</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>The <code>EXPO_PUBLIC_</code> prefix is required for any variable you want accessible in client-side app code — it's a deliberate, explicit opt-in so you can't accidentally expose a secret.</li>
-    <li><code>process.env.EXPO_PUBLIC_API_URL</code> — Expo's build tooling replaces this at build time with the actual value from your <code>.env</code> file.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                The <code>EXPO_PUBLIC_</code> prefix is required for any
+                variable you want accessible in client-side app code — it's a
+                deliberate, explicit opt-in so you can't accidentally expose a
+                secret.
+              </li>
+              <li>
+                <code>process.env.EXPO_PUBLIC_API_URL</code> — Expo's build
+                tooling replaces this at build time with the actual value from
+                your <code>.env</code> file.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Critical distinction: public vs. private</b>
-    Anything prefixed <code>EXPO_PUBLIC_</code> gets bundled into your client app and is technically extractable by anyone with the app installed — treat it like something printed on a public sign, never a secret. True secrets (payment provider secret keys, database credentials) belong only on your server, never in a variable your app bundle can read.
-  </div>
+            <div class="callout">
+              <b>Critical distinction: public vs. private</b>
+              Anything prefixed <code>EXPO_PUBLIC_</code> gets bundled into your
+              client app and is technically extractable by anyone with the app
+              installed — treat it like something printed on a public sign,
+              never a secret. True secrets (payment provider secret keys,
+              database credentials) belong only on your server, never in a
+              variable your app bundle can read.
+            </div>
 
-  <table class="cmp">
-    <tr><th>Type</th><th>Example</th><th>Where it lives</th></tr>
-    <tr><td>Public config</td><td>API base URL, analytics key</td><td><code>EXPO_PUBLIC_*</code>, safe in the app bundle</td></tr>
-    <tr><td>Private secret</td><td>Database password, Stripe secret key</td><td>Server-only environment variables, never in the app</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th>Type</th>
+                <th>Example</th>
+                <th>Where it lives</th>
+              </tr>
+              <tr>
+                <td>Public config</td>
+                <td>API base URL, analytics key</td>
+                <td><code>EXPO_PUBLIC_*</code>, safe in the app bundle</td>
+              </tr>
+              <tr>
+                <td>Private secret</td>
+                <td>Database password, Stripe secret key</td>
+                <td>Server-only environment variables, never in the app</td>
+              </tr>
+            </table>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Putting a genuinely secret API key behind an <code>EXPO_PUBLIC_</code> variable, believing it's hidden because it's not visible in the source code you wrote.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Committing a real <code>.env</code> file with actual secrets to git — always <code>.gitignore</code> it and commit a <code>.env.example</code> template instead.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Putting a genuinely secret API key behind
+                an <code>EXPO_PUBLIC_</code> variable, believing it's hidden
+                because it's not visible in the source code you wrote.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Committing a real
+                <code>.env</code> file with actual secrets to git — always
+                <code>.gitignore</code> it and commit a
+                <code>.env.example</code> template instead.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>Is a variable prefixed <code>EXPO_PUBLIC_</code> safe to store a real secret API key in?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Yes, the prefix keeps it hidden from users</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">No — it gets bundled into the client app and should be treated as public</button>
-      </div>
-      <div class="quiz-explain">Correct — the prefix controls bundling, not secrecy. Anything bundled into the app can eventually be extracted.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  Is a variable prefixed <code>EXPO_PUBLIC_</code> safe to store
+                  a real secret API key in?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Yes, the prefix keeps it hidden from users
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    No — it gets bundled into the client app and should be
+                    treated as public
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — the prefix controls bundling, not secrecy. Anything
+                  bundled into the app can eventually be extracted.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="section9.html#rich-notifications-ios">Previous<b>← Section 9: Rich Notifications iOS</b></a>
-    <a class="next" href="#expo-router-api-routes">Next topic<b>Expo Router API Routes →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section9.html#rich-notifications-ios"
+                >Previous<b>← Section 9: Rich Notifications iOS</b></a
+              >
+              <a class="next" href="#expo-router-api-routes"
+                >Next topic<b>Expo Router API Routes →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S10 TOPIC 2 ============ -->
-<section class="topic" id="expo-router-api-routes">
-  <div class="topic-num">TOPIC 2 / 4</div>
-  <h2>Expo Router API Routes</h2>
+          <!-- ============ S10 TOPIC 2 ============ -->
+          <section class="topic" id="expo-router-api-routes">
+            <div class="topic-num">TOPIC 2 / 4</div>
+            <h2>Expo Router API Routes</h2>
 
-  <p>Expo Router isn't only for screens — files named with a <code>+api.ts</code> suffix become real server endpoints, running on Node.js, deployed alongside your app. This means small backends can live in the very same project and repository as your app.</p>
+            <p>
+              Expo Router isn't only for screens — files named with a
+              <code>+api.ts</code> suffix become real server endpoints, running
+              on Node.js, deployed alongside your app. This means small backends
+              can live in the very same project and repository as your app.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/hello+api.ts</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">export function</span> <span class="tok-fn">GET</span>(request: Request) {
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/hello+api.ts</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">export function</span> <span class="tok-fn">GET</span>(request: Request) {
   <span class="tok-kw">return</span> Response.<span class="tok-fn">json</span>({ message: <span class="tok-str">'Hello from the server!'</span> });
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>app/hello+api.ts</code> — the <code>+api</code> suffix marks this file as a server route, not a screen; it's automatically excluded from your client app bundle.</li>
-    <li><code>export function GET(request)</code> — exporting a function named after an HTTP method (<code>GET</code>, <code>POST</code>, etc.) handles requests of that type at this route.</li>
-    <li>This route is reachable at <code>/hello</code> once your app is deployed — the client calls it exactly like any other API.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>app/hello+api.ts</code> — the <code>+api</code> suffix
+                marks this file as a server route, not a screen; it's
+                automatically excluded from your client app bundle.
+              </li>
+              <li>
+                <code>export function GET(request)</code> — exporting a function
+                named after an HTTP method (<code>GET</code>, <code>POST</code>,
+                etc.) handles requests of that type at this route.
+              </li>
+              <li>
+                This route is reachable at <code>/hello</code> once your app is
+                deployed — the client calls it exactly like any other API.
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/index.tsx (calling it from the client)</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">const</span> res = <span class="tok-kw">await fetch</span>(<span class="tok-str">'/hello'</span>);
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename"
+                  >app/index.tsx (calling it from the client)</span
+                >
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">const</span> res = <span class="tok-kw">await fetch</span>(<span class="tok-str">'/hello'</span>);
 <span class="tok-kw">const</span> data = <span class="tok-kw">await</span> res.<span class="tok-fn">json</span>();</code></pre>
-  </div>
+            </div>
 
-  <div class="callout teal">
-    <b>Why this is genuinely useful, not just a toy</b>
-    A small endpoint that needs a private secret (like calling a payment provider's secret key) can't safely live in client code at all — an API route lets you keep that logic server-side without standing up a wholly separate backend project and deployment pipeline.
-  </div>
+            <div class="callout teal">
+              <b>Why this is genuinely useful, not just a toy</b>
+              A small endpoint that needs a private secret (like calling a
+              payment provider's secret key) can't safely live in client code at
+              all — an API route lets you keep that logic server-side without
+              standing up a wholly separate backend project and deployment
+              pipeline.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Putting genuinely private secrets in a regular screen file instead of an API route — only server-side <code>+api.ts</code> code can safely use non-<code>EXPO_PUBLIC_</code> secrets.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Building an entire complex backend inside API routes when a dedicated backend service architecture would scale and organize better.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Putting genuinely private secrets in a
+                regular screen file instead of an API route — only server-side
+                <code>+api.ts</code> code can safely use non-<code
+                  >EXPO_PUBLIC_</code
+                >
+                secrets.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Building an entire complex backend
+                inside API routes when a dedicated backend service architecture
+                would scale and organize better.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#environment-variables">Previous<b>← Environment Variables</b></a>
-    <a class="next" href="#streaming-data-with-expo-fetch">Next topic<b>Streaming Data with Expo Fetch →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#environment-variables"
+                >Previous<b>← Environment Variables</b></a
+              >
+              <a class="next" href="#streaming-data-with-expo-fetch"
+                >Next topic<b>Streaming Data with Expo Fetch →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S10 TOPIC 3 ============ -->
-<section class="topic" id="streaming-data-with-expo-fetch">
-  <div class="topic-num">TOPIC 3 / 4</div>
-  <h2>Streaming Data with Expo Fetch</h2>
+          <!-- ============ S10 TOPIC 3 ============ -->
+          <section class="topic" id="streaming-data-with-expo-fetch">
+            <div class="topic-num">TOPIC 3 / 4</div>
+            <h2>Streaming Data with Expo Fetch</h2>
 
-  <p>Some responses shouldn't wait to fully complete before you start using them — think an AI chat response appearing word-by-word, rather than all at once after a long pause. <b>Streaming</b> lets you process a response incrementally as it arrives.</p>
+            <p>
+              Some responses shouldn't wait to fully complete before you start
+              using them — think an AI chat response appearing word-by-word,
+              rather than all at once after a long pause. <b>Streaming</b> lets
+              you process a response incrementally as it arrives.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/chat.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">fetch</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo/fetch'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/chat.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">fetch</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo/fetch'</span>;
 
 <span class="tok-kw">async function</span> <span class="tok-fn">streamReply</span>(onChunk: (text: <span class="tok-kw">string</span>) => <span class="tok-kw">void</span>) {
   <span class="tok-kw">const</span> response = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(<span class="tok-str">'/chat-stream'</span>);
@@ -181,104 +342,197 @@ EXPO_PUBLIC_ANALYTICS_KEY=abc123</code></pre>
     <span class="tok-fn">onChunk</span>(decoder.<span class="tok-fn">decode</span>(value));
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>fetch</code> from <code>'expo/fetch'</code> — a fetch implementation with full streaming support, unlike React Native's traditional built-in fetch, which historically buffered the whole response.</li>
-    <li><code>response.body.getReader()</code> — gives you a reader that yields chunks of the response as they arrive over the network, instead of waiting for completion.</li>
-    <li><code>TextDecoder</code> — converts the raw binary chunks into readable text incrementally.</li>
-    <li>Each loop iteration calls <code>onChunk</code> as soon as new data is available — this is what powers a "typing" effect in a chat UI.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>fetch</code> from <code>'expo/fetch'</code> — a fetch
+                implementation with full streaming support, unlike React
+                Native's traditional built-in fetch, which historically buffered
+                the whole response.
+              </li>
+              <li>
+                <code>response.body.getReader()</code> — gives you a reader that
+                yields chunks of the response as they arrive over the network,
+                instead of waiting for completion.
+              </li>
+              <li>
+                <code>TextDecoder</code> — converts the raw binary chunks into
+                readable text incrementally.
+              </li>
+              <li>
+                Each loop iteration calls <code>onChunk</code> as soon as new
+                data is available — this is what powers a "typing" effect in a
+                chat UI.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Real-world example</b>
-    This exact pattern is how AI chat apps render responses token-by-token as they're generated, rather than showing a loading spinner until the entire response is ready — meaningfully improving perceived responsiveness for long outputs.
-  </div>
+            <div class="callout">
+              <b>Real-world example</b>
+              This exact pattern is how AI chat apps render responses
+              token-by-token as they're generated, rather than showing a loading
+              spinner until the entire response is ready — meaningfully
+              improving perceived responsiveness for long outputs.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Using the standard built-in <code>fetch</code> for a use case that needs true streaming — historically it doesn't expose a readable stream the same way.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not handling a dropped connection mid-stream, leaving the UI stuck mid-response with no error state or retry option.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Using the standard built-in
+                <code>fetch</code> for a use case that needs true streaming —
+                historically it doesn't expose a readable stream the same way.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not handling a dropped connection
+                mid-stream, leaving the UI stuck mid-response with no error
+                state or retry option.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#expo-router-api-routes">Previous<b>← Expo Router API Routes</b></a>
-    <a class="next" href="#deploying-with-eas-hosting">Next topic<b>Deploying with EAS Hosting →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#expo-router-api-routes"
+                >Previous<b>← Expo Router API Routes</b></a
+              >
+              <a class="next" href="#deploying-with-eas-hosting"
+                >Next topic<b>Deploying with EAS Hosting →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S10 TOPIC 4 ============ -->
-<section class="topic" id="deploying-with-eas-hosting">
-  <div class="topic-num">TOPIC 4 / 4</div>
-  <h2>Deploying with EAS Hosting</h2>
+          <!-- ============ S10 TOPIC 4 ============ -->
+          <section class="topic" id="deploying-with-eas-hosting">
+            <div class="topic-num">TOPIC 4 / 4</div>
+            <h2>Deploying with EAS Hosting</h2>
 
-  <p>Once your project has API routes (Topic 2), something has to actually run that server code in production. <b>EAS Hosting</b> deploys your Expo Router project's server portion directly, without a separate backend deployment setup.</p>
+            <p>
+              Once your project has API routes (Topic 2), something has to
+              actually run that server code in production.
+              <b>EAS Hosting</b> deploys your Expo Router project's server
+              portion directly, without a separate backend deployment setup.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com"># from your project root</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com"># from your project root</span>
 eas deploy</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>eas deploy</code> — builds your project's web/server output and deploys it to Expo's hosting infrastructure, giving you a live URL for your API routes.</li>
-    <li>Your mobile app's <code>fetch</code> calls to <code>/hello</code> or <code>/chat-stream</code> (from the previous two topics) resolve against this deployed URL in production, and your local dev server during development.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>eas deploy</code> — builds your project's web/server
+                output and deploys it to Expo's hosting infrastructure, giving
+                you a live URL for your API routes.
+              </li>
+              <li>
+                Your mobile app's <code>fetch</code> calls to
+                <code>/hello</code> or <code>/chat-stream</code> (from the
+                previous two topics) resolve against this deployed URL in
+                production, and your local dev server during development.
+              </li>
+            </ul>
 
-  <div class="diagram-wrap">
-    <pre style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.9; color:var(--text);">Development:  app fetch("/hello")  ?  localhost dev server
-Production:   app fetch("/hello")  ?  EAS Hosting deployment URL</pre>
-  </div>
+            <div class="diagram-wrap">
+              <pre
+                style="
+                  margin: 0;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 13px;
+                  line-height: 1.9;
+                  color: var(--text);
+                "
+              >
+Development:  app fetch("/hello")  ?  localhost dev server
+Production:   app fetch("/hello")  ?  EAS Hosting deployment URL</pre
+              >
+            </div>
 
-  <div class="callout teal">
-    <b>When this replaces a separate backend, and when it doesn't</b>
-    For small apps — a handful of endpoints, some server-side secret handling, maybe a webhook receiver — EAS Hosting can be your entire backend. For larger systems with complex business logic, background jobs, or a large existing backend team, it's more common to use API routes for thin client-facing endpoints while a dedicated backend service (Section 11 covers Supabase as one option) handles the heavy lifting.
-  </div>
+            <div class="callout teal">
+              <b>When this replaces a separate backend, and when it doesn't</b>
+              For small apps — a handful of endpoints, some server-side secret
+              handling, maybe a webhook receiver — EAS Hosting can be your
+              entire backend. For larger systems with complex business logic,
+              background jobs, or a large existing backend team, it's more
+              common to use API routes for thin client-facing endpoints while a
+              dedicated backend service (Section 11 covers Supabase as one
+              option) handles the heavy lifting.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting to update the client's base URL from a local development address to the deployed EAS Hosting URL before shipping to app stores.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Not setting production environment variables/secrets on the hosting deployment itself, causing server-side code that worked locally to fail once deployed.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Forgetting to update the client's base
+                URL from a local development address to the deployed EAS Hosting
+                URL before shipping to app stores.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Not setting production environment
+                variables/secrets on the hosting deployment itself, causing
+                server-side code that worked locally to fail once deployed.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 10 final check</h4>
-    <div class="quiz-q">
-      <p>What does EAS Hosting deploy?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Your app to the App Store and Play Store</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Your Expo Router project's server-side API routes, giving them a live URL</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Your push notification tokens</button>
+            <div class="quiz-box">
+              <h4>Section 10 final check</h4>
+              <div class="quiz-q">
+                <p>What does EAS Hosting deploy?</p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Your app to the App Store and Play Store
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Your Expo Router project's server-side API routes, giving
+                    them a live URL
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Your push notification tokens
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — EAS Hosting is specifically for deploying the server
+                  portion of your project (API routes), separate from app store
+                  publishing, which is covered in Section 16.
+                </div>
+              </div>
+            </div>
+
+            <ul class="exercises">
+              <li>
+                <span class="lvl i">Intermediate</span> Build a
+                <code>/health+api.ts</code> route returning
+                <code>{'{ status: "ok" }'}</code>, deploy it, and fetch it from
+                a screen in your app.
+              </li>
+            </ul>
+
+            <div class="callout">
+              <b>Section 10 complete ??</b>
+              You can now handle secrets safely, write and deploy real server
+              endpoints inside your Expo project, and stream data efficiently
+              for responsive UIs. Next up: Section 11 — Supabase.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#streaming-data-with-expo-fetch"
+                >Previous<b>← Streaming Data with Expo Fetch</b></a
+              >
+              <a class="next" href="section11.html#supabase-ui-tour"
+                >Next section<b>Section 11: Supabase →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+          <!-- SECTION 11: SUPABASE                                             -->
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — EAS Hosting is specifically for deploying the server portion of your project (API routes), separate from app store publishing, which is covered in Section 16.</div>
     </div>
-  </div>
-
-  <ul class="exercises">
-    <li><span class="lvl i">Intermediate</span> Build a <code>/health+api.ts</code> route returning <code>{'{ status: "ok" }'}</code>, deploy it, and fetch it from a screen in your app.</li>
-  </ul>
-
-  <div class="callout">
-    <b>Section 10 complete ??</b>
-    You can now handle secrets safely, write and deploy real server endpoints inside your Expo project, and stream data efficiently for responsive UIs. Next up: Section 11 — Supabase.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#streaming-data-with-expo-fetch">Previous<b>← Streaming Data with Expo Fetch</b></a>
-    <a class="next" href="section11.html#supabase-ui-tour">Next section<b>Section 11: Supabase →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SECTION 11: SUPABASE                                             -->
-<!-- ================================================================ -->
-
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's10';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s10";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
-

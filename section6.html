@@ -1,69 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 6 · Animations & Gestures — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 6 · Animations & Gestures — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+                    background: var(--coral);
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">
+            Section 6 · Animations & Gestures
+          </div>
+        </div>
+        <div class="content">
+          <!-- SECTION 6: ANIMATIONS & GESTURES                                 -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 6 · Animations & Gestures</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">
+              SECTION 6 — ANIMATIONS &amp; GESTURES
+            </div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">
+              Animations & Gestures
+            </h1>
+            <p>
+              Fluid motion and responsive touch interactions are what separate
+              an app that feels native from one that feels like a slideshow.
+              Here we cover the tools that power both.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 6: ANIMATIONS & GESTURES                                 -->
-<!-- ================================================================ -->
+          <!-- ============ S6 TOPIC 1 ============ -->
+          <section class="topic" id="animations-and-gestures">
+            <div class="topic-num">TOPIC 1 / 3</div>
+            <h2>Animations and Gestures</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 6 — ANIMATIONS &amp; GESTURES</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Animations & Gestures</h1>
-  <p>Fluid motion and responsive touch interactions are what separate an app that feels native from one that feels like a slideshow. Here we cover the tools that power both.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              The modern standard for both is <b>Reanimated</b> (for animations)
+              paired with <b>React Native Gesture Handler</b> (for
+              touch/gestures) — both run animation logic on a separate thread
+              from your JS, keeping motion smooth even if your JS thread is
+              briefly busy.
+            </p>
 
-<!-- ============ S6 TOPIC 1 ============ -->
-<section class="topic" id="animations-and-gestures">
-  <div class="topic-num">TOPIC 1 / 3</div>
-  <h2>Animations and Gestures</h2>
-
-  <p>The modern standard for both is <b>Reanimated</b> (for animations) paired with <b>React Native Gesture Handler</b> (for touch/gestures) — both run animation logic on a separate thread from your JS, keeping motion smooth even if your JS thread is briefly busy.</p>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/FadeInBox.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useEffect</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/FadeInBox.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useEffect</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
 <span class="tok-kw">import</span> <span class="tok-fn">Animated</span>, { <span class="tok-fn">useSharedValue</span>, <span class="tok-fn">useAnimatedStyle</span>, <span class="tok-fn">withTiming</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-reanimated'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">FadeInBox</span>() {
@@ -77,58 +139,117 @@
     opacity: opacity.value,
   }));
 
-  <span class="tok-kw">return</span> &lt;<span class="tok-tag">Animated.View</span> <span class="tok-attr">style</span>={[{ width: <span class="tok-str">100</span>, height: <span class="tok-str">100</span>, backgroundColor: <span class="tok-str">'#ff5a3c'</span> }, animatedStyle]} /&gt;;
+  <span class="tok-kw">return</span> &lt;<span class="tok-tag">Animated.View</span> <span class="tok-attr">style</span>={[{ width: <span class="tok-str">100</span>, height: <span class="tok-str">100</span>, backgroundColor: <span class="tok-str">'var(--coral)'</span> }, animatedStyle]} /&gt;;
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>useSharedValue(0)</code> — creates a value that lives on the UI thread, not React state — reading/writing it doesn't trigger a React re-render.</li>
-    <li><code>withTiming(1, {...})</code> — animates the shared value from its current value to <code>1</code> over 500ms, running entirely on the native side.</li>
-    <li><code>useAnimatedStyle</code> — derives a style object from shared values, recalculated on the UI thread every frame.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>useSharedValue(0)</code> — creates a value that lives on
+                the UI thread, not React state — reading/writing it doesn't
+                trigger a React re-render.
+              </li>
+              <li>
+                <code>withTiming(1, {...})</code> — animates the shared value
+                from its current value to <code>1</code> over 500ms, running
+                entirely on the native side.
+              </li>
+              <li>
+                <code>useAnimatedStyle</code> — derives a style object from
+                shared values, recalculated on the UI thread every frame.
+              </li>
+            </ul>
 
-  <div class="phone-demo">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen" style="align-items:center; justify-content:center; display:flex;">
-        <div id="fadeDemoBox" style="width:90px; height:90px; background:#ff5a3c; border-radius:14px; opacity:0; transition:opacity .5s, transform .5s;"></div>
-      </div>
-    </div>
-    <div class="demo-controls">
-      <h4>Try it</h4>
-      <button class="demo-btn" onclick="runFadeDemo()">▶ Fade &amp; scale in</button>
-      <button class="demo-btn ghost" onclick="resetFadeDemo()">Reset</button>
-    </div>
-  </div>
+            <div class="phone-demo">
+              <div class="phone">
+                <div class="phone-notch"></div>
+                <div
+                  class="phone-screen"
+                  style="
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                  "
+                >
+                  <div
+                    id="fadeDemoBox"
+                    style="
+                      width: 90px;
+                      height: 90px;
+                      background: var(--coral);
+                      border-radius: 14px;
+                      opacity: 0;
+                      transition:
+                        opacity 0.5s,
+                        transform 0.5s;
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="demo-controls">
+                <h4>Try it</h4>
+                <button class="demo-btn" onclick="runFadeDemo()">
+                  ▶ Fade &amp; scale in
+                </button>
+                <button class="demo-btn ghost" onclick="resetFadeDemo()">
+                  Reset
+                </button>
+              </div>
+            </div>
 
-  <div class="callout">
-    <b>Why not just animate with React state?</b>
-    Animating via <code>setState</code> on every frame re-renders your whole component 60 times a second — expensive, and vulnerable to dropped frames if the JS thread is busy. Reanimated's shared values skip React entirely for the animation itself.
-  </div>
+            <div class="callout">
+              <b>Why not just animate with React state?</b>
+              Animating via <code>setState</code> on every frame re-renders your
+              whole component 60 times a second — expensive, and vulnerable to
+              dropped frames if the JS thread is busy. Reanimated's shared
+              values skip React entirely for the animation itself.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Trying to read a shared value's <code>.value</code> directly in JSX during render — it must be read inside <code>useAnimatedStyle</code> or a worklet, not plain component code.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Animating layout properties (like <code>width</code>) frequently, which are more expensive than transform-based properties (<code>translateX</code>, <code>scale</code>) that don't trigger layout recalculation.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Trying to read a shared value's
+                <code>.value</code> directly in JSX during render — it must be
+                read inside <code>useAnimatedStyle</code> or a worklet, not
+                plain component code.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Animating layout properties (like
+                <code>width</code>) frequently, which are more expensive than
+                transform-based properties (<code>translateX</code>,
+                <code>scale</code>) that don't trigger layout recalculation.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="section5.html#liquid-glass-bottom-tabs">Previous<b>← Section 5: Liquid Glass Bottom Tabs</b></a>
-    <a class="next" href="#composition-interactions">Next topic<b>Composition & Interactions →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section5.html#liquid-glass-bottom-tabs"
+                >Previous<b>← Section 5: Liquid Glass Bottom Tabs</b></a
+              >
+              <a class="next" href="#composition-interactions"
+                >Next topic<b>Composition & Interactions →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S6 TOPIC 2 ============ -->
-<section class="topic" id="composition-interactions">
-  <div class="topic-num">TOPIC 2 / 3</div>
-  <h2>Composition & Interactions</h2>
+          <!-- ============ S6 TOPIC 2 ============ -->
+          <section class="topic" id="composition-interactions">
+            <div class="topic-num">TOPIC 2 / 3</div>
+            <h2>Composition & Interactions</h2>
 
-  <p>Real interactions usually combine a gesture (drag, tap, long-press) with an animation that responds to it in real time — not just a fire-and-forget animation.</p>
+            <p>
+              Real interactions usually combine a gesture (drag, tap,
+              long-press) with an animation that responds to it in real time —
+              not just a fire-and-forget animation.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/DraggableBox.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> <span class="tok-fn">Animated</span>, { <span class="tok-fn">useSharedValue</span>, <span class="tok-fn">useAnimatedStyle</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-reanimated'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/DraggableBox.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> <span class="tok-fn">Animated</span>, { <span class="tok-fn">useSharedValue</span>, <span class="tok-fn">useAnimatedStyle</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-reanimated'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">Gesture</span>, <span class="tok-fn">GestureDetector</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-gesture-handler'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">DraggableBox</span>() {
@@ -149,43 +270,83 @@
     &lt;/<span class="tok-tag">GestureDetector</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>Gesture.Pan()</code> — describes a drag gesture. <code>.onChange</code> fires continuously as the finger moves, giving incremental deltas.</li>
-    <li><code>e.changeX</code> — the change in horizontal position since the last event, added onto the running <code>translateX</code> shared value.</li>
-    <li><code>GestureDetector</code> — connects the gesture definition to the actual view it should track touches on.</li>
-    <li>Because both the gesture handling and the style update happen via shared values, this drag tracks the finger with no perceptible lag, even under JS thread load.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>Gesture.Pan()</code> — describes a drag gesture.
+                <code>.onChange</code> fires continuously as the finger moves,
+                giving incremental deltas.
+              </li>
+              <li>
+                <code>e.changeX</code> — the change in horizontal position since
+                the last event, added onto the running
+                <code>translateX</code> shared value.
+              </li>
+              <li>
+                <code>GestureDetector</code> — connects the gesture definition
+                to the actual view it should track touches on.
+              </li>
+              <li>
+                Because both the gesture handling and the style update happen
+                via shared values, this drag tracks the finger with no
+                perceptible lag, even under JS thread load.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Composing gestures</b>
-    Gesture Handler lets you combine gestures with <code>Gesture.Simultaneous()</code>, <code>Gesture.Race()</code>, or <code>Gesture.Exclusive()</code> — for example, a pinch-to-zoom that can happen at the same time as a pan, but a tap that should cancel a long-press.
-  </div>
+            <div class="callout teal">
+              <b>Composing gestures</b>
+              Gesture Handler lets you combine gestures with
+              <code>Gesture.Simultaneous()</code>, <code>Gesture.Race()</code>,
+              or <code>Gesture.Exclusive()</code> — for example, a pinch-to-zoom
+              that can happen at the same time as a pan, but a tap that should
+              cancel a long-press.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Mixing the older <code>PanResponder</code> API with Gesture Handler in the same interaction, causing conflicting gesture recognition.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not resetting a shared value on gesture end (e.g., snapping back with <code>withSpring</code>), leaving dragged elements in an unintended final position.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Mixing the older
+                <code>PanResponder</code> API with Gesture Handler in the same
+                interaction, causing conflicting gesture recognition.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not resetting a shared value on
+                gesture end (e.g., snapping back with <code>withSpring</code>),
+                leaving dragged elements in an unintended final position.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#animations-and-gestures">Previous<b>← Animations and Gestures</b></a>
-    <a class="next" href="#swipeable-components">Next topic<b>Swipeable Components →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#animations-and-gestures"
+                >Previous<b>← Animations and Gestures</b></a
+              >
+              <a class="next" href="#swipeable-components"
+                >Next topic<b>Swipeable Components →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S6 TOPIC 3 ============ -->
-<section class="topic" id="swipeable-components">
-  <div class="topic-num">TOPIC 3 / 3</div>
-  <h2>Swipeable Components</h2>
+          <!-- ============ S6 TOPIC 3 ============ -->
+          <section class="topic" id="swipeable-components">
+            <div class="topic-num">TOPIC 3 / 3</div>
+            <h2>Swipeable Components</h2>
 
-  <p>Swipe-to-delete/archive is one of the most recognizable mobile interaction patterns — familiar from nearly every email and messaging app. Let's build the interaction, combining everything from this section.</p>
+            <p>
+              Swipe-to-delete/archive is one of the most recognizable mobile
+              interaction patterns — familiar from nearly every email and
+              messaging app. Let's build the interaction, combining everything
+              from this section.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/SwipeableRow.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> <span class="tok-fn">Animated</span>, { <span class="tok-fn">useSharedValue</span>, <span class="tok-fn">useAnimatedStyle</span>, <span class="tok-fn">withSpring</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-reanimated'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/SwipeableRow.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> <span class="tok-fn">Animated</span>, { <span class="tok-fn">useSharedValue</span>, <span class="tok-fn">useAnimatedStyle</span>, <span class="tok-fn">withSpring</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-reanimated'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">Gesture</span>, <span class="tok-fn">GestureDetector</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-gesture-handler'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">SwipeableRow</span>({ onDelete }: { onDelete: () => <span class="tok-kw">void</span> }) {
@@ -212,59 +373,114 @@
     &lt;/<span class="tok-tag">GestureDetector</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>.onEnd()</code> — fires once when the finger lifts; here it decides whether the swipe passed a "commit" threshold (<code>-100</code>) or should snap back.</li>
-    <li><code>runOnJS(onDelete)()</code> — gesture callbacks run on the UI thread by default; <code>runOnJS</code> is required to safely call back into regular JS (like updating a list's state) from there.</li>
-    <li><code>withSpring</code> — a physics-based animation that feels more natural for snap/settle motions than a fixed-duration <code>withTiming</code>.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>.onEnd()</code> — fires once when the finger lifts; here
+                it decides whether the swipe passed a "commit" threshold
+                (<code>-100</code>) or should snap back.
+              </li>
+              <li>
+                <code>runOnJS(onDelete)()</code> — gesture callbacks run on the
+                UI thread by default; <code>runOnJS</code> is required to safely
+                call back into regular JS (like updating a list's state) from
+                there.
+              </li>
+              <li>
+                <code>withSpring</code> — a physics-based animation that feels
+                more natural for snap/settle motions than a fixed-duration
+                <code>withTiming</code>.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Real-world example</b>
-    This exact pattern — pan gesture, threshold check, spring settle, <code>runOnJS</code> callback into a state update — is how swipe-to-archive works in most modern email and to-do apps.
-  </div>
+            <div class="callout">
+              <b>Real-world example</b>
+              This exact pattern — pan gesture, threshold check, spring settle,
+              <code>runOnJS</code> callback into a state update — is how
+              swipe-to-archive works in most modern email and to-do apps.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Calling a state-setting function directly inside a gesture worklet without <code>runOnJS</code>, which throws, since worklets run in a different context than your React code.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Hardcoding the delete threshold in pixels rather than as a fraction of screen/row width, breaking on very different screen sizes.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not providing a non-gesture fallback (like a visible delete button) for accessibility — swipe-only interactions can be difficult for some users to discover or perform.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Calling a state-setting function directly
+                inside a gesture worklet without <code>runOnJS</code>, which
+                throws, since worklets run in a different context than your
+                React code.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Hardcoding the delete threshold in
+                pixels rather than as a fraction of screen/row width, breaking
+                on very different screen sizes.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not providing a non-gesture fallback
+                (like a visible delete button) for accessibility — swipe-only
+                interactions can be difficult for some users to discover or
+                perform.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 6 final check</h4>
-    <div class="quiz-q">
-      <p>Why is <code>runOnJS</code> needed to call a regular JS function from a gesture callback?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It isn't needed — it's just a style convention</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Gesture callbacks run as worklets on the UI thread, and runOnJS bridges back to the JS thread safely</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It makes the animation run faster</button>
+            <div class="quiz-box">
+              <h4>Section 6 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why is <code>runOnJS</code> needed to call a regular JS
+                  function from a gesture callback?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It isn't needed — it's just a style convention
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Gesture callbacks run as worklets on the UI thread, and
+                    runOnJS bridges back to the JS thread safely
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It makes the animation run faster
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — worklets execute in a separate context for
+                  performance; runOnJS is the sanctioned way to call back into
+                  normal JavaScript/React code from there.
+                </div>
+              </div>
+            </div>
+
+            <ul class="exercises">
+              <li>
+                <span class="lvl a">Advanced</span> Extend
+                <code>SwipeableRow</code> to reveal a red "Delete" background
+                that fades in proportionally as the row is dragged.
+              </li>
+            </ul>
+
+            <div class="callout">
+              <b>Section 6 complete ??</b>
+              You can now build fluid, gesture-driven interactions using the
+              same tools (Reanimated + Gesture Handler) powering swipe, drag,
+              and pinch interactions in production apps. Next up: Section 7 —
+              Expo UI.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#composition-interactions"
+                >Previous<b>← Composition & Interactions</b></a
+              >
+              <a class="next" href="section7.html#what-is-expo-ui"
+                >Next section<b>Section 7: Expo UI →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — worklets execute in a separate context for performance; runOnJS is the sanctioned way to call back into normal JavaScript/React code from there.</div>
     </div>
-  </div>
-
-  <ul class="exercises">
-    <li><span class="lvl a">Advanced</span> Extend <code>SwipeableRow</code> to reveal a red "Delete" background that fades in proportionally as the row is dragged.</li>
-  </ul>
-
-  <div class="callout">
-    <b>Section 6 complete ??</b>
-    You can now build fluid, gesture-driven interactions using the same tools (Reanimated + Gesture Handler) powering swipe, drag, and pinch interactions in production apps. Next up: Section 7 — Expo UI.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#composition-interactions">Previous<b>← Composition & Interactions</b></a>
-    <a class="next" href="section7.html#what-is-expo-ui">Next section<b>Section 7: Expo UI →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's6';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s6";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

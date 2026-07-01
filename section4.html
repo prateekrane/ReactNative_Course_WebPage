@@ -1,117 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 4 · Style and Design — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 4 · Style and Design — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 4 · Style and Design</div>
+        </div>
+        <div class="content">
+          <!-- SECTION 4: STYLE AND DESIGN                                      -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 4 · Style and Design</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 4 — STYLE AND DESIGN</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">
+              Style and Design
+            </h1>
+            <p>
+              Learn how to turn a design file into working screens, master
+              Flexbox (the only layout system React Native has), build a
+              consistent design system, and support dark mode properly.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>5</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2.5h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 4: STYLE AND DESIGN                                      -->
-<!-- ================================================================ -->
+          <!-- ============ S4 TOPIC 1 ============ -->
+          <section class="topic" id="designing-with-figma">
+            <div class="topic-num">TOPIC 1 / 5</div>
+            <h2>Designing with Figma</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 4 — STYLE AND DESIGN</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Style and Design</h1>
-  <p>Learn how to turn a design file into working screens, master Flexbox (the only layout system React Native has), build a consistent design system, and support dark mode properly.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>5</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2.5h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              Most professional React Native apps start life as a Figma design,
+              not code. Being able to read a Figma file and translate it
+              accurately into components and styles is a core, underrated
+              developer skill.
+            </p>
 
-<!-- ============ S4 TOPIC 1 ============ -->
-<section class="topic" id="designing-with-figma">
-  <div class="topic-num">TOPIC 1 / 5</div>
-  <h2>Designing with Figma</h2>
+            <h3>What to look for in a Figma file</h3>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Spacing values</h5>
+                <p>
+                  Select any frame in Figma and its right panel shows exact
+                  padding/gap in pixels — copy these directly into your styles.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Color styles</h5>
+                <p>
+                  Well-organized files define named color styles (e.g.
+                  "Primary/500") rather than raw hex values scattered
+                  everywhere.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">Aa</div>
+                <h5>Text styles</h5>
+                <p>
+                  Font family, size, weight, and line-height are all inspectable
+                  per text layer — these map directly to your
+                  <code>Text</code> styles.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Auto Layout</h5>
+                <p>
+                  Figma's "Auto Layout" feature maps almost one-to-one onto
+                  Flexbox — direction, gap, and alignment translate directly.
+                </p>
+              </div>
+            </div>
 
-  <p>Most professional React Native apps start life as a Figma design, not code. Being able to read a Figma file and translate it accurately into components and styles is a core, underrated developer skill.</p>
+            <div class="callout">
+              <b>The mental model</b>
+              Figma's Auto Layout <em>is</em> Flexbox, just with different
+              names: "Auto Layout direction: Vertical" is
+              <code>flexDirection: 'column'</code>. "Spacing between items" is
+              <code>gap</code>. Learning to read one teaches you the other.
+            </div>
 
-  <h3>What to look for in a Figma file</h3>
-  <div class="card-grid">
-    <div class="mini-card"><div class="icon">??</div><h5>Spacing values</h5><p>Select any frame in Figma and its right panel shows exact padding/gap in pixels — copy these directly into your styles.</p></div>
-    <div class="mini-card"><div class="icon">??</div><h5>Color styles</h5><p>Well-organized files define named color styles (e.g. "Primary/500") rather than raw hex values scattered everywhere.</p></div>
-    <div class="mini-card"><div class="icon">Aa</div><h5>Text styles</h5><p>Font family, size, weight, and line-height are all inspectable per text layer — these map directly to your <code>Text</code> styles.</p></div>
-    <div class="mini-card"><div class="icon">??</div><h5>Auto Layout</h5><p>Figma's "Auto Layout" feature maps almost one-to-one onto Flexbox — direction, gap, and alignment translate directly.</p></div>
-  </div>
+            <table class="cmp">
+              <tr>
+                <th>Figma property</th>
+                <th>React Native equivalent</th>
+              </tr>
+              <tr>
+                <td>Auto Layout: Horizontal</td>
+                <td><code>flexDirection: 'row'</code></td>
+              </tr>
+              <tr>
+                <td>Spacing between items</td>
+                <td><code>gap</code></td>
+              </tr>
+              <tr>
+                <td>Padding (all sides shown)</td>
+                <td>
+                  <code>padding</code> / <code>paddingHorizontal</code> /
+                  <code>paddingVertical</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Corner radius</td>
+                <td><code>borderRadius</code></td>
+              </tr>
+              <tr>
+                <td>Fill color</td>
+                <td><code>backgroundColor</code></td>
+              </tr>
+            </table>
 
-  <div class="callout">
-    <b>The mental model</b>
-    Figma's Auto Layout <em>is</em> Flexbox, just with different names: "Auto Layout direction: Vertical" is <code>flexDirection: 'column'</code>. "Spacing between items" is <code>gap</code>. Learning to read one teaches you the other.
-  </div>
+            <h3>A practical workflow</h3>
+            <ol>
+              <li>
+                Identify repeated patterns first (buttons, cards, list items) —
+                build these as components before the full screen.
+              </li>
+              <li>
+                Work outside-in: get the overall screen layout (Flexbox
+                structure) right before polishing individual pieces.
+              </li>
+              <li>
+                Extract a small design-tokens file (colors, spacing, font sizes)
+                from the Figma styles before writing screen code — see the next
+                topic for the "why."
+              </li>
+            </ol>
 
-  <table class="cmp">
-    <tr><th>Figma property</th><th>React Native equivalent</th></tr>
-    <tr><td>Auto Layout: Horizontal</td><td><code>flexDirection: 'row'</code></td></tr>
-    <tr><td>Spacing between items</td><td><code>gap</code></td></tr>
-    <tr><td>Padding (all sides shown)</td><td><code>padding</code> / <code>paddingHorizontal</code> / <code>paddingVertical</code></td></tr>
-    <tr><td>Corner radius</td><td><code>borderRadius</code></td></tr>
-    <tr><td>Fill color</td><td><code>backgroundColor</code></td></tr>
-  </table>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Eyeballing spacing instead of using
+                Figma's inspect panel, leading to slightly-off, inconsistent
+                layouts.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Hardcoding raw hex colors copied from
+                Figma throughout the codebase instead of naming them once as
+                design tokens.
+              </div>
+            </div>
 
-  <h3>A practical workflow</h3>
-  <ol>
-    <li>Identify repeated patterns first (buttons, cards, list items) — build these as components before the full screen.</li>
-    <li>Work outside-in: get the overall screen layout (Flexbox structure) right before polishing individual pieces.</li>
-    <li>Extract a small design-tokens file (colors, spacing, font sizes) from the Figma styles before writing screen code — see the next topic for the "why."</li>
-  </ol>
+            <div class="topic-nav">
+              <a href="section3.html#advanced-custom-components"
+                >Previous<b>← Section 3: Advanced Custom Components</b></a
+              >
+              <a class="next" href="#style-and-stylesheet"
+                >Next topic<b>Style & StyleSheet →</b></a
+              >
+            </div>
+          </section>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Eyeballing spacing instead of using Figma's inspect panel, leading to slightly-off, inconsistent layouts.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Hardcoding raw hex colors copied from Figma throughout the codebase instead of naming them once as design tokens.</div>
-  </div>
+          <!-- ============ S4 TOPIC 2 ============ -->
+          <section class="topic" id="style-and-stylesheet">
+            <div class="topic-num">TOPIC 2 / 5</div>
+            <h2>Style & StyleSheet</h2>
 
-  <div class="topic-nav">
-    <a href="section3.html#advanced-custom-components">Previous<b>← Section 3: Advanced Custom Components</b></a>
-    <a class="next" href="#style-and-stylesheet">Next topic<b>Style & StyleSheet →</b></a>
-  </div>
-</section>
+            <p>
+              You saw <code>StyleSheet.create</code> briefly in Section 1. Let's
+              go deeper on how styling actually works, and the full set of
+              common style properties you'll use daily.
+            </p>
 
-<!-- ============ S4 TOPIC 2 ============ -->
-<section class="topic" id="style-and-stylesheet">
-  <div class="topic-num">TOPIC 2 / 5</div>
-  <h2>Style & StyleSheet</h2>
-
-  <p>You saw <code>StyleSheet.create</code> briefly in Section 1. Let's go deeper on how styling actually works, and the full set of common style properties you'll use daily.</p>
-
-  <h3>Three ways to apply styles</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">styling-approaches.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com">// 1. Inline — fine for one-off, dynamic values</span>
+            <h3>Three ways to apply styles</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">styling-approaches.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com">// 1. Inline — fine for one-off, dynamic values</span>
 &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ marginTop: <span class="tok-str">20</span> }} /&gt;
 
 <span class="tok-com">// 2. StyleSheet.create — the standard for static, reusable styles</span>
@@ -120,60 +257,144 @@
 
 <span class="tok-com">// 3. Array of styles — merge static + conditional + inline together</span>
 &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={[styles.box, isActive && styles.active, { opacity: fade }]} /&gt;</code></pre>
-  </div>
+            </div>
 
-  <div class="callout teal">
-    <b>Rule of thumb</b>
-    Use <code>StyleSheet.create</code> for anything static and reused. Reserve inline styles for values that are genuinely dynamic and computed at render time (like an animated value). Mixing both via the array syntax is completely normal and expected.
-  </div>
+            <div class="callout teal">
+              <b>Rule of thumb</b>
+              Use <code>StyleSheet.create</code> for anything static and reused.
+              Reserve inline styles for values that are genuinely dynamic and
+              computed at render time (like an animated value). Mixing both via
+              the array syntax is completely normal and expected.
+            </div>
 
-  <h3>Properties you'll use constantly</h3>
-  <table class="cmp">
-    <tr><th>Category</th><th>Properties</th></tr>
-    <tr><td>Spacing</td><td><code>padding</code>, <code>margin</code>, <code>gap</code> (+ <code>Top/Bottom/Left/Right/Horizontal/Vertical</code> variants)</td></tr>
-    <tr><td>Size</td><td><code>width</code>, <code>height</code>, <code>minWidth</code>, <code>maxHeight</code>, <code>aspectRatio</code></td></tr>
-    <tr><td>Layout</td><td><code>flex</code>, <code>flexDirection</code>, <code>justifyContent</code>, <code>alignItems</code>, <code>gap</code></td></tr>
-    <tr><td>Appearance</td><td><code>backgroundColor</code>, <code>borderRadius</code>, <code>borderWidth</code>, <code>borderColor</code>, <code>opacity</code></td></tr>
-    <tr><td>Text</td><td><code>fontSize</code>, <code>fontWeight</code>, <code>color</code>, <code>lineHeight</code>, <code>textAlign</code></td></tr>
-    <tr><td>Position</td><td><code>position</code>, <code>top</code>/<code>left</code>/<code>right</code>/<code>bottom</code>, <code>zIndex</code></td></tr>
-  </table>
+            <h3>Properties you'll use constantly</h3>
+            <table class="cmp">
+              <tr>
+                <th>Category</th>
+                <th>Properties</th>
+              </tr>
+              <tr>
+                <td>Spacing</td>
+                <td>
+                  <code>padding</code>, <code>margin</code>, <code>gap</code> (+
+                  <code>Top/Bottom/Left/Right/Horizontal/Vertical</code>
+                  variants)
+                </td>
+              </tr>
+              <tr>
+                <td>Size</td>
+                <td>
+                  <code>width</code>, <code>height</code>,
+                  <code>minWidth</code>, <code>maxHeight</code>,
+                  <code>aspectRatio</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Layout</td>
+                <td>
+                  <code>flex</code>, <code>flexDirection</code>,
+                  <code>justifyContent</code>, <code>alignItems</code>,
+                  <code>gap</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Appearance</td>
+                <td>
+                  <code>backgroundColor</code>, <code>borderRadius</code>,
+                  <code>borderWidth</code>, <code>borderColor</code>,
+                  <code>opacity</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Text</td>
+                <td>
+                  <code>fontSize</code>, <code>fontWeight</code>,
+                  <code>color</code>, <code>lineHeight</code>,
+                  <code>textAlign</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Position</td>
+                <td>
+                  <code>position</code>,
+                  <code>top</code
+                  >/<code>left</code>/<code>right</code>/<code>bottom</code>,
+                  <code>zIndex</code>
+                </td>
+              </tr>
+            </table>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Writing sizes with units, like <code>'16px'</code> — React Native style values are unitless numbers, treated as density-independent pixels.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Using <code>margin</code> on a child to create spacing between siblings instead of <code>gap</code> on the parent — <code>gap</code> is cleaner and avoids margin-collapsing confusion.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not memoizing large computed style arrays that depend on rapidly-changing values, causing unnecessary re-renders in performance-sensitive lists.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Writing sizes with units, like
+                <code>'16px'</code> — React Native style values are unitless
+                numbers, treated as density-independent pixels.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Using <code>margin</code> on a child
+                to create spacing between siblings instead of
+                <code>gap</code> on the parent — <code>gap</code> is cleaner and
+                avoids margin-collapsing confusion.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not memoizing large computed style
+                arrays that depend on rapidly-changing values, causing
+                unnecessary re-renders in performance-sensitive lists.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>How should <code>fontSize: 16</code> be written if you wanted it to equal "16px" from CSS?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Exactly like that — <code>16</code>, no unit</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)"><code>'16px'</code>, matching CSS syntax</button>
-      </div>
-      <div class="quiz-explain">Correct — React Native uses unitless numbers for nearly all size-related style values.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  How should <code>fontSize: 16</code> be written if you wanted
+                  it to equal "16px" from CSS?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Exactly like that — <code>16</code>, no unit
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    <code>'16px'</code>, matching CSS syntax
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — React Native uses unitless numbers for nearly all
+                  size-related style values.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#designing-with-figma">Previous<b>← Designing with Figma</b></a>
-    <a class="next" href="#design-system-tips">Next topic<b>Design System Tips →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#designing-with-figma"
+                >Previous<b>← Designing with Figma</b></a
+              >
+              <a class="next" href="#design-system-tips"
+                >Next topic<b>Design System Tips →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S4 TOPIC 3 ============ -->
-<section class="topic" id="design-system-tips">
-  <div class="topic-num">TOPIC 3 / 5</div>
-  <h2>Design System Tips</h2>
+          <!-- ============ S4 TOPIC 3 ============ -->
+          <section class="topic" id="design-system-tips">
+            <div class="topic-num">TOPIC 3 / 5</div>
+            <h2>Design System Tips</h2>
 
-  <p>A design system is a small set of shared constants and components that every screen pulls from, instead of each screen inventing its own colors, spacing, and font sizes.</p>
+            <p>
+              A design system is a small set of shared constants and components
+              that every screen pulls from, instead of each screen inventing its
+              own colors, spacing, and font sizes.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">theme/tokens.ts</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">export const</span> colors = {
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">theme/tokens.ts</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">export const</span> colors = {
   primary: <span class="tok-str">'#ff5a3c'</span>,
   text: <span class="tok-str">'#1a1d24'</span>,
   textMuted: <span class="tok-str">'#5c6070'</span>,
@@ -189,19 +410,31 @@
   heading: { fontSize: <span class="tok-str">24</span>, fontWeight: <span class="tok-str">'700'</span> },
   body: { fontSize: <span class="tok-str">15</span>, fontWeight: <span class="tok-str">'400'</span> },
 };</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>Naming spacing <code>sm</code>/<code>md</code>/<code>lg</code> instead of raw numbers everywhere means a single change to <code>spacing.md</code> adjusts every screen using it consistently.</li>
-    <li>These tokens should mirror the named styles your designer set up in Figma — same names, same values, both sides of the design/dev handoff stay in sync.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                Naming spacing <code>sm</code>/<code>md</code>/<code>lg</code>
+                instead of raw numbers everywhere means a single change to
+                <code>spacing.md</code> adjusts every screen using it
+                consistently.
+              </li>
+              <li>
+                These tokens should mirror the named styles your designer set up
+                in Figma — same names, same values, both sides of the design/dev
+                handoff stay in sync.
+              </li>
+            </ul>
 
-  <h3>Using tokens in a component</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/Card.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { colors, spacing, radius } <span class="tok-kw">from</span> <span class="tok-str">'../theme/tokens'</span>;
+            <h3>Using tokens in a component</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/Card.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { colors, spacing, radius } <span class="tok-kw">from</span> <span class="tok-str">'../theme/tokens'</span>;
 
 <span class="tok-kw">const</span> styles = StyleSheet.<span class="tok-fn">create</span>({
   card: {
@@ -212,141 +445,297 @@
     borderColor: colors.border,
   },
 });</code></pre>
-  </div>
+            </div>
 
-  <div class="callout">
-    <b>Why this matters at scale</b>
-    On a team of five engineers, without shared tokens you'll end up with a dozen near-identical "grays" and inconsistent spacing across screens. A tokens file turns a subjective design decision into a single source of truth everyone imports.
-  </div>
+            <div class="callout">
+              <b>Why this matters at scale</b>
+              On a team of five engineers, without shared tokens you'll end up
+              with a dozen near-identical "grays" and inconsistent spacing
+              across screens. A tokens file turns a subjective design decision
+              into a single source of truth everyone imports.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Defining colors/spacing separately in every component file instead of one shared source.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Creating tokens but still hardcoding raw values "just this once" — inconsistencies creep back in immediately.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Over-engineering a token system with excessive abstraction layers before the team or app is large enough to need it.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Defining colors/spacing separately in
+                every component file instead of one shared source.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Creating tokens but still hardcoding
+                raw values "just this once" — inconsistencies creep back in
+                immediately.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Over-engineering a token system with
+                excessive abstraction layers before the team or app is large
+                enough to need it.
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Create a <code>theme/tokens.ts</code> file and refactor one existing component to use it instead of raw values.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Create a
+                <code>theme/tokens.ts</code> file and refactor one existing
+                component to use it instead of raw values.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="#style-and-stylesheet">Previous<b>← Style & StyleSheet</b></a>
-    <a class="next" href="#layout-with-flexbox">Next topic<b>Layout with Flexbox →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#style-and-stylesheet"
+                >Previous<b>← Style & StyleSheet</b></a
+              >
+              <a class="next" href="#layout-with-flexbox"
+                >Next topic<b>Layout with Flexbox →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S4 TOPIC 4 ============ -->
-<section class="topic" id="layout-with-flexbox">
-  <div class="topic-num">TOPIC 4 / 5</div>
-  <h2>Layout with Flexbox</h2>
+          <!-- ============ S4 TOPIC 4 ============ -->
+          <section class="topic" id="layout-with-flexbox">
+            <div class="topic-num">TOPIC 4 / 5</div>
+            <h2>Layout with Flexbox</h2>
 
-  <p>Flexbox is the <em>only</em> layout system in React Native — there's no Grid, no floats, no positioning tricks from web CSS. Mastering it is non-negotiable, and the good news is React Native's default flex direction actually makes some things simpler than on the web.</p>
+            <p>
+              Flexbox is the <em>only</em> layout system in React Native —
+              there's no Grid, no floats, no positioning tricks from web CSS.
+              Mastering it is non-negotiable, and the good news is React
+              Native's default flex direction actually makes some things simpler
+              than on the web.
+            </p>
 
-  <div class="callout teal">
-    <b>Key difference from web CSS</b>
-    On the web, the Flexbox default <code>flex-direction</code> is <code>row</code>. In React Native, the default is <code>column</code> — because mobile screens are naturally vertical, and most layouts stack top-to-bottom by default.
-  </div>
+            <div class="callout teal">
+              <b>Key difference from web CSS</b>
+              On the web, the Flexbox default <code>flex-direction</code> is
+              <code>row</code>. In React Native, the default is
+              <code>column</code> — because mobile screens are naturally
+              vertical, and most layouts stack top-to-bottom by default.
+            </div>
 
-  <h3>The three properties that control almost everything</h3>
-  <div class="card-grid">
-    <div class="mini-card"><div class="icon">?</div><h5>flexDirection</h5><p><code>'column'</code> (default) stacks children vertically. <code>'row'</code> lays them out horizontally.</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>justifyContent</h5><p>Aligns children along the <b>main axis</b> (matches <code>flexDirection</code>). Values: <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code>.</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>alignItems</h5><p>Aligns children along the <b>cross axis</b> (perpendicular to <code>flexDirection</code>). Same value options as above, plus <code>stretch</code>.</p></div>
-  </div>
+            <h3>The three properties that control almost everything</h3>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>flexDirection</h5>
+                <p>
+                  <code>'column'</code> (default) stacks children vertically.
+                  <code>'row'</code> lays them out horizontally.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>justifyContent</h5>
+                <p>
+                  Aligns children along the <b>main axis</b> (matches
+                  <code>flexDirection</code>). Values: <code>flex-start</code>,
+                  <code>center</code>, <code>flex-end</code>,
+                  <code>space-between</code>, <code>space-around</code>.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>alignItems</h5>
+                <p>
+                  Aligns children along the <b>cross axis</b> (perpendicular to
+                  <code>flexDirection</code>). Same value options as above, plus
+                  <code>stretch</code>.
+                </p>
+              </div>
+            </div>
 
-  <div class="phone-demo">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen" id="flexDemoScreen" style="display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; padding:14px; gap:10px; background:#f6f4ef;">
-        <div style="background:#ff5a3c; height:50px; border-radius:8px;"></div>
-        <div style="background:#1f9d8a; height:50px; border-radius:8px;"></div>
-        <div style="background:#1c1e26; height:50px; border-radius:8px;"></div>
-      </div>
-    </div>
-    <div class="demo-controls">
-      <h4>Flexbox playground</h4>
-      <div class="field">
-        <label>flexDirection</label>
-        <select onchange="document.getElementById('flexDemoScreen').style.flexDirection=this.value">
-          <option value="column">column (default)</option>
-          <option value="row">row</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>justifyContent (main axis)</label>
-        <select onchange="document.getElementById('flexDemoScreen').style.justifyContent=this.value">
-          <option value="flex-start">flex-start</option>
-          <option value="center">center</option>
-          <option value="flex-end">flex-end</option>
-          <option value="space-between">space-between</option>
-          <option value="space-around">space-around</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>alignItems (cross axis)</label>
-        <select onchange="document.getElementById('flexDemoScreen').style.alignItems=this.value">
-          <option value="stretch">stretch (default)</option>
-          <option value="flex-start">flex-start</option>
-          <option value="center">center</option>
-          <option value="flex-end">flex-end</option>
-        </select>
-      </div>
-    </div>
-  </div>
+            <div class="phone-demo">
+              <div class="phone">
+                <div class="phone-notch"></div>
+                <div
+                  class="phone-screen"
+                  id="flexDemoScreen"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: stretch;
+                    padding: 14px;
+                    gap: 10px;
+                    background: #f6f4ef;
+                  "
+                >
+                  <div
+                    style="
+                      background: var(--coral);
+                      height: 50px;
+                      border-radius: 8px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      background: #1f9d8a;
+                      height: 50px;
+                      border-radius: 8px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      background: #1c1e26;
+                      height: 50px;
+                      border-radius: 8px;
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="demo-controls">
+                <h4>Flexbox playground</h4>
+                <div class="field">
+                  <label>flexDirection</label>
+                  <select
+                    onchange="
+                      document.getElementById(
+                        'flexDemoScreen',
+                      ).style.flexDirection = this.value
+                    "
+                  >
+                    <option value="column">column (default)</option>
+                    <option value="row">row</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>justifyContent (main axis)</label>
+                  <select
+                    onchange="
+                      document.getElementById(
+                        'flexDemoScreen',
+                      ).style.justifyContent = this.value
+                    "
+                  >
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>alignItems (cross axis)</label>
+                  <select
+                    onchange="
+                      document.getElementById(
+                        'flexDemoScreen',
+                      ).style.alignItems = this.value
+                    "
+                  >
+                    <option value="stretch">stretch (default)</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-  <h3><code>flex: 1</code> — the property that confuses everyone at first</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">flex-example.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>&lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flex: <span class="tok-str">1</span> }}&gt;
+            <h3>
+              <code>flex: 1</code> — the property that confuses everyone at
+              first
+            </h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">flex-example.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>&lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flex: <span class="tok-str">1</span> }}&gt;
   &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flex: <span class="tok-str">1</span>, backgroundColor: <span class="tok-str">'red'</span> }} /&gt;
   &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flex: <span class="tok-str">2</span>, backgroundColor: <span class="tok-str">'blue'</span> }} /&gt;
 &lt;/<span class="tok-tag">View</span>&gt;</code></pre>
-  </div>
-  <p><code>flex: 1</code> on the outer <code>View</code> means "take up all available space." Inside it, the red box gets 1 share of space and the blue box gets 2 shares — blue ends up twice as tall as red.</p>
+            </div>
+            <p>
+              <code>flex: 1</code> on the outer <code>View</code> means "take up
+              all available space." Inside it, the red box gets 1 share of space
+              and the blue box gets 2 shares — blue ends up twice as tall as
+              red.
+            </p>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Confusing <code>justifyContent</code> and <code>alignItems</code> — remember: <code>justifyContent</code> always follows the main axis (the same direction as <code>flexDirection</code>).</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Giving every child a fixed height instead of letting <code>flex</code> distribute space, producing layouts that break on different screen sizes.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not testing layouts against both a small phone and a tablet-sized screen, where Flexbox assumptions about available space can break down.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Confusing <code>justifyContent</code> and
+                <code>alignItems</code> — remember:
+                <code>justifyContent</code> always follows the main axis (the
+                same direction as <code>flexDirection</code>).
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Giving every child a fixed height
+                instead of letting <code>flex</code> distribute space, producing
+                layouts that break on different screen sizes.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not testing layouts against both a
+                small phone and a tablet-sized screen, where Flexbox assumptions
+                about available space can break down.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>In React Native, what is the default value of <code>flexDirection</code>?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">row (same as web CSS)</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">column</button>
-      </div>
-      <div class="quiz-explain">Correct — this is one of the most common surprises for developers coming from web CSS, where row is the default.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  In React Native, what is the default value of
+                  <code>flexDirection</code>?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    row (same as web CSS)
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    column
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — this is one of the most common surprises for
+                  developers coming from web CSS, where row is the default.
+                </div>
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Using the playground above as reference, build a row of 3 equally-sized boxes using <code>flex: 1</code> on each.</li>
-    <li><span class="lvl i">Intermediate</span> Build a header layout: a title on the left, an icon on the right, using <code>justifyContent: 'space-between'</code>.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Using the playground above
+                as reference, build a row of 3 equally-sized boxes using
+                <code>flex: 1</code> on each.
+              </li>
+              <li>
+                <span class="lvl i">Intermediate</span> Build a header layout: a
+                title on the left, an icon on the right, using
+                <code>justifyContent: 'space-between'</code>.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="#design-system-tips">Previous<b>← Design System Tips</b></a>
-    <a class="next" href="#dark-mode">Next topic<b>Dark Mode →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#design-system-tips"
+                >Previous<b>← Design System Tips</b></a
+              >
+              <a class="next" href="#dark-mode">Next topic<b>Dark Mode →</b></a>
+            </div>
+          </section>
 
-<!-- ============ S4 TOPIC 5 ============ -->
-<section class="topic" id="dark-mode">
-  <div class="topic-num">TOPIC 5 / 5</div>
-  <h2>Dark Mode</h2>
+          <!-- ============ S4 TOPIC 5 ============ -->
+          <section class="topic" id="dark-mode">
+            <div class="topic-num">TOPIC 5 / 5</div>
+            <h2>Dark Mode</h2>
 
-  <p>Supporting dark mode properly means your color <em>tokens</em> change based on the system setting — not sprinkling <code>if (isDark)</code> checks through every component.</p>
+            <p>
+              Supporting dark mode properly means your color
+              <em>tokens</em> change based on the system setting — not
+              sprinkling <code>if (isDark)</code> checks through every
+              component.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">hooks/useThemeColors.ts</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useColorScheme</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">hooks/useThemeColors.ts</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useColorScheme</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 
 <span class="tok-kw">const</span> lightColors = { background: <span class="tok-str">'#fbf9f4'</span>, text: <span class="tok-str">'#1a1d24'</span> };
 <span class="tok-kw">const</span> darkColors = { background: <span class="tok-str">'#0f1115'</span>, text: <span class="tok-str">'#eceaf0'</span> };
@@ -355,19 +744,31 @@
   <span class="tok-kw">const</span> scheme = <span class="tok-fn">useColorScheme</span>(); <span class="tok-com">// 'light' | 'dark' | null</span>
   <span class="tok-kw">return</span> scheme === <span class="tok-str">'dark'</span> ? darkColors : lightColors;
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>useColorScheme()</code> — a built-in hook that reads the device's current appearance setting, and automatically re-renders your component if the user switches it while the app is open.</li>
-    <li>By centralizing this in one hook, every component asks "what are my colors right now?" without needing to know <em>how</em> dark mode is detected.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>useColorScheme()</code> — a built-in hook that reads the
+                device's current appearance setting, and automatically
+                re-renders your component if the user switches it while the app
+                is open.
+              </li>
+              <li>
+                By centralizing this in one hook, every component asks "what are
+                my colors right now?" without needing to know <em>how</em> dark
+                mode is detected.
+              </li>
+            </ul>
 
-  <h3>Using it in a component</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/index.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">export default function</span> <span class="tok-fn">Home</span>() {
+            <h3>Using it in a component</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/index.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">export default function</span> <span class="tok-fn">Home</span>() {
   <span class="tok-kw">const</span> colors = <span class="tok-fn">useThemeColors</span>();
   <span class="tok-kw">return</span> (
     &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flex: <span class="tok-str">1</span>, backgroundColor: colors.background }}&gt;
@@ -375,63 +776,123 @@
     &lt;/<span class="tok-tag">View</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <div class="phone-demo">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen" id="darkDemoScreen" style="align-items:center; justify-content:center; display:flex; background:#fbf9f4; transition:background .2s;">
-        <span id="darkDemoText" style="font-family:'Inter',sans-serif; font-size:15px; color:#1a1d24; transition:color .2s;">Hello</span>
+            <div class="phone-demo">
+              <div class="phone">
+                <div class="phone-notch"></div>
+                <div
+                  class="phone-screen"
+                  id="darkDemoScreen"
+                  style="
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    background: #fbf9f4;
+                    transition: background 0.2s;
+                  "
+                >
+                  <span
+                    id="darkDemoText"
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 15px;
+                      color: #1a1d24;
+                      transition: color 0.2s;
+                    "
+                    >Hello</span
+                  >
+                </div>
+              </div>
+              <div class="demo-controls">
+                <h4>Try it</h4>
+                <button class="demo-btn" onclick="toggleDarkDemo()">
+                  Toggle system appearance
+                </button>
+                <p class="mute" style="font-size: 12.5px; margin-top: 10px">
+                  This simulates <code>useColorScheme()</code> flipping and the
+                  same component instantly re-rendering with new colors — no
+                  manual theme-switching logic needed per component.
+                </p>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Don't forget these too</b>
+              Status bar style (<code>StatusBar</code> component's
+              <code>barStyle</code>), image assets that need dark variants, and
+              any hardcoded colors buried inside third-party component props are
+              common things people forget when adding dark mode after the fact.
+            </div>
+
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Hardcoding
+                <code>backgroundColor: '#fff'</code> directly on screens instead
+                of pulling from theme colors — this breaks the moment dark mode
+                is added.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Adding dark mode late in a project,
+                after dozens of components already hardcode light-mode colors —
+                always design the token system with both modes in mind from the
+                start.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not testing color contrast in dark
+                mode specifically — colors that look fine in light mode can fail
+                accessibility contrast requirements when inverted.
+              </div>
+            </div>
+
+            <div class="quiz-box">
+              <h4>Section 4 final check</h4>
+              <div class="quiz-q">
+                <p>What does <code>useColorScheme()</code> return?</p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    The app's current font settings
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    The device's current light/dark appearance setting
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    A list of all available theme colors
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — it returns <code>'light'</code>,
+                  <code>'dark'</code>, or <code>null</code>, and updates
+                  automatically if the user changes their system setting.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 4 complete ??</b>
+              You can now translate a Figma design into accurate styles, lay out
+              any screen with Flexbox, maintain a shared design system, and
+              support dark mode properly. Next up: Section 5 — Expo Router
+              (Navigation).
+            </div>
+
+            <div class="topic-nav">
+              <a href="#layout-with-flexbox"
+                >Previous<b>← Layout with Flexbox</b></a
+              >
+              <a class="next" href="section5.html#file-based-routing"
+                >Next section<b>Section 5: Expo Router →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+        </div>
       </div>
     </div>
-    <div class="demo-controls">
-      <h4>Try it</h4>
-      <button class="demo-btn" onclick="toggleDarkDemo()">Toggle system appearance</button>
-      <p class="mute" style="font-size:12.5px; margin-top:10px;">This simulates <code>useColorScheme()</code> flipping and the same component instantly re-rendering with new colors — no manual theme-switching logic needed per component.</p>
-    </div>
-  </div>
-
-  <div class="callout">
-    <b>Don't forget these too</b>
-    Status bar style (<code>StatusBar</code> component's <code>barStyle</code>), image assets that need dark variants, and any hardcoded colors buried inside third-party component props are common things people forget when adding dark mode after the fact.
-  </div>
-
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Hardcoding <code>backgroundColor: '#fff'</code> directly on screens instead of pulling from theme colors — this breaks the moment dark mode is added.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Adding dark mode late in a project, after dozens of components already hardcode light-mode colors — always design the token system with both modes in mind from the start.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not testing color contrast in dark mode specifically — colors that look fine in light mode can fail accessibility contrast requirements when inverted.</div>
-  </div>
-
-  <div class="quiz-box">
-    <h4>Section 4 final check</h4>
-    <div class="quiz-q">
-      <p>What does <code>useColorScheme()</code> return?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">The app's current font settings</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">The device's current light/dark appearance setting</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">A list of all available theme colors</button>
-      </div>
-      <div class="quiz-explain">Correct — it returns <code>'light'</code>, <code>'dark'</code>, or <code>null</code>, and updates automatically if the user changes their system setting.</div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 4 complete ??</b>
-    You can now translate a Figma design into accurate styles, lay out any screen with Flexbox, maintain a shared design system, and support dark mode properly. Next up: Section 5 — Expo Router (Navigation).
-  </div>
-
-  <div class="topic-nav">
-    <a href="#layout-with-flexbox">Previous<b>← Layout with Flexbox</b></a>
-    <a class="next" href="section5.html#file-based-routing">Next section<b>Section 5: Expo Router →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's4';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s4";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

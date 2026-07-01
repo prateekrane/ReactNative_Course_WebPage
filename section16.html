@@ -1,171 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 16 · Publishing — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 16 · Publishing — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 16 · Publishing</div>
+        </div>
+        <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 16 — PUBLISHING</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">Publishing</h1>
+            <p>
+              The automation from Section 15 only works once your store listing
+              itself is ready. Use the interactive checklists below to make sure
+              nothing's missing before your first real submission.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>2</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
+
+          <!-- ============ S16 TOPIC 1 ============ -->
+          <section class="topic" id="app-store-submission">
+            <div class="topic-num">TOPIC 1 / 2</div>
+            <h2>App Store Submission</h2>
+
+            <p>
+              Beyond the technical submission mechanics from Section 13, Apple
+              requires a complete <b>store listing</b> and adherence to their
+              review guidelines. Missing any of these is the most common reason
+              first-time submissions get rejected — not code bugs.
+            </p>
+
+            <div class="callout teal">
+              <b>Check off each item as you prepare your own submission</b>
+            </div>
+
+            <div
+              id="appStoreChecklist"
+              style="
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: 18px;
+                margin: 18px 0;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 14px;
+                "
+              >
+                <b style="font-family: var(--font-display); font-size: 14px"
+                  >App Store readiness</b
+                >
+                <span
+                  id="appStoreProgress"
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 12px;
+                    color: var(--text-mute);
+                  "
+                  >0 / 7</span
+                >
+              </div>
+              <div class="progress-track" style="margin-bottom: 14px">
+                <div
+                  class="progress-fill"
+                  id="appStoreProgressFill"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div id="appStoreChecklistItems"></div>
+            </div>
+
+            <table class="cmp">
+              <tr>
+                <th>Requirement</th>
+                <th>Why Apple checks it</th>
+              </tr>
+              <tr>
+                <td>App icon (1024–1024)</td>
+                <td>
+                  Used across the App Store and device home screens — must be a
+                  single, non-transparent image
+                </td>
+              </tr>
+              <tr>
+                <td>Screenshots per device size</td>
+                <td>
+                  Shown to users before download; must reflect the actual app,
+                  not mockups
+                </td>
+              </tr>
+              <tr>
+                <td>Privacy policy URL</td>
+                <td>
+                  Legally required if the app collects any user data, which most
+                  apps do
+                </td>
+              </tr>
+              <tr>
+                <td>App Privacy "nutrition label"</td>
+                <td>
+                  A declared summary of exactly what data your app collects and
+                  why
+                </td>
+              </tr>
+              <tr>
+                <td>Demo account (if login required)</td>
+                <td>Reviewers need to actually test past your login screen</td>
+              </tr>
+            </table>
+
+            <div class="callout">
+              <b>The single most common first-time rejection reason</b>
+              Submitting an app that requires login without providing reviewer
+              demo credentials in App Store Connect's review notes — reviewers
+              cannot test what they can't get past your sign-in screen, and will
+              reject on that basis alone.
+            </div>
+
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Using placeholder/lorem-ipsum screenshots
+                or descriptions, which almost guarantees rejection for
+                misrepresenting the app.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Under-declaring data collection in
+                the App Privacy label, which can trigger a rejection or removal
+                later if it's found to be inaccurate.
+              </div>
+            </div>
+
+            <div class="topic-nav">
+              <a href="section15.html#build-and-submit-workflow"
+                >Previous<b>← Section 15: Build and Submit Workflow</b></a
+              >
+              <a class="next" href="#play-store-submission"
+                >Next topic<b>Play Store Submission →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ============ S16 TOPIC 2 ============ -->
+          <section class="topic" id="play-store-submission">
+            <div class="topic-num">TOPIC 2 / 2</div>
+            <h2>Play Store Submission</h2>
+
+            <p>
+              Google Play's requirements overlap with Apple's, but with a few
+              distinctly Android/Play-specific steps of its own.
+            </p>
+
+            <div class="callout teal">
+              <b>Check off each item as you prepare your own submission</b>
+            </div>
+
+            <div
+              id="playStoreChecklist"
+              style="
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: 18px;
+                margin: 18px 0;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 14px;
+                "
+              >
+                <b style="font-family: var(--font-display); font-size: 14px"
+                  >Play Store readiness</b
+                >
+                <span
+                  id="playStoreProgress"
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 12px;
+                    color: var(--text-mute);
+                  "
+                  >0 / 7</span
+                >
+              </div>
+              <div class="progress-track" style="margin-bottom: 14px">
+                <div
+                  class="progress-fill"
+                  id="playStoreProgressFill"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div id="playStoreChecklistItems"></div>
+            </div>
+
+            <table class="cmp">
+              <tr>
+                <th>Requirement</th>
+                <th>Why Google checks it</th>
+              </tr>
+              <tr>
+                <td>Data safety form</td>
+                <td>
+                  A structured, mandatory declaration of what data is collected,
+                  shared, and why — shown directly on your store listing
+                </td>
+              </tr>
+              <tr>
+                <td>Content rating questionnaire</td>
+                <td>
+                  Determines the age rating shown to users, based on your
+                  answers about app content
+                </td>
+              </tr>
+              <tr>
+                <td>Feature graphic (1024–500)</td>
+                <td>
+                  The banner image shown at the top of your Play Store listing
+                </td>
+              </tr>
+              <tr>
+                <td>Target API level compliance</td>
+                <td>
+                  Google requires targeting a recent Android API level, updated
+                  roughly yearly
+                </td>
+              </tr>
+            </table>
+
+            <div class="callout">
+              <b>A Play-specific trap: target API level</b>
+              Unlike Apple's more qualitative review, Google enforces a hard,
+              mechanical requirement: your app must target a sufficiently recent
+              Android API level or it will be rejected outright, regardless of
+              how well it otherwise works — this deadline shifts roughly
+              annually, so check current requirements before every major
+              release.
+            </div>
+
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Filling out the Data Safety form
+                inaccurately relative to what the app's actual code/dependencies
+                collect (including third-party SDKs) — this is checked and can
+                be flagged.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Not revisiting the target API level
+                requirement on a yearly cadence, leading to a scramble when an
+                existing app suddenly can't be updated.
+              </div>
+            </div>
+
+            <div class="quiz-box">
+              <h4>Section 16 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  What's a hard, mechanical requirement specific to Google Play
+                  (not primarily an App Store concern)?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Providing an app icon
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Targeting a sufficiently recent Android API level
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Having a privacy policy
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — target API level compliance is enforced mechanically
+                  and updates roughly yearly, distinct from Apple's more
+                  qualitative review process.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 16 complete ??</b>
+              You now know exactly what both stores require beyond the technical
+              submission mechanics, and have a repeatable checklist for every
+              future release. Next up: Section 17 — Payments.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#app-store-submission"
+                >Previous<b>← App Store Submission</b></a
+              >
+              <a class="next" href="section17.html#payment-basics"
+                >Next section<b>Section 17: Payments →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+          <!-- SECTION 17: PAYMENTS                                             -->
+          <!-- ================================================================ -->
+        </div>
       </div>
     </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
-
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 16 · Publishing</div>
-      
-    </div>
-    <div class="content">
-
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 16 — PUBLISHING</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Publishing</h1>
-  <p>The automation from Section 15 only works once your store listing itself is ready. Use the interactive checklists below to make sure nothing's missing before your first real submission.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>2</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
-
-<!-- ============ S16 TOPIC 1 ============ -->
-<section class="topic" id="app-store-submission">
-  <div class="topic-num">TOPIC 1 / 2</div>
-  <h2>App Store Submission</h2>
-
-  <p>Beyond the technical submission mechanics from Section 13, Apple requires a complete <b>store listing</b> and adherence to their review guidelines. Missing any of these is the most common reason first-time submissions get rejected — not code bugs.</p>
-
-  <div class="callout teal">
-    <b>Check off each item as you prepare your own submission</b>
-  </div>
-
-  <div id="appStoreChecklist" style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:18px 0;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-      <b style="font-family:var(--font-display); font-size:14px;">App Store readiness</b>
-      <span id="appStoreProgress" style="font-family:var(--font-mono); font-size:12px; color:var(--text-mute);">0 / 7</span>
-    </div>
-    <div class="progress-track" style="margin-bottom:14px;"><div class="progress-fill" id="appStoreProgressFill" style="width:0%;"></div></div>
-    <div id="appStoreChecklistItems"></div>
-  </div>
-
-  <table class="cmp">
-    <tr><th>Requirement</th><th>Why Apple checks it</th></tr>
-    <tr><td>App icon (1024–1024)</td><td>Used across the App Store and device home screens — must be a single, non-transparent image</td></tr>
-    <tr><td>Screenshots per device size</td><td>Shown to users before download; must reflect the actual app, not mockups</td></tr>
-    <tr><td>Privacy policy URL</td><td>Legally required if the app collects any user data, which most apps do</td></tr>
-    <tr><td>App Privacy "nutrition label"</td><td>A declared summary of exactly what data your app collects and why</td></tr>
-    <tr><td>Demo account (if login required)</td><td>Reviewers need to actually test past your login screen</td></tr>
-  </table>
-
-  <div class="callout">
-    <b>The single most common first-time rejection reason</b>
-    Submitting an app that requires login without providing reviewer demo credentials in App Store Connect's review notes — reviewers cannot test what they can't get past your sign-in screen, and will reject on that basis alone.
-  </div>
-
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Using placeholder/lorem-ipsum screenshots or descriptions, which almost guarantees rejection for misrepresenting the app.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Under-declaring data collection in the App Privacy label, which can trigger a rejection or removal later if it's found to be inaccurate.</div>
-  </div>
-
-  <div class="topic-nav">
-    <a href="section15.html#build-and-submit-workflow">Previous<b>← Section 15: Build and Submit Workflow</b></a>
-    <a class="next" href="#play-store-submission">Next topic<b>Play Store Submission →</b></a>
-  </div>
-</section>
-
-<!-- ============ S16 TOPIC 2 ============ -->
-<section class="topic" id="play-store-submission">
-  <div class="topic-num">TOPIC 2 / 2</div>
-  <h2>Play Store Submission</h2>
-
-  <p>Google Play's requirements overlap with Apple's, but with a few distinctly Android/Play-specific steps of its own.</p>
-
-  <div class="callout teal">
-    <b>Check off each item as you prepare your own submission</b>
-  </div>
-
-  <div id="playStoreChecklist" style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:18px 0;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-      <b style="font-family:var(--font-display); font-size:14px;">Play Store readiness</b>
-      <span id="playStoreProgress" style="font-family:var(--font-mono); font-size:12px; color:var(--text-mute);">0 / 7</span>
-    </div>
-    <div class="progress-track" style="margin-bottom:14px;"><div class="progress-fill" id="playStoreProgressFill" style="width:0%;"></div></div>
-    <div id="playStoreChecklistItems"></div>
-  </div>
-
-  <table class="cmp">
-    <tr><th>Requirement</th><th>Why Google checks it</th></tr>
-    <tr><td>Data safety form</td><td>A structured, mandatory declaration of what data is collected, shared, and why — shown directly on your store listing</td></tr>
-    <tr><td>Content rating questionnaire</td><td>Determines the age rating shown to users, based on your answers about app content</td></tr>
-    <tr><td>Feature graphic (1024–500)</td><td>The banner image shown at the top of your Play Store listing</td></tr>
-    <tr><td>Target API level compliance</td><td>Google requires targeting a recent Android API level, updated roughly yearly</td></tr>
-  </table>
-
-  <div class="callout">
-    <b>A Play-specific trap: target API level</b>
-    Unlike Apple's more qualitative review, Google enforces a hard, mechanical requirement: your app must target a sufficiently recent Android API level or it will be rejected outright, regardless of how well it otherwise works — this deadline shifts roughly annually, so check current requirements before every major release.
-  </div>
-
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Filling out the Data Safety form inaccurately relative to what the app's actual code/dependencies collect (including third-party SDKs) — this is checked and can be flagged.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Not revisiting the target API level requirement on a yearly cadence, leading to a scramble when an existing app suddenly can't be updated.</div>
-  </div>
-
-  <div class="quiz-box">
-    <h4>Section 16 final check</h4>
-    <div class="quiz-q">
-      <p>What's a hard, mechanical requirement specific to Google Play (not primarily an App Store concern)?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Providing an app icon</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Targeting a sufficiently recent Android API level</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Having a privacy policy</button>
-      </div>
-      <div class="quiz-explain">Correct — target API level compliance is enforced mechanically and updates roughly yearly, distinct from Apple's more qualitative review process.</div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 16 complete ??</b>
-    You now know exactly what both stores require beyond the technical submission mechanics, and have a repeatable checklist for every future release. Next up: Section 17 — Payments.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#app-store-submission">Previous<b>← App Store Submission</b></a>
-    <a class="next" href="section17.html#payment-basics">Next section<b>Section 17: Payments →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SECTION 17: PAYMENTS                                             -->
-<!-- ================================================================ -->
-
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's16';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s16";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
-

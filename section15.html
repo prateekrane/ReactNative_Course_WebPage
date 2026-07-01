@@ -1,66 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 15 · EAS Workflows — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 15 · EAS Workflows — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 15 · EAS Workflows</div>
+        </div>
+        <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 15 — EAS WORKFLOWS</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">EAS Workflows</h1>
+            <p>
+              Automate everything you've learned so far — builds, tests,
+              submissions — so they run automatically on a git push instead of a
+              manual command every time. Trigger a simulated pipeline and watch
+              every job run.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 15 · EAS Workflows</div>
-      
-    </div>
-    <div class="content">
+          <!-- ============ S15 TOPIC 1 ============ -->
+          <section class="topic" id="getting-started-with-workflows">
+            <div class="topic-num">TOPIC 1 / 3</div>
+            <h2>Getting Started with Workflows</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 15 — EAS WORKFLOWS</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">EAS Workflows</h1>
-  <p>Automate everything you've learned so far — builds, tests, submissions — so they run automatically on a git push instead of a manual command every time. Trigger a simulated pipeline and watch every job run.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              Everything you've run manually so far — <code>eas build</code>,
+              <code>eas submit</code>, <code>eas update</code>, Maestro tests —
+              can be triggered automatically by EAS Workflows: YAML files that
+              define <b>jobs</b>, run on <b>triggers</b> like a git push,
+              executed on Expo's own CI infrastructure.
+            </p>
 
-<!-- ============ S15 TOPIC 1 ============ -->
-<section class="topic" id="getting-started-with-workflows">
-  <div class="topic-num">TOPIC 1 / 3</div>
-  <h2>Getting Started with Workflows</h2>
-
-  <p>Everything you've run manually so far — <code>eas build</code>, <code>eas submit</code>, <code>eas update</code>, Maestro tests — can be triggered automatically by EAS Workflows: YAML files that define <b>jobs</b>, run on <b>triggers</b> like a git push, executed on Expo's own CI infrastructure.</p>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">.eas/workflows/on-push-main.yml</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-attr">name</span>: Build on push to main
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename"
+                  >.eas/workflows/on-push-main.yml</span
+                >
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-attr">name</span>: Build on push to main
 
 <span class="tok-attr">on</span>:
   <span class="tok-attr">push</span>:
@@ -72,76 +131,176 @@
     <span class="tok-attr">params</span>:
       <span class="tok-attr">platform</span>: ios
       <span class="tok-attr">profile</span>: preview</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>on.push.branches</code> — the trigger; this workflow only runs when commits land on <code>main</code>, not every branch.</li>
-    <li><code>jobs.build_ios</code> — a named job; you'll typically have several (build, test, submit) that can depend on each other's results.</li>
-    <li><code>type: build</code> — tells EAS this job should run an actual build, using the parameters below it — the same underlying build you triggered manually with <code>eas build</code> in Section 12.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>on.push.branches</code> — the trigger; this workflow only
+                runs when commits land on <code>main</code>, not every branch.
+              </li>
+              <li>
+                <code>jobs.build_ios</code> — a named job; you'll typically have
+                several (build, test, submit) that can depend on each other's
+                results.
+              </li>
+              <li>
+                <code>type: build</code> — tells EAS this job should run an
+                actual build, using the parameters below it — the same
+                underlying build you triggered manually with
+                <code>eas build</code> in Section 12.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Try it: trigger a workflow yourself</b>
-    Simulate pushing to <code>main</code> and watch the workflow file above actually execute, job by job, exactly as it would on Expo's real CI runners.
-  </div>
+            <div class="callout teal">
+              <b>Try it: trigger a workflow yourself</b>
+              Simulate pushing to <code>main</code> and watch the workflow file
+              above actually execute, job by job, exactly as it would on Expo's
+              real CI runners.
+            </div>
 
-  <div class="diagram-wrap" style="padding-bottom:24px;">
-    <div style="text-align:center; margin-bottom:16px;">
-      <button class="demo-btn" id="workflowTriggerBtn" onclick="runWorkflowTrigger()">▶ git push origin main</button>
-    </div>
-    <div id="workflowJobsRow" style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-      <div class="wf-job" data-job="0" style="min-width:130px; text-align:center; padding:14px 10px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:12px; font-family:var(--font-mono); transition:all .3s;">
-        <div>trigger detected</div>
-      </div>
-      <div style="align-self:center; color:var(--text-mute);">?</div>
-      <div class="wf-job" data-job="1" style="min-width:130px; text-align:center; padding:14px 10px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:12px; font-family:var(--font-mono); transition:all .3s;">
-        <div>build_ios</div>
-      </div>
-    </div>
-    <p id="workflowStatus" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
-  </div>
+            <div class="diagram-wrap" style="padding-bottom: 24px">
+              <div style="text-align: center; margin-bottom: 16px">
+                <button
+                  class="demo-btn"
+                  id="workflowTriggerBtn"
+                  onclick="runWorkflowTrigger()"
+                >
+                  ▶ git push origin main
+                </button>
+              </div>
+              <div
+                id="workflowJobsRow"
+                style="
+                  display: flex;
+                  gap: 10px;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                "
+              >
+                <div
+                  class="wf-job"
+                  data-job="0"
+                  style="
+                    min-width: 130px;
+                    text-align: center;
+                    padding: 14px 10px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 12px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  <div>trigger detected</div>
+                </div>
+                <div style="align-self: center; color: var(--text-mute)">?</div>
+                <div
+                  class="wf-job"
+                  data-job="1"
+                  style="
+                    min-width: 130px;
+                    text-align: center;
+                    padding: 14px 10px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 12px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  <div>build_ios</div>
+                </div>
+              </div>
+              <p
+                id="workflowStatus"
+                class="mute"
+                style="
+                  text-align: center;
+                  font-size: 13px;
+                  margin-top: 14px;
+                  min-height: 20px;
+                "
+              ></p>
+            </div>
 
-  <div class="callout">
-    <b>Why this matters, beyond convenience</b>
-    Manual commands are easy to forget or run inconsistently — one engineer's local build profile flag typo shouldn't affect what ships. Codifying the exact command and parameters in a workflow file means every trigger runs identically, and the file itself is reviewable, versioned code your whole team can see and improve.
-  </div>
+            <div class="callout">
+              <b>Why this matters, beyond convenience</b>
+              Manual commands are easy to forget or run inconsistently — one
+              engineer's local build profile flag typo shouldn't affect what
+              ships. Codifying the exact command and parameters in a workflow
+              file means every trigger runs identically, and the file itself is
+              reviewable, versioned code your whole team can see and improve.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Writing a trigger with no branch filter, causing an expensive build job to fire on every single push to every branch.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Duplicating near-identical workflow files for iOS and Android instead of parameterizing platform within jobs of one workflow.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Writing a trigger with no branch filter,
+                causing an expensive build job to fire on every single push to
+                every branch.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Duplicating near-identical workflow
+                files for iOS and Android instead of parameterizing platform
+                within jobs of one workflow.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>What determines when an EAS Workflow actually runs?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It runs continuously in the background at all times</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">The <code>on</code> trigger defined in the workflow file, such as a push to a specific branch</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">You must manually start it from the EAS dashboard every time</button>
-      </div>
-      <div class="quiz-explain">Correct — the <code>on</code> block defines exactly what event causes the workflow to run automatically.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>What determines when an EAS Workflow actually runs?</p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It runs continuously in the background at all times
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    The <code>on</code> trigger defined in the workflow file,
+                    such as a push to a specific branch
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    You must manually start it from the EAS dashboard every time
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — the <code>on</code> block defines exactly what event
+                  causes the workflow to run automatically.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="section14.html#reverting-updates">Previous<b>← Section 14: Reverting Updates</b></a>
-    <a class="next" href="#e2e-with-maestro-workflow">Next topic<b>E2E with Maestro Workflow →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section14.html#reverting-updates"
+                >Previous<b>← Section 14: Reverting Updates</b></a
+              >
+              <a class="next" href="#e2e-with-maestro-workflow"
+                >Next topic<b>E2E with Maestro Workflow →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S15 TOPIC 2 ============ -->
-<section class="topic" id="e2e-with-maestro-workflow">
-  <div class="topic-num">TOPIC 2 / 3</div>
-  <h2>E2E with Maestro Workflow</h2>
+          <!-- ============ S15 TOPIC 2 ============ -->
+          <section class="topic" id="e2e-with-maestro-workflow">
+            <div class="topic-num">TOPIC 2 / 3</div>
+            <h2>E2E with Maestro Workflow</h2>
 
-  <p>Recall Maestro from Section 8 — running E2E flows manually on your own machine. In CI, a workflow job builds a fresh app and runs your Maestro flows against it automatically, catching regressions before they ever reach a teammate or reviewer.</p>
+            <p>
+              Recall Maestro from Section 8 — running E2E flows manually on your
+              own machine. In CI, a workflow job builds a fresh app and runs
+              your Maestro flows against it automatically, catching regressions
+              before they ever reach a teammate or reviewer.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">.eas/workflows/e2e-tests.yml</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-attr">name</span>: E2E tests on pull request
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">.eas/workflows/e2e-tests.yml</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-attr">name</span>: E2E tests on pull request
 
 <span class="tok-attr">on</span>:
   <span class="tok-attr">pull_request</span>: {}
@@ -157,62 +316,185 @@
     <span class="tok-attr">params</span>:
       <span class="tok-attr">build_id</span>: <span class="tok-str">\${{ needs.build.outputs.build_id }}</span>
       <span class="tok-attr">flow_path</span>: .maestro/login-flow.yaml</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>needs: [build]</code> — this job waits for <code>build</code> to finish successfully before starting; workflows can express dependencies between jobs, not just run everything at once.</li>
-    <li><code>build_id: ...needs.build.outputs.build_id</code> — passes the exact freshly-built artifact from the previous job into Maestro, so the E2E test always runs against the code from this specific pull request.</li>
-    <li><code>flow_path</code> — points at the same YAML flow file format you wrote by hand in Section 8.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>needs: [build]</code> — this job waits for
+                <code>build</code> to finish successfully before starting;
+                workflows can express dependencies between jobs, not just run
+                everything at once.
+              </li>
+              <li>
+                <code>build_id: ...needs.build.outputs.build_id</code> — passes
+                the exact freshly-built artifact from the previous job into
+                Maestro, so the E2E test always runs against the code from this
+                specific pull request.
+              </li>
+              <li>
+                <code>flow_path</code> — points at the same YAML flow file
+                format you wrote by hand in Section 8.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Try it: run the full build-then-test pipeline</b>
-  </div>
+            <div class="callout teal">
+              <b>Try it: run the full build-then-test pipeline</b>
+            </div>
 
-  <div class="diagram-wrap" style="padding-bottom:24px;">
-    <div style="text-align:center; margin-bottom:16px;">
-      <button class="demo-btn" id="maestroWfBtn" onclick="runMaestroWorkflow()">▶ Open pull request</button>
-    </div>
-    <div id="maestroWfRow" style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-      <div class="mwf-job" data-job="0" style="min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">build (preview)</div>
-      <div style="align-self:center; color:var(--text-mute);">?</div>
-      <div class="mwf-job" data-job="1" style="min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">install on device</div>
-      <div style="align-self:center; color:var(--text-mute);">?</div>
-      <div class="mwf-job" data-job="2" style="min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">run maestro flow</div>
-      <div style="align-self:center; color:var(--text-mute);">?</div>
-      <div class="mwf-job" data-job="3" style="min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">? report</div>
-    </div>
-    <p id="maestroWfStatus" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
-  </div>
+            <div class="diagram-wrap" style="padding-bottom: 24px">
+              <div style="text-align: center; margin-bottom: 16px">
+                <button
+                  class="demo-btn"
+                  id="maestroWfBtn"
+                  onclick="runMaestroWorkflow()"
+                >
+                  ▶ Open pull request
+                </button>
+              </div>
+              <div
+                id="maestroWfRow"
+                style="
+                  display: flex;
+                  gap: 10px;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                "
+              >
+                <div
+                  class="mwf-job"
+                  data-job="0"
+                  style="
+                    min-width: 120px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  build (preview)
+                </div>
+                <div style="align-self: center; color: var(--text-mute)">?</div>
+                <div
+                  class="mwf-job"
+                  data-job="1"
+                  style="
+                    min-width: 120px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  install on device
+                </div>
+                <div style="align-self: center; color: var(--text-mute)">?</div>
+                <div
+                  class="mwf-job"
+                  data-job="2"
+                  style="
+                    min-width: 120px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  run maestro flow
+                </div>
+                <div style="align-self: center; color: var(--text-mute)">?</div>
+                <div
+                  class="mwf-job"
+                  data-job="3"
+                  style="
+                    min-width: 120px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  ? report
+                </div>
+              </div>
+              <p
+                id="maestroWfStatus"
+                class="mute"
+                style="
+                  text-align: center;
+                  font-size: 13px;
+                  margin-top: 14px;
+                  min-height: 20px;
+                "
+              ></p>
+            </div>
 
-  <div class="callout">
-    <b>Real-world example</b>
-    A team can require this exact workflow to pass before a pull request is mergeable — meaning a broken login flow is caught automatically on every PR, not discovered after merging to main or, worse, after release.
-  </div>
+            <div class="callout">
+              <b>Real-world example</b>
+              A team can require this exact workflow to pass before a pull
+              request is mergeable — meaning a broken login flow is caught
+              automatically on every PR, not discovered after merging to main
+              or, worse, after release.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting <code>needs: [build]</code>, causing the Maestro job to try running against a build that doesn't exist yet.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Running the full E2E suite on every single commit instead of on pull requests, dramatically slowing down everyday development feedback loops.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Forgetting <code>needs: [build]</code>,
+                causing the Maestro job to try running against a build that
+                doesn't exist yet.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Running the full E2E suite on every
+                single commit instead of on pull requests, dramatically slowing
+                down everyday development feedback loops.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#getting-started-with-workflows">Previous<b>← Getting Started with Workflows</b></a>
-    <a class="next" href="#build-and-submit-workflow">Next topic<b>Build and Submit Workflow →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#getting-started-with-workflows"
+                >Previous<b>← Getting Started with Workflows</b></a
+              >
+              <a class="next" href="#build-and-submit-workflow"
+                >Next topic<b>Build and Submit Workflow →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S15 TOPIC 3 ============ -->
-<section class="topic" id="build-and-submit-workflow">
-  <div class="topic-num">TOPIC 3 / 3</div>
-  <h2>Build and Submit Workflow</h2>
+          <!-- ============ S15 TOPIC 3 ============ -->
+          <section class="topic" id="build-and-submit-workflow">
+            <div class="topic-num">TOPIC 3 / 3</div>
+            <h2>Build and Submit Workflow</h2>
 
-  <p>The final piece: chaining a production build directly into store submission, for both platforms, triggered by something as simple as pushing a git tag.</p>
+            <p>
+              The final piece: chaining a production build directly into store
+              submission, for both platforms, triggered by something as simple
+              as pushing a git tag.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">.eas/workflows/release.yml</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-attr">name</span>: Release to both stores
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">.eas/workflows/release.yml</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-attr">name</span>: Release to both stores
 
 <span class="tok-attr">on</span>:
   <span class="tok-attr">push</span>:
@@ -236,79 +518,228 @@
     <span class="tok-attr">needs</span>: [build_android]
     <span class="tok-attr">type</span>: submit
     <span class="tok-attr">params</span>: { build_id: <span class="tok-str">\${{ needs.build_android.outputs.build_id }}</span> }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>tags: ['v*']</code> — triggers only when a version tag like <code>v2.3.0</code> is pushed, a common convention for marking an intentional release commit.</li>
-    <li><code>build_ios</code> and <code>build_android</code> have no <code>needs</code> between them — they run in parallel automatically, since neither depends on the other.</li>
-    <li>Each <code>submit_*</code> job depends only on its matching platform's build — an iOS build failure doesn't block the Android submission from proceeding.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>tags: ['v*']</code> — triggers only when a version tag
+                like <code>v2.3.0</code> is pushed, a common convention for
+                marking an intentional release commit.
+              </li>
+              <li>
+                <code>build_ios</code> and <code>build_android</code> have no
+                <code>needs</code> between them — they run in parallel
+                automatically, since neither depends on the other.
+              </li>
+              <li>
+                Each <code>submit_*</code> job depends only on its matching
+                platform's build — an iOS build failure doesn't block the
+                Android submission from proceeding.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Try it: run the full release pipeline</b>
-    Watch both platforms build and submit in parallel — notice how the two independent chains progress at the same time.
-  </div>
+            <div class="callout teal">
+              <b>Try it: run the full release pipeline</b>
+              Watch both platforms build and submit in parallel — notice how the
+              two independent chains progress at the same time.
+            </div>
 
-  <div class="diagram-wrap" style="padding-bottom:24px;">
-    <div style="text-align:center; margin-bottom:16px;">
-      <button class="demo-btn" id="releaseWfBtn" onclick="runReleaseWorkflow()">▶ git push origin v2.3.0</button>
-    </div>
-    <div style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap;">
-      <div>
-        <div style="text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--text-mute); margin-bottom:8px;">iOS chain</div>
-        <div style="display:flex; gap:8px;">
-          <div class="rel-job" data-chain="ios" data-job="0" style="min-width:100px; text-align:center; padding:12px 6px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">build_ios</div>
-          <div class="rel-job" data-chain="ios" data-job="1" style="min-width:100px; text-align:center; padding:12px 6px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">submit_ios</div>
+            <div class="diagram-wrap" style="padding-bottom: 24px">
+              <div style="text-align: center; margin-bottom: 16px">
+                <button
+                  class="demo-btn"
+                  id="releaseWfBtn"
+                  onclick="runReleaseWorkflow()"
+                >
+                  ▶ git push origin v2.3.0
+                </button>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 24px;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                "
+              >
+                <div>
+                  <div
+                    style="
+                      text-align: center;
+                      font-family: var(--font-mono);
+                      font-size: 11px;
+                      color: var(--text-mute);
+                      margin-bottom: 8px;
+                    "
+                  >
+                    iOS chain
+                  </div>
+                  <div style="display: flex; gap: 8px">
+                    <div
+                      class="rel-job"
+                      data-chain="ios"
+                      data-job="0"
+                      style="
+                        min-width: 100px;
+                        text-align: center;
+                        padding: 12px 6px;
+                        border-radius: 10px;
+                        border: 1px solid var(--line);
+                        background: var(--card);
+                        font-size: 11px;
+                        font-family: var(--font-mono);
+                        transition: all 0.3s;
+                      "
+                    >
+                      build_ios
+                    </div>
+                    <div
+                      class="rel-job"
+                      data-chain="ios"
+                      data-job="1"
+                      style="
+                        min-width: 100px;
+                        text-align: center;
+                        padding: 12px 6px;
+                        border-radius: 10px;
+                        border: 1px solid var(--line);
+                        background: var(--card);
+                        font-size: 11px;
+                        font-family: var(--font-mono);
+                        transition: all 0.3s;
+                      "
+                    >
+                      submit_ios
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style="
+                      text-align: center;
+                      font-family: var(--font-mono);
+                      font-size: 11px;
+                      color: var(--text-mute);
+                      margin-bottom: 8px;
+                    "
+                  >
+                    Android chain
+                  </div>
+                  <div style="display: flex; gap: 8px">
+                    <div
+                      class="rel-job"
+                      data-chain="android"
+                      data-job="0"
+                      style="
+                        min-width: 100px;
+                        text-align: center;
+                        padding: 12px 6px;
+                        border-radius: 10px;
+                        border: 1px solid var(--line);
+                        background: var(--card);
+                        font-size: 11px;
+                        font-family: var(--font-mono);
+                        transition: all 0.3s;
+                      "
+                    >
+                      build_android
+                    </div>
+                    <div
+                      class="rel-job"
+                      data-chain="android"
+                      data-job="1"
+                      style="
+                        min-width: 100px;
+                        text-align: center;
+                        padding: 12px 6px;
+                        border-radius: 10px;
+                        border: 1px solid var(--line);
+                        background: var(--card);
+                        font-size: 11px;
+                        font-family: var(--font-mono);
+                        transition: all 0.3s;
+                      "
+                    >
+                      submit_android
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                id="releaseWfStatus"
+                class="mute"
+                style="
+                  text-align: center;
+                  font-size: 13px;
+                  margin-top: 14px;
+                  min-height: 20px;
+                "
+              ></p>
+            </div>
+
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Accidentally creating a dependency
+                between the two platforms' chains, making an iOS delay
+                unnecessarily block the Android release.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not gating the tag-push trigger
+                behind any manual approval step for production releases,
+                allowing an accidental tag push to trigger a real store
+                submission.
+              </div>
+            </div>
+
+            <div class="quiz-box">
+              <h4>Section 15 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  In the release workflow above, why don't
+                  <code>build_ios</code> and <code>build_android</code> need a
+                  <code>needs</code> relationship between them?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Because EAS Workflows don't support parallel jobs
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Because neither job depends on the other's output, so they
+                    can safely run at the same time
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — jobs only run sequentially when a real data/ordering
+                  dependency exists between them, expressed via
+                  <code>needs</code>.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 15 complete ??</b>
+              You can now automate the entire chain from a git push all the way
+              to a live app store submission, with tests gating the process
+              along the way. Next up: Section 16 — Publishing.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#e2e-with-maestro-workflow"
+                >Previous<b>← E2E with Maestro Workflow</b></a
+              >
+              <span></span>
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+          <!-- SECTION 16: PUBLISHING                                           -->
+          <!-- ================================================================ -->
         </div>
       </div>
-      <div>
-        <div style="text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--text-mute); margin-bottom:8px;">Android chain</div>
-        <div style="display:flex; gap:8px;">
-          <div class="rel-job" data-chain="android" data-job="0" style="min-width:100px; text-align:center; padding:12px 6px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">build_android</div>
-          <div class="rel-job" data-chain="android" data-job="1" style="min-width:100px; text-align:center; padding:12px 6px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">submit_android</div>
-        </div>
-      </div>
     </div>
-    <p id="releaseWfStatus" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
-  </div>
-
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Accidentally creating a dependency between the two platforms' chains, making an iOS delay unnecessarily block the Android release.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not gating the tag-push trigger behind any manual approval step for production releases, allowing an accidental tag push to trigger a real store submission.</div>
-  </div>
-
-  <div class="quiz-box">
-    <h4>Section 15 final check</h4>
-    <div class="quiz-q">
-      <p>In the release workflow above, why don't <code>build_ios</code> and <code>build_android</code> need a <code>needs</code> relationship between them?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Because EAS Workflows don't support parallel jobs</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Because neither job depends on the other's output, so they can safely run at the same time</button>
-      </div>
-      <div class="quiz-explain">Correct — jobs only run sequentially when a real data/ordering dependency exists between them, expressed via <code>needs</code>.</div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 15 complete ??</b>
-    You can now automate the entire chain from a git push all the way to a live app store submission, with tests gating the process along the way. Next up: Section 16 — Publishing.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#e2e-with-maestro-workflow">Previous<b>← E2E with Maestro Workflow</b></a>
-    <span></span>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SECTION 16: PUBLISHING                                           -->
-<!-- ================================================================ -->
-
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's15';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s15";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

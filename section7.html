@@ -1,107 +1,216 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 7 · Expo UI — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 7 · Expo UI — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 7 · Expo UI</div>
+        </div>
+        <div class="content">
+          <!-- SECTION 7: EXPO UI                                               -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 7 · Expo UI</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 7 — EXPO UI</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">Expo UI</h1>
+            <p>
+              Build interfaces using truly native components — SwiftUI on iOS,
+              Jetpack Compose on Android — from React, without leaving your
+              JS/TS codebase. This is the most "native-first" section of the
+              course.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>8</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~3h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 7: EXPO UI                                               -->
-<!-- ================================================================ -->
+          <!-- ============ S7 TOPIC 1 ============ -->
+          <section class="topic" id="what-is-expo-ui">
+            <div class="topic-num">TOPIC 1 / 8</div>
+            <h2>What is Expo UI?</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 7 — EXPO UI</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Expo UI</h1>
-  <p>Build interfaces using truly native components — SwiftUI on iOS, Jetpack Compose on Android — from React, without leaving your JS/TS codebase. This is the most "native-first" section of the course.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>8</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~3h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              Every component you've used so far (View, Text, Pressable) is a
+              React Native abstraction that maps to <em>a</em> native view, but
+              it's still React Native's own rendering layer. <b>Expo UI</b> is
+              different: it renders using the platform's actual, first-party UI
+              toolkit — SwiftUI on iOS, Jetpack Compose on Android — directly.
+            </p>
 
-<!-- ============ S7 TOPIC 1 ============ -->
-<section class="topic" id="what-is-expo-ui">
-  <div class="topic-num">TOPIC 1 / 8</div>
-  <h2>What is Expo UI?</h2>
+            <div class="callout">
+              <b>Why this exists</b>
+              Apple and Google each ship rapidly evolving native design systems
+              (Liquid Glass, Material You) with animations, accessibility
+              behavior, and platform conventions that are extremely hard to
+              replicate pixel-for-pixel in a cross-platform abstraction. Expo UI
+              lets you use the real thing where it matters most, while keeping
+              your app logic in React.
+            </div>
 
-  <p>Every component you've used so far (View, Text, Pressable) is a React Native abstraction that maps to <em>a</em> native view, but it's still React Native's own rendering layer. <b>Expo UI</b> is different: it renders using the platform's actual, first-party UI toolkit — SwiftUI on iOS, Jetpack Compose on Android — directly.</p>
+            <h3>The mental model: SwiftUI and Compose</h3>
+            <p>
+              Both SwiftUI and Jetpack Compose are <b>declarative</b> UI
+              frameworks — meaning you describe <em>what</em> the UI should look
+              like for a given state, not the imperative steps to update it. If
+              this sounds familiar, it's because React itself works the same
+              way. This is why Expo UI feels conceptually consistent with React
+              Native rather than bolted-on.
+            </p>
 
-  <div class="callout">
-    <b>Why this exists</b>
-    Apple and Google each ship rapidly evolving native design systems (Liquid Glass, Material You) with animations, accessibility behavior, and platform conventions that are extremely hard to replicate pixel-for-pixel in a cross-platform abstraction. Expo UI lets you use the real thing where it matters most, while keeping your app logic in React.
-  </div>
+            <table class="cmp">
+              <tr>
+                <th>Concept</th>
+                <th>React</th>
+                <th>SwiftUI</th>
+                <th>Jetpack Compose</th>
+              </tr>
+              <tr>
+                <td>Unit of UI</td>
+                <td>Component</td>
+                <td>View</td>
+                <td>Composable function</td>
+              </tr>
+              <tr>
+                <td>Reactivity</td>
+                <td><code>useState</code></td>
+                <td><code>@State</code></td>
+                <td><code>remember { mutableStateOf() }</code></td>
+              </tr>
+              <tr>
+                <td>Styling</td>
+                <td>style objects</td>
+                <td>modifiers</td>
+                <td>modifiers</td>
+              </tr>
+            </table>
 
-  <h3>The mental model: SwiftUI and Compose</h3>
-  <p>Both SwiftUI and Jetpack Compose are <b>declarative</b> UI frameworks — meaning you describe <em>what</em> the UI should look like for a given state, not the imperative steps to update it. If this sounds familiar, it's because React itself works the same way. This is why Expo UI feels conceptually consistent with React Native rather than bolted-on.</p>
+            <div class="callout teal">
+              <b>When to reach for Expo UI vs. standard components</b>
+              Standard View/Text/Pressable remain the right default for most
+              screens, especially anything cross-platform-consistent (like a
+              custom-branded checkout flow). Expo UI shines for platform-native
+              elements users already have muscle memory for — native pickers,
+              native forms, native list styles, context menus.
+            </div>
 
-  <table class="cmp">
-    <tr><th>Concept</th><th>React</th><th>SwiftUI</th><th>Jetpack Compose</th></tr>
-    <tr><td>Unit of UI</td><td>Component</td><td>View</td><td>Composable function</td></tr>
-    <tr><td>Reactivity</td><td><code>useState</code></td><td><code>@State</code></td><td><code>remember { mutableStateOf() }</code></td></tr>
-    <tr><td>Styling</td><td>style objects</td><td>modifiers</td><td>modifiers</td></tr>
-  </table>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Assuming Expo UI replaces React Native's
+                core components entirely — it's a complementary tool for
+                specific native-feeling UI, not a wholesale replacement.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Using Expo UI for a component that
+                must look pixel-identical on both platforms — by design, SwiftUI
+                and Compose renderings can differ slightly, which is often
+                desirable but sometimes isn't.
+              </div>
+            </div>
 
-  <div class="callout teal">
-    <b>When to reach for Expo UI vs. standard components</b>
-    Standard View/Text/Pressable remain the right default for most screens, especially anything cross-platform-consistent (like a custom-branded checkout flow). Expo UI shines for platform-native elements users already have muscle memory for — native pickers, native forms, native list styles, context menus.
-  </div>
+            <div class="topic-nav">
+              <a href="section6.html#swipeable-components"
+                >Previous<b>← Section 6: Swipeable Components</b></a
+              >
+              <a class="next" href="#expo-ui-on-ios"
+                >Next topic<b>Expo UI on iOS →</b></a
+              >
+            </div>
+          </section>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Assuming Expo UI replaces React Native's core components entirely — it's a complementary tool for specific native-feeling UI, not a wholesale replacement.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Using Expo UI for a component that must look pixel-identical on both platforms — by design, SwiftUI and Compose renderings can differ slightly, which is often desirable but sometimes isn't.</div>
-  </div>
+          <!-- ============ S7 TOPIC 2 ============ -->
+          <section class="topic" id="expo-ui-on-ios">
+            <div class="topic-num">TOPIC 2 / 8</div>
+            <h2>Expo UI on iOS</h2>
 
-  <div class="topic-nav">
-    <a href="section6.html#swipeable-components">Previous<b>← Section 6: Swipeable Components</b></a>
-    <a class="next" href="#expo-ui-on-ios">Next topic<b>Expo UI on iOS →</b></a>
-  </div>
-</section>
+            <p>
+              On iOS, Expo UI exposes SwiftUI components through a JS API — you
+              write JSX, but under the hood it constructs real SwiftUI views.
+            </p>
 
-<!-- ============ S7 TOPIC 2 ============ -->
-<section class="topic" id="expo-ui-on-ios">
-  <div class="topic-num">TOPIC 2 / 8</div>
-  <h2>Expo UI on iOS</h2>
-
-  <p>On iOS, Expo UI exposes SwiftUI components through a JS API — you write JSX, but under the hood it constructs real SwiftUI views.</p>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/settings.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Host</span>, <span class="tok-fn">Form</span>, <span class="tok-fn">Section</span>, <span class="tok-fn">Switch</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui/swift-ui'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/settings.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Host</span>, <span class="tok-fn">Form</span>, <span class="tok-fn">Section</span>, <span class="tok-fn">Switch</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui/swift-ui'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">useState</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">SettingsScreen</span>() {
@@ -117,41 +226,70 @@
     &lt;/<span class="tok-tag">Host</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>Host</code> — the bridge component that mounts a SwiftUI view hierarchy inside your React Native tree; everything inside it renders via SwiftUI, not RN's own renderer.</li>
-    <li><code>Form</code> / <code>Section</code> — map directly to SwiftUI's own grouped-list form components, giving you the exact native Settings-app look for free.</li>
-    <li>State (<code>notifsOn</code>) still lives in React — Expo UI components accept props and fire callbacks exactly like normal React Native components.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>Host</code> — the bridge component that mounts a SwiftUI
+                view hierarchy inside your React Native tree; everything inside
+                it renders via SwiftUI, not RN's own renderer.
+              </li>
+              <li>
+                <code>Form</code> / <code>Section</code> — map directly to
+                SwiftUI's own grouped-list form components, giving you the exact
+                native Settings-app look for free.
+              </li>
+              <li>
+                State (<code>notifsOn</code>) still lives in React — Expo UI
+                components accept props and fire callbacks exactly like normal
+                React Native components.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Real-world example</b>
-    A Settings screen built this way looks and behaves identically to Apple's own Settings app — correct native toggle animation, correct grouped list styling, correct dynamic type support — without hand-rebuilding any of that visually in React Native's styling system.
-  </div>
+            <div class="callout">
+              <b>Real-world example</b>
+              A Settings screen built this way looks and behaves identically to
+              Apple's own Settings app — correct native toggle animation,
+              correct grouped list styling, correct dynamic type support —
+              without hand-rebuilding any of that visually in React Native's
+              styling system.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Mixing regular RN components and SwiftUI components without a clear boundary, making layout debugging confusing across two different rendering systems.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Mixing regular RN components and
+                SwiftUI components without a clear boundary, making layout
+                debugging confusing across two different rendering systems.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#what-is-expo-ui">Previous<b>← What is Expo UI?</b></a>
-    <a class="next" href="#expo-ui-on-android">Next topic<b>Expo UI on Android →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#what-is-expo-ui">Previous<b>← What is Expo UI?</b></a>
+              <a class="next" href="#expo-ui-on-android"
+                >Next topic<b>Expo UI on Android →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S7 TOPIC 3 ============ -->
-<section class="topic" id="expo-ui-on-android">
-  <div class="topic-num">TOPIC 3 / 8</div>
-  <h2>Expo UI on Android</h2>
+          <!-- ============ S7 TOPIC 3 ============ -->
+          <section class="topic" id="expo-ui-on-android">
+            <div class="topic-num">TOPIC 3 / 8</div>
+            <h2>Expo UI on Android</h2>
 
-  <p>The Android equivalent renders real Jetpack Compose composables, using the same JSX-first API shape for consistency.</p>
+            <p>
+              The Android equivalent renders real Jetpack Compose composables,
+              using the same JSX-first API shape for consistency.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/settings.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Host</span>, <span class="tok-fn">Column</span>, <span class="tok-fn">Switch</span>, <span class="tok-fn">Text</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui/jetpack-compose'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/settings.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Host</span>, <span class="tok-fn">Column</span>, <span class="tok-fn">Switch</span>, <span class="tok-fn">Text</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui/jetpack-compose'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">useState</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">SettingsScreen</span>() {
@@ -166,52 +304,92 @@
     &lt;/<span class="tok-tag">Host</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>@expo/ui/jetpack-compose</code> — the Android-specific package; note this is a <em>different</em> import than the iOS example, since they wrap genuinely different native toolkits.</li>
-    <li><code>Column</code> — Compose's vertical layout container, analogous to a <code>View</code> with <code>flexDirection: 'column'</code>, but rendered by Compose itself.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>@expo/ui/jetpack-compose</code> — the Android-specific
+                package; note this is a <em>different</em> import than the iOS
+                example, since they wrap genuinely different native toolkits.
+              </li>
+              <li>
+                <code>Column</code> — Compose's vertical layout container,
+                analogous to a <code>View</code> with
+                <code>flexDirection: 'column'</code>, but rendered by Compose
+                itself.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Writing cross-platform Expo UI screens</b>
-    Since the two imports differ, real apps typically use <code>Platform.select()</code> or separate <code>.ios.tsx</code>/<code>.android.tsx</code> files to swap between them, sharing the surrounding screen logic and state.
-  </div>
+            <div class="callout teal">
+              <b>Writing cross-platform Expo UI screens</b>
+              Since the two imports differ, real apps typically use
+              <code>Platform.select()</code> or separate
+              <code>.ios.tsx</code>/<code>.android.tsx</code> files to swap
+              between them, sharing the surrounding screen logic and state.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Importing the SwiftUI package on Android (or vice versa) — these are platform-specific native bindings, not universal components.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Importing the SwiftUI package on Android
+                (or vice versa) — these are platform-specific native bindings,
+                not universal components.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>Why are the SwiftUI and Jetpack Compose Expo UI imports separate packages?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's an arbitrary API design choice</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Because they wrap genuinely different, platform-specific native UI toolkits</button>
-      </div>
-      <div class="quiz-explain">Correct — SwiftUI is iOS-only and Compose is Android-only at the native level, so Expo UI mirrors that split rather than pretending they're interchangeable.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why are the SwiftUI and Jetpack Compose Expo UI imports
+                  separate packages?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It's an arbitrary API design choice
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Because they wrap genuinely different, platform-specific
+                    native UI toolkits
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — SwiftUI is iOS-only and Compose is Android-only at
+                  the native level, so Expo UI mirrors that split rather than
+                  pretending they're interchangeable.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#expo-ui-on-ios">Previous<b>← Expo UI on iOS</b></a>
-    <a class="next" href="#native-state-and-worklets">Next topic<b>Native state and worklets →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#expo-ui-on-ios">Previous<b>← Expo UI on iOS</b></a>
+              <a class="next" href="#native-state-and-worklets"
+                >Next topic<b>Native state and worklets →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S7 TOPIC 4 ============ -->
-<section class="topic" id="native-state-and-worklets">
-  <div class="topic-num">TOPIC 4 / 8</div>
-  <h2>Native state and worklets</h2>
+          <!-- ============ S7 TOPIC 4 ============ -->
+          <section class="topic" id="native-state-and-worklets">
+            <div class="topic-num">TOPIC 4 / 8</div>
+            <h2>Native state and worklets</h2>
 
-  <p>Some Expo UI interactions need to update at native speed — a slider being dragged, a live preview responding instantly — without a round trip through React state on every frame. This is where <b>worklets</b> (the same underlying concept from Reanimated, Section 6) come back into play.</p>
+            <p>
+              Some Expo UI interactions need to update at native speed — a
+              slider being dragged, a live preview responding instantly —
+              without a round trip through React state on every frame. This is
+              where <b>worklets</b> (the same underlying concept from
+              Reanimated, Section 6) come back into play.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/VolumeSlider.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Host</span>, <span class="tok-fn">Slider</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui/swift-ui'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/VolumeSlider.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Host</span>, <span class="tok-fn">Slider</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui/swift-ui'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">useSharedValue</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-reanimated'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">VolumeSlider</span>() {
@@ -229,78 +407,143 @@
     &lt;/<span class="tok-tag">Host</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>'worklet'</code> directive — tells the Reanimated/JSI system this function should run on the native/UI thread instead of the regular JS thread.</li>
-    <li>Writing to a shared value inside a worklet avoids triggering a React re-render for every tiny slider movement — only components actually reading that shared value (via <code>useAnimatedStyle</code>) update, and they do so on the native side.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>'worklet'</code> directive — tells the Reanimated/JSI
+                system this function should run on the native/UI thread instead
+                of the regular JS thread.
+              </li>
+              <li>
+                Writing to a shared value inside a worklet avoids triggering a
+                React re-render for every tiny slider movement — only components
+                actually reading that shared value (via
+                <code>useAnimatedStyle</code>) update, and they do so on the
+                native side.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Why this matters specifically for Expo UI</b>
-    Native components can fire events extremely frequently (drag, scroll, live camera data). Routing every single one through React state would be needlessly expensive; worklets let native UI and native state stay in sync directly, only touching React when something meaningfully needs to update.
-  </div>
+            <div class="callout">
+              <b>Why this matters specifically for Expo UI</b>
+              Native components can fire events extremely frequently (drag,
+              scroll, live camera data). Routing every single one through React
+              state would be needlessly expensive; worklets let native UI and
+              native state stay in sync directly, only touching React when
+              something meaningfully needs to update.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Calling regular React state setters directly inside a worklet without <code>runOnJS</code>, causing errors — the same rule from Section 6 applies here.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Overusing worklets for interactions that don't actually need frame-perfect native updates, adding unnecessary complexity.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Calling regular React state setters
+                directly inside a worklet without <code>runOnJS</code>, causing
+                errors — the same rule from Section 6 applies here.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Overusing worklets for interactions
+                that don't actually need frame-perfect native updates, adding
+                unnecessary complexity.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#expo-ui-on-android">Previous<b>← Expo UI on Android</b></a>
-    <a class="next" href="#universal-components">Next topic<b>Universal components →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#expo-ui-on-android"
+                >Previous<b>← Expo UI on Android</b></a
+              >
+              <a class="next" href="#universal-components"
+                >Next topic<b>Universal components →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S7 TOPIC 5 ============ -->
-<section class="topic" id="universal-components">
-  <div class="topic-num">TOPIC 5 / 8</div>
-  <h2>Universal components</h2>
+          <!-- ============ S7 TOPIC 5 ============ -->
+          <section class="topic" id="universal-components">
+            <div class="topic-num">TOPIC 5 / 8</div>
+            <h2>Universal components</h2>
 
-  <p>Not every Expo UI component needs a separate iOS/Android implementation in your code — some are exposed as <b>universal components</b>: one import, one API, that internally renders via SwiftUI on iOS and Compose on Android without you branching manually.</p>
+            <p>
+              Not every Expo UI component needs a separate iOS/Android
+              implementation in your code — some are exposed as
+              <b>universal components</b>: one import, one API, that internally
+              renders via SwiftUI on iOS and Compose on Android without you
+              branching manually.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/ThemedButton.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Button</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui'</span>; <span class="tok-com">// universal, platform-aware entry point</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/ThemedButton.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Button</span> } <span class="tok-kw">from</span> <span class="tok-str">'@expo/ui'</span>; <span class="tok-com">// universal, platform-aware entry point</span>
 
 &lt;<span class="tok-tag">Button</span> <span class="tok-attr">text</span>=<span class="tok-str">"Continue"</span> <span class="tok-attr">onPress</span>={() => {}} /&gt;
 <span class="tok-com">// Renders as a real SwiftUI Button on iOS,</span>
 <span class="tok-com">// a real Compose Button on Android — same code, same props.</span></code></pre>
-  </div>
+            </div>
 
-  <div class="callout teal">
-    <b>Universal vs. platform-specific: how to choose</b>
-    Start with universal components whenever your design accepts each platform's native look for that element (buttons, switches, sliders). Drop to the platform-specific package only when you need a capability or visual only one platform's toolkit exposes.
-  </div>
+            <div class="callout teal">
+              <b>Universal vs. platform-specific: how to choose</b>
+              Start with universal components whenever your design accepts each
+              platform's native look for that element (buttons, switches,
+              sliders). Drop to the platform-specific package only when you need
+              a capability or visual only one platform's toolkit exposes.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Manually writing <code>Platform.OS === 'ios'</code> branches to pick between SwiftUI/Compose imports for components that already have a universal version — extra complexity with no benefit.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Manually writing
+                <code>Platform.OS === 'ios'</code> branches to pick between
+                SwiftUI/Compose imports for components that already have a
+                universal version — extra complexity with no benefit.
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Replace a <code>Pressable</code>-based custom button with a universal Expo UI <code>Button</code> and compare how it looks on both platforms (in documentation screenshots, if you don't have both devices).</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Replace a
+                <code>Pressable</code>-based custom button with a universal Expo
+                UI <code>Button</code> and compare how it looks on both
+                platforms (in documentation screenshots, if you don't have both
+                devices).
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="#native-state-and-worklets">Previous<b>← Native state and worklets</b></a>
-    <a class="next" href="#custom-swiftui-views-and-modifiers">Next topic<b>Custom SwiftUI views and modifiers →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#native-state-and-worklets"
+                >Previous<b>← Native state and worklets</b></a
+              >
+              <a class="next" href="#custom-swiftui-views-and-modifiers"
+                >Next topic<b>Custom SwiftUI views and modifiers →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S7 TOPIC 6 ============ -->
-<section class="topic" id="custom-swiftui-views-and-modifiers">
-  <div class="topic-num">TOPIC 6 / 8</div>
-  <h2>Custom SwiftUI views and modifiers</h2>
+          <!-- ============ S7 TOPIC 6 ============ -->
+          <section class="topic" id="custom-swiftui-views-and-modifiers">
+            <div class="topic-num">TOPIC 6 / 8</div>
+            <h2>Custom SwiftUI views and modifiers</h2>
 
-  <p>When Expo UI's built-in components aren't enough, you can write actual Swift code defining a custom SwiftUI view, and expose it to your React Native app as a component — this is your first real taste of the Native Modules concepts from Section 18, in a UI-focused form.</p>
+            <p>
+              When Expo UI's built-in components aren't enough, you can write
+              actual Swift code defining a custom SwiftUI view, and expose it to
+              your React Native app as a component — this is your first real
+              taste of the Native Modules concepts from Section 18, in a
+              UI-focused form.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">modules/gradient-card/ios/GradientCardView.swift</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> SwiftUI
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename"
+                  >modules/gradient-card/ios/GradientCardView.swift</span
+                >
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> SwiftUI
 <span class="tok-kw">import</span> ExpoModulesCore
 
 <span class="tok-kw">struct</span> GradientCardView: View, Expo.Recordable {
@@ -315,49 +558,83 @@
       .cornerRadius(<span class="tok-str">12</span>)
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>This file lives inside a small custom Expo Module (Section 18 covers the full module structure) — Swift code, compiled as part of your native build.</li>
-    <li><code>.background(LinearGradient(...))</code> and <code>.cornerRadius(12)</code> are SwiftUI <b>modifiers</b> — chained calls that transform a view's appearance, conceptually similar to chaining style objects, but applied as method calls in Swift.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                This file lives inside a small custom Expo Module (Section 18
+                covers the full module structure) — Swift code, compiled as part
+                of your native build.
+              </li>
+              <li>
+                <code>.background(LinearGradient(...))</code> and
+                <code>.cornerRadius(12)</code> are SwiftUI <b>modifiers</b> —
+                chained calls that transform a view's appearance, conceptually
+                similar to chaining style objects, but applied as method calls
+                in Swift.
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/index.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">GradientCardView</span> } <span class="tok-kw">from</span> <span class="tok-str">'gradient-card'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/index.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">GradientCardView</span> } <span class="tok-kw">from</span> <span class="tok-str">'gradient-card'</span>;
 
 &lt;<span class="tok-tag">GradientCardView</span> <span class="tok-attr">title</span>=<span class="tok-str">"Premium"</span> <span class="tok-attr">style</span>={{ height: <span class="tok-str">80</span> }} /&gt;</code></pre>
-  </div>
+            </div>
 
-  <div class="callout">
-    <b>Why go this deep?</b>
-    Some visual effects (specific gradients, blurs, native animations tied to system settings) are far easier — and more correct — to express directly in SwiftUI than to approximate in React Native's styling system. This path exists for exactly those cases, not as a default workflow.
-  </div>
+            <div class="callout">
+              <b>Why go this deep?</b>
+              Some visual effects (specific gradients, blurs, native animations
+              tied to system settings) are far easier — and more correct — to
+              express directly in SwiftUI than to approximate in React Native's
+              styling system. This path exists for exactly those cases, not as a
+              default workflow.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card pro"><b>Professional mistake</b>Reaching for a custom SwiftUI view before checking whether a universal or platform-specific Expo UI component already covers the need.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Reaching for a custom SwiftUI view
+                before checking whether a universal or platform-specific Expo UI
+                component already covers the need.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#universal-components">Previous<b>← Universal components</b></a>
-    <a class="next" href="#custom-compose-views-and-modifiers">Next topic<b>Custom Compose views and modifiers →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#universal-components"
+                >Previous<b>← Universal components</b></a
+              >
+              <a class="next" href="#custom-compose-views-and-modifiers"
+                >Next topic<b>Custom Compose views and modifiers →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S7 TOPIC 7 ============ -->
-<section class="topic" id="custom-compose-views-and-modifiers">
-  <div class="topic-num">TOPIC 7 / 8</div>
-  <h2>Custom Compose views and modifiers</h2>
+          <!-- ============ S7 TOPIC 7 ============ -->
+          <section class="topic" id="custom-compose-views-and-modifiers">
+            <div class="topic-num">TOPIC 7 / 8</div>
+            <h2>Custom Compose views and modifiers</h2>
 
-  <p>The Android mirror of the previous topic: a custom Jetpack Compose composable, exposed to React Native the same way.</p>
+            <p>
+              The Android mirror of the previous topic: a custom Jetpack Compose
+              composable, exposed to React Native the same way.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">modules/gradient-card/android/GradientCardView.kt</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> androidx.compose.foundation.background
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename"
+                  >modules/gradient-card/android/GradientCardView.kt</span
+                >
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> androidx.compose.foundation.background
 <span class="tok-kw">import</span> androidx.compose.foundation.layout.padding
 <span class="tok-kw">import</span> androidx.compose.foundation.shape.RoundedCornerShape
 <span class="tok-kw">import</span> androidx.compose.material3.Text
@@ -377,101 +654,194 @@
       )
   )
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>@Composable</code> — marks this function as a Compose UI-building function, Compose's equivalent of a component.</li>
-    <li><code>Modifier.padding(...).background(...)</code> — Compose's modifier chain, conceptually identical to SwiftUI's modifier chain from the previous topic, just Kotlin syntax instead of Swift.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>@Composable</code> — marks this function as a Compose
+                UI-building function, Compose's equivalent of a component.
+              </li>
+              <li>
+                <code>Modifier.padding(...).background(...)</code> — Compose's
+                modifier chain, conceptually identical to SwiftUI's modifier
+                chain from the previous topic, just Kotlin syntax instead of
+                Swift.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Notice the pattern across both platforms</b>
-    Same overall shape: a small native UI function, decorated with chained style modifiers, exposed to JS through an Expo Module. Once you've done it once on one platform, the second platform is mostly a syntax translation, not a new mental model.
-  </div>
+            <div class="callout teal">
+              <b>Notice the pattern across both platforms</b>
+              Same overall shape: a small native UI function, decorated with
+              chained style modifiers, exposed to JS through an Expo Module.
+              Once you've done it once on one platform, the second platform is
+              mostly a syntax translation, not a new mental model.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting that Compose modifier order matters — <code>padding</code> then <code>background</code> produces a different visual result than <code>background</code> then <code>padding</code>.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Forgetting that Compose modifier
+                order matters — <code>padding</code> then
+                <code>background</code> produces a different visual result than
+                <code>background</code> then <code>padding</code>.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>What is the Jetpack Compose equivalent of a SwiftUI "modifier"?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">A separate XML layout file</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">A chained <code>Modifier</code> call that transforms a composable's appearance/behavior</button>
-      </div>
-      <div class="quiz-explain">Correct — both frameworks use a chainable modifier concept to layer styling and behavior onto a view/composable.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  What is the Jetpack Compose equivalent of a SwiftUI
+                  "modifier"?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    A separate XML layout file
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    A chained <code>Modifier</code> call that transforms a
+                    composable's appearance/behavior
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — both frameworks use a chainable modifier concept to
+                  layer styling and behavior onto a view/composable.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#custom-swiftui-views-and-modifiers">Previous<b>← Custom SwiftUI views and modifiers</b></a>
-    <a class="next" href="#architecting-a-maintainable-screen">Next topic<b>Architecting a maintainable screen →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#custom-swiftui-views-and-modifiers"
+                >Previous<b>← Custom SwiftUI views and modifiers</b></a
+              >
+              <a class="next" href="#architecting-a-maintainable-screen"
+                >Next topic<b>Architecting a maintainable screen →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S7 TOPIC 8 ============ -->
-<section class="topic" id="architecting-a-maintainable-screen">
-  <div class="topic-num">TOPIC 8 / 8</div>
-  <h2>Architecting a maintainable screen</h2>
+          <!-- ============ S7 TOPIC 8 ============ -->
+          <section class="topic" id="architecting-a-maintainable-screen">
+            <div class="topic-num">TOPIC 8 / 8</div>
+            <h2>Architecting a maintainable screen</h2>
 
-  <p>Mixing standard React Native components, universal Expo UI components, and fully custom native views on one screen can get messy fast without a clear structure. Here's a pattern that keeps it maintainable.</p>
+            <p>
+              Mixing standard React Native components, universal Expo UI
+              components, and fully custom native views on one screen can get
+              messy fast without a clear structure. Here's a pattern that keeps
+              it maintainable.
+            </p>
 
-  <div class="diagram-wrap">
-    <pre style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.9; color:var(--text);">ProfileScreen (RN layout: View, ScrollView)
+            <div class="diagram-wrap">
+              <pre
+                style="
+                  margin: 0;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 13px;
+                  line-height: 1.9;
+                  color: var(--text);
+                "
+              >ProfileScreen (RN layout: View, ScrollView)
 +-- ProfileHeader        <span style="color:var(--text-mute)">— standard RN components</span>
 +-- NativeSettingsForm    <span style="color:var(--text-mute)">— Expo UI universal Form/Section</span>
 +-- GradientBadge        <span style="color:var(--text-mute)">— fully custom SwiftUI/Compose view</span></pre>
-  </div>
+            </div>
 
-  <h3>The guiding principle</h3>
-  <ul>
-    <li><b>Layout stays in React Native.</b> Use <code>View</code>/<code>ScrollView</code>/Flexbox for overall screen structure — this keeps layout logic in one consistent system.</li>
-    <li><b>Reach for Expo UI at the leaf level.</b> Individual native-feeling controls (forms, pickers, switches) are good candidates; the surrounding scaffolding usually shouldn't be.</li>
-    <li><b>Isolate fully custom native views behind a clear component boundary</b> (like <code>GradientBadge</code> above), so the rest of the screen doesn't need to know or care that it's backed by Swift/Kotlin.</li>
-  </ul>
+            <h3>The guiding principle</h3>
+            <ul>
+              <li>
+                <b>Layout stays in React Native.</b> Use
+                <code>View</code>/<code>ScrollView</code>/Flexbox for overall
+                screen structure — this keeps layout logic in one consistent
+                system.
+              </li>
+              <li>
+                <b>Reach for Expo UI at the leaf level.</b> Individual
+                native-feeling controls (forms, pickers, switches) are good
+                candidates; the surrounding scaffolding usually shouldn't be.
+              </li>
+              <li>
+                <b
+                  >Isolate fully custom native views behind a clear component
+                  boundary</b
+                >
+                (like <code>GradientBadge</code> above), so the rest of the
+                screen doesn't need to know or care that it's backed by
+                Swift/Kotlin.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Why this ordering matters</b>
-    If custom native views are scattered without a clear boundary, debugging layout issues means constantly context-switching between React Native's box model and each native toolkit's own layout system. Isolating them keeps that complexity contained and predictable.
-  </div>
+            <div class="callout">
+              <b>Why this ordering matters</b>
+              If custom native views are scattered without a clear boundary,
+              debugging layout issues means constantly context-switching between
+              React Native's box model and each native toolkit's own layout
+              system. Isolating them keeps that complexity contained and
+              predictable.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Nesting Expo UI's <code>Host</code> components deeply and inconsistently throughout a screen instead of at clear, intentional boundaries.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not documenting which parts of a screen are backed by native code for teammates unfamiliar with Swift/Kotlin, causing confusion during unrelated bug fixes.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Nesting Expo UI's
+                <code>Host</code> components deeply and inconsistently
+                throughout a screen instead of at clear, intentional boundaries.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not documenting which parts of a
+                screen are backed by native code for teammates unfamiliar with
+                Swift/Kotlin, causing confusion during unrelated bug fixes.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 7 final check</h4>
-    <div class="quiz-q">
-      <p>What should typically stay in React Native's own layout system, even on an Expo UI—heavy screen?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Every individual control, including switches and sliders</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">The overall screen structure and layout (View/ScrollView/Flexbox)</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Nothing — the whole screen should be native views</button>
+            <div class="quiz-box">
+              <h4>Section 7 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  What should typically stay in React Native's own layout
+                  system, even on an Expo UI—heavy screen?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Every individual control, including switches and sliders
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    The overall screen structure and layout
+                    (View/ScrollView/Flexbox)
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Nothing — the whole screen should be native views
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — keeping structural layout in RN's own system while
+                  using Expo UI at the leaf/control level keeps the mental model
+                  manageable.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 7 complete ??</b>
+              You can now build genuinely native-first UI using SwiftUI and
+              Jetpack Compose from React, and know how to structure a screen
+              that mixes RN layout, universal components, and fully custom
+              native views. Next up: Section 8 — Testing.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#custom-compose-views-and-modifiers"
+                >Previous<b>← Custom Compose views and modifiers</b></a
+              >
+              <span></span>
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — keeping structural layout in RN's own system while using Expo UI at the leaf/control level keeps the mental model manageable.</div>
     </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 7 complete ??</b>
-    You can now build genuinely native-first UI using SwiftUI and Jetpack Compose from React, and know how to structure a screen that mixes RN layout, universal components, and fully custom native views. Next up: Section 8 — Testing.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#custom-compose-views-and-modifiers">Previous<b>← Custom Compose views and modifiers</b></a>
-    <span></span>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's7';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s7";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,81 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 3 · Components and APIs — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 3 · Components and APIs — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">
+            Section 3 · Components and APIs
+          </div>
+        </div>
+        <div class="content">
+          <!-- SECTION 3: COMPONENTS AND APIS                                   -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 3 · Components and APIs</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 3 — COMPONENTS AND APIS</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">
+              Components and APIs
+            </h1>
+            <p>
+              Every screen you'll ever build is made of components. Here we go
+              from the small set of built-in building blocks, to writing your
+              own reusable components, to advanced patterns used in production
+              codebases.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 3: COMPONENTS AND APIS                                   -->
-<!-- ================================================================ -->
+          <!-- ============ S3 TOPIC 1 ============ -->
+          <section class="topic" id="basic-components">
+            <div class="topic-num">TOPIC 1 / 3</div>
+            <h2>Basic Components</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 3 — COMPONENTS AND APIS</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Components and APIs</h1>
-  <p>Every screen you'll ever build is made of components. Here we go from the small set of built-in building blocks, to writing your own reusable components, to advanced patterns used in production codebases.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              React Native ships a small set of built-in components that map
+              directly to native UI elements. You already met two of them (<code
+                >View</code
+              >
+              and <code>Text</code>) in Section 1 — here's the full core set
+              you'll reach for constantly.
+            </p>
 
-<!-- ============ S3 TOPIC 1 ============ -->
-<section class="topic" id="basic-components">
-  <div class="topic-num">TOPIC 1 / 3</div>
-  <h2>Basic Components</h2>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>View</h5>
+                <p>
+                  An invisible container, like a <code>&lt;div&gt;</code> on the
+                  web. Used to group and lay out other components.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">Tt</div>
+                <h5>Text</h5>
+                <p>
+                  The only component that can display text. Text must always be
+                  wrapped in a <code>Text</code>, never placed directly in a
+                  <code>View</code>.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>ScrollView</h5>
+                <p>
+                  A container that renders <em>all</em> its children
+                  immediately, but lets the user scroll if content overflows the
+                  screen.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>FlatList</h5>
+                <p>
+                  Efficiently renders long lists by only drawing what's on
+                  screen (met in Section 1, Topic 8).
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>TextInput</h5>
+                <p>
+                  Lets the user type text — the native equivalent of an
+                  <code>&lt;input&gt;</code>.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>Pressable</h5>
+                <p>
+                  Makes anything tappable, with fine control over press states —
+                  the modern replacement for the older
+                  <code>TouchableOpacity</code>.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Image</h5>
+                <p>
+                  Displays local or remote images (met in Section 1, Topic 9).
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">?</div>
+                <h5>SafeAreaView</h5>
+                <p>
+                  Keeps content clear of notches, camera cutouts, and system
+                  bars.
+                </p>
+              </div>
+            </div>
 
-  <p>React Native ships a small set of built-in components that map directly to native UI elements. You already met two of them (<code>View</code> and <code>Text</code>) in Section 1 — here's the full core set you'll reach for constantly.</p>
-
-  <div class="card-grid">
-    <div class="mini-card"><div class="icon">?</div><h5>View</h5><p>An invisible container, like a <code>&lt;div&gt;</code> on the web. Used to group and lay out other components.</p></div>
-    <div class="mini-card"><div class="icon">Tt</div><h5>Text</h5><p>The only component that can display text. Text must always be wrapped in a <code>Text</code>, never placed directly in a <code>View</code>.</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>ScrollView</h5><p>A container that renders <em>all</em> its children immediately, but lets the user scroll if content overflows the screen.</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>FlatList</h5><p>Efficiently renders long lists by only drawing what's on screen (met in Section 1, Topic 8).</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>TextInput</h5><p>Lets the user type text — the native equivalent of an <code>&lt;input&gt;</code>.</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>Pressable</h5><p>Makes anything tappable, with fine control over press states — the modern replacement for the older <code>TouchableOpacity</code>.</p></div>
-    <div class="mini-card"><div class="icon">??</div><h5>Image</h5><p>Displays local or remote images (met in Section 1, Topic 9).</p></div>
-    <div class="mini-card"><div class="icon">?</div><h5>SafeAreaView</h5><p>Keeps content clear of notches, camera cutouts, and system bars.</p></div>
-  </div>
-
-  <h3>A component you haven't seen yet: Pressable</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/LikeButton.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useState</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+            <h3>A component you haven't seen yet: Pressable</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/LikeButton.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useState</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">Pressable</span>, <span class="tok-fn">Text</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">LikeButton</span>() {
@@ -93,80 +213,179 @@
     &lt;/<span class="tok-tag">Pressable</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>onPress</code> — the function that runs when the user taps. Note it's <code>onPress</code>, not <code>onClick</code> as on the web — there's no mouse, only touch.</li>
-    <li><code>style={({ pressed }) => ({...})}</code> — Pressable can accept a <em>function</em> as its style, giving you the live pressed state to react to (e.g. dimming on press).</li>
-    <li>If you swapped this for a plain <code>View</code> with no Pressable, tapping it would do nothing — <code>View</code> has no touch handling built in.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>onPress</code> — the function that runs when the user
+                taps. Note it's <code>onPress</code>, not
+                <code>onClick</code> as on the web — there's no mouse, only
+                touch.
+              </li>
+              <li>
+                <code>style={({ pressed }) => ({...})}</code> — Pressable can
+                accept a <em>function</em> as its style, giving you the live
+                pressed state to react to (e.g. dimming on press).
+              </li>
+              <li>
+                If you swapped this for a plain <code>View</code> with no
+                Pressable, tapping it would do nothing — <code>View</code> has
+                no touch handling built in.
+              </li>
+            </ul>
 
-  <div class="phone-demo">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen" style="align-items:center; justify-content:center; display:flex;">
-        <button id="likeDemoBtn" onclick="toggleLikeDemo()" style="border:none; background:none; font-family:'Inter',sans-serif; font-size:16px; padding:10px; cursor:pointer; transition:opacity .15s;">?? Like</button>
-      </div>
-    </div>
-    <div class="demo-controls">
-      <h4>Try it</h4>
-      <p class="mute" style="font-size:13px;">Click the button in the phone — this is exactly the interaction the code above produces.</p>
-    </div>
-  </div>
+            <div class="phone-demo">
+              <div class="phone">
+                <div class="phone-notch"></div>
+                <div
+                  class="phone-screen"
+                  style="
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                  "
+                >
+                  <button
+                    id="likeDemoBtn"
+                    onclick="toggleLikeDemo()"
+                    style="
+                      border: none;
+                      background: none;
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 16px;
+                      padding: 10px;
+                      cursor: pointer;
+                      transition: opacity 0.15s;
+                    "
+                  >
+                    ?? Like
+                  </button>
+                </div>
+              </div>
+              <div class="demo-controls">
+                <h4>Try it</h4>
+                <p class="mute" style="font-size: 13px">
+                  Click the button in the phone — this is exactly the
+                  interaction the code above produces.
+                </p>
+              </div>
+            </div>
 
-  <div class="callout">
-    <b>Pressable vs. TouchableOpacity vs. Button</b>
-    <code>Button</code> is quick but barely stylable. <code>TouchableOpacity</code> is older and still common in existing codebases. <code>Pressable</code> is the current recommended API — more flexible press-state handling, and the direction the ecosystem has standardized on.
-  </div>
+            <div class="callout">
+              <b>Pressable vs. TouchableOpacity vs. Button</b>
+              <code>Button</code> is quick but barely stylable.
+              <code>TouchableOpacity</code> is older and still common in
+              existing codebases. <code>Pressable</code> is the current
+              recommended API — more flexible press-state handling, and the
+              direction the ecosystem has standardized on.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Placing raw text directly inside a <code>View</code> instead of wrapping it in <code>Text</code> — this throws an error in React Native, unlike the web.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Nesting a <code>FlatList</code> inside a <code>ScrollView</code> — both try to manage scrolling, causing broken virtualization and console warnings.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Still reaching for <code>TouchableOpacity</code> out of habit in new code without considering <code>Pressable</code>'s more flexible API.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Placing raw text directly inside a
+                <code>View</code> instead of wrapping it in <code>Text</code> —
+                this throws an error in React Native, unlike the web.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Nesting a
+                <code>FlatList</code> inside a <code>ScrollView</code> — both
+                try to manage scrolling, causing broken virtualization and
+                console warnings.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Still reaching for
+                <code>TouchableOpacity</code> out of habit in new code without
+                considering <code>Pressable</code>'s more flexible API.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>Why must text always be wrapped in a <code>&lt;Text&gt;</code> component?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's just a style convention, not enforced</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)"><code>Text</code> is the only component React Native knows how to render as native text — other components will error or ignore raw strings</button>
-      </div>
-      <div class="quiz-explain">Correct. Unlike a web <code>&lt;div&gt;</code>, a React Native <code>View</code> cannot render text directly — it has no concept of text rendering, only layout.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why must text always be wrapped in a
+                  <code>&lt;Text&gt;</code> component?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It's just a style convention, not enforced
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    <code>Text</code> is the only component React Native knows
+                    how to render as native text — other components will error
+                    or ignore raw strings
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct. Unlike a web <code>&lt;div&gt;</code>, a React Native
+                  <code>View</code> cannot render text directly — it has no
+                  concept of text rendering, only layout.
+                </div>
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Build a <code>Pressable</code> that toggles between "Show" and "Hide" text on tap.</li>
-    <li><span class="lvl i">Intermediate</span> Add a <code>TextInput</code> above the button that only enables the button once at least 3 characters are typed.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Build a
+                <code>Pressable</code> that toggles between "Show" and "Hide"
+                text on tap.
+              </li>
+              <li>
+                <span class="lvl i">Intermediate</span> Add a
+                <code>TextInput</code> above the button that only enables the
+                button once at least 3 characters are typed.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="section2.html#expo-go-vs-development-builds">Previous<b>← Section 2: Expo Go vs Dev Builds</b></a>
-    <a class="next" href="#custom-components">Next topic<b>Custom Components →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section2.html#expo-go-vs-development-builds"
+                >Previous<b>← Section 2: Expo Go vs Dev Builds</b></a
+              >
+              <a class="next" href="#custom-components"
+                >Next topic<b>Custom Components →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S3 TOPIC 2 ============ -->
-<section class="topic" id="custom-components">
-  <div class="topic-num">TOPIC 2 / 3</div>
-  <h2>Custom Components</h2>
+          <!-- ============ S3 TOPIC 2 ============ -->
+          <section class="topic" id="custom-components">
+            <div class="topic-num">TOPIC 2 / 3</div>
+            <h2>Custom Components</h2>
 
-  <p>Basic components are your raw materials. A <b>custom component</b> is one <em>you</em> write, by combining basic components into something reusable — a button styled your way, a card layout, a list item design used in ten different screens.</p>
+            <p>
+              Basic components are your raw materials. A
+              <b>custom component</b> is one <em>you</em> write, by combining
+              basic components into something reusable — a button styled your
+              way, a card layout, a list item design used in ten different
+              screens.
+            </p>
 
-  <h3>Why bother, instead of repeating the same JSX everywhere?</h3>
-  <ul>
-    <li><b>One place to fix bugs.</b> Change the button's padding once, and every screen using it updates.</li>
-    <li><b>Readable screens.</b> <code>&lt;ProductCard product={item} /&gt;</code> reads far better than 15 lines of raw layout repeated inline.</li>
-    <li><b>Props make components flexible</b> without duplicating code for every slight variation.</li>
-  </ul>
+            <h3>Why bother, instead of repeating the same JSX everywhere?</h3>
+            <ul>
+              <li>
+                <b>One place to fix bugs.</b> Change the button's padding once,
+                and every screen using it updates.
+              </li>
+              <li>
+                <b>Readable screens.</b>
+                <code>&lt;ProductCard product={item} /&gt;</code> reads far
+                better than 15 lines of raw layout repeated inline.
+              </li>
+              <li>
+                <b>Props make components flexible</b> without duplicating code
+                for every slight variation.
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/PrimaryButton.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Pressable</span>, <span class="tok-fn">Text</span>, <span class="tok-fn">StyleSheet</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/PrimaryButton.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Pressable</span>, <span class="tok-fn">Text</span>, <span class="tok-fn">StyleSheet</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 
 <span class="tok-kw">type</span> <span class="tok-fn">Props</span> = {
   label: <span class="tok-kw">string</span>;
@@ -195,73 +414,145 @@
   disabled: { backgroundColor: <span class="tok-str">'#ccc'</span> },
   label: { color: <span class="tok-str">'#fff'</span>, fontWeight: <span class="tok-str">'600'</span> },
 });</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>type Props</code> — defines exactly what this component accepts. TypeScript will now warn you at every usage site if you forget <code>onPress</code> or misspell <code>label</code>.</li>
-    <li><code>onPress: () => void</code> — this says "a function that takes no arguments and returns nothing," which is the shape of a typical press handler.</li>
-    <li><code>disabled?: boolean</code> — the <code>?</code> makes this prop optional; callers don't have to pass it.</li>
-    <li><code>style={[styles.button, disabled && styles.disabled, ...]}</code> — React Native accepts an <em>array</em> of styles and merges them left to right, letting you conditionally layer styles.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>type Props</code> — defines exactly what this component
+                accepts. TypeScript will now warn you at every usage site if you
+                forget <code>onPress</code> or misspell <code>label</code>.
+              </li>
+              <li>
+                <code>onPress: () => void</code> — this says "a function that
+                takes no arguments and returns nothing," which is the shape of a
+                typical press handler.
+              </li>
+              <li>
+                <code>disabled?: boolean</code> — the <code>?</code> makes this
+                prop optional; callers don't have to pass it.
+              </li>
+              <li>
+                <code
+                  >style={[styles.button, disabled && styles.disabled,
+                  ...]}</code
+                >
+                — React Native accepts an <em>array</em> of styles and merges
+                them left to right, letting you conditionally layer styles.
+              </li>
+            </ul>
 
-  <h3>Using it elsewhere</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/index.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>&lt;<span class="tok-tag">PrimaryButton</span> <span class="tok-attr">label</span>=<span class="tok-str">"Continue"</span> <span class="tok-attr">onPress</span>={() => router.push(<span class="tok-str">'/next'</span>)} /&gt;</code></pre>
-  </div>
+            <h3>Using it elsewhere</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/index.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>&lt;<span class="tok-tag">PrimaryButton</span> <span class="tok-attr">label</span>=<span class="tok-str">"Continue"</span> <span class="tok-attr">onPress</span>={() => router.push(<span class="tok-str">'/next'</span>)} /&gt;</code></pre>
+            </div>
 
-  <div class="callout teal">
-    <b>Real-world example</b>
-    In an e-commerce app, a single <code>ProductCard</code> component might appear on the home screen, in search results, and in a "recently viewed" list — three very different screens, one component, one place to fix a bug or change the design.
-  </div>
+            <div class="callout teal">
+              <b>Real-world example</b>
+              In an e-commerce app, a single <code>ProductCard</code> component
+              might appear on the home screen, in search results, and in a
+              "recently viewed" list — three very different screens, one
+              component, one place to fix a bug or change the design.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Copy-pasting the same button JSX across five screens instead of extracting one component — any design change now needs five separate edits.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Making a component accept a giant, vague <code>style</code> override prop instead of well-named specific props, making it easy to accidentally break its design.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Extracting a component too early, before a second real usage exists — premature abstraction that guesses wrong about what should be configurable.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Copy-pasting the same button JSX across
+                five screens instead of extracting one component — any design
+                change now needs five separate edits.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Making a component accept a giant,
+                vague <code>style</code> override prop instead of well-named
+                specific props, making it easy to accidentally break its design.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Extracting a component too early,
+                before a second real usage exists — premature abstraction that
+                guesses wrong about what should be configurable.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>What does adding <code>?</code> after a prop name in a TypeScript type do?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Makes the prop a boolean</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Makes the prop optional — callers don't have to pass it</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Renames the prop</button>
-      </div>
-      <div class="quiz-explain">Correct. Without <code>?</code>, TypeScript would require every usage of the component to pass that prop.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  What does adding <code>?</code> after a prop name in a
+                  TypeScript type do?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Makes the prop a boolean
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Makes the prop optional — callers don't have to pass it
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Renames the prop
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct. Without <code>?</code>, TypeScript would require
+                  every usage of the component to pass that prop.
+                </div>
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Extract a <code>Card</code> component that wraps any children in padded, rounded, white background styling.</li>
-    <li><span class="lvl i">Intermediate</span> Give <code>PrimaryButton</code> a <code>variant</code> prop (<code>"primary" | "secondary"</code>) that changes its colors.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Extract a
+                <code>Card</code> component that wraps any children in padded,
+                rounded, white background styling.
+              </li>
+              <li>
+                <span class="lvl i">Intermediate</span> Give
+                <code>PrimaryButton</code> a <code>variant</code> prop (<code
+                  >"primary" | "secondary"</code
+                >) that changes its colors.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="#basic-components">Previous<b>← Basic Components</b></a>
-    <a class="next" href="#advanced-custom-components">Next topic<b>Advanced Custom Components →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#basic-components">Previous<b>← Basic Components</b></a>
+              <a class="next" href="#advanced-custom-components"
+                >Next topic<b>Advanced Custom Components →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S3 TOPIC 3 ============ -->
-<section class="topic" id="advanced-custom-components">
-  <div class="topic-num">TOPIC 3 / 3</div>
-  <h2>Advanced Custom Components</h2>
+          <!-- ============ S3 TOPIC 3 ============ -->
+          <section class="topic" id="advanced-custom-components">
+            <div class="topic-num">TOPIC 3 / 3</div>
+            <h2>Advanced Custom Components</h2>
 
-  <p>Once you're comfortable extracting simple components, the next level is composition patterns that keep components flexible without becoming a tangle of boolean props.</p>
+            <p>
+              Once you're comfortable extracting simple components, the next
+              level is composition patterns that keep components flexible
+              without becoming a tangle of boolean props.
+            </p>
 
-  <h3>Pattern 1: Composition with <code>children</code></h3>
-  <p>Instead of a component that accepts many specific props for every possible piece of content, let it accept arbitrary <code>children</code> — the same pattern <code>View</code> itself uses.</p>
+            <h3>Pattern 1: Composition with <code>children</code></h3>
+            <p>
+              Instead of a component that accepts many specific props for every
+              possible piece of content, let it accept arbitrary
+              <code>children</code> — the same pattern <code>View</code> itself
+              uses.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/Card.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">View</span>, <span class="tok-fn">StyleSheet</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/Card.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">View</span>, <span class="tok-fn">StyleSheet</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">ReactNode</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">Card</span>({ children }: { children: ReactNode }) {
@@ -277,16 +568,24 @@
 <span class="tok-com">//   &lt;Text&gt;Anything at all&lt;/Text&gt;</span>
 <span class="tok-com">//   &lt;PrimaryButton label="Go" onPress={...} /&gt;</span>
 <span class="tok-com">// &lt;/Card&gt;</span></code></pre>
-  </div>
+            </div>
 
-  <h3>Pattern 2: Compound components</h3>
-  <p>For components with several related parts (like a custom list item with an icon, title, and action), exposing them as named sub-components keeps usage readable and flexible.</p>
+            <h3>Pattern 2: Compound components</h3>
+            <p>
+              For components with several related parts (like a custom list item
+              with an icon, title, and action), exposing them as named
+              sub-components keeps usage readable and flexible.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/ListItem.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">View</span>, <span class="tok-fn">Text</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/ListItem.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">View</span>, <span class="tok-fn">Text</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 
 <span class="tok-kw">function</span> <span class="tok-fn">ListItem</span>({ children }: { children: <span class="tok-kw">React</span>.ReactNode }) {
   <span class="tok-kw">return</span> &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flexDirection: <span class="tok-str">'row'</span>, alignItems: <span class="tok-str">'center'</span>, padding: <span class="tok-str">12</span> }}&gt;{children}&lt;/<span class="tok-tag">View</span>&gt;;
@@ -301,21 +600,37 @@
 <span class="tok-com">//   &lt;ListItem.Icon&gt;&lt;Avatar /&gt;&lt;/ListItem.Icon&gt;</span>
 <span class="tok-com">//   &lt;ListItem.Title&gt;Jane Doe&lt;/ListItem.Title&gt;</span>
 <span class="tok-com">// &lt;/ListItem&gt;</span></code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>ListItem.Icon = (...)</code> — JavaScript functions are objects, so you can attach properties to them. This groups related sub-components under one clear namespace.</li>
-    <li>This pattern shines when a component has a fixed "slot" structure (icon, title, action) rather than fully arbitrary children.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>ListItem.Icon = (...)</code> — JavaScript functions are
+                objects, so you can attach properties to them. This groups
+                related sub-components under one clear namespace.
+              </li>
+              <li>
+                This pattern shines when a component has a fixed "slot"
+                structure (icon, title, action) rather than fully arbitrary
+                children.
+              </li>
+            </ul>
 
-  <h3>Pattern 3: Forwarding refs for reusable inputs</h3>
-  <p>When wrapping a native component like <code>TextInput</code>, sometimes a parent screen needs to directly call methods on it (like focusing it). <code>forwardRef</code> makes that possible through your custom wrapper.</p>
+            <h3>Pattern 3: Forwarding refs for reusable inputs</h3>
+            <p>
+              When wrapping a native component like <code>TextInput</code>,
+              sometimes a parent screen needs to directly call methods on it
+              (like focusing it). <code>forwardRef</code> makes that possible
+              through your custom wrapper.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/FormInput.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">forwardRef</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">components/FormInput.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">forwardRef</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">TextInput</span>, <span class="tok-fn">TextInputProps</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 
 <span class="tok-kw">const</span> FormInput = <span class="tok-fn">forwardRef</span>&lt;TextInput, TextInputProps&gt;((props, ref) =&gt; {
@@ -323,54 +638,102 @@
 });
 
 <span class="tok-kw">export default</span> FormInput;</code></pre>
-  </div>
+            </div>
 
-  <div class="callout">
-    <b>When to reach for each pattern</b>
-    Use <code>children</code> composition for generic wrappers (cards, screens). Use compound components when there's a clear fixed structure with named parts. Use <code>forwardRef</code> specifically when a parent genuinely needs imperative access (focus, scroll-to, play/pause) — not as a default habit.
-  </div>
+            <div class="callout">
+              <b>When to reach for each pattern</b>
+              Use <code>children</code> composition for generic wrappers (cards,
+              screens). Use compound components when there's a clear fixed
+              structure with named parts. Use
+              <code>forwardRef</code> specifically when a parent genuinely needs
+              imperative access (focus, scroll-to, play/pause) — not as a
+              default habit.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Trying to pass a <code>ref</code> to a custom component that doesn't use <code>forwardRef</code> — React will warn that function components can't be given refs directly.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Overusing compound components for simple cases where a couple of plain props would be clearer and easier to type-check.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Building elaborate compound-component APIs for internal, single-use components — the pattern earns its complexity in shared design-system components, not one-off screens.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Trying to pass a <code>ref</code> to a
+                custom component that doesn't use <code>forwardRef</code> —
+                React will warn that function components can't be given refs
+                directly.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Overusing compound components for
+                simple cases where a couple of plain props would be clearer and
+                easier to type-check.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Building elaborate compound-component
+                APIs for internal, single-use components — the pattern earns its
+                complexity in shared design-system components, not one-off
+                screens.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 3 final check</h4>
-    <div class="quiz-q">
-      <p>Why would you use <code>forwardRef</code> in a custom input component?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's required for every custom component</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">To let a parent component call imperative methods (like focus) on the underlying native input</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">To make the component render faster</button>
+            <div class="quiz-box">
+              <h4>Section 3 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why would you use <code>forwardRef</code> in a custom input
+                  component?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It's required for every custom component
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    To let a parent component call imperative methods (like
+                    focus) on the underlying native input
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    To make the component render faster
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — forwardRef exists specifically for cases where a
+                  parent needs direct, imperative access to the wrapped native
+                  element.
+                </div>
+              </div>
+            </div>
+
+            <ul class="exercises">
+              <li>
+                <span class="lvl i">Intermediate</span> Build a compound
+                <code>Accordion</code> / <code>Accordion.Item</code> pair of
+                components.
+              </li>
+              <li>
+                <span class="lvl a">Advanced</span> Build a
+                <code>FormInput</code> with <code>forwardRef</code>, then use a
+                parent's ref to auto-focus it when a screen loads.
+              </li>
+            </ul>
+
+            <div class="callout">
+              <b>Section 3 complete ??</b>
+              You can now compose reusable, well-typed components using the
+              patterns real production codebases rely on. Next up: Section 4 —
+              Style and Design.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#custom-components"
+                >Previous<b>← Custom Components</b></a
+              >
+              <a class="next" href="section4.html#designing-with-figma"
+                >Next section<b>Section 4: Style and Design →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — forwardRef exists specifically for cases where a parent needs direct, imperative access to the wrapped native element.</div>
     </div>
-  </div>
-
-  <ul class="exercises">
-    <li><span class="lvl i">Intermediate</span> Build a compound <code>Accordion</code> / <code>Accordion.Item</code> pair of components.</li>
-    <li><span class="lvl a">Advanced</span> Build a <code>FormInput</code> with <code>forwardRef</code>, then use a parent's ref to auto-focus it when a screen loads.</li>
-  </ul>
-
-  <div class="callout">
-    <b>Section 3 complete ??</b>
-    You can now compose reusable, well-typed components using the patterns real production codebases rely on. Next up: Section 4 — Style and Design.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#custom-components">Previous<b>← Custom Components</b></a>
-    <a class="next" href="section4.html#designing-with-figma">Next section<b>Section 4: Style and Design →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's3';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s3";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>

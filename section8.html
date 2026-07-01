@@ -1,78 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 8 · Testing — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 8 · Testing — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 8 · Testing</div>
+        </div>
+        <div class="content">
+          <!-- SECTION 8: TESTING                                               -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 8 · Testing</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 8 — TESTING</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">Testing</h1>
+            <p>
+              Two complementary layers of testing: fast unit tests for your
+              logic and components with Jest, and full end-to-end tests that
+              drive a real app with Maestro.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>2</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 8: TESTING                                               -->
-<!-- ================================================================ -->
+          <!-- ============ S8 TOPIC 1 ============ -->
+          <section class="topic" id="unit-test-with-jest">
+            <div class="topic-num">TOPIC 1 / 2</div>
+            <h2>Unit Test with Jest</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 8 — TESTING</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Testing</h1>
-  <p>Two complementary layers of testing: fast unit tests for your logic and components with Jest, and full end-to-end tests that drive a real app with Maestro.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>2</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              A unit test checks one small piece of logic in isolation — a
+              function, a hook, a component's rendered output — without needing
+              a real device or simulator. Jest is the standard test runner for
+              React Native projects, pre-configured in Expo projects.
+            </p>
 
-<!-- ============ S8 TOPIC 1 ============ -->
-<section class="topic" id="unit-test-with-jest">
-  <div class="topic-num">TOPIC 1 / 2</div>
-  <h2>Unit Test with Jest</h2>
-
-  <p>A unit test checks one small piece of logic in isolation — a function, a hook, a component's rendered output — without needing a real device or simulator. Jest is the standard test runner for React Native projects, pre-configured in Expo projects.</p>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">utils/formatPrice.ts</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">export function</span> <span class="tok-fn">formatPrice</span>(cents: <span class="tok-kw">number</span>): <span class="tok-kw">string</span> {
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">utils/formatPrice.ts</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">export function</span> <span class="tok-fn">formatPrice</span>(cents: <span class="tok-kw">number</span>): <span class="tok-kw">string</span> {
   <span class="tok-kw">return</span> <span class="tok-str">'$'</span> + (cents / <span class="tok-str">100</span>).toFixed(<span class="tok-str">2</span>);
 }</code></pre>
-  </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">utils/formatPrice.test.ts</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">formatPrice</span> } <span class="tok-kw">from</span> <span class="tok-str">'./formatPrice'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">utils/formatPrice.test.ts</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">formatPrice</span> } <span class="tok-kw">from</span> <span class="tok-str">'./formatPrice'</span>;
 
 <span class="tok-fn">describe</span>(<span class="tok-str">'formatPrice'</span>, () => {
   <span class="tok-fn">it</span>(<span class="tok-str">'formats whole dollar amounts correctly'</span>, () => {
@@ -83,30 +141,53 @@
     <span class="tok-fn">expect</span>(<span class="tok-fn">formatPrice</span>(<span class="tok-str">1999</span>)).<span class="tok-fn">toBe</span>(<span class="tok-str">'$19.99'</span>);
   });
 });</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>describe</code> — groups related tests together under a readable label; purely organizational.</li>
-    <li><code>it</code> (or its alias <code>test</code>) — defines one individual test case with a plain-English description of what it verifies.</li>
-    <li><code>expect(...).toBe(...)</code> — an assertion: the test fails loudly if the actual value doesn't match the expected one.</li>
-    <li>If you removed <code>describe</code>, the tests would still run — it's purely for grouping/readability in test output, not functionality.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>describe</code> — groups related tests together under a
+                readable label; purely organizational.
+              </li>
+              <li>
+                <code>it</code> (or its alias <code>test</code>) — defines one
+                individual test case with a plain-English description of what it
+                verifies.
+              </li>
+              <li>
+                <code>expect(...).toBe(...)</code> — an assertion: the test
+                fails loudly if the actual value doesn't match the expected one.
+              </li>
+              <li>
+                If you removed <code>describe</code>, the tests would still run
+                — it's purely for grouping/readability in test output, not
+                functionality.
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>npx jest
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>npx jest
 <span class="tok-com"># or, to re-run automatically on file changes:</span>
 npx jest --watch</code></pre>
-  </div>
+            </div>
 
-  <h3>Testing a component with React Native Testing Library</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">components/LikeButton.test.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">render</span>, <span class="tok-fn">fireEvent</span>, <span class="tok-fn">screen</span> } <span class="tok-kw">from</span> <span class="tok-str">'@testing-library/react-native'</span>;
+            <h3>Testing a component with React Native Testing Library</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename"
+                  >components/LikeButton.test.tsx</span
+                >
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">render</span>, <span class="tok-fn">fireEvent</span>, <span class="tok-fn">screen</span> } <span class="tok-kw">from</span> <span class="tok-str">'@testing-library/react-native'</span>;
 <span class="tok-kw">import</span> <span class="tok-fn">LikeButton</span> <span class="tok-kw">from</span> <span class="tok-str">'./LikeButton'</span>;
 
 <span class="tok-fn">it</span>(<span class="tok-str">'toggles text when pressed'</span>, () => {
@@ -116,61 +197,125 @@ npx jest --watch</code></pre>
   <span class="tok-fn">fireEvent</span>.<span class="tok-fn">press</span>(screen.<span class="tok-fn">getByText</span>(<span class="tok-str">'?? Like'</span>));
   <span class="tok-fn">expect</span>(screen.<span class="tok-fn">getByText</span>(<span class="tok-str">'?? Liked'</span>)).<span class="tok-fn">toBeTruthy</span>();
 });</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>render(&lt;LikeButton /&gt;)</code> — mounts the component in a test environment, without needing a real device.</li>
-    <li><code>getByText(...)</code> — queries the rendered output the way a real user would identify it (by visible text), rather than by internal implementation details.</li>
-    <li><code>fireEvent.press(...)</code> — simulates a real tap on that element.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>render(&lt;LikeButton /&gt;)</code> — mounts the component
+                in a test environment, without needing a real device.
+              </li>
+              <li>
+                <code>getByText(...)</code> — queries the rendered output the
+                way a real user would identify it (by visible text), rather than
+                by internal implementation details.
+              </li>
+              <li>
+                <code>fireEvent.press(...)</code> — simulates a real tap on that
+                element.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Guiding principle: test behavior, not implementation</b>
-    Querying by visible text/labels (like a user would) rather than internal component structure means your tests keep passing through internal refactors, and only break when the actual user-facing behavior changes — which is exactly when you want to know.
-  </div>
+            <div class="callout">
+              <b>Guiding principle: test behavior, not implementation</b>
+              Querying by visible text/labels (like a user would) rather than
+              internal component structure means your tests keep passing through
+              internal refactors, and only break when the actual user-facing
+              behavior changes — which is exactly when you want to know.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Testing implementation details (like internal state variable names) instead of what the user actually sees and does.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Writing zero tests for logic-heavy utility functions (pricing, date formatting) — exactly the kind of pure functions that are cheapest and most valuable to unit test.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Chasing 100% code coverage as a goal in itself, rather than focusing tests on business-critical logic and common failure points.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Testing implementation details (like
+                internal state variable names) instead of what the user actually
+                sees and does.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Writing zero tests for logic-heavy
+                utility functions (pricing, date formatting) — exactly the kind
+                of pure functions that are cheapest and most valuable to unit
+                test.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Chasing 100% code coverage as a goal
+                in itself, rather than focusing tests on business-critical logic
+                and common failure points.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>Why query a rendered component by its visible text rather than internal props/state?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's the only method Jest supports</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">It tests what a real user experiences, and survives internal refactors</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It runs faster than other query methods</button>
-      </div>
-      <div class="quiz-explain">Correct — this is the core philosophy behind React Native Testing Library: test behavior a user would notice, not implementation details.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why query a rendered component by its visible text rather than
+                  internal props/state?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It's the only method Jest supports
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    It tests what a real user experiences, and survives internal
+                    refactors
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It runs faster than other query methods
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — this is the core philosophy behind React Native
+                  Testing Library: test behavior a user would notice, not
+                  implementation details.
+                </div>
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Write a unit test for a <code>capitalize(str)</code> utility function you write yourself.</li>
-    <li><span class="lvl i">Intermediate</span> Write a component test for the <code>PrimaryButton</code> from Section 3 that verifies <code>onPress</code> fires exactly once per tap.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Write a unit test for a
+                <code>capitalize(str)</code> utility function you write
+                yourself.
+              </li>
+              <li>
+                <span class="lvl i">Intermediate</span> Write a component test
+                for the <code>PrimaryButton</code> from Section 3 that verifies
+                <code>onPress</code> fires exactly once per tap.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="section7.html#architecting-a-maintainable-screen">Previous<b>← Section 7: Architecting a maintainable screen</b></a>
-    <a class="next" href="#e2e-with-maestro">Next topic<b>E2E with Maestro →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section7.html#architecting-a-maintainable-screen"
+                >Previous<b
+                  >← Section 7: Architecting a maintainable screen</b
+                ></a
+              >
+              <a class="next" href="#e2e-with-maestro"
+                >Next topic<b>E2E with Maestro →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S8 TOPIC 2 ============ -->
-<section class="topic" id="e2e-with-maestro">
-  <div class="topic-num">TOPIC 2 / 2</div>
-  <h2>E2E with Maestro</h2>
+          <!-- ============ S8 TOPIC 2 ============ -->
+          <section class="topic" id="e2e-with-maestro">
+            <div class="topic-num">TOPIC 2 / 2</div>
+            <h2>E2E with Maestro</h2>
 
-  <p>Unit tests check pieces in isolation. <b>End-to-end (E2E) tests</b> drive your actual, fully-built app — tapping real buttons, typing into real inputs, verifying real screens appear — the same way a human tester would. Maestro is a popular, simple-to-write E2E tool for mobile apps.</p>
+            <p>
+              Unit tests check pieces in isolation.
+              <b>End-to-end (E2E) tests</b> drive your actual, fully-built app —
+              tapping real buttons, typing into real inputs, verifying real
+              screens appear — the same way a human tester would. Maestro is a
+              popular, simple-to-write E2E tool for mobile apps.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">.maestro/login-flow.yaml</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-attr">appId</span>: com.yourcompany.yourapp
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">.maestro/login-flow.yaml</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-attr">appId</span>: com.yourcompany.yourapp
 <span class="tok-kw">---</span>
 - <span class="tok-attr">launchApp</span>
 - <span class="tok-attr">tapOn</span>: <span class="tok-str">"Email"</span>
@@ -179,76 +324,143 @@ npx jest --watch</code></pre>
 - <span class="tok-attr">inputText</span>: <span class="tok-str">"password123"</span>
 - <span class="tok-attr">tapOn</span>: <span class="tok-str">"Log In"</span>
 - <span class="tok-attr">assertVisible</span>: <span class="tok-str">"Welcome back"</span></code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>Maestro flows are written in plain YAML — no code required, which makes them approachable even for QA team members who don't write JavaScript.</li>
-    <li><code>tapOn: "Email"</code> — finds and taps an element by its visible text or accessibility label, mirroring how a real user identifies it.</li>
-    <li><code>assertVisible: "Welcome back"</code> — the test fails if this text isn't found on screen after the login attempt, catching real, full-stack regressions (UI + navigation + API + auth all actually working together).</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                Maestro flows are written in plain YAML — no code required,
+                which makes them approachable even for QA team members who don't
+                write JavaScript.
+              </li>
+              <li>
+                <code>tapOn: "Email"</code> — finds and taps an element by its
+                visible text or accessibility label, mirroring how a real user
+                identifies it.
+              </li>
+              <li>
+                <code>assertVisible: "Welcome back"</code> — the test fails if
+                this text isn't found on screen after the login attempt,
+                catching real, full-stack regressions (UI + navigation + API +
+                auth all actually working together).
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>maestro test .maestro/login-flow.yaml</code></pre>
-  </div>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>maestro test .maestro/login-flow.yaml</code></pre>
+            </div>
 
-  <table class="cmp">
-    <tr><th></th><th>Unit tests (Jest)</th><th>E2E tests (Maestro)</th></tr>
-    <tr><td>Speed</td><td>Very fast (milliseconds each)</td><td>Slower (seconds, runs a real app)</td></tr>
-    <tr><td>What it catches</td><td>Logic bugs in isolation</td><td>Real integration issues across the whole stack</td></tr>
-    <tr><td>How many you should have</td><td>Many, for logic-heavy code</td><td>Fewer, for critical user flows (login, checkout, etc.)</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th></th>
+                <th>Unit tests (Jest)</th>
+                <th>E2E tests (Maestro)</th>
+              </tr>
+              <tr>
+                <td>Speed</td>
+                <td>Very fast (milliseconds each)</td>
+                <td>Slower (seconds, runs a real app)</td>
+              </tr>
+              <tr>
+                <td>What it catches</td>
+                <td>Logic bugs in isolation</td>
+                <td>Real integration issues across the whole stack</td>
+              </tr>
+              <tr>
+                <td>How many you should have</td>
+                <td>Many, for logic-heavy code</td>
+                <td>Fewer, for critical user flows (login, checkout, etc.)</td>
+              </tr>
+            </table>
 
-  <div class="callout teal">
-    <b>Real-world example</b>
-    A typical production app might have hundreds of fast Jest unit tests, but only a handful of Maestro E2E flows — covering exactly the flows that would be catastrophic if broken: sign-up, login, checkout, and maybe one or two core features.
-  </div>
+            <div class="callout teal">
+              <b>Real-world example</b>
+              A typical production app might have hundreds of fast Jest unit
+              tests, but only a handful of Maestro E2E flows — covering exactly
+              the flows that would be catastrophic if broken: sign-up, login,
+              checkout, and maybe one or two core features.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Trying to E2E-test every possible interaction instead of focusing on critical user journeys — E2E suites become slow and brittle if over-used.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Writing Maestro flows that depend on real, mutable backend data (like a specific existing user), making tests flaky when that data changes.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not running E2E tests in CI before releases, catching regressions only after users report them.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Trying to E2E-test every possible
+                interaction instead of focusing on critical user journeys — E2E
+                suites become slow and brittle if over-used.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Writing Maestro flows that depend on
+                real, mutable backend data (like a specific existing user),
+                making tests flaky when that data changes.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not running E2E tests in CI before
+                releases, catching regressions only after users report them.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 8 final check</h4>
-    <div class="quiz-q">
-      <p>Which type of test would catch a bug where login succeeds but the home screen fails to load afterward?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">A Jest unit test of the login form component in isolation</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">A Maestro E2E test that runs the full login flow and asserts the home screen appears</button>
+            <div class="quiz-box">
+              <h4>Section 8 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  Which type of test would catch a bug where login succeeds but
+                  the home screen fails to load afterward?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    A Jest unit test of the login form component in isolation
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    A Maestro E2E test that runs the full login flow and asserts
+                    the home screen appears
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — this is exactly the kind of full-stack, cross-screen
+                  issue unit tests can't catch in isolation, but E2E tests are
+                  designed to.
+                </div>
+              </div>
+            </div>
+
+            <ul class="exercises">
+              <li>
+                <span class="lvl i">Intermediate</span> Write a Maestro flow
+                that adds an item to a cart and asserts the cart badge count
+                updates.
+              </li>
+            </ul>
+
+            <div class="callout">
+              <b>Section 8 complete ??</b>
+              You now have both layers of a solid testing strategy: fast unit
+              tests for logic and components, and E2E tests for critical
+              real-world user flows. Next up: Section 9 — Push Notification.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#unit-test-with-jest"
+                >Previous<b>← Unit Test with Jest</b></a
+              >
+              <a class="next" href="section9.html#expo-notifications"
+                >Next section<b>Section 9: Push Notification →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+          <!-- SECTION 9: PUSH NOTIFICATION                                     -->
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — this is exactly the kind of full-stack, cross-screen issue unit tests can't catch in isolation, but E2E tests are designed to.</div>
     </div>
-  </div>
-
-  <ul class="exercises">
-    <li><span class="lvl i">Intermediate</span> Write a Maestro flow that adds an item to a cart and asserts the cart badge count updates.</li>
-  </ul>
-
-  <div class="callout">
-    <b>Section 8 complete ??</b>
-    You now have both layers of a solid testing strategy: fast unit tests for logic and components, and E2E tests for critical real-world user flows. Next up: Section 9 — Push Notification.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#unit-test-with-jest">Previous<b>← Unit Test with Jest</b></a>
-    <a class="next" href="section9.html#expo-notifications">Next section<b>Section 9: Push Notification →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SECTION 9: PUSH NOTIFICATION                                     -->
-<!-- ================================================================ -->
-
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's8';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s8";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
-

@@ -1,439 +1,967 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 2 · Introduction — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 2 · Introduction — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 2 · Introduction</div>
+        </div>
+        <div class="content">
+          <!-- SECTION 2: INTRODUCTION                                          -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 2 · Introduction</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 2 — INTRODUCTION</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">Introduction</h1>
+            <p>
+              Get properly set up on both platforms, understand how this course
+              is structured, and build a real mental model of the architecture
+              running underneath every app you write from here on.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>6</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 2: INTRODUCTION                                          -->
-<!-- ================================================================ -->
+          <!-- ============ S2 TOPIC 1 ============ -->
+          <section class="topic" id="how-to-take-this-course">
+            <div class="topic-num">TOPIC 1 / 6</div>
+            <h2>How to Take This Course</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 2 — INTRODUCTION</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Introduction</h1>
-  <p>Get properly set up on both platforms, understand how this course is structured, and build a real mental model of the architecture running underneath every app you write from here on.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>6</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              Before diving into setup and architecture, it's worth spending two
+              minutes on <em>how</em> to move through this material so it
+              actually sticks — this section leans more conceptual than Section
+              1, and concepts need a different study approach than "type this
+              command."
+            </p>
 
-<!-- ============ S2 TOPIC 1 ============ -->
-<section class="topic" id="how-to-take-this-course">
-  <div class="topic-num">TOPIC 1 / 6</div>
-  <h2>How to Take This Course</h2>
+            <h3>Read in order, but don't rush the architecture topics</h3>
+            <p>
+              Sections build on each other. However, within this section
+              specifically, "RN New Architecture" is the one topic worth
+              re-reading if it doesn't click the first time — you won't write
+              code differently because of it today, but it explains
+              <em>why</em> certain patterns exist later (like why some libraries
+              need a "development build" instead of Expo Go).
+            </p>
 
-  <p>Before diving into setup and architecture, it's worth spending two minutes on <em>how</em> to move through this material so it actually sticks — this section leans more conceptual than Section 1, and concepts need a different study approach than "type this command."</p>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Read actively</h5>
+                <p>
+                  Predict what a code snippet will do before reading the
+                  line-by-line notes. Being wrong is more useful than being
+                  right.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Type, don't copy</h5>
+                <p>
+                  Typing commands yourself (rather than only clicking "Copy")
+                  builds muscle memory for the terminal workflow you'll use
+                  daily.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Revisit, don't memorize</h5>
+                <p>
+                  You are not expected to memorize the bridge/JSI diagram. Know
+                  it exists, know roughly what it does, move on.
+                </p>
+              </div>
+            </div>
 
-  <h3>Read in order, but don't rush the architecture topics</h3>
-  <p>Sections build on each other. However, within this section specifically, "RN New Architecture" is the one topic worth re-reading if it doesn't click the first time — you won't write code differently because of it today, but it explains <em>why</em> certain patterns exist later (like why some libraries need a "development build" instead of Expo Go).</p>
+            <div class="callout teal">
+              <b>What "done" looks like for Section 2</b>
+              By the end, your computer should have a working environment for at
+              least one platform (Android or iOS), and you should be able to
+              explain — in your own words, no notes — the difference between
+              Expo Go and a development build.
+            </div>
 
-  <div class="card-grid">
-    <div class="mini-card">
-      <div class="icon">??</div>
-      <h5>Read actively</h5>
-      <p>Predict what a code snippet will do before reading the line-by-line notes. Being wrong is more useful than being right.</p>
-    </div>
-    <div class="mini-card">
-      <div class="icon">??</div>
-      <h5>Type, don't copy</h5>
-      <p>Typing commands yourself (rather than only clicking "Copy") builds muscle memory for the terminal workflow you'll use daily.</p>
-    </div>
-    <div class="mini-card">
-      <div class="icon">??</div>
-      <h5>Revisit, don't memorize</h5>
-      <p>You are not expected to memorize the bridge/JSI diagram. Know it exists, know roughly what it does, move on.</p>
-    </div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Skipping the platform setup topics
+                because "Expo Go already worked in Section 1" — simulators and
+                custom native code both need this setup eventually.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Treating architecture topics as
+                optional trivia. They explain real, recurring error messages
+                you'll hit later (e.g. "this library requires a custom
+                development client").
+              </div>
+            </div>
 
-  <div class="callout teal">
-    <b>What "done" looks like for Section 2</b>
-    By the end, your computer should have a working environment for at least one platform (Android or iOS), and you should be able to explain — in your own words, no notes — the difference between Expo Go and a development build.
-  </div>
+            <div class="topic-nav">
+              <a href="section1.html#recap-and-next-steps"
+                >Previous<b>← Section 1 Recap</b></a
+              >
+              <a class="next" href="#why-expo">Next topic<b>Why Expo →</b></a>
+            </div>
+          </section>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Skipping the platform setup topics because "Expo Go already worked in Section 1" — simulators and custom native code both need this setup eventually.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Treating architecture topics as optional trivia. They explain real, recurring error messages you'll hit later (e.g. "this library requires a custom development client").</div>
-  </div>
+          <!-- ============ S2 TOPIC 2 ============ -->
+          <section class="topic" id="why-expo">
+            <div class="topic-num">TOPIC 2 / 6</div>
+            <h2>Why Expo</h2>
 
-  <div class="topic-nav">
-    <a href="section1.html#recap-and-next-steps">Previous<b>← Section 1 Recap</b></a>
-    <a class="next" href="#why-expo">Next topic<b>Why Expo →</b></a>
-  </div>
-</section>
+            <p>
+              Section 1 introduced Expo Go as a way to preview apps instantly.
+              Here we zoom out: why does the React Native ecosystem, as a whole,
+              now default to Expo for nearly every new project — including at
+              large companies?
+            </p>
 
-<!-- ============ S2 TOPIC 2 ============ -->
-<section class="topic" id="why-expo">
-  <div class="topic-num">TOPIC 2 / 6</div>
-  <h2>Why Expo</h2>
+            <h3>The problem before Expo existed</h3>
+            <p>
+              Historically, "bare" React Native projects meant every team
+              independently solved the same problems: how do we handle app icons
+              across densities, how do we manage build numbers, how do we
+              configure push notification certificates, how do we keep native
+              dependencies from breaking on every OS update. Expo standardizes
+              all of this into shared, maintained tooling.
+            </p>
 
-  <p>Section 1 introduced Expo Go as a way to preview apps instantly. Here we zoom out: why does the React Native ecosystem, as a whole, now default to Expo for nearly every new project — including at large companies?</p>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Consistent APIs</h5>
+                <p>
+                  One <code>expo-camera</code>, one <code>expo-location</code> —
+                  instead of picking between several competing community
+                  libraries with different quirks.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">???</div>
+                <h5>Managed native code</h5>
+                <p>
+                  Native project files (the <code>ios/</code> and
+                  <code>android/</code> folders) can be auto-generated from
+                  config, instead of hand-maintained and merge-conflicted
+                  forever.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Cloud infrastructure</h5>
+                <p>
+                  EAS Build, Submit, and Update (Sections 12–15) remove the need
+                  to personally maintain Mac build machines or CI pipelines from
+                  scratch.
+                </p>
+              </div>
+            </div>
 
-  <h3>The problem before Expo existed</h3>
-  <p>Historically, "bare" React Native projects meant every team independently solved the same problems: how do we handle app icons across densities, how do we manage build numbers, how do we configure push notification certificates, how do we keep native dependencies from breaking on every OS update. Expo standardizes all of this into shared, maintained tooling.</p>
+            <div class="callout">
+              <b>An important nuance</b>
+              Choosing Expo does not lock you out of custom native code. Through
+              "config plugins" and development builds, you can add virtually any
+              native capability a bare React Native project could — you're
+              opting into better defaults, not a restricted subset.
+            </div>
 
-  <div class="card-grid">
-    <div class="mini-card"><div class="icon">??</div><h5>Consistent APIs</h5><p>One <code>expo-camera</code>, one <code>expo-location</code> — instead of picking between several competing community libraries with different quirks.</p></div>
-    <div class="mini-card"><div class="icon">???</div><h5>Managed native code</h5><p>Native project files (the <code>ios/</code> and <code>android/</code> folders) can be auto-generated from config, instead of hand-maintained and merge-conflicted forever.</p></div>
-    <div class="mini-card"><div class="icon">??</div><h5>Cloud infrastructure</h5><p>EAS Build, Submit, and Update (Sections 12–15) remove the need to personally maintain Mac build machines or CI pipelines from scratch.</p></div>
-  </div>
+            <table class="cmp">
+              <tr>
+                <th>Concern</th>
+                <th>Bare React Native</th>
+                <th>Expo</th>
+              </tr>
+              <tr>
+                <td>New project setup</td>
+                <td>Manual, platform-specific</td>
+                <td>One CLI command</td>
+              </tr>
+              <tr>
+                <td>OTA updates</td>
+                <td>Build your own or third-party</td>
+                <td>Built-in via EAS Update (Section 14)</td>
+              </tr>
+              <tr>
+                <td>Native module APIs</td>
+                <td>Pick from many community libraries</td>
+                <td>Curated, consistent Expo SDK</td>
+              </tr>
+              <tr>
+                <td>Custom native code</td>
+                <td>Always available</td>
+                <td>Available via dev builds / config plugins</td>
+              </tr>
+            </table>
 
-  <div class="callout">
-    <b>An important nuance</b>
-    Choosing Expo does not lock you out of custom native code. Through "config plugins" and development builds, you can add virtually any native capability a bare React Native project could — you're opting into better defaults, not a restricted subset.
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Believing "Expo apps aren't real apps" or
+                can't be published to app stores — they can, and are, by large
+                companies.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Migrating a mature bare RN app to
+                Expo without first auditing which native modules have
+                Expo-compatible equivalents or config plugins.
+              </div>
+            </div>
 
-  <table class="cmp">
-    <tr><th>Concern</th><th>Bare React Native</th><th>Expo</th></tr>
-    <tr><td>New project setup</td><td>Manual, platform-specific</td><td>One CLI command</td></tr>
-    <tr><td>OTA updates</td><td>Build your own or third-party</td><td>Built-in via EAS Update (Section 14)</td></tr>
-    <tr><td>Native module APIs</td><td>Pick from many community libraries</td><td>Curated, consistent Expo SDK</td></tr>
-    <tr><td>Custom native code</td><td>Always available</td><td>Available via dev builds / config plugins</td></tr>
-  </table>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  Does choosing Expo prevent you from ever writing custom native
+                  (Swift/Kotlin) code?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Yes, Expo apps can never include custom native code
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    No, custom native code is supported via development builds
+                    and config plugins
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct. Expo Go specifically can't run custom native code,
+                  but a development build (your own custom Expo Go) absolutely
+                  can — this is covered in Section 18: Native Modules.
+                </div>
+              </div>
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Believing "Expo apps aren't real apps" or can't be published to app stores — they can, and are, by large companies.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Migrating a mature bare RN app to Expo without first auditing which native modules have Expo-compatible equivalents or config plugins.</div>
-  </div>
+            <div class="topic-nav">
+              <a href="#how-to-take-this-course"
+                >Previous<b>← How to Take This Course</b></a
+              >
+              <a class="next" href="#android-environment-setup"
+                >Next topic<b>Android Environment Setup →</b></a
+              >
+            </div>
+          </section>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>Does choosing Expo prevent you from ever writing custom native (Swift/Kotlin) code?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Yes, Expo apps can never include custom native code</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">No, custom native code is supported via development builds and config plugins</button>
-      </div>
-      <div class="quiz-explain">Correct. Expo Go specifically can't run custom native code, but a development build (your own custom Expo Go) absolutely can — this is covered in Section 18: Native Modules.</div>
-    </div>
-  </div>
+          <!-- ============ S2 TOPIC 3 ============ -->
+          <section class="topic" id="android-environment-setup">
+            <div class="topic-num">TOPIC 3 / 6</div>
+            <h2>Android Environment Setup</h2>
 
-  <div class="topic-nav">
-    <a href="#how-to-take-this-course">Previous<b>← How to Take This Course</b></a>
-    <a class="next" href="#android-environment-setup">Next topic<b>Android Environment Setup →</b></a>
-  </div>
-</section>
+            <p>
+              This gives you an Android emulator on your own computer — useful
+              for testing without a physical device, and required once you need
+              custom native code.
+            </p>
 
-<!-- ============ S2 TOPIC 3 ============ -->
-<section class="topic" id="android-environment-setup">
-  <div class="topic-num">TOPIC 3 / 6</div>
-  <h2>Android Environment Setup</h2>
+            <h3>Step by step</h3>
+            <ol>
+              <li>
+                Download and install <b>Android Studio</b> from
+                developer.android.com.
+              </li>
+              <li>
+                During setup, make sure the <b>Android SDK</b>,
+                <b>Android SDK Platform</b>, and
+                <b>Android Virtual Device</b> components are all checked.
+              </li>
+              <li>
+                Open Android Studio ? More Actions ? Virtual Device Manager ?
+                create a new device (a recent Pixel profile with a recent
+                Android system image is a safe default).
+              </li>
+              <li>
+                Set the <code>ANDROID_HOME</code> environment variable so
+                command-line tools can find your SDK.
+              </li>
+            </ol>
 
-  <p>This gives you an Android emulator on your own computer — useful for testing without a physical device, and required once you need custom native code.</p>
-
-  <h3>Step by step</h3>
-  <ol>
-    <li>Download and install <b>Android Studio</b> from developer.android.com.</li>
-    <li>During setup, make sure the <b>Android SDK</b>, <b>Android SDK Platform</b>, and <b>Android Virtual Device</b> components are all checked.</li>
-    <li>Open Android Studio ? More Actions ? Virtual Device Manager ? create a new device (a recent Pixel profile with a recent Android system image is a safe default).</li>
-    <li>Set the <code>ANDROID_HOME</code> environment variable so command-line tools can find your SDK.</li>
-  </ol>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">~/.zshrc or ~/.bashrc</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com"># macOS/Linux example — adjust path if your SDK lives elsewhere</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">~/.zshrc or ~/.bashrc</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com"># macOS/Linux example — adjust path if your SDK lives elsewhere</span>
 <span class="tok-kw">export</span> ANDROID_HOME=<span class="tok-str">$HOME/Library/Android/sdk</span>
 <span class="tok-kw">export</span> PATH=<span class="tok-str">$PATH:$ANDROID_HOME/emulator</span>
 <span class="tok-kw">export</span> PATH=<span class="tok-str">$PATH:$ANDROID_HOME/platform-tools</span></code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>ANDROID_HOME</code> — tells build tools and the CLI where your Android SDK is installed, so commands like <code>adb</code> and <code>emulator</code> work from any terminal.</li>
-    <li>After editing this file, restart your terminal (or run <code>source ~/.zshrc</code>) for the changes to take effect.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>ANDROID_HOME</code> — tells build tools and the CLI where
+                your Android SDK is installed, so commands like
+                <code>adb</code> and <code>emulator</code> work from any
+                terminal.
+              </li>
+              <li>
+                After editing this file, restart your terminal (or run
+                <code>source ~/.zshrc</code>) for the changes to take effect.
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com"># with an emulator running, from your project folder:</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com"># with an emulator running, from your project folder:</span>
 npx expo start --android</code></pre>
-  </div>
+            </div>
 
-  <div class="callout teal">
-    <b>Don't have a powerful computer?</b>
-    Emulators are RAM and CPU-hungry. If your machine struggles, skip this and keep testing on a real Android device via Expo Go — everything in this course works either way, until Section 18 (Native Modules).
-  </div>
+            <div class="callout teal">
+              <b>Don't have a powerful computer?</b>
+              Emulators are RAM and CPU-hungry. If your machine struggles, skip
+              this and keep testing on a real Android device via Expo Go —
+              everything in this course works either way, until Section 18
+              (Native Modules).
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting to set <code>ANDROID_HOME</code>, causing "command not found" or "SDK not found" errors.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Creating a virtual device with a very old Android version that doesn't match your app's minimum target, causing confusing crashes.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Forgetting to set
+                <code>ANDROID_HOME</code>, causing "command not found" or "SDK
+                not found" errors.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Creating a virtual device with a very
+                old Android version that doesn't match your app's minimum
+                target, causing confusing crashes.
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl b">Beginner</span> Create an Android Virtual Device and successfully run your Section 1 project on it.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl b">Beginner</span> Create an Android Virtual
+                Device and successfully run your Section 1 project on it.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="#why-expo">Previous<b>← Why Expo</b></a>
-    <a class="next" href="#ios-environment-setup">Next topic<b>iOS Environment Setup →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#why-expo">Previous<b>← Why Expo</b></a>
+              <a class="next" href="#ios-environment-setup"
+                >Next topic<b>iOS Environment Setup →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S2 TOPIC 4 ============ -->
-<section class="topic" id="ios-environment-setup">
-  <div class="topic-num">TOPIC 4 / 6</div>
-  <h2>iOS Environment Setup</h2>
+          <!-- ============ S2 TOPIC 4 ============ -->
+          <section class="topic" id="ios-environment-setup">
+            <div class="topic-num">TOPIC 4 / 6</div>
+            <h2>iOS Environment Setup</h2>
 
-  <div class="callout">
-    <b>Mac required</b>
-    Building for the iOS Simulator or installing on physical iPhones with custom native code requires a Mac — this is an Apple platform restriction, not a React Native/Expo limitation. Windows/Linux users can still develop iOS apps using Expo Go on a real iPhone, or EAS Build's cloud iOS builds (Section 12).
-  </div>
+            <div class="callout">
+              <b>Mac required</b>
+              Building for the iOS Simulator or installing on physical iPhones
+              with custom native code requires a Mac — this is an Apple platform
+              restriction, not a React Native/Expo limitation. Windows/Linux
+              users can still develop iOS apps using Expo Go on a real iPhone,
+              or EAS Build's cloud iOS builds (Section 12).
+            </div>
 
-  <h3>Step by step (on a Mac)</h3>
-  <ol>
-    <li>Install <b>Xcode</b> from the Mac App Store (it's large — several GB — so start this early).</li>
-    <li>Open Xcode once fully, and accept its license agreement.</li>
-    <li>Install the Xcode Command Line Tools if prompted.</li>
-    <li>Open Xcode ? Settings ? Platforms, and confirm an iOS Simulator runtime is installed.</li>
-  </ol>
+            <h3>Step by step (on a Mac)</h3>
+            <ol>
+              <li>
+                Install <b>Xcode</b> from the Mac App Store (it's large —
+                several GB — so start this early).
+              </li>
+              <li>Open Xcode once fully, and accept its license agreement.</li>
+              <li>Install the Xcode Command Line Tools if prompted.</li>
+              <li>
+                Open Xcode ? Settings ? Platforms, and confirm an iOS Simulator
+                runtime is installed.
+              </li>
+            </ol>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com"># confirm Xcode command line tools are set up correctly</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com"># confirm Xcode command line tools are set up correctly</span>
 xcode-select --install
 
 <span class="tok-com"># from your project folder, with Xcode installed:</span>
 npx expo start --ios</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>xcode-select --install</code> — installs the command-line developer tools Expo's CLI needs to talk to the Simulator, separate from the full Xcode app.</li>
-    <li><code>npx expo start --ios</code> — builds and opens your app directly in the iOS Simulator, no QR code needed.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>xcode-select --install</code> — installs the command-line
+                developer tools Expo's CLI needs to talk to the Simulator,
+                separate from the full Xcode app.
+              </li>
+              <li>
+                <code>npx expo start --ios</code> — builds and opens your app
+                directly in the iOS Simulator, no QR code needed.
+              </li>
+            </ul>
 
-  <table class="cmp">
-    <tr><th>Scenario</th><th>What you need</th></tr>
-    <tr><td>Testing on your own iPhone</td><td>Expo Go app (any OS on your computer)</td></tr>
-    <tr><td>Testing on iOS Simulator</td><td>A Mac with Xcode</td></tr>
-    <tr><td>Custom native code on iOS</td><td>A Mac with Xcode, or EAS Build's cloud service</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th>Scenario</th>
+                <th>What you need</th>
+              </tr>
+              <tr>
+                <td>Testing on your own iPhone</td>
+                <td>Expo Go app (any OS on your computer)</td>
+              </tr>
+              <tr>
+                <td>Testing on iOS Simulator</td>
+                <td>A Mac with Xcode</td>
+              </tr>
+              <tr>
+                <td>Custom native code on iOS</td>
+                <td>A Mac with Xcode, or EAS Build's cloud service</td>
+              </tr>
+            </table>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Starting Xcode's multi-GB download the moment you need it, rather than in advance — plan for it to take a while on slower connections.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Assuming you're fully blocked from iOS development on Windows/Linux — EAS Build's cloud builds remove that requirement for anything beyond local Simulator testing.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Starting Xcode's multi-GB download the
+                moment you need it, rather than in advance — plan for it to take
+                a while on slower connections.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Assuming you're fully blocked from
+                iOS development on Windows/Linux — EAS Build's cloud builds
+                remove that requirement for anything beyond local Simulator
+                testing.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#android-environment-setup">Previous<b>← Android Environment Setup</b></a>
-    <a class="next" href="#rn-new-architecture">Next topic<b>RN New Architecture →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#android-environment-setup"
+                >Previous<b>← Android Environment Setup</b></a
+              >
+              <a class="next" href="#rn-new-architecture"
+                >Next topic<b>RN New Architecture →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S2 TOPIC 5 ============ -->
-<section class="topic" id="rn-new-architecture">
-  <div class="topic-num">TOPIC 5 / 6</div>
-  <h2>RN New Architecture</h2>
+          <!-- ============ S2 TOPIC 5 ============ -->
+          <section class="topic" id="rn-new-architecture">
+            <div class="topic-num">TOPIC 5 / 6</div>
+            <h2>RN New Architecture</h2>
 
-  <p>Section 1 briefly compared the old Bridge architecture to the New Architecture. Here we go one level deeper, because as of recent Expo SDK versions, <b>every new project uses the New Architecture by default</b> — understanding it is no longer optional trivia.</p>
+            <p>
+              Section 1 briefly compared the old Bridge architecture to the New
+              Architecture. Here we go one level deeper, because as of recent
+              Expo SDK versions,
+              <b>every new project uses the New Architecture by default</b> —
+              understanding it is no longer optional trivia.
+            </p>
 
-  <h3>The three pieces of the New Architecture</h3>
-  <div class="card-grid">
-    <div class="mini-card">
-      <div class="icon">JSI</div>
-      <h5>JavaScript Interface</h5>
-      <p>Lets JavaScript hold direct references to native objects and call native methods synchronously when needed — replacing the old async-only bridge.</p>
-    </div>
-    <div class="mini-card">
-      <div class="icon">Fab</div>
-      <h5>Fabric</h5>
-      <p>The new rendering system. Builds the UI tree using C++ shared between platforms, reducing inconsistency between iOS and Android rendering.</p>
-    </div>
-    <div class="mini-card">
-      <div class="icon">TM</div>
-      <h5>TurboModules</h5>
-      <p>Native modules are now loaded lazily (only when first used) instead of all upfront, speeding up app startup time.</p>
-    </div>
-  </div>
+            <h3>The three pieces of the New Architecture</h3>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">JSI</div>
+                <h5>JavaScript Interface</h5>
+                <p>
+                  Lets JavaScript hold direct references to native objects and
+                  call native methods synchronously when needed — replacing the
+                  old async-only bridge.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">Fab</div>
+                <h5>Fabric</h5>
+                <p>
+                  The new rendering system. Builds the UI tree using C++ shared
+                  between platforms, reducing inconsistency between iOS and
+                  Android rendering.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">TM</div>
+                <h5>TurboModules</h5>
+                <p>
+                  Native modules are now loaded lazily (only when first used)
+                  instead of all upfront, speeding up app startup time.
+                </p>
+              </div>
+            </div>
 
-  <div class="diagram-wrap">
-    <svg viewBox="0 0 760 260" width="100%" height="260">
-      <rect x="20" y="30" width="200" height="200" rx="14" fill="var(--coral-dim)" stroke="var(--coral)"/>
-      <text x="120" y="20" text-anchor="middle" font-size="12" fill="var(--text)">JS THREAD</text>
-      <text x="120" y="90" text-anchor="middle" font-size="12" fill="var(--text)">React components</text>
-      <text x="120" y="110" text-anchor="middle" font-size="12" fill="var(--text)">+ your logic</text>
-      <text x="120" y="145" text-anchor="middle" font-size="11" fill="var(--text-mute)">Hermes engine</text>
+            <div class="diagram-wrap">
+              <svg viewBox="0 0 760 260" width="100%" height="260">
+                <rect
+                  x="20"
+                  y="30"
+                  width="200"
+                  height="200"
+                  rx="14"
+                  fill="var(--coral-dim)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="120"
+                  y="20"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  JS THREAD
+                </text>
+                <text
+                  x="120"
+                  y="90"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  React components
+                </text>
+                <text
+                  x="120"
+                  y="110"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  + your logic
+                </text>
+                <text
+                  x="120"
+                  y="145"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text-mute)"
+                >
+                  Hermes engine
+                </text>
 
-      <rect x="280" y="30" width="200" height="200" rx="14" fill="var(--teal-dim)" stroke="var(--teal)"/>
-      <text x="380" y="20" text-anchor="middle" font-size="12" fill="var(--text)">JSI</text>
-      <text x="380" y="90" text-anchor="middle" font-size="12" fill="var(--text)">Direct references</text>
-      <text x="380" y="110" text-anchor="middle" font-size="12" fill="var(--text)">to native objects</text>
-      <text x="380" y="145" text-anchor="middle" font-size="11" fill="var(--text-mute)">no JSON serialization</text>
+                <rect
+                  x="280"
+                  y="30"
+                  width="200"
+                  height="200"
+                  rx="14"
+                  fill="var(--teal-dim)"
+                  stroke="var(--teal)"
+                />
+                <text
+                  x="380"
+                  y="20"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  JSI
+                </text>
+                <text
+                  x="380"
+                  y="90"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  Direct references
+                </text>
+                <text
+                  x="380"
+                  y="110"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  to native objects
+                </text>
+                <text
+                  x="380"
+                  y="145"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text-mute)"
+                >
+                  no JSON serialization
+                </text>
 
-      <rect x="540" y="30" width="200" height="90" rx="12" fill="var(--paper-dim)" stroke="var(--line)"/>
-      <text x="640" y="65" text-anchor="middle" font-size="12" fill="var(--text)">Fabric renderer</text>
-      <rect x="540" y="140" width="200" height="90" rx="12" fill="var(--paper-dim)" stroke="var(--line)"/>
-      <text x="640" y="175" text-anchor="middle" font-size="12" fill="var(--text)">TurboModules</text>
+                <rect
+                  x="540"
+                  y="30"
+                  width="200"
+                  height="90"
+                  rx="12"
+                  fill="var(--paper-dim)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="640"
+                  y="65"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  Fabric renderer
+                </text>
+                <rect
+                  x="540"
+                  y="140"
+                  width="200"
+                  height="90"
+                  rx="12"
+                  fill="var(--paper-dim)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="640"
+                  y="175"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  TurboModules
+                </text>
 
-      <path d="M220 130 H280" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#arrow2)"/>
-      <path d="M480 90 H540 V85" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#arrow2)"/>
-      <path d="M480 170 H540 V185" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#arrow2)"/>
-      <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
-    </svg>
-  </div>
+                <path
+                  d="M220 130 H280"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#arrow2)"
+                />
+                <path
+                  d="M480 90 H540 V85"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#arrow2)"
+                />
+                <path
+                  d="M480 170 H540 V185"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#arrow2)"
+                />
+                <defs>
+                  <marker
+                    id="arrow2"
+                    markerWidth="8"
+                    markerHeight="8"
+                    refX="6"
+                    refY="3"
+                    orient="auto"
+                  >
+                    <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)" />
+                  </marker>
+                </defs>
+              </svg>
+            </div>
 
-  <h3>Why should a beginner care?</h3>
-  <p>You won't write JSI or Fabric code directly. But you will:</p>
-  <ul>
-    <li>See "New Architecture" mentioned in library documentation and know what it means.</li>
-    <li>Understand why some older libraries needed updates to remain compatible.</li>
-    <li>Understand why startup performance and heavy UI interactions generally feel faster than they did historically.</li>
-  </ul>
+            <h3>Why should a beginner care?</h3>
+            <p>You won't write JSI or Fabric code directly. But you will:</p>
+            <ul>
+              <li>
+                See "New Architecture" mentioned in library documentation and
+                know what it means.
+              </li>
+              <li>
+                Understand why some older libraries needed updates to remain
+                compatible.
+              </li>
+              <li>
+                Understand why startup performance and heavy UI interactions
+                generally feel faster than they did historically.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Practical takeaway</b>
-    When a library's docs say "requires New Architecture" or "not yet compatible with New Architecture," this is now the concept they're referring to. Expo-managed projects handle this compatibility layer for you in most cases.
-  </div>
+            <div class="callout">
+              <b>Practical takeaway</b>
+              When a library's docs say "requires New Architecture" or "not yet
+              compatible with New Architecture," this is now the concept they're
+              referring to. Expo-managed projects handle this compatibility
+              layer for you in most cases.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Disabling the New Architecture "to fix a bug" without first checking whether the actual issue was an outdated library version.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Deep-diving into writing custom TurboModules before understanding whether a simpler Expo Modules API (Section 18) solves the same problem.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Disabling the New Architecture "to
+                fix a bug" without first checking whether the actual issue was
+                an outdated library version.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Deep-diving into writing custom
+                TurboModules before understanding whether a simpler Expo Modules
+                API (Section 18) solves the same problem.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>What does JSI primarily remove the need for, compared to the old Bridge?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">The JavaScript engine itself</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Serializing every call into JSON messages passed asynchronously</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">The need to write any native code ever</button>
-      </div>
-      <div class="quiz-explain">Correct — the old bridge required converting every call into JSON and passing it asynchronously. JSI allows direct references and calls, cutting that overhead.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  What does JSI primarily remove the need for, compared to the
+                  old Bridge?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    The JavaScript engine itself
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Serializing every call into JSON messages passed
+                    asynchronously
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    The need to write any native code ever
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — the old bridge required converting every call into
+                  JSON and passing it asynchronously. JSI allows direct
+                  references and calls, cutting that overhead.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#ios-environment-setup">Previous<b>← iOS Environment Setup</b></a>
-    <a class="next" href="#expo-go-vs-development-builds">Next topic<b>Expo Go vs Development Builds →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#ios-environment-setup"
+                >Previous<b>← iOS Environment Setup</b></a
+              >
+              <a class="next" href="#expo-go-vs-development-builds"
+                >Next topic<b>Expo Go vs Development Builds →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S2 TOPIC 6 ============ -->
-<section class="topic" id="expo-go-vs-development-builds">
-  <div class="topic-num">TOPIC 6 / 6</div>
-  <h2>Expo Go vs Development Builds</h2>
+          <!-- ============ S2 TOPIC 6 ============ -->
+          <section class="topic" id="expo-go-vs-development-builds">
+            <div class="topic-num">TOPIC 6 / 6</div>
+            <h2>Expo Go vs Development Builds</h2>
 
-  <p>This is the single most common point of confusion for people new to Expo, so let's make it completely unambiguous.</p>
+            <p>
+              This is the single most common point of confusion for people new
+              to Expo, so let's make it completely unambiguous.
+            </p>
 
-  <div class="card-grid">
-    <div class="mini-card">
-      <div class="icon">??</div>
-      <h5>Expo Go</h5>
-      <p>A single app, published once by Expo, pre-installed with the entire standard Expo SDK's native code. You just install it from the App/Play Store.</p>
-    </div>
-    <div class="mini-card">
-      <div class="icon">???</div>
-      <h5>Development Build</h5>
-      <p>Your <em>own</em> custom version of Expo Go, built specifically for your project, containing exactly the native code your project needs — including custom modules.</p>
-    </div>
-  </div>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">??</div>
+                <h5>Expo Go</h5>
+                <p>
+                  A single app, published once by Expo, pre-installed with the
+                  entire standard Expo SDK's native code. You just install it
+                  from the App/Play Store.
+                </p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">???</div>
+                <h5>Development Build</h5>
+                <p>
+                  Your <em>own</em> custom version of Expo Go, built
+                  specifically for your project, containing exactly the native
+                  code your project needs — including custom modules.
+                </p>
+              </div>
+            </div>
 
-  <table class="cmp">
-    <tr><th></th><th>Expo Go</th><th>Development Build</th></tr>
-    <tr><td>Install source</td><td>App Store / Play Store</td><td>Built by you via EAS Build or locally</td></tr>
-    <tr><td>Custom native modules</td><td>✗ Not supported</td><td>✓ Fully supported</td></tr>
-    <tr><td>Setup effort</td><td>None — already installed</td><td>One build, then reused like Expo Go</td></tr>
-    <tr><td>Good for</td><td>Learning, prototyping, standard SDK features</td><td>Anything needing custom native code</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th></th>
+                <th>Expo Go</th>
+                <th>Development Build</th>
+              </tr>
+              <tr>
+                <td>Install source</td>
+                <td>App Store / Play Store</td>
+                <td>Built by you via EAS Build or locally</td>
+              </tr>
+              <tr>
+                <td>Custom native modules</td>
+                <td>✗ Not supported</td>
+                <td>✓ Fully supported</td>
+              </tr>
+              <tr>
+                <td>Setup effort</td>
+                <td>None — already installed</td>
+                <td>One build, then reused like Expo Go</td>
+              </tr>
+              <tr>
+                <td>Good for</td>
+                <td>Learning, prototyping, standard SDK features</td>
+                <td>Anything needing custom native code</td>
+              </tr>
+            </table>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com"># install the dev-client package once your project needs it</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com"># install the dev-client package once your project needs it</span>
 npx expo install expo-dev-client
 
 <span class="tok-com"># build a development build for a connected device/simulator</span>
 npx expo run:ios
 <span class="tok-com"># or</span>
 npx expo run:android</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>expo-dev-client</code> — the package that turns your project into "its own Expo Go," including a small in-app menu for reloading and debugging.</li>
-    <li><code>npx expo run:ios</code> / <code>run:android</code> — compiles your project's native code locally and installs the resulting development build on a simulator/device.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>expo-dev-client</code> — the package that turns your
+                project into "its own Expo Go," including a small in-app menu
+                for reloading and debugging.
+              </li>
+              <li>
+                <code>npx expo run:ios</code> / <code>run:android</code> —
+                compiles your project's native code locally and installs the
+                resulting development build on a simulator/device.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>How to decide, in practice</b>
-    Stay on Expo Go for as long as every library you use is compatible with it (most are, for standard app features). The moment you add a library that says "requires custom native code" or "not compatible with Expo Go," that's your signal to switch to a development build — a one-time setup, not a full rewrite.
-  </div>
+            <div class="callout teal">
+              <b>How to decide, in practice</b>
+              Stay on Expo Go for as long as every library you use is compatible
+              with it (most are, for standard app features). The moment you add
+              a library that says "requires custom native code" or "not
+              compatible with Expo Go," that's your signal to switch to a
+              development build — a one-time setup, not a full rewrite.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Assuming a development build means "leaving Expo" — it doesn't; it's still a fully Expo-managed project, just with your own native shell.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Rebuilding a development build for every small JS change — you only need to rebuild it when native dependencies change, not for everyday JS edits.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Assuming a development build means
+                "leaving Expo" — it doesn't; it's still a fully Expo-managed
+                project, just with your own native shell.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Rebuilding a development build for
+                every small JS change — you only need to rebuild it when native
+                dependencies change, not for everyday JS edits.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 2 final check</h4>
-    <div class="quiz-q">
-      <p>When should you switch from Expo Go to a development build?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Immediately, for every project, regardless of libraries used</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">When you need a library or custom native module that Expo Go doesn't already include</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Never — development builds are only for publishing to app stores</button>
+            <div class="quiz-box">
+              <h4>Section 2 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  When should you switch from Expo Go to a development build?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Immediately, for every project, regardless of libraries used
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    When you need a library or custom native module that Expo Go
+                    doesn't already include
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Never — development builds are only for publishing to app
+                    stores
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct. Expo Go covers the standard SDK well; a development
+                  build becomes necessary specifically when you need native code
+                  beyond what Expo Go ships with.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 2 complete ??</b>
+              You now have a working environment on at least one platform, and
+              understand the architecture and tooling model behind every future
+              topic. Next up: Section 3 — Components and APIs.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#rn-new-architecture"
+                >Previous<b>← RN New Architecture</b></a
+              >
+              <a class="next" href="section3.html#basic-components"
+                >Next section<b>Section 3: Components and APIs →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct. Expo Go covers the standard SDK well; a development build becomes necessary specifically when you need native code beyond what Expo Go ships with.</div>
     </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 2 complete ??</b>
-    You now have a working environment on at least one platform, and understand the architecture and tooling model behind every future topic. Next up: Section 3 — Components and APIs.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#rn-new-architecture">Previous<b>← RN New Architecture</b></a>
-    <a class="next" href="section3.html#basic-components">Next section<b>Section 3: Components and APIs →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's2';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s2";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
-

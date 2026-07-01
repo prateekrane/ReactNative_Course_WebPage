@@ -1,191 +1,454 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 5 · Expo Router (Navigation) — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 5 · Expo Router (Navigation) — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">
+            Section 5 · Expo Router (Navigation)
+          </div>
+        </div>
+        <div class="content">
+          <!-- SECTION 5: EXPO ROUTER (NAVIGATION)                              -->
+          <!-- ================================================================ -->
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 5 · Expo Router (Navigation)</div>
-      
-    </div>
-    <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 5 — EXPO ROUTER (NAVIGATION)</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">
+              Expo Router (Navigation)
+            </h1>
+            <p>
+              You saw the basics in Section 1. Now we go all the way: dynamic
+              routes, tabs and stacks, authentication flows, role-based access,
+              and deep linking — everything a production app's navigation needs.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>8</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~3h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-<!-- SECTION 5: EXPO ROUTER (NAVIGATION)                              -->
-<!-- ================================================================ -->
+          <!-- ============ S5 TOPIC 1 ============ -->
+          <section class="topic" id="file-based-routing">
+            <div class="topic-num">TOPIC 1 / 8</div>
+            <h2>File-Based Routing</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 5 — EXPO ROUTER (NAVIGATION)</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Expo Router (Navigation)</h1>
-  <p>You saw the basics in Section 1. Now we go all the way: dynamic routes, tabs and stacks, authentication flows, role-based access, and deep linking — everything a production app's navigation needs.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>8</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~3h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              Recall from Section 1: every file inside <code>app/</code> becomes
+              a route automatically. Let's formalize the rules.
+            </p>
 
-<!-- ============ S5 TOPIC 1 ============ -->
-<section class="topic" id="file-based-routing">
-  <div class="topic-num">TOPIC 1 / 8</div>
-  <h2>File-Based Routing</h2>
-
-  <p>Recall from Section 1: every file inside <code>app/</code> becomes a route automatically. Let's formalize the rules.</p>
-
-  <div class="diagram-wrap">
-    <pre style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.9; color:var(--text);">app/
+            <div class="diagram-wrap">
+              <pre
+                style="
+                  margin: 0;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 13px;
+                  line-height: 1.9;
+                  color: var(--text);
+                "
+              >app/
 +-- index.tsx           <span style="color:var(--text-mute)">?  "/"</span>
 +-- about.tsx            <span style="color:var(--text-mute)">?  "/about"</span>
 +-- settings/
 │   +-- index.tsx        <span style="color:var(--text-mute)">?  "/settings"</span>
 │   +-- notifications.tsx <span style="color:var(--text-mute)">?  "/settings/notifications"</span>
 +-- _layout.tsx          <span style="color:var(--text-mute)">   (wraps every screen — not a route itself)</span></pre>
-  </div>
+            </div>
 
-  <table class="cmp">
-    <tr><th>File name pattern</th><th>Meaning</th></tr>
-    <tr><td><code>index.tsx</code></td><td>The default route for that folder</td></tr>
-    <tr><td><code>_layout.tsx</code></td><td>Shared UI/config wrapping all sibling and child routes — never a route itself</td></tr>
-    <tr><td><code>[id].tsx</code></td><td>A dynamic segment — covered next topic</td></tr>
-    <tr><td><code>(group)/</code></td><td>A folder in parentheses groups routes without adding to the URL — used for organization</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th>File name pattern</th>
+                <th>Meaning</th>
+              </tr>
+              <tr>
+                <td><code>index.tsx</code></td>
+                <td>The default route for that folder</td>
+              </tr>
+              <tr>
+                <td><code>_layout.tsx</code></td>
+                <td>
+                  Shared UI/config wrapping all sibling and child routes — never
+                  a route itself
+                </td>
+              </tr>
+              <tr>
+                <td><code>[id].tsx</code></td>
+                <td>A dynamic segment — covered next topic</td>
+              </tr>
+              <tr>
+                <td><code>(group)/</code></td>
+                <td>
+                  A folder in parentheses groups routes without adding to the
+                  URL — used for organization
+                </td>
+              </tr>
+            </table>
 
-  <div class="callout">
-    <b>Why this is powerful</b>
-    You can understand an unfamiliar app's entire navigation structure just by scanning its <code>app/</code> folder — no separate navigation config file to keep in sync with reality.
-  </div>
+            <div class="callout">
+              <b>Why this is powerful</b>
+              You can understand an unfamiliar app's entire navigation structure
+              just by scanning its <code>app/</code> folder — no separate
+              navigation config file to keep in sync with reality.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Naming a component file that shouldn't be a screen (like a shared component) directly inside <code>app/</code>, accidentally creating an unwanted route.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting that <code>_layout.tsx</code> is required in a folder for shared elements (like a header) to wrap that folder's screens.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Naming a component file that shouldn't be
+                a screen (like a shared component) directly inside
+                <code>app/</code>, accidentally creating an unwanted route.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Forgetting that
+                <code>_layout.tsx</code> is required in a folder for shared
+                elements (like a header) to wrap that folder's screens.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="section4.html#dark-mode">Previous<b>← Section 4: Dark Mode</b></a>
-    <a class="next" href="#dynamic-routes">Next topic<b>Dynamic Routes →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section4.html#dark-mode"
+                >Previous<b>← Section 4: Dark Mode</b></a
+              >
+              <a class="next" href="#dynamic-routes"
+                >Next topic<b>Dynamic Routes →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 2 ============ -->
-<section class="topic" id="dynamic-routes">
-  <div class="topic-num">TOPIC 2 / 8</div>
-  <h2>Dynamic Routes</h2>
+          <!-- ============ S5 TOPIC 2 ============ -->
+          <section class="topic" id="dynamic-routes">
+            <div class="topic-num">TOPIC 2 / 8</div>
+            <h2>Dynamic Routes</h2>
 
-  <p>Most real screens aren't static — a product page needs a product ID, a profile page needs a username. Square brackets in a filename create a dynamic segment.</p>
+            <p>
+              Most real screens aren't static — a product page needs a product
+              ID, a profile page needs a username. Square brackets in a filename
+              create a dynamic segment.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/product/[id].tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useLocalSearchParams</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/product/[id].tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useLocalSearchParams</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">Text</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">ProductScreen</span>() {
   <span class="tok-kw">const</span> { id } = <span class="tok-fn">useLocalSearchParams</span>&lt;{ id: <span class="tok-kw">string</span> }&gt;();
   <span class="tok-kw">return</span> &lt;<span class="tok-tag">Text</span>&gt;Product #{id}&lt;/<span class="tok-tag">Text</span>&gt;;
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>app/product/[id].tsx</code> — the brackets tell Expo Router this segment is variable; navigating to <code>/product/42</code> or <code>/product/anything</code> both match this file.</li>
-    <li><code>useLocalSearchParams()</code> — reads whatever value was in that dynamic segment for the current navigation.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>app/product/[id].tsx</code> — the brackets tell Expo
+                Router this segment is variable; navigating to
+                <code>/product/42</code> or <code>/product/anything</code> both
+                match this file.
+              </li>
+              <li>
+                <code>useLocalSearchParams()</code> — reads whatever value was
+                in that dynamic segment for the current navigation.
+              </li>
+            </ul>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/index.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>&lt;<span class="tok-tag">Link</span> <span class="tok-attr">href</span>={<span class="tok-str">&#96;/product/\${product.id}&#96;</span>}&gt;{product.name}&lt;/<span class="tok-tag">Link</span>&gt;</code></pre>
-  </div>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/index.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>&lt;<span class="tok-tag">Link</span> <span class="tok-attr">href</span>={<span class="tok-str">&#96;/product/\${product.id}&#96;</span>}&gt;{product.name}&lt;/<span class="tok-tag">Link</span>&gt;</code></pre>
+            </div>
 
-  <div class="callout teal">
-    <b>Catch-all routes</b>
-    <code>[...slug].tsx</code> (with three dots) matches any number of remaining path segments — useful for things like a CMS-driven page tree where depth isn't fixed in advance.
-  </div>
+            <div class="callout teal">
+              <b>Catch-all routes</b>
+              <code>[...slug].tsx</code> (with three dots) matches any number of
+              remaining path segments — useful for things like a CMS-driven page
+              tree where depth isn't fixed in advance.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting params always arrive as strings — <code>id</code> is <code>"42"</code>, not the number <code>42</code>, until you convert it.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Using <code>useGlobalSearchParams</code> when <code>useLocalSearchParams</code> was intended, picking up stale params from a parent route unexpectedly.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Forgetting params always arrive as
+                strings — <code>id</code> is <code>"42"</code>, not the number
+                <code>42</code>, until you convert it.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Using
+                <code>useGlobalSearchParams</code> when
+                <code>useLocalSearchParams</code> was intended, picking up stale
+                params from a parent route unexpectedly.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>What file name would correctly handle the route <code>/user/[username]</code>?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">app/user/username.tsx</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">app/user/[username].tsx</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">app/user/{'{username}'}.tsx</button>
-      </div>
-      <div class="quiz-explain">Correct — square brackets are Expo Router's syntax for a dynamic segment.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  What file name would correctly handle the route
+                  <code>/user/[username]</code>?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    app/user/username.tsx
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    app/user/[username].tsx
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    app/user/{'{username}'}.tsx
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — square brackets are Expo Router's syntax for a
+                  dynamic segment.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#file-based-routing">Previous<b>← File-Based Routing</b></a>
-    <a class="next" href="#stack-tabs">Next topic<b>Stack & Tabs →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#file-based-routing"
+                >Previous<b>← File-Based Routing</b></a
+              >
+              <a class="next" href="#stack-tabs"
+                >Next topic<b>Stack & Tabs →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 3 ============ -->
-<section class="topic" id="stack-tabs">
-  <div class="topic-num">TOPIC 3 / 8</div>
-  <h2>Stack & Tabs</h2>
+          <!-- ============ S5 TOPIC 3 ============ -->
+          <section class="topic" id="stack-tabs">
+            <div class="topic-num">TOPIC 3 / 8</div>
+            <h2>Stack & Tabs</h2>
 
-  <p>Two navigation patterns cover the vast majority of apps: a <b>Stack</b> (screens pushed on top of each other, with a back button) and <b>Tabs</b> (persistent bottom navigation between top-level sections).</p>
+            <p>
+              Two navigation patterns cover the vast majority of apps: a
+              <b>Stack</b> (screens pushed on top of each other, with a back
+              button) and <b>Tabs</b> (persistent bottom navigation between
+              top-level sections).
+            </p>
 
-  <div class="diagram-wrap">
-    <svg viewBox="0 0 760 200" width="100%" height="200">
-      <rect x="20" y="30" width="330" height="140" rx="14" fill="var(--coral-dim)" stroke="var(--coral)"/>
-      <text x="185" y="20" text-anchor="middle" font-size="12" fill="var(--text)">STACK</text>
-      <rect x="40" y="60" width="130" height="80" rx="8" fill="var(--card)" stroke="var(--line)"/>
-      <text x="105" y="105" text-anchor="middle" font-size="11" fill="var(--text)">Screen A</text>
-      <rect x="190" y="75" width="130" height="80" rx="8" fill="var(--card)" stroke="var(--coral)"/>
-      <text x="255" y="120" text-anchor="middle" font-size="11" fill="var(--text)">Screen B (pushed)</text>
+            <div class="diagram-wrap">
+              <svg viewBox="0 0 760 200" width="100%" height="200">
+                <rect
+                  x="20"
+                  y="30"
+                  width="330"
+                  height="140"
+                  rx="14"
+                  fill="var(--coral-dim)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="185"
+                  y="20"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  STACK
+                </text>
+                <rect
+                  x="40"
+                  y="60"
+                  width="130"
+                  height="80"
+                  rx="8"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="105"
+                  y="105"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Screen A
+                </text>
+                <rect
+                  x="190"
+                  y="75"
+                  width="130"
+                  height="80"
+                  rx="8"
+                  fill="var(--card)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="255"
+                  y="120"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Screen B (pushed)
+                </text>
 
-      <rect x="400" y="30" width="340" height="140" rx="14" fill="var(--teal-dim)" stroke="var(--teal)"/>
-      <text x="570" y="20" text-anchor="middle" font-size="12" fill="var(--text)">TABS</text>
-      <rect x="420" y="55" width="300" height="80" rx="8" fill="var(--card)" stroke="var(--line)"/>
-      <text x="570" y="100" text-anchor="middle" font-size="11" fill="var(--text)">Active tab content</text>
-      <rect x="420" y="145" width="300" height="20" rx="6" fill="var(--card)" stroke="var(--line)"/>
-      <text x="470" y="159" text-anchor="middle" font-size="9" fill="var(--text-mute)">Home</text>
-      <text x="570" y="159" text-anchor="middle" font-size="9" fill="var(--coral)">Search</text>
-      <text x="670" y="159" text-anchor="middle" font-size="9" fill="var(--text-mute)">Profile</text>
-    </svg>
-  </div>
+                <rect
+                  x="400"
+                  y="30"
+                  width="340"
+                  height="140"
+                  rx="14"
+                  fill="var(--teal-dim)"
+                  stroke="var(--teal)"
+                />
+                <text
+                  x="570"
+                  y="20"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  TABS
+                </text>
+                <rect
+                  x="420"
+                  y="55"
+                  width="300"
+                  height="80"
+                  rx="8"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="570"
+                  y="100"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Active tab content
+                </text>
+                <rect
+                  x="420"
+                  y="145"
+                  width="300"
+                  height="20"
+                  rx="6"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="470"
+                  y="159"
+                  text-anchor="middle"
+                  font-size="9"
+                  fill="var(--text-mute)"
+                >
+                  Home
+                </text>
+                <text
+                  x="570"
+                  y="159"
+                  text-anchor="middle"
+                  font-size="9"
+                  fill="var(--coral)"
+                >
+                  Search
+                </text>
+                <text
+                  x="670"
+                  y="159"
+                  text-anchor="middle"
+                  font-size="9"
+                  fill="var(--text-mute)"
+                >
+                  Profile
+                </text>
+              </svg>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/(tabs)/_layout.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Tabs</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/(tabs)/_layout.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Tabs</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">TabLayout</span>() {
   <span class="tok-kw">return</span> (
@@ -196,49 +459,103 @@
     &lt;/<span class="tok-tag">Tabs</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>(tabs)</code> — a parenthesized folder name; it groups these three screens under a shared tab bar without adding "/tabs" to any URL.</li>
-    <li><code>Tabs.Screen name="index"</code> — <code>name</code> must match the actual filename (without extension) inside that folder.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>(tabs)</code> — a parenthesized folder name; it groups
+                these three screens under a shared tab bar without adding
+                "/tabs" to any URL.
+              </li>
+              <li>
+                <code>Tabs.Screen name="index"</code> — <code>name</code> must
+                match the actual filename (without extension) inside that
+                folder.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>They combine, constantly</b>
-    A typical app nests these: a root Stack contains a Tabs layout as one screen, and tapping into a list item from within a tab pushes a new screen onto the Stack, temporarily hiding the tab bar. This nesting is normal and expected.
-  </div>
+            <div class="callout">
+              <b>They combine, constantly</b>
+              A typical app nests these: a root Stack contains a Tabs layout as
+              one screen, and tapping into a list item from within a tab pushes
+              a new screen onto the Stack, temporarily hiding the tab bar. This
+              nesting is normal and expected.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Naming a tab route folder <code>tabs/</code> instead of <code>(tabs)/</code> — without parentheses, "tabs" becomes part of the URL, which usually isn't intended.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Putting every screen in one flat Stack instead of grouping related screens, making the navigation structure hard to reason about as the app grows.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Naming a tab route folder
+                <code>tabs/</code> instead of <code>(tabs)/</code> — without
+                parentheses, "tabs" becomes part of the URL, which usually isn't
+                intended.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Putting every screen in one flat
+                Stack instead of grouping related screens, making the navigation
+                structure hard to reason about as the app grows.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#dynamic-routes">Previous<b>← Dynamic Routes</b></a>
-    <a class="next" href="#router-hooks">Next topic<b>Router Hooks →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#dynamic-routes">Previous<b>← Dynamic Routes</b></a>
+              <a class="next" href="#router-hooks"
+                >Next topic<b>Router Hooks →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 4 ============ -->
-<section class="topic" id="router-hooks">
-  <div class="topic-num">TOPIC 4 / 8</div>
-  <h2>Router Hooks</h2>
+          <!-- ============ S5 TOPIC 4 ============ -->
+          <section class="topic" id="router-hooks">
+            <div class="topic-num">TOPIC 4 / 8</div>
+            <h2>Router Hooks</h2>
 
-  <p>Beyond the <code>Link</code> component, Expo Router provides hooks for navigating and reading route state imperatively from your logic.</p>
+            <p>
+              Beyond the <code>Link</code> component, Expo Router provides hooks
+              for navigating and reading route state imperatively from your
+              logic.
+            </p>
 
-  <table class="cmp">
-    <tr><th>Hook</th><th>Purpose</th></tr>
-    <tr><td><code>useRouter()</code></td><td>Gives you <code>router.push()</code>, <code>router.replace()</code>, <code>router.back()</code> for navigating from event handlers</td></tr>
-    <tr><td><code>useLocalSearchParams()</code></td><td>Reads dynamic segment values and query params for the current screen</td></tr>
-    <tr><td><code>usePathname()</code></td><td>Returns the current URL path as a string</td></tr>
-    <tr><td><code>useSegments()</code></td><td>Returns the current route as an array of path segments — useful for conditional layout logic</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th>Hook</th>
+                <th>Purpose</th>
+              </tr>
+              <tr>
+                <td><code>useRouter()</code></td>
+                <td>
+                  Gives you <code>router.push()</code>,
+                  <code>router.replace()</code>, <code>router.back()</code> for
+                  navigating from event handlers
+                </td>
+              </tr>
+              <tr>
+                <td><code>useLocalSearchParams()</code></td>
+                <td>
+                  Reads dynamic segment values and query params for the current
+                  screen
+                </td>
+              </tr>
+              <tr>
+                <td><code>usePathname()</code></td>
+                <td>Returns the current URL path as a string</td>
+              </tr>
+              <tr>
+                <td><code>useSegments()</code></td>
+                <td>
+                  Returns the current route as an array of path segments —
+                  useful for conditional layout logic
+                </td>
+              </tr>
+            </table>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/login.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useRouter</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/login.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useRouter</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">Login</span>() {
   <span class="tok-kw">const</span> router = <span class="tok-fn">useRouter</span>();
@@ -248,45 +565,81 @@
   }
   <span class="tok-com">// ...</span>
 }</code></pre>
-  </div>
+            </div>
 
-  <div class="callout teal">
-    <b><code>push</code> vs <code>replace</code></b>
-    <code>push</code> adds a new screen on top, leaving the previous one reachable via back. <code>replace</code> swaps the current screen out entirely — used after login so the user can't tap "back" and land on the login screen again.
-  </div>
+            <div class="callout teal">
+              <b><code>push</code> vs <code>replace</code></b>
+              <code>push</code> adds a new screen on top, leaving the previous
+              one reachable via back. <code>replace</code> swaps the current
+              screen out entirely — used after login so the user can't tap
+              "back" and land on the login screen again.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Using <code>push</code> after a login/onboarding flow, letting users navigate "back" into a screen they shouldn't revisit.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Calling router methods during render instead of inside an event handler or effect, causing navigation to fire at the wrong time.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Using <code>push</code> after a
+                login/onboarding flow, letting users navigate "back" into a
+                screen they shouldn't revisit.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Calling router methods during render
+                instead of inside an event handler or effect, causing navigation
+                to fire at the wrong time.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>After a successful login, which navigation method usually makes more sense?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">router.push('/home')</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">router.replace('/home')</button>
-      </div>
-      <div class="quiz-explain">Correct — replace removes the login screen from history so the back button can't return to it.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  After a successful login, which navigation method usually
+                  makes more sense?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    router.push('/home')
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    router.replace('/home')
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — replace removes the login screen from history so the
+                  back button can't return to it.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#stack-tabs">Previous<b>← Stack & Tabs</b></a>
-    <a class="next" href="#authentication-flow">Next topic<b>Authentication Flow →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#stack-tabs">Previous<b>← Stack & Tabs</b></a>
+              <a class="next" href="#authentication-flow"
+                >Next topic<b>Authentication Flow →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 5 ============ -->
-<section class="topic" id="authentication-flow">
-  <div class="topic-num">TOPIC 5 / 8</div>
-  <h2>Authentication Flow</h2>
+          <!-- ============ S5 TOPIC 5 ============ -->
+          <section class="topic" id="authentication-flow">
+            <div class="topic-num">TOPIC 5 / 8</div>
+            <h2>Authentication Flow</h2>
 
-  <p>Almost every real app needs to show different screens to logged-in vs. logged-out users, and prevent direct navigation into protected screens. Expo Router handles this with route groups and a redirect check in a root layout.</p>
+            <p>
+              Almost every real app needs to show different screens to logged-in
+              vs. logged-out users, and prevent direct navigation into protected
+              screens. Expo Router handles this with route groups and a redirect
+              check in a root layout.
+            </p>
 
-  <div class="diagram-wrap">
-    <pre style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.9; color:var(--text);">app/
+            <div class="diagram-wrap">
+              <pre
+                style="
+                  margin: 0;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 13px;
+                  line-height: 1.9;
+                  color: var(--text);
+                "
+              >app/
 +-- (auth)/
 │   +-- login.tsx        <span style="color:var(--text-mute)">?  "/login"</span>
 │   +-- signup.tsx       <span style="color:var(--text-mute)">?  "/signup"</span>
@@ -294,13 +647,17 @@
 │   +-- index.tsx        <span style="color:var(--text-mute)">?  "/"  (protected)</span>
 │   +-- profile.tsx      <span style="color:var(--text-mute)">?  "/profile" (protected)</span>
 +-- _layout.tsx           <span style="color:var(--text-mute)">   (checks auth, redirects)</span></pre>
-  </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/_layout.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Slot</span>, <span class="tok-fn">Redirect</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/_layout.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Slot</span>, <span class="tok-fn">Redirect</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">useAuth</span> } <span class="tok-kw">from</span> <span class="tok-str">'../hooks/useAuth'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">RootLayout</span>() {
@@ -311,47 +668,90 @@
 
   <span class="tok-kw">return</span> &lt;<span class="tok-tag">Slot</span> /&gt;; <span class="tok-com">// renders whichever child route matched</span>
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>&lt;Redirect href="/login" /&gt;</code> — declaratively redirects, rather than imperatively calling <code>router.replace</code> in an effect — cleaner and avoids a flash of the wrong screen.</li>
-    <li><code>&lt;Slot /&gt;</code> — renders whatever the currently matched child route is; used in layouts that don't need a Stack or Tabs wrapper themselves.</li>
-    <li>The <code>isLoading</code> check matters: without it, you'd briefly redirect to <code>/login</code> even for already-logged-in users while the auth check is still in flight.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>&lt;Redirect href="/login" /&gt;</code> — declaratively
+                redirects, rather than imperatively calling
+                <code>router.replace</code> in an effect — cleaner and avoids a
+                flash of the wrong screen.
+              </li>
+              <li>
+                <code>&lt;Slot /&gt;</code> — renders whatever the currently
+                matched child route is; used in layouts that don't need a Stack
+                or Tabs wrapper themselves.
+              </li>
+              <li>
+                The <code>isLoading</code> check matters: without it, you'd
+                briefly redirect to <code>/login</code> even for
+                already-logged-in users while the auth check is still in flight.
+              </li>
+            </ul>
 
-  <div class="callout">
-    <b>Real-world example</b>
-    A banking app keeps all account screens under an <code>(app)</code> group protected by exactly this pattern — attempting to deep-link directly into <code>/accounts/1234</code> without a valid session redirects straight to login, no protected data ever renders.
-  </div>
+            <div class="callout">
+              <b>Real-world example</b>
+              A banking app keeps all account screens under an
+              <code>(app)</code> group protected by exactly this pattern —
+              attempting to deep-link directly into
+              <code>/accounts/1234</code> without a valid session redirects
+              straight to login, no protected data ever renders.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Only hiding a "Login" link in the UI, without an actual layout-level check — a user can still navigate directly to the protected URL.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Not handling the loading state, causing a visible flash of the login screen for already-authenticated users on app start.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Storing auth tokens insecurely (e.g. in plain AsyncStorage) instead of a secure storage API designed for sensitive data.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Only hiding a "Login" link in the UI,
+                without an actual layout-level check — a user can still navigate
+                directly to the protected URL.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Not handling the loading state,
+                causing a visible flash of the login screen for
+                already-authenticated users on app start.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Storing auth tokens insecurely (e.g.
+                in plain AsyncStorage) instead of a secure storage API designed
+                for sensitive data.
+              </div>
+            </div>
 
-  <ul class="exercises">
-    <li><span class="lvl i">Intermediate</span> Build a minimal <code>useAuth</code> hook backed by a boolean state, and wire up the redirect logic shown above.</li>
-  </ul>
+            <ul class="exercises">
+              <li>
+                <span class="lvl i">Intermediate</span> Build a minimal
+                <code>useAuth</code> hook backed by a boolean state, and wire up
+                the redirect logic shown above.
+              </li>
+            </ul>
 
-  <div class="topic-nav">
-    <a href="#router-hooks">Previous<b>← Router Hooks</b></a>
-    <a class="next" href="#role-based-access">Next topic<b>Role-Based Access →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#router-hooks">Previous<b>← Router Hooks</b></a>
+              <a class="next" href="#role-based-access"
+                >Next topic<b>Role-Based Access →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 6 ============ -->
-<section class="topic" id="role-based-access">
-  <div class="topic-num">TOPIC 6 / 8</div>
-  <h2>Role-Based Access</h2>
+          <!-- ============ S5 TOPIC 6 ============ -->
+          <section class="topic" id="role-based-access">
+            <div class="topic-num">TOPIC 6 / 8</div>
+            <h2>Role-Based Access</h2>
 
-  <p>Beyond "logged in or not," many apps have roles — an admin sees different screens than a regular user. This builds directly on the authentication pattern above.</p>
+            <p>
+              Beyond "logged in or not," many apps have roles — an admin sees
+              different screens than a regular user. This builds directly on the
+              authentication pattern above.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/(app)/admin/_layout.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Slot</span>, <span class="tok-fn">Redirect</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/(app)/admin/_layout.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Slot</span>, <span class="tok-fn">Redirect</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">useAuth</span> } <span class="tok-kw">from</span> <span class="tok-str">'../../../hooks/useAuth'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">AdminLayout</span>() {
@@ -363,46 +763,80 @@
 
   <span class="tok-kw">return</span> &lt;<span class="tok-tag">Slot</span> /&gt;;
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>Placing this check in <code>admin/_layout.tsx</code> protects <em>every</em> screen inside that folder automatically — no need to repeat the check in each individual admin screen.</li>
-    <li><code>user?.role !== 'admin'</code> — the optional chaining (<code>?.</code>) safely handles the case where <code>user</code> is still <code>null</code>.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                Placing this check in <code>admin/_layout.tsx</code> protects
+                <em>every</em> screen inside that folder automatically — no need
+                to repeat the check in each individual admin screen.
+              </li>
+              <li>
+                <code>user?.role !== 'admin'</code> — the optional chaining
+                (<code>?.</code>) safely handles the case where
+                <code>user</code> is still <code>null</code>.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Client-side checks are UX, not security</b>
-    This pattern controls what a legitimate user <em>sees</em>. Your backend API must independently verify role permissions on every request — a client-side redirect can always be bypassed by a determined attacker calling your API directly.
-  </div>
+            <div class="callout teal">
+              <b>Client-side checks are UX, not security</b>
+              This pattern controls what a legitimate user <em>sees</em>. Your
+              backend API must independently verify role permissions on every
+              request — a client-side redirect can always be bypassed by a
+              determined attacker calling your API directly.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Treating a client-side role check as sufficient security, without matching enforcement on the backend.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Duplicating the role check in every screen file instead of centralizing it in a shared layout for that section.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Treating a client-side role check as
+                sufficient security, without matching enforcement on the
+                backend.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Duplicating the role check in every
+                screen file instead of centralizing it in a shared layout for
+                that section.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#authentication-flow">Previous<b>← Authentication Flow</b></a>
-    <a class="next" href="#deep-linking">Next topic<b>Deep Linking →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#authentication-flow"
+                >Previous<b>← Authentication Flow</b></a
+              >
+              <a class="next" href="#deep-linking"
+                >Next topic<b>Deep Linking →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 7 ============ -->
-<section class="topic" id="deep-linking">
-  <div class="topic-num">TOPIC 7 / 8</div>
-  <h2>Deep Linking</h2>
+          <!-- ============ S5 TOPIC 7 ============ -->
+          <section class="topic" id="deep-linking">
+            <div class="topic-num">TOPIC 7 / 8</div>
+            <h2>Deep Linking</h2>
 
-  <p>Deep linking lets an external source — a push notification, a text message, a website — open your app directly to a specific screen, instead of just the home screen.</p>
+            <p>
+              Deep linking lets an external source — a push notification, a text
+              message, a website — open your app directly to a specific screen,
+              instead of just the home screen.
+            </p>
 
-  <div class="callout">
-    <b>The good news with Expo Router</b>
-    Because your file structure already defines URL-like routes, deep linking mostly comes for free — <code>myapp://product/42</code> maps to <code>app/product/[id].tsx</code> automatically, the same route your in-app <code>Link</code> components already use.
-  </div>
+            <div class="callout">
+              <b>The good news with Expo Router</b>
+              Because your file structure already defines URL-like routes, deep
+              linking mostly comes for free —
+              <code>myapp://product/42</code> maps to
+              <code>app/product/[id].tsx</code> automatically, the same route
+              your in-app <code>Link</code> components already use.
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app.json</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>{
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app.json</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>{
   <span class="tok-attr">"expo"</span>: {
     <span class="tok-attr">"scheme"</span>: <span class="tok-str">"myapp"</span>,
     <span class="tok-attr">"ios"</span>: { <span class="tok-attr">"associatedDomains"</span>: [<span class="tok-str">"applinks:myapp.com"</span>] },
@@ -415,42 +849,84 @@
     }
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>"scheme": "myapp"</code> — registers <code>myapp://</code> as a custom URL scheme your app responds to.</li>
-    <li><code>associatedDomains</code> / <code>intentFilters</code> — configure "Universal Links" (iOS) and "App Links" (Android), letting regular <code>https://myapp.com/product/42</code> links open your app directly instead of a browser, when installed.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>"scheme": "myapp"</code> — registers
+                <code>myapp://</code> as a custom URL scheme your app responds
+                to.
+              </li>
+              <li>
+                <code>associatedDomains</code> / <code>intentFilters</code> —
+                configure "Universal Links" (iOS) and "App Links" (Android),
+                letting regular <code>https://myapp.com/product/42</code> links
+                open your app directly instead of a browser, when installed.
+              </li>
+            </ul>
 
-  <table class="cmp">
-    <tr><th>Link type</th><th>Example</th><th>Fallback if app not installed</th></tr>
-    <tr><td>Custom scheme</td><td><code>myapp://product/42</code></td><td>Fails silently — only works if the app is installed</td></tr>
-    <tr><td>Universal/App Link</td><td><code>https://myapp.com/product/42</code></td><td>Opens in browser normally</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th>Link type</th>
+                <th>Example</th>
+                <th>Fallback if app not installed</th>
+              </tr>
+              <tr>
+                <td>Custom scheme</td>
+                <td><code>myapp://product/42</code></td>
+                <td>Fails silently — only works if the app is installed</td>
+              </tr>
+              <tr>
+                <td>Universal/App Link</td>
+                <td><code>https://myapp.com/product/42</code></td>
+                <td>Opens in browser normally</td>
+              </tr>
+            </table>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Testing deep links only via a custom scheme, then being surprised universal links behave differently and need separate platform configuration.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting that a fresh app install needs to fully register its intent filters/associated domains — testing a build that predates a scheme change won't reflect the update.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Testing deep links only via a custom
+                scheme, then being surprised universal links behave differently
+                and need separate platform configuration.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Forgetting that a fresh app install
+                needs to fully register its intent filters/associated domains —
+                testing a build that predates a scheme change won't reflect the
+                update.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#role-based-access">Previous<b>← Role-Based Access</b></a>
-    <a class="next" href="#liquid-glass-bottom-tabs">Next topic<b>Liquid Glass Bottom Tabs →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#role-based-access"
+                >Previous<b>← Role-Based Access</b></a
+              >
+              <a class="next" href="#liquid-glass-bottom-tabs"
+                >Next topic<b>Liquid Glass Bottom Tabs →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S5 TOPIC 8 ============ -->
-<section class="topic" id="liquid-glass-bottom-tabs">
-  <div class="topic-num">TOPIC 8 / 8</div>
-  <h2>Liquid Glass Bottom Tabs</h2>
+          <!-- ============ S5 TOPIC 8 ============ -->
+          <section class="topic" id="liquid-glass-bottom-tabs">
+            <div class="topic-num">TOPIC 8 / 8</div>
+            <h2>Liquid Glass Bottom Tabs</h2>
 
-  <p>Recent iOS versions introduced a "Liquid Glass" translucent, blurred material design language for system UI elements, including tab bars. Expo Router's <code>Tabs</code> component supports this native visual style on supported platforms.</p>
+            <p>
+              Recent iOS versions introduced a "Liquid Glass" translucent,
+              blurred material design language for system UI elements, including
+              tab bars. Expo Router's <code>Tabs</code> component supports this
+              native visual style on supported platforms.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/(tabs)/_layout.tsx</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Tabs</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/(tabs)/_layout.tsx</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Tabs</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
 <span class="tok-kw">import</span> { <span class="tok-fn">BlurView</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-blur'</span>;
 
 <span class="tok-kw">export default function</span> <span class="tok-fn">TabLayout</span>() {
@@ -465,54 +941,92 @@
     &lt;/<span class="tok-tag">Tabs</span>&gt;
   );
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>tabBarBackground</code> — lets you render a custom component (here, a blur effect) behind the tab bar's icons/labels.</li>
-    <li><code>position: 'absolute'</code> on <code>tabBarStyle</code> — makes the tab bar float over content rather than push it up, which is necessary for the translucent "glass" effect to show content scrolling underneath.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>tabBarBackground</code> — lets you render a custom
+                component (here, a blur effect) behind the tab bar's
+                icons/labels.
+              </li>
+              <li>
+                <code>position: 'absolute'</code> on <code>tabBarStyle</code> —
+                makes the tab bar float over content rather than push it up,
+                which is necessary for the translucent "glass" effect to show
+                content scrolling underneath.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Design consideration, not just code</b>
-    Because the tab bar is now translucent and floats over content, your scrollable content needs bottom padding/inset so the last items aren't visually hidden behind it — check <code>useBottomTabBarHeight()</code> for the exact value to pad by.
-  </div>
+            <div class="callout teal">
+              <b>Design consideration, not just code</b>
+              Because the tab bar is now translucent and floats over content,
+              your scrollable content needs bottom padding/inset so the last
+              items aren't visually hidden behind it — check
+              <code>useBottomTabBarHeight()</code> for the exact value to pad
+              by.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting bottom-content padding after switching to a floating/glass tab bar, causing the last list item to sit behind the tab bar.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Applying platform-specific visual treatments without a graceful fallback on platforms/OS versions that don't support the effect.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Forgetting bottom-content padding
+                after switching to a floating/glass tab bar, causing the last
+                list item to sit behind the tab bar.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Applying platform-specific visual
+                treatments without a graceful fallback on platforms/OS versions
+                that don't support the effect.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 5 final check</h4>
-    <div class="quiz-q">
-      <p>What must you account for when a tab bar becomes translucent and floats over content?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Nothing — it works automatically</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Adding bottom padding/inset so content isn't hidden behind the floating bar</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Removing the tab bar entirely</button>
+            <div class="quiz-box">
+              <h4>Section 5 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  What must you account for when a tab bar becomes translucent
+                  and floats over content?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Nothing — it works automatically
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Adding bottom padding/inset so content isn't hidden behind
+                    the floating bar
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Removing the tab bar entirely
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — floating UI elements need corresponding content
+                  padding, or the bottom-most content becomes partially
+                  obscured.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 5 complete ??</b>
+              You can now build complete navigation systems: file-based routes,
+              dynamic params, stacks and tabs, protected auth flows, role-based
+              access, deep linking, and modern native tab styling. Next up:
+              Section 6 — Animations & Gestures.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#deep-linking">Previous<b>← Deep Linking</b></a>
+              <span></span>
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — floating UI elements need corresponding content padding, or the bottom-most content becomes partially obscured.</div>
     </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 5 complete ??</b>
-    You can now build complete navigation systems: file-based routes, dynamic params, stacks and tabs, protected auth flows, role-based access, deep linking, and modern native tab styling. Next up: Section 6 — Animations & Gestures.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#deep-linking">Previous<b>← Deep Linking</b></a>
-    <span></span>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's5';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s5";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
-

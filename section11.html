@@ -1,254 +1,669 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 11 · Supabase — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
-
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
-
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 11 · Supabase</div>
-      
-    </div>
-    <div class="content">
-
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 11 — SUPABASE</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">Supabase</h1>
-  <p>A tour of the dashboard, a hands-on table builder, and a live CRUD simulator — by the end you'll understand exactly how your app's data model maps onto a real Postgres database.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
-
-<!-- ============ S11 TOPIC 1 ============ -->
-<section class="topic" id="supabase-ui-tour">
-  <div class="topic-num">TOPIC 1 / 3</div>
-  <h2>Supabase UI Tour</h2>
-
-  <p>Supabase is an open-source backend platform built on top of <b>Postgres</b> — a real, industry-standard relational database — with a dashboard that gives you instant tools for tables, authentication, file storage, and realtime data, without configuring any of it from scratch.</p>
-
-  <div class="callout">
-    <b>Why this matters compared to writing your own backend</b>
-    A real production backend with auth, a database, file storage, and realtime subscriptions normally takes days or weeks to wire up securely. Supabase gives you all four, pre-integrated, from the moment you create a project — letting Section 10's API routes stay thin, since the heavy lifting lives here.
-  </div>
-
-  <h3>Explore the dashboard yourself</h3>
-  <p>Click each tab below to see what that section of the Supabase dashboard is actually for — this mirrors the real sidebar you'll see after creating a project.</p>
-
-  <div class="phone-demo">
-    <div class="phone" style="width:280px; height:400px;">
-      <div class="phone-notch" style="width:0; height:0;"></div>
-      <div class="phone-screen" style="flex-direction:row; border-radius:14px;">
-        <div style="width:80px; background:#1c1e26; display:flex; flex-direction:column; padding:10px 0; gap:4px;">
-          <button class="supa-tab-btn" data-tab="table" onclick="showSupabaseTab('table')" style="all:unset; cursor:pointer; color:#fff; font-family:'Inter',sans-serif; font-size:10px; padding:8px 10px; border-radius:6px;">📋 Table Editor</button>
-          <button class="supa-tab-btn" data-tab="sql" onclick="showSupabaseTab('sql')" style="all:unset; cursor:pointer; color:#9a9db0; font-family:'Inter',sans-serif; font-size:10px; padding:8px 10px; border-radius:6px;">📝 SQL Editor</button>
-          <button class="supa-tab-btn" data-tab="auth" onclick="showSupabaseTab('auth')" style="all:unset; cursor:pointer; color:#9a9db0; font-family:'Inter',sans-serif; font-size:10px; padding:8px 10px; border-radius:6px;">🔐 Auth</button>
-          <button class="supa-tab-btn" data-tab="storage" onclick="showSupabaseTab('storage')" style="all:unset; cursor:pointer; color:#9a9db0; font-family:'Inter',sans-serif; font-size:10px; padding:8px 10px; border-radius:6px;">📁 Storage</button>
-          <button class="supa-tab-btn" data-tab="realtime" onclick="showSupabaseTab('realtime')" style="all:unset; cursor:pointer; color:#9a9db0; font-family:'Inter',sans-serif; font-size:10px; padding:8px 10px; border-radius:6px;">⚡ Realtime</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 11 · Supabase — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
         </div>
-        <div id="supabaseTabContent" style="flex:1; padding:14px; font-family:'Inter',sans-serif; font-size:11.5px; color:#1a1d24; line-height:1.6; background:#fbf9f4;">
-          Click a tab on the left to explore.
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
         </div>
-      </div>
-    </div>
-    <div class="demo-controls">
-      <h4>What each tab is for</h4>
-      <p class="mute" style="font-size:12.5px;">This mirrors the exact sidebar layout of the real Supabase dashboard once you create a project — tap through to build a mental map before you ever open the real thing.</p>
-    </div>
-  </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <table class="cmp">
-    <tr><th>Dashboard section</th><th>What it's for</th></tr>
-    <tr><td>Table Editor</td><td>Spreadsheet-like view of your Postgres tables — create/edit tables and rows visually</td></tr>
-    <tr><td>SQL Editor</td><td>Run raw SQL directly against your database — the same database the Table Editor visualizes</td></tr>
-    <tr><td>Auth</td><td>Manage users, providers (email, Google, Apple), and auth policies</td></tr>
-    <tr><td>Storage</td><td>File uploads (images, videos, documents), similar to S3-style object storage</td></tr>
-    <tr><td>Realtime</td><td>Subscribe to live database changes — a row updating pushes instantly to connected clients</td></tr>
-  </table>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 11 · Supabase</div>
+        </div>
+        <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 11 — SUPABASE</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">Supabase</h1>
+            <p>
+              A tour of the dashboard, a hands-on table builder, and a live CRUD
+              simulator — by the end you'll understand exactly how your app's
+              data model maps onto a real Postgres database.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Only ever using the Table Editor and never looking at the SQL Editor — understanding the underlying SQL helps enormously once queries get more complex than the visual editor supports.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Not exploring the Auth policies tab, then being surprised later when "Row Level Security" (next topic) blocks expected queries.</div>
-  </div>
+          <!-- ============ S11 TOPIC 1 ============ -->
+          <section class="topic" id="supabase-ui-tour">
+            <div class="topic-num">TOPIC 1 / 3</div>
+            <h2>Supabase UI Tour</h2>
 
-  <div class="topic-nav">
-    <a href="section10.html#deploying-with-eas-hosting">Previous<b>← Section 10: Deploying with EAS Hosting</b></a>
-    <a class="next" href="#creating-tables">Next topic<b>Creating Tables →</b></a>
-  </div>
-</section>
+            <p>
+              Supabase is an open-source backend platform built on top of
+              <b>Postgres</b> — a real, industry-standard relational database —
+              with a dashboard that gives you instant tools for tables,
+              authentication, file storage, and realtime data, without
+              configuring any of it from scratch.
+            </p>
 
-<!-- ============ S11 TOPIC 2 ============ -->
-<section class="topic" id="creating-tables">
-  <div class="topic-num">TOPIC 2 / 3</div>
-  <h2>Creating Tables</h2>
+            <div class="callout">
+              <b>Why this matters compared to writing your own backend</b>
+              A real production backend with auth, a database, file storage, and
+              realtime subscriptions normally takes days or weeks to wire up
+              securely. Supabase gives you all four, pre-integrated, from the
+              moment you create a project — letting Section 10's API routes stay
+              thin, since the heavy lifting lives here.
+            </div>
 
-  <p>A table is a structured shape for your data — rows are records, columns are fields, and each column has a fixed <b>type</b>. Let's build one interactively before looking at the underlying SQL.</p>
+            <h3>Explore the dashboard yourself</h3>
+            <p>
+              Click each tab below to see what that section of the Supabase
+              dashboard is actually for — this mirrors the real sidebar you'll
+              see after creating a project.
+            </p>
 
-  <div class="callout teal">
-    <b>Try it: build a "todos" table</b>
-    Add a couple of columns below and watch the actual SQL and diagram update live — this is exactly what happens behind the scenes when you use the Table Editor's visual "add column" button.
-  </div>
+            <div class="phone-demo">
+              <div class="phone" style="width: 280px; height: 400px">
+                <div class="phone-notch" style="width: 0; height: 0"></div>
+                <div
+                  class="phone-screen"
+                  style="flex-direction: row; border-radius: 14px"
+                >
+                  <div
+                    style="
+                      width: 80px;
+                      background: #1c1e26;
+                      display: flex;
+                      flex-direction: column;
+                      padding: 10px 0;
+                      gap: 4px;
+                    "
+                  >
+                    <button
+                      class="supa-tab-btn"
+                      data-tab="table"
+                      onclick="showSupabaseTab('table')"
+                      style="
+                        all: unset;
+                        cursor: pointer;
+                        color: #fff;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 10px;
+                        padding: 8px 10px;
+                        border-radius: 6px;
+                      "
+                    >
+                      📋 Table Editor
+                    </button>
+                    <button
+                      class="supa-tab-btn"
+                      data-tab="sql"
+                      onclick="showSupabaseTab('sql')"
+                      style="
+                        all: unset;
+                        cursor: pointer;
+                        color: #9a9db0;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 10px;
+                        padding: 8px 10px;
+                        border-radius: 6px;
+                      "
+                    >
+                      📝 SQL Editor
+                    </button>
+                    <button
+                      class="supa-tab-btn"
+                      data-tab="auth"
+                      onclick="showSupabaseTab('auth')"
+                      style="
+                        all: unset;
+                        cursor: pointer;
+                        color: #9a9db0;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 10px;
+                        padding: 8px 10px;
+                        border-radius: 6px;
+                      "
+                    >
+                      🔐 Auth
+                    </button>
+                    <button
+                      class="supa-tab-btn"
+                      data-tab="storage"
+                      onclick="showSupabaseTab('storage')"
+                      style="
+                        all: unset;
+                        cursor: pointer;
+                        color: #9a9db0;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 10px;
+                        padding: 8px 10px;
+                        border-radius: 6px;
+                      "
+                    >
+                      📁 Storage
+                    </button>
+                    <button
+                      class="supa-tab-btn"
+                      data-tab="realtime"
+                      onclick="showSupabaseTab('realtime')"
+                      style="
+                        all: unset;
+                        cursor: pointer;
+                        color: #9a9db0;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 10px;
+                        padding: 8px 10px;
+                        border-radius: 6px;
+                      "
+                    >
+                      ⚡ Realtime
+                    </button>
+                  </div>
+                  <div
+                    id="supabaseTabContent"
+                    style="
+                      flex: 1;
+                      padding: 14px;
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 11.5px;
+                      color: #1a1d24;
+                      line-height: 1.6;
+                      background: #fbf9f4;
+                    "
+                  >
+                    Click a tab on the left to explore.
+                  </div>
+                </div>
+              </div>
+              <div class="demo-controls">
+                <h4>What each tab is for</h4>
+                <p class="mute" style="font-size: 12.5px">
+                  This mirrors the exact sidebar layout of the real Supabase
+                  dashboard once you create a project — tap through to build a
+                  mental map before you ever open the real thing.
+                </p>
+              </div>
+            </div>
 
-  <div class="phone-demo" style="align-items:stretch;">
-    <div style="flex:1; min-width:280px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px;">
-      <h4 style="font-family:var(--font-display); font-size:14px; margin:0 0 12px;">Table builder</h4>
-      <div id="tableBuilderColumns" style="display:flex; flex-direction:column; gap:6px; margin-bottom:14px;"></div>
-      <div style="display:flex; gap:8px; margin-bottom:10px;">
-        <input type="text" id="colNameInput" placeholder="column name" style="flex:1; padding:7px 10px; border-radius:8px; border:1px solid var(--line); background:var(--paper); color:var(--text); font-size:12.5px;">
-        <select id="colTypeInput" style="padding:7px 10px; border-radius:8px; border:1px solid var(--line); background:var(--paper); color:var(--text); font-size:12.5px;">
-          <option value="text">text</option>
-          <option value="int8">int8</option>
-          <option value="bool">bool</option>
-          <option value="timestamptz">timestamptz</option>
-          <option value="uuid">uuid</option>
-        </select>
-      </div>
-      <button class="demo-btn" onclick="addTableColumn()">+ Add column</button>
-      <button class="demo-btn ghost" onclick="resetTableBuilder()">Reset</button>
-    </div>
-    <div class="demo-controls">
-      <h4>Generated SQL</h4>
-      <div class="code-block" style="margin:0;">
-        <pre id="tableBuilderSql" style="padding:12px; font-size:11.5px;"><code>CREATE TABLE todos (
+            <table class="cmp">
+              <tr>
+                <th>Dashboard section</th>
+                <th>What it's for</th>
+              </tr>
+              <tr>
+                <td>Table Editor</td>
+                <td>
+                  Spreadsheet-like view of your Postgres tables — create/edit
+                  tables and rows visually
+                </td>
+              </tr>
+              <tr>
+                <td>SQL Editor</td>
+                <td>
+                  Run raw SQL directly against your database — the same database
+                  the Table Editor visualizes
+                </td>
+              </tr>
+              <tr>
+                <td>Auth</td>
+                <td>
+                  Manage users, providers (email, Google, Apple), and auth
+                  policies
+                </td>
+              </tr>
+              <tr>
+                <td>Storage</td>
+                <td>
+                  File uploads (images, videos, documents), similar to S3-style
+                  object storage
+                </td>
+              </tr>
+              <tr>
+                <td>Realtime</td>
+                <td>
+                  Subscribe to live database changes — a row updating pushes
+                  instantly to connected clients
+                </td>
+              </tr>
+            </table>
+
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Only ever using the Table Editor and
+                never looking at the SQL Editor — understanding the underlying
+                SQL helps enormously once queries get more complex than the
+                visual editor supports.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Not exploring the Auth policies tab,
+                then being surprised later when "Row Level Security" (next
+                topic) blocks expected queries.
+              </div>
+            </div>
+
+            <div class="topic-nav">
+              <a href="section10.html#deploying-with-eas-hosting"
+                >Previous<b>← Section 10: Deploying with EAS Hosting</b></a
+              >
+              <a class="next" href="#creating-tables"
+                >Next topic<b>Creating Tables →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ============ S11 TOPIC 2 ============ -->
+          <section class="topic" id="creating-tables">
+            <div class="topic-num">TOPIC 2 / 3</div>
+            <h2>Creating Tables</h2>
+
+            <p>
+              A table is a structured shape for your data — rows are records,
+              columns are fields, and each column has a fixed <b>type</b>. Let's
+              build one interactively before looking at the underlying SQL.
+            </p>
+
+            <div class="callout teal">
+              <b>Try it: build a "todos" table</b>
+              Add a couple of columns below and watch the actual SQL and diagram
+              update live — this is exactly what happens behind the scenes when
+              you use the Table Editor's visual "add column" button.
+            </div>
+
+            <div class="phone-demo" style="align-items: stretch">
+              <div
+                style="
+                  flex: 1;
+                  min-width: 280px;
+                  background: var(--card);
+                  border: 1px solid var(--line);
+                  border-radius: 14px;
+                  padding: 18px;
+                "
+              >
+                <h4
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 14px;
+                    margin: 0 0 12px;
+                  "
+                >
+                  Table builder
+                </h4>
+                <div
+                  id="tableBuilderColumns"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    margin-bottom: 14px;
+                  "
+                ></div>
+                <div style="display: flex; gap: 8px; margin-bottom: 10px">
+                  <input
+                    type="text"
+                    id="colNameInput"
+                    placeholder="column name"
+                    style="
+                      flex: 1;
+                      padding: 7px 10px;
+                      border-radius: 8px;
+                      border: 1px solid var(--line);
+                      background: var(--paper);
+                      color: var(--text);
+                      font-size: 12.5px;
+                    "
+                  />
+                  <select
+                    id="colTypeInput"
+                    style="
+                      padding: 7px 10px;
+                      border-radius: 8px;
+                      border: 1px solid var(--line);
+                      background: var(--paper);
+                      color: var(--text);
+                      font-size: 12.5px;
+                    "
+                  >
+                    <option value="text">text</option>
+                    <option value="int8">int8</option>
+                    <option value="bool">bool</option>
+                    <option value="timestamptz">timestamptz</option>
+                    <option value="uuid">uuid</option>
+                  </select>
+                </div>
+                <button class="demo-btn" onclick="addTableColumn()">
+                  + Add column
+                </button>
+                <button class="demo-btn ghost" onclick="resetTableBuilder()">
+                  Reset
+                </button>
+              </div>
+              <div class="demo-controls">
+                <h4>Generated SQL</h4>
+                <div class="code-block" style="margin: 0">
+                  <pre
+                    id="tableBuilderSql"
+                    style="padding: 12px; font-size: 11.5px"
+                  ><code>CREATE TABLE todos (
   id uuid primary key default gen_random_uuid()
 );</code></pre>
-      </div>
-    </div>
-  </div>
+                </div>
+              </div>
+            </div>
 
-  <h3>Reading the SQL yourself</h3>
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">SQL Editor</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">create table</span> todos (
+            <h3>Reading the SQL yourself</h3>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">SQL Editor</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">create table</span> todos (
   id uuid <span class="tok-kw">primary key</span> <span class="tok-kw">default</span> gen_random_uuid(),
   title <span class="tok-kw">text</span> <span class="tok-kw">not null</span>,
   is_complete <span class="tok-kw">bool</span> <span class="tok-kw">default</span> <span class="tok-kw">false</span>,
   created_at <span class="tok-kw">timestamptz</span> <span class="tok-kw">default</span> now()
 );</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>id uuid primary key default gen_random_uuid()</code> — every table needs a unique identifier per row; a UUID auto-generated by the database is the standard, collision-safe default.</li>
-    <li><code>not null</code> — a constraint: Postgres will reject any row that tries to insert this column as empty.</li>
-    <li><code>default false</code> / <code>default now()</code> — automatic values applied when a row is created without explicitly specifying that column.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>id uuid primary key default gen_random_uuid()</code> —
+                every table needs a unique identifier per row; a UUID
+                auto-generated by the database is the standard, collision-safe
+                default.
+              </li>
+              <li>
+                <code>not null</code> — a constraint: Postgres will reject any
+                row that tries to insert this column as empty.
+              </li>
+              <li>
+                <code>default false</code> / <code>default now()</code> —
+                automatic values applied when a row is created without
+                explicitly specifying that column.
+              </li>
+            </ul>
 
-  <div class="diagram-wrap">
-    <svg viewBox="0 0 700 180" width="100%" height="180">
-      <text x="20" y="24" font-size="12" fill="var(--text-mute)" font-family="'JetBrains Mono',monospace">todos</text>
-      <rect x="20" y="34" width="660" height="40" fill="var(--coral-dim)" stroke="var(--coral)"/>
-      <text x="30" y="58" font-size="11" fill="var(--text)" font-family="'JetBrains Mono',monospace">id (uuid, PK)</text>
-      <rect x="20" y="74" width="660" height="34" fill="var(--card)" stroke="var(--line)"/>
-      <text x="30" y="96" font-size="11" fill="var(--text)" font-family="'JetBrains Mono',monospace">title (text, not null)</text>
-      <rect x="20" y="108" width="660" height="34" fill="var(--card)" stroke="var(--line)"/>
-      <text x="30" y="130" font-size="11" fill="var(--text)" font-family="'JetBrains Mono',monospace">is_complete (bool, default false)</text>
-      <rect x="20" y="142" width="660" height="34" fill="var(--card)" stroke="var(--line)"/>
-      <text x="30" y="164" font-size="11" fill="var(--text)" font-family="'JetBrains Mono',monospace">created_at (timestamptz, default now())</text>
-    </svg>
-  </div>
+            <div class="diagram-wrap">
+              <svg viewBox="0 0 700 180" width="100%" height="180">
+                <text
+                  x="20"
+                  y="24"
+                  font-size="12"
+                  fill="var(--text-mute)"
+                  font-family="'JetBrains Mono',monospace"
+                >
+                  todos
+                </text>
+                <rect
+                  x="20"
+                  y="34"
+                  width="660"
+                  height="40"
+                  fill="var(--coral-dim)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="30"
+                  y="58"
+                  font-size="11"
+                  fill="var(--text)"
+                  font-family="'JetBrains Mono',monospace"
+                >
+                  id (uuid, PK)
+                </text>
+                <rect
+                  x="20"
+                  y="74"
+                  width="660"
+                  height="34"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="30"
+                  y="96"
+                  font-size="11"
+                  fill="var(--text)"
+                  font-family="'JetBrains Mono',monospace"
+                >
+                  title (text, not null)
+                </text>
+                <rect
+                  x="20"
+                  y="108"
+                  width="660"
+                  height="34"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="30"
+                  y="130"
+                  font-size="11"
+                  fill="var(--text)"
+                  font-family="'JetBrains Mono',monospace"
+                >
+                  is_complete (bool, default false)
+                </text>
+                <rect
+                  x="20"
+                  y="142"
+                  width="660"
+                  height="34"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="30"
+                  y="164"
+                  font-size="11"
+                  fill="var(--text)"
+                  font-family="'JetBrains Mono',monospace"
+                >
+                  created_at (timestamptz, default now())
+                </text>
+              </svg>
+            </div>
 
-  <div class="callout">
-    <b>Row Level Security (RLS) — enabled by default</b>
-    New Supabase tables have RLS <em>on</em> by default, which blocks all access until you write a policy explicitly allowing it. This is a deliberate safety default: it's much safer to start locked-down and open specific access than to start open and forget to lock something down.
-  </div>
+            <div class="callout">
+              <b>Row Level Security (RLS) — enabled by default</b>
+              New Supabase tables have RLS <em>on</em> by default, which blocks
+              all access until you write a policy explicitly allowing it. This
+              is a deliberate safety default: it's much safer to start
+              locked-down and open specific access than to start open and forget
+              to lock something down.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Being confused why queries return no data or errors right after creating a table — it's very likely RLS is enabled with no policy yet, not a bug in your code.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Choosing <code>text</code> for a numeric field "because it's simpler," losing the ability to sort/filter numerically at the database level.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Being confused why queries return no data
+                or errors right after creating a table — it's very likely RLS is
+                enabled with no policy yet, not a bug in your code.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Choosing <code>text</code> for a
+                numeric field "because it's simpler," losing the ability to
+                sort/filter numerically at the database level.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>Why does a freshly created Supabase table often return no data, even though rows exist?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">The table is empty by default and must be manually seeded</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Row Level Security is enabled by default and blocks access until a policy is added</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Postgres requires a paid plan to return query results</button>
-      </div>
-      <div class="quiz-explain">Correct — RLS defaults to "deny all" until you explicitly write a policy, which is a safety-first design choice.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why does a freshly created Supabase table often return no
+                  data, even though rows exist?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    The table is empty by default and must be manually seeded
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Row Level Security is enabled by default and blocks access
+                    until a policy is added
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Postgres requires a paid plan to return query results
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — RLS defaults to "deny all" until you explicitly
+                  write a policy, which is a safety-first design choice.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#supabase-ui-tour">Previous<b>← Supabase UI Tour</b></a>
-    <a class="next" href="#installation-and-crud-operations">Next topic<b>Installation and CRUD Operations →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#supabase-ui-tour">Previous<b>← Supabase UI Tour</b></a>
+              <a class="next" href="#installation-and-crud-operations"
+                >Next topic<b>Installation and CRUD Operations →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S11 TOPIC 3 ============ -->
-<section class="topic" id="installation-and-crud-operations">
-  <div class="topic-num">TOPIC 3 / 3</div>
-  <h2>Installation and CRUD Operations</h2>
+          <!-- ============ S11 TOPIC 3 ============ -->
+          <section class="topic" id="installation-and-crud-operations">
+            <div class="topic-num">TOPIC 3 / 3</div>
+            <h2>Installation and CRUD Operations</h2>
 
-  <p><b>CRUD</b> stands for Create, Read, Update, Delete — the four basic operations every data-backed app needs. Let's connect the client library, then try all four live.</p>
+            <p>
+              <b>CRUD</b> stands for Create, Read, Update, Delete — the four
+              basic operations every data-backed app needs. Let's connect the
+              client library, then try all four live.
+            </p>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>npx expo install @supabase/supabase-js</code></pre>
-  </div>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>npx expo install @supabase/supabase-js</code></pre>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">lib/supabase.ts</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">createClient</span> } <span class="tok-kw">from</span> <span class="tok-str">'@supabase/supabase-js'</span>;
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">lib/supabase.ts</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">createClient</span> } <span class="tok-kw">from</span> <span class="tok-str">'@supabase/supabase-js'</span>;
 
 <span class="tok-kw">export const</span> supabase = <span class="tok-fn">createClient</span>(
   process.env.EXPO_PUBLIC_SUPABASE_URL<span class="tok-attr">!</span>,
   process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY<span class="tok-attr">!</span>
 );</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>The <b>anon key</b> is safe to expose in your client app (hence <code>EXPO_PUBLIC_</code>, from Section 10) — it identifies your project but relies on RLS policies to control what it can actually access.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                The <b>anon key</b> is safe to expose in your client app (hence
+                <code>EXPO_PUBLIC_</code>, from Section 10) — it identifies your
+                project but relies on RLS policies to control what it can
+                actually access.
+              </li>
+            </ul>
 
-  <div class="card-grid">
-    <div class="mini-card"><div class="icon">C</div><h5>Create</h5><p><code>.insert()</code> — adds a new row</p></div>
-    <div class="mini-card"><div class="icon">R</div><h5>Read</h5><p><code>.select()</code> — fetches rows</p></div>
-    <div class="mini-card"><div class="icon">U</div><h5>Update</h5><p><code>.update()</code> — modifies existing rows</p></div>
-    <div class="mini-card"><div class="icon">D</div><h5>Delete</h5><p><code>.delete()</code> — removes rows</p></div>
-  </div>
+            <div class="card-grid">
+              <div class="mini-card">
+                <div class="icon">C</div>
+                <h5>Create</h5>
+                <p><code>.insert()</code> — adds a new row</p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">R</div>
+                <h5>Read</h5>
+                <p><code>.select()</code> — fetches rows</p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">U</div>
+                <h5>Update</h5>
+                <p><code>.update()</code> — modifies existing rows</p>
+              </div>
+              <div class="mini-card">
+                <div class="icon">D</div>
+                <h5>Delete</h5>
+                <p><code>.delete()</code> — removes rows</p>
+              </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">app/todos.tsx</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code><span class="tok-com">// Create</span>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">app/todos.tsx</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code><span class="tok-com">// Create</span>
 <span class="tok-kw">await</span> supabase.from(<span class="tok-str">'todos'</span>).insert({ title: <span class="tok-str">'Buy milk'</span> });
 
 <span class="tok-com">// Read</span>
@@ -259,75 +674,150 @@
 
 <span class="tok-com">// Delete</span>
 <span class="tok-kw">await</span> supabase.from(<span class="tok-str">'todos'</span>).delete().eq(<span class="tok-str">'id'</span>, todoId);</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>.from('todos')</code> — targets the table created in the previous topic.</li>
-    <li><code>.eq('id', todoId)</code> — a filter; without it, <code>.update()</code>/<code>.delete()</code> would apply to every row in the table, a common and dangerous mistake.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>.from('todos')</code> — targets the table created in the
+                previous topic.
+              </li>
+              <li>
+                <code>.eq('id', todoId)</code> — a filter; without it,
+                <code>.update()</code>/<code>.delete()</code> would apply to
+                every row in the table, a common and dangerous mistake.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Try the full CRUD cycle live below</b>
-    This simulates exactly the four calls above against an in-memory "table" — add a todo, mark it complete, delete it — the same shape of interaction your real screen will perform against Supabase.
-  </div>
+            <div class="callout teal">
+              <b>Try the full CRUD cycle live below</b>
+              This simulates exactly the four calls above against an in-memory
+              "table" — add a todo, mark it complete, delete it — the same shape
+              of interaction your real screen will perform against Supabase.
+            </div>
 
-  <div class="phone-demo">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen" style="flex-direction:column; padding:14px; gap:8px;">
-        <div style="font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#1a1d24; margin-bottom:4px;">My Todos</div>
-        <div id="crudDemoList" style="display:flex; flex-direction:column; gap:6px; flex:1; overflow-y:auto;"></div>
+            <div class="phone-demo">
+              <div class="phone">
+                <div class="phone-notch"></div>
+                <div
+                  class="phone-screen"
+                  style="flex-direction: column; padding: 14px; gap: 8px"
+                >
+                  <div
+                    style="
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                      font-weight: 600;
+                      color: #1a1d24;
+                      margin-bottom: 4px;
+                    "
+                  >
+                    My Todos
+                  </div>
+                  <div
+                    id="crudDemoList"
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      gap: 6px;
+                      flex: 1;
+                      overflow-y: auto;
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="demo-controls">
+                <h4>Try CRUD live</h4>
+                <div class="field">
+                  <input
+                    type="text"
+                    id="crudNewTodo"
+                    placeholder="New todo text"
+                    style="
+                      width: 100%;
+                      padding: 8px 10px;
+                      border-radius: 8px;
+                      border: 1px solid var(--line);
+                      background: var(--paper);
+                      color: var(--text);
+                      font-size: 13px;
+                    "
+                  />
+                </div>
+                <button class="demo-btn" onclick="crudAddRow()">
+                  insert()
+                </button>
+                <p class="mute" style="font-size: 12px; margin-top: 10px">
+                  Tap a todo's checkbox to <code>update()</code> it, or the ? to
+                  <code>delete()</code> it.
+                </p>
+              </div>
+            </div>
+
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Forgetting <code>.eq(...)</code> on an
+                <code>update()</code> or <code>delete()</code> call — without a
+                filter, the operation targets every row that RLS allows.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Not checking the
+                <code>error</code> field returned alongside <code>data</code> on
+                every call — Supabase calls don't throw by default; errors come
+                back as a value you must check.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Writing overly permissive RLS
+                policies ("allow all") during development and forgetting to
+                tighten them before shipping to production.
+              </div>
+            </div>
+
+            <div class="quiz-box">
+              <h4>Section 11 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  What happens if you call <code>.delete()</code> on a table
+                  without an <code>.eq(...)</code> filter?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Nothing — Supabase requires a filter and will reject the
+                    call
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    It deletes every row the current access policy allows — a
+                    common, dangerous mistake
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — always double-check filters on update/delete calls
+                  before running them, especially against production data.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 11 complete ??</b>
+              You now understand the Supabase dashboard, how tables and their
+              constraints map to real SQL, and how to perform all four CRUD
+              operations safely. Next up: Section 12 — EAS Build.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#creating-tables">Previous<b>← Creating Tables</b></a>
+              <span></span>
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+          <!-- SECTION 12: EAS BUILD                                            -->
+          <!-- ================================================================ -->
+        </div>
       </div>
     </div>
-    <div class="demo-controls">
-      <h4>Try CRUD live</h4>
-      <div class="field">
-        <input type="text" id="crudNewTodo" placeholder="New todo text" style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:var(--paper); color:var(--text); font-size:13px;">
-      </div>
-      <button class="demo-btn" onclick="crudAddRow()">insert()</button>
-      <p class="mute" style="font-size:12px; margin-top:10px;">Tap a todo's checkbox to <code>update()</code> it, or the ? to <code>delete()</code> it.</p>
-    </div>
-  </div>
-
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting <code>.eq(...)</code> on an <code>update()</code> or <code>delete()</code> call — without a filter, the operation targets every row that RLS allows.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Not checking the <code>error</code> field returned alongside <code>data</code> on every call — Supabase calls don't throw by default; errors come back as a value you must check.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Writing overly permissive RLS policies ("allow all") during development and forgetting to tighten them before shipping to production.</div>
-  </div>
-
-  <div class="quiz-box">
-    <h4>Section 11 final check</h4>
-    <div class="quiz-q">
-      <p>What happens if you call <code>.delete()</code> on a table without an <code>.eq(...)</code> filter?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Nothing — Supabase requires a filter and will reject the call</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">It deletes every row the current access policy allows — a common, dangerous mistake</button>
-      </div>
-      <div class="quiz-explain">Correct — always double-check filters on update/delete calls before running them, especially against production data.</div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 11 complete ??</b>
-    You now understand the Supabase dashboard, how tables and their constraints map to real SQL, and how to perform all four CRUD operations safely. Next up: Section 12 — EAS Build.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#creating-tables">Previous<b>← Creating Tables</b></a>
-    <span></span>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SECTION 12: EAS BUILD                                            -->
-<!-- ================================================================ -->
-
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's11';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s11";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
-

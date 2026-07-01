@@ -1,66 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Section 12 · EAS Build — Learn React Native</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 12 · EAS Build — Learn React Native</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <svg
+            class="mark"
+            viewBox="0 0 30 30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="React Native logo"
+          >
+            <rect width="30" height="30" rx="8" fill="var(--coral)" />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(60 15 15)"
+            />
+            <ellipse
+              cx="15"
+              cy="15"
+              rx="10.5"
+              ry="4.1"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.5"
+              transform="rotate(120 15 15)"
+            />
+            <circle cx="15" cy="15" r="2.2" fill="#fff" />
+          </svg>
+          <div>
+            <div class="brand-name">Learn React Native</div>
+            <div class="brand-sub">from absolute zero</div>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search topics…" />
+        </div>
+        <nav id="navRoot"></nav>
+        <div class="progress-widget">
+          <div class="label">
+            <span>Course progress</span><span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
-      <div>
-        <div class="brand-name">Learn React Native</div>
-        <div class="brand-sub">from absolute zero</div>
-      </div>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search topics…">
-    </div>
-    <nav id="navRoot"></nav>
-    <div class="progress-widget">
-      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-  </aside>
+      <!-- ================= MAIN ================= -->
+      <div class="main">
+        <div class="topbar">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="crumbs" id="crumbBar">Section 12 · EAS Build</div>
+        </div>
+        <div class="content">
+          <div class="hero" style="margin-top: 10px">
+            <div class="hero-eyebrow">SECTION 12 — EAS BUILD</div>
+            <h1 style="font-size: clamp(24px, 3.4vw, 34px)">EAS Build</h1>
+            <p>
+              Watch an actual build pipeline animate stage-by-stage, understand
+              the three build profiles every project needs, and automate version
+              numbers so you never hand-edit them again.
+            </p>
+            <div class="hero-stats">
+              <div class="hero-stat"><b>4</b><span>TOPICS</span></div>
+              <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+            </div>
+          </div>
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="crumbs" id="crumbBar">Section 12 · EAS Build</div>
-      
-    </div>
-    <div class="content">
+          <!-- ============ S12 TOPIC 1 ============ -->
+          <section class="topic" id="development-builds">
+            <div class="topic-num">TOPIC 1 / 4</div>
+            <h2>Development Builds</h2>
 
-<div class="hero" style="margin-top:10px;">
-  <div class="hero-eyebrow">SECTION 12 — EAS BUILD</div>
-  <h1 style="font-size:clamp(24px,3.4vw,34px);">EAS Build</h1>
-  <p>Watch an actual build pipeline animate stage-by-stage, understand the three build profiles every project needs, and automate version numbers so you never hand-edit them again.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><b>4</b><span>TOPICS</span></div>
-    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
-  </div>
-</div>
+            <p>
+              Recall from Section 2: a development build is your project's own
+              custom version of Expo Go. EAS Build is the cloud service that
+              compiles it for you — no local Xcode/Android Studio setup
+              required, even from a Windows or Linux machine.
+            </p>
 
-<!-- ============ S12 TOPIC 1 ============ -->
-<section class="topic" id="development-builds">
-  <div class="topic-num">TOPIC 1 / 4</div>
-  <h2>Development Builds</h2>
-
-  <p>Recall from Section 2: a development build is your project's own custom version of Expo Go. EAS Build is the cloud service that compiles it for you — no local Xcode/Android Studio setup required, even from a Windows or Linux machine.</p>
-
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">eas.json</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>{
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">eas.json</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>{
   <span class="tok-attr">"build"</span>: {
     <span class="tok-attr">"development"</span>: {
       <span class="tok-attr">"developmentClient"</span>: <span class="tok-kw">true</span>,
@@ -68,75 +123,250 @@
     }
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>eas build --profile development --platform ios</code></pre>
-  </div>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>eas build --profile development --platform ios</code></pre>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>"developmentClient": true</code> — bakes in the dev-client tooling (Section 2), so this build includes the debug menu and can load your JS bundle from your local dev server.</li>
-    <li><code>"distribution": "internal"</code> — the resulting file installs directly on a registered test device, without going through the App Store or Play Store.</li>
-    <li><code>--profile development</code> — tells EAS Build which named configuration from <code>eas.json</code> to use for this run.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>"developmentClient": true</code> — bakes in the dev-client
+                tooling (Section 2), so this build includes the debug menu and
+                can load your JS bundle from your local dev server.
+              </li>
+              <li>
+                <code>"distribution": "internal"</code> — the resulting file
+                installs directly on a registered test device, without going
+                through the App Store or Play Store.
+              </li>
+              <li>
+                <code>--profile development</code> — tells EAS Build which named
+                configuration from <code>eas.json</code> to use for this run.
+              </li>
+            </ul>
 
-  <h3>Where this fits in the bigger picture</h3>
-  <p>Click each profile below to see its typical configuration and purpose — this is the same three-profile structure a real <code>eas.json</code> almost always has.</p>
+            <h3>Where this fits in the bigger picture</h3>
+            <p>
+              Click each profile below to see its typical configuration and
+              purpose — this is the same three-profile structure a real
+              <code>eas.json</code> almost always has.
+            </p>
 
-  <div class="phone-demo" style="align-items:stretch;">
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <button class="build-profile-btn" data-profile="development" onclick="showBuildProfile('development')" style="padding:10px 16px; border-radius:10px; border:1px solid var(--coral); background:var(--coral-dim); color:var(--coral); font-family:var(--font-display); font-size:13px; cursor:pointer; font-weight:600;">Development</button>
-      <button class="build-profile-btn" data-profile="preview" onclick="showBuildProfile('preview')" style="padding:10px 16px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:13px; cursor:pointer;">Preview</button>
-      <button class="build-profile-btn" data-profile="production" onclick="showBuildProfile('production')" style="padding:10px 16px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:13px; cursor:pointer;">Production</button>
-    </div>
-    <div id="buildProfileDetail" style="margin-top:14px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:13.5px; line-height:1.7;">
-      <b>Development:</b> Includes dev-client tooling, installs directly on your own registered device, used for day-to-day feature work with live JS reload.
-    </div>
-  </div>
+            <div class="phone-demo" style="align-items: stretch">
+              <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                <button
+                  class="build-profile-btn"
+                  data-profile="development"
+                  onclick="showBuildProfile('development')"
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    border: 1px solid var(--coral);
+                    background: var(--coral-dim);
+                    color: var(--coral);
+                    font-family: var(--font-display);
+                    font-size: 13px;
+                    cursor: pointer;
+                    font-weight: 600;
+                  "
+                >
+                  Development
+                </button>
+                <button
+                  class="build-profile-btn"
+                  data-profile="preview"
+                  onclick="showBuildProfile('preview')"
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    color: var(--text);
+                    font-family: var(--font-display);
+                    font-size: 13px;
+                    cursor: pointer;
+                  "
+                >
+                  Preview
+                </button>
+                <button
+                  class="build-profile-btn"
+                  data-profile="production"
+                  onclick="showBuildProfile('production')"
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    color: var(--text);
+                    font-family: var(--font-display);
+                    font-size: 13px;
+                    cursor: pointer;
+                  "
+                >
+                  Production
+                </button>
+              </div>
+              <div
+                id="buildProfileDetail"
+                style="
+                  margin-top: 14px;
+                  background: var(--card);
+                  border: 1px solid var(--line);
+                  border-radius: 12px;
+                  padding: 16px;
+                  font-size: 13.5px;
+                  line-height: 1.7;
+                "
+              >
+                <b>Development:</b> Includes dev-client tooling, installs
+                directly on your own registered device, used for day-to-day
+                feature work with live JS reload.
+              </div>
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Sending a development build to a non-technical tester expecting a "final" app experience — it includes debug tooling not meant for end users.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Sending a development build to a
+                non-technical tester expecting a "final" app experience — it
+                includes debug tooling not meant for end users.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="section11.html#installation-and-crud-operations">Previous<b>← Section 11: Installation and CRUD Operations</b></a>
-    <a class="next" href="#preview-builds">Next topic<b>Preview Builds →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="section11.html#installation-and-crud-operations"
+                >Previous<b
+                  >← Section 11: Installation and CRUD Operations</b
+                ></a
+              >
+              <a class="next" href="#preview-builds"
+                >Next topic<b>Preview Builds →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S12 TOPIC 2 ============ -->
-<section class="topic" id="preview-builds">
-  <div class="topic-num">TOPIC 2 / 4</div>
-  <h2>Preview Builds</h2>
+          <!-- ============ S12 TOPIC 2 ============ -->
+          <section class="topic" id="preview-builds">
+            <div class="topic-num">TOPIC 2 / 4</div>
+            <h2>Preview Builds</h2>
 
-  <p>A preview build is a release-like build (no debug tooling, no dev server dependency) that isn't yet submitted to an app store — perfect for handing to a designer, stakeholder, or QA team member to try on their own device.</p>
+            <p>
+              A preview build is a release-like build (no debug tooling, no dev
+              server dependency) that isn't yet submitted to an app store —
+              perfect for handing to a designer, stakeholder, or QA team member
+              to try on their own device.
+            </p>
 
-  <div class="diagram-wrap">
-    <svg viewBox="0 0 760 170" width="100%" height="170">
-      <rect x="20" y="40" width="160" height="90" rx="12" fill="var(--card)" stroke="var(--line)"/>
-      <text x="100" y="20" text-anchor="middle" font-size="12" fill="var(--text)">eas build --profile preview</text>
-      <text x="100" y="90" text-anchor="middle" font-size="11" fill="var(--text)">Cloud build</text>
+            <div class="diagram-wrap">
+              <svg viewBox="0 0 760 170" width="100%" height="170">
+                <rect
+                  x="20"
+                  y="40"
+                  width="160"
+                  height="90"
+                  rx="12"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="100"
+                  y="20"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  eas build --profile preview
+                </text>
+                <text
+                  x="100"
+                  y="90"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Cloud build
+                </text>
 
-      <rect x="290" y="40" width="180" height="90" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
-      <text x="380" y="90" text-anchor="middle" font-size="11" fill="var(--text)">Shareable install link</text>
+                <rect
+                  x="290"
+                  y="40"
+                  width="180"
+                  height="90"
+                  rx="12"
+                  fill="var(--teal-dim)"
+                  stroke="var(--teal)"
+                />
+                <text
+                  x="380"
+                  y="90"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Shareable install link
+                </text>
 
-      <rect x="580" y="40" width="160" height="90" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
-      <text x="660" y="90" text-anchor="middle" font-size="11" fill="var(--text)">Tester's own device</text>
+                <rect
+                  x="580"
+                  y="40"
+                  width="160"
+                  height="90"
+                  rx="12"
+                  fill="var(--coral-dim)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="660"
+                  y="90"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Tester's own device
+                </text>
 
-      <path d="M180 85 H290" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a12)"/>
-      <path d="M470 85 H580" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a12)"/>
-      <defs><marker id="a12" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
-    </svg>
-  </div>
+                <path
+                  d="M180 85 H290"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#a12)"
+                />
+                <path
+                  d="M470 85 H580"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#a12)"
+                />
+                <defs>
+                  <marker
+                    id="a12"
+                    markerWidth="8"
+                    markerHeight="8"
+                    refX="6"
+                    refY="3"
+                    orient="auto"
+                  >
+                    <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)" />
+                  </marker>
+                </defs>
+              </svg>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">eas.json</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>{
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">eas.json</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>{
   <span class="tok-attr">"build"</span>: {
     <span class="tok-attr">"preview"</span>: {
       <span class="tok-attr">"distribution"</span>: <span class="tok-str">"internal"</span>,
@@ -144,140 +374,397 @@
     }
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li>Unlike development builds, preview builds don't include dev-client debug tooling — they behave like the real, final app.</li>
-    <li><code>"channel": "preview"</code> — connects this build profile to a specific EAS Update channel (Section 14), so OTA updates can target testers separately from production users.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                Unlike development builds, preview builds don't include
+                dev-client debug tooling — they behave like the real, final app.
+              </li>
+              <li>
+                <code>"channel": "preview"</code> — connects this build profile
+                to a specific EAS Update channel (Section 14), so OTA updates
+                can target testers separately from production users.
+              </li>
+            </ul>
 
-  <div class="callout teal">
-    <b>Real-world workflow</b>
-    A common pattern: every pull request automatically triggers a preview build via EAS Workflows (Section 15), giving reviewers an actual installable app to test the exact change — not just reading a code diff.
-  </div>
+            <div class="callout teal">
+              <b>Real-world workflow</b>
+              A common pattern: every pull request automatically triggers a
+              preview build via EAS Workflows (Section 15), giving reviewers an
+              actual installable app to test the exact change — not just reading
+              a code diff.
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting that iOS internal distribution requires registering each tester's device UDID in advance — unlike Android, which can sideload freely.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Forgetting that iOS internal
+                distribution requires registering each tester's device UDID in
+                advance — unlike Android, which can sideload freely.
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#development-builds">Previous<b>← Development Builds</b></a>
-    <a class="next" href="#production-builds">Next topic<b>Production Builds →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#development-builds"
+                >Previous<b>← Development Builds</b></a
+              >
+              <a class="next" href="#production-builds"
+                >Next topic<b>Production Builds →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S12 TOPIC 3 ============ -->
-<section class="topic" id="production-builds">
-  <div class="topic-num">TOPIC 3 / 4</div>
-  <h2>Production Builds</h2>
+          <!-- ============ S12 TOPIC 3 ============ -->
+          <section class="topic" id="production-builds">
+            <div class="topic-num">TOPIC 3 / 4</div>
+            <h2>Production Builds</h2>
 
-  <p>A production build is the final artifact submitted to the App Store or Play Store. Let's watch exactly what happens during a build, stage by stage.</p>
+            <p>
+              A production build is the final artifact submitted to the App
+              Store or Play Store. Let's watch exactly what happens during a
+              build, stage by stage.
+            </p>
 
-  <div class="callout teal">
-    <b>Run the pipeline yourself</b>
-    Press start and watch each real EAS Build stage light up in order, with a short description of what's actually happening on Expo's build servers at that point.
-  </div>
+            <div class="callout teal">
+              <b>Run the pipeline yourself</b>
+              Press start and watch each real EAS Build stage light up in order,
+              with a short description of what's actually happening on Expo's
+              build servers at that point.
+            </div>
 
-  <div class="diagram-wrap" style="padding-bottom:24px;">
-    <div id="buildPipelineStages" style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-bottom:16px;">
-      <div class="pipeline-stage" data-stage="0" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Queued</div>
-      <div class="pipeline-stage" data-stage="1" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Install deps</div>
-      <div class="pipeline-stage" data-stage="2" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Compile native code</div>
-      <div class="pipeline-stage" data-stage="3" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Sign artifact</div>
-      <div class="pipeline-stage" data-stage="4" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Ready to submit</div>
-    </div>
-    <div style="text-align:center;">
-      <button class="demo-btn" id="buildPipelineBtn" onclick="runBuildPipeline()">▶ Start build</button>
-    </div>
-    <p id="buildPipelineDescription" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
-  </div>
+            <div class="diagram-wrap" style="padding-bottom: 24px">
+              <div
+                id="buildPipelineStages"
+                style="
+                  display: flex;
+                  gap: 6px;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  margin-bottom: 16px;
+                "
+              >
+                <div
+                  class="pipeline-stage"
+                  data-stage="0"
+                  style="
+                    flex: 1;
+                    min-width: 110px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  Queued
+                </div>
+                <div
+                  class="pipeline-stage"
+                  data-stage="1"
+                  style="
+                    flex: 1;
+                    min-width: 110px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  Install deps
+                </div>
+                <div
+                  class="pipeline-stage"
+                  data-stage="2"
+                  style="
+                    flex: 1;
+                    min-width: 110px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  Compile native code
+                </div>
+                <div
+                  class="pipeline-stage"
+                  data-stage="3"
+                  style="
+                    flex: 1;
+                    min-width: 110px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  Sign artifact
+                </div>
+                <div
+                  class="pipeline-stage"
+                  data-stage="4"
+                  style="
+                    flex: 1;
+                    min-width: 110px;
+                    text-align: center;
+                    padding: 14px 8px;
+                    border-radius: 10px;
+                    border: 1px solid var(--line);
+                    background: var(--card);
+                    font-size: 11.5px;
+                    font-family: var(--font-mono);
+                    transition: all 0.3s;
+                  "
+                >
+                  Ready to submit
+                </div>
+              </div>
+              <div style="text-align: center">
+                <button
+                  class="demo-btn"
+                  id="buildPipelineBtn"
+                  onclick="runBuildPipeline()"
+                >
+                  ▶ Start build
+                </button>
+              </div>
+              <p
+                id="buildPipelineDescription"
+                class="mute"
+                style="
+                  text-align: center;
+                  font-size: 13px;
+                  margin-top: 14px;
+                  min-height: 20px;
+                "
+              ></p>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">eas.json</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>{
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">eas.json</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>{
   <span class="tok-attr">"build"</span>: {
     <span class="tok-attr">"production"</span>: {
       <span class="tok-attr">"autoIncrement"</span>: <span class="tok-kw">true</span>
     }
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">terminal</span>
-      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>eas build --profile production --platform all</code></pre>
-  </div>
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">terminal</span>
+                <div class="code-actions">
+                  <button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>eas build --profile production --platform all</code></pre>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>--platform all</code> — queues both an iOS and Android build in one command, run in parallel on Expo's build infrastructure.</li>
-    <li><code>"autoIncrement": true</code> — covered in full in the next topic; automatically bumps your build number so you never manually track it.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>--platform all</code> — queues both an iOS and Android
+                build in one command, run in parallel on Expo's build
+                infrastructure.
+              </li>
+              <li>
+                <code>"autoIncrement": true</code> — covered in full in the next
+                topic; automatically bumps your build number so you never
+                manually track it.
+              </li>
+            </ul>
 
-  <table class="cmp">
-    <tr><th></th><th>Development</th><th>Preview</th><th>Production</th></tr>
-    <tr><td>Debug tooling</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td></tr>
-    <tr><td>Distribution</td><td>Internal, own device</td><td>Internal, shareable link</td><td>App Store / Play Store</td></tr>
-    <tr><td>Typical use</td><td>Daily development</td><td>QA, stakeholder review</td><td>Real users</td></tr>
-  </table>
+            <table class="cmp">
+              <tr>
+                <th></th>
+                <th>Development</th>
+                <th>Preview</th>
+                <th>Production</th>
+              </tr>
+              <tr>
+                <td>Debug tooling</td>
+                <td>✓ Yes</td>
+                <td>✗ No</td>
+                <td>✗ No</td>
+              </tr>
+              <tr>
+                <td>Distribution</td>
+                <td>Internal, own device</td>
+                <td>Internal, shareable link</td>
+                <td>App Store / Play Store</td>
+              </tr>
+              <tr>
+                <td>Typical use</td>
+                <td>Daily development</td>
+                <td>QA, stakeholder review</td>
+                <td>Real users</td>
+              </tr>
+            </table>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Submitting a preview or development build to an app store instead of a proper production build.</div>
-    <div class="mistake-card pro"><b>Professional mistake</b>Not caching dependencies between builds where possible, leading to unnecessarily long build times on every single run.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Submitting a preview or development build
+                to an app store instead of a proper production build.
+              </div>
+              <div class="mistake-card pro">
+                <b>Professional mistake</b>Not caching dependencies between
+                builds where possible, leading to unnecessarily long build times
+                on every single run.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Quick check</h4>
-    <div class="quiz-q">
-      <p>What's the key functional difference between a preview build and a production build?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">Preview builds run slower on the device</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">Preview builds aren't submitted to app stores; production builds are the final store-ready artifact</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">There is no real difference</button>
-      </div>
-      <div class="quiz-explain">Correct — both are release-like (no debug tooling), but only production builds go through app store submission.</div>
-    </div>
-  </div>
+            <div class="quiz-box">
+              <h4>Quick check</h4>
+              <div class="quiz-q">
+                <p>
+                  What's the key functional difference between a preview build
+                  and a production build?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    Preview builds run slower on the device
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    Preview builds aren't submitted to app stores; production
+                    builds are the final store-ready artifact
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    There is no real difference
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — both are release-like (no debug tooling), but only
+                  production builds go through app store submission.
+                </div>
+              </div>
+            </div>
 
-  <div class="topic-nav">
-    <a href="#preview-builds">Previous<b>← Preview Builds</b></a>
-    <a class="next" href="#automating-app-version-code">Next topic<b>Automating App Version Code →</b></a>
-  </div>
-</section>
+            <div class="topic-nav">
+              <a href="#preview-builds">Previous<b>← Preview Builds</b></a>
+              <a class="next" href="#automating-app-version-code"
+                >Next topic<b>Automating App Version Code →</b></a
+              >
+            </div>
+          </section>
 
-<!-- ============ S12 TOPIC 4 ============ -->
-<section class="topic" id="automating-app-version-code">
-  <div class="topic-num">TOPIC 4 / 4</div>
-  <h2>Automating App Version Code</h2>
+          <!-- ============ S12 TOPIC 4 ============ -->
+          <section class="topic" id="automating-app-version-code">
+            <div class="topic-num">TOPIC 4 / 4</div>
+            <h2>Automating App Version Code</h2>
 
-  <p>Every app store submission needs a unique, ever-increasing internal build number (iOS calls it <b>buildNumber</b>, Android calls it <b>versionCode</b>) — separate from your human-readable version like "2.3.0". Forgetting to bump it manually is one of the most common, avoidable submission failures.</p>
+            <p>
+              Every app store submission needs a unique, ever-increasing
+              internal build number (iOS calls it <b>buildNumber</b>, Android
+              calls it <b>versionCode</b>) — separate from your human-readable
+              version like "2.3.0". Forgetting to bump it manually is one of the
+              most common, avoidable submission failures.
+            </p>
 
-  <div class="callout teal">
-    <b>Try it: simulate <code>autoIncrement</code></b>
-    Each "Trigger production build" press below simulates what <code>"autoIncrement": true</code> does automatically on every real build — bumping the internal build number without you touching any config file.
-  </div>
+            <div class="callout teal">
+              <b>Try it: simulate <code>autoIncrement</code></b>
+              Each "Trigger production build" press below simulates what
+              <code>"autoIncrement": true</code> does automatically on every
+              real build — bumping the internal build number without you
+              touching any config file.
+            </div>
 
-  <div class="phone-demo">
-    <div style="flex:1; min-width:240px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; text-align:center;">
-      <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-mute); margin-bottom:8px;">app.json</div>
-      <div style="font-family:var(--font-display); font-size:15px; margin-bottom:4px;">version: <span style="color:var(--coral);">"2.3.0"</span> <span style="color:var(--text-mute); font-size:11px;">(unchanged)</span></div>
-      <div style="font-family:var(--font-display); font-size:28px; margin:14px 0;">buildNumber: <span id="versionDemoNumber" style="color:var(--teal); display:inline-block; transition:transform .2s;">12</span></div>
-      <button class="demo-btn" onclick="triggerVersionBump()">▶ Trigger production build</button>
-    </div>
-    <div class="demo-controls">
-      <h4>What's happening</h4>
-      <p class="mute" style="font-size:13px; line-height:1.6;">Your human-facing <code>version</code> stays the same across many builds — you only bump it for a real user-facing release. The internal build number increments on every single build, since app stores require every submitted binary to have a unique number.</p>
-    </div>
-  </div>
+            <div class="phone-demo">
+              <div
+                style="
+                  flex: 1;
+                  min-width: 240px;
+                  background: var(--card);
+                  border: 1px solid var(--line);
+                  border-radius: 14px;
+                  padding: 20px;
+                  text-align: center;
+                "
+              >
+                <div
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 11px;
+                    color: var(--text-mute);
+                    margin-bottom: 8px;
+                  "
+                >
+                  app.json
+                </div>
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 15px;
+                    margin-bottom: 4px;
+                  "
+                >
+                  version: <span style="color: var(--coral)">"2.3.0"</span>
+                  <span style="color: var(--text-mute); font-size: 11px"
+                    >(unchanged)</span
+                  >
+                </div>
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 28px;
+                    margin: 14px 0;
+                  "
+                >
+                  buildNumber:
+                  <span
+                    id="versionDemoNumber"
+                    style="
+                      color: var(--teal);
+                      display: inline-block;
+                      transition: transform 0.2s;
+                    "
+                    >12</span
+                  >
+                </div>
+                <button class="demo-btn" onclick="triggerVersionBump()">
+                  ▶ Trigger production build
+                </button>
+              </div>
+              <div class="demo-controls">
+                <h4>What's happening</h4>
+                <p class="mute" style="font-size: 13px; line-height: 1.6">
+                  Your human-facing <code>version</code> stays the same across
+                  many builds — you only bump it for a real user-facing release.
+                  The internal build number increments on every single build,
+                  since app stores require every submitted binary to have a
+                  unique number.
+                </p>
+              </div>
+            </div>
 
-  <div class="code-block">
-    <div class="code-head"><span class="code-filename">eas.json</span>
-      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <pre><code>{
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-filename">eas.json</span>
+                <div class="code-actions">
+                  <button onclick="toggleCollapse(this)">Collapse</button
+                  ><button onclick="copyCode(this)">Copy</button>
+                </div>
+              </div>
+              <pre><code>{
   <span class="tok-attr">"build"</span>: {
     <span class="tok-attr">"production"</span>: {
       <span class="tok-attr">"autoIncrement"</span>: <span class="tok-kw">true</span>
@@ -287,71 +774,209 @@
     <span class="tok-attr">"appVersionSource"</span>: <span class="tok-str">"remote"</span>
   }
 }</code></pre>
-  </div>
+            </div>
 
-  <ul class="line-notes">
-    <li><code>"autoIncrement": true</code> — on every build using this profile, EAS bumps the build number for you before compiling.</li>
-    <li><code>"appVersionSource": "remote"</code> — tells EAS to track the current version/build number on Expo's servers rather than solely inside your local <code>app.json</code>, so it stays correct even across different machines/CI runners on a team.</li>
-  </ul>
+            <ul class="line-notes">
+              <li>
+                <code>"autoIncrement": true</code> — on every build using this
+                profile, EAS bumps the build number for you before compiling.
+              </li>
+              <li>
+                <code>"appVersionSource": "remote"</code> — tells EAS to track
+                the current version/build number on Expo's servers rather than
+                solely inside your local <code>app.json</code>, so it stays
+                correct even across different machines/CI runners on a team.
+              </li>
+            </ul>
 
-  <div class="diagram-wrap">
-    <svg viewBox="0 0 760 150" width="100%" height="150">
-      <rect x="20" y="30" width="200" height="90" rx="12" fill="var(--card)" stroke="var(--line)"/>
-      <text x="120" y="20" text-anchor="middle" font-size="12" fill="var(--text)">eas build (production)</text>
-      <text x="120" y="80" text-anchor="middle" font-size="11" fill="var(--text)">autoIncrement checks</text>
-      <text x="120" y="97" text-anchor="middle" font-size="11" fill="var(--text)">remote version source</text>
+            <div class="diagram-wrap">
+              <svg viewBox="0 0 760 150" width="100%" height="150">
+                <rect
+                  x="20"
+                  y="30"
+                  width="200"
+                  height="90"
+                  rx="12"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="120"
+                  y="20"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text)"
+                >
+                  eas build (production)
+                </text>
+                <text
+                  x="120"
+                  y="80"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  autoIncrement checks
+                </text>
+                <text
+                  x="120"
+                  y="97"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  remote version source
+                </text>
 
-      <rect x="300" y="30" width="200" height="90" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
-      <text x="400" y="80" text-anchor="middle" font-size="11" fill="var(--text)">Bumps buildNumber</text>
-      <text x="400" y="97" text-anchor="middle" font-size="11" fill="var(--text)">/ versionCode by 1</text>
+                <rect
+                  x="300"
+                  y="30"
+                  width="200"
+                  height="90"
+                  rx="12"
+                  fill="var(--teal-dim)"
+                  stroke="var(--teal)"
+                />
+                <text
+                  x="400"
+                  y="80"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Bumps buildNumber
+                </text>
+                <text
+                  x="400"
+                  y="97"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  / versionCode by 1
+                </text>
 
-      <rect x="560" y="30" width="180" height="90" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
-      <text x="650" y="80" text-anchor="middle" font-size="11" fill="var(--text)">Unique binary,</text>
-      <text x="650" y="97" text-anchor="middle" font-size="11" fill="var(--text)">store-submission ready</text>
+                <rect
+                  x="560"
+                  y="30"
+                  width="180"
+                  height="90"
+                  rx="12"
+                  fill="var(--coral-dim)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="650"
+                  y="80"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  Unique binary,
+                </text>
+                <text
+                  x="650"
+                  y="97"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text)"
+                >
+                  store-submission ready
+                </text>
 
-      <path d="M220 75 H300" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a13)"/>
-      <path d="M500 75 H560" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a13)"/>
-      <defs><marker id="a13" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
-    </svg>
-  </div>
+                <path
+                  d="M220 75 H300"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#a13)"
+                />
+                <path
+                  d="M500 75 H560"
+                  stroke="var(--text-mute)"
+                  stroke-width="2"
+                  marker-end="url(#a13)"
+                />
+                <defs>
+                  <marker
+                    id="a13"
+                    markerWidth="8"
+                    markerHeight="8"
+                    refX="6"
+                    refY="3"
+                    orient="auto"
+                  >
+                    <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)" />
+                  </marker>
+                </defs>
+              </svg>
+            </div>
 
-  <div class="mistakes">
-    <div class="mistake-card beg"><b>Beginner mistake</b>Manually editing <code>buildNumber</code> in <code>app.json</code> before every submission and occasionally forgetting, causing an instant app store rejection for a duplicate build number.</div>
-    <div class="mistake-card int"><b>Intermediate mistake</b>Using <code>autoIncrement</code> without <code>"appVersionSource": "remote"</code> on a team, where different machines' local counters drift out of sync.</div>
-  </div>
+            <div class="mistakes">
+              <div class="mistake-card beg">
+                <b>Beginner mistake</b>Manually editing
+                <code>buildNumber</code> in <code>app.json</code> before every
+                submission and occasionally forgetting, causing an instant app
+                store rejection for a duplicate build number.
+              </div>
+              <div class="mistake-card int">
+                <b>Intermediate mistake</b>Using
+                <code>autoIncrement</code> without
+                <code>"appVersionSource": "remote"</code> on a team, where
+                different machines' local counters drift out of sync.
+              </div>
+            </div>
 
-  <div class="quiz-box">
-    <h4>Section 12 final check</h4>
-    <div class="quiz-q">
-      <p>Why must the internal build number increase on every single submission, even for a tiny bug fix?</p>
-      <div class="quiz-opts">
-        <button class="quiz-opt" onclick="answerQuiz(this,false)">It doesn't need to — only the human-readable version matters</button>
-        <button class="quiz-opt" onclick="answerQuiz(this,true)">App stores require every submitted binary to have a unique build number, regardless of how small the change is</button>
+            <div class="quiz-box">
+              <h4>Section 12 final check</h4>
+              <div class="quiz-q">
+                <p>
+                  Why must the internal build number increase on every single
+                  submission, even for a tiny bug fix?
+                </p>
+                <div class="quiz-opts">
+                  <button class="quiz-opt" onclick="answerQuiz(this, false)">
+                    It doesn't need to — only the human-readable version matters
+                  </button>
+                  <button class="quiz-opt" onclick="answerQuiz(this, true)">
+                    App stores require every submitted binary to have a unique
+                    build number, regardless of how small the change is
+                  </button>
+                </div>
+                <div class="quiz-explain">
+                  Correct — this is an app store requirement, independent of
+                  your semantic version string, which is why automating it
+                  removes an entire class of avoidable submission failures.
+                </div>
+              </div>
+            </div>
+
+            <div class="callout">
+              <b>Section 12 complete ??</b>
+              You've now watched an actual build pipeline stage-by-stage,
+              understand all three build profiles and when to use each, and know
+              how to automate version numbers so submissions never fail on a
+              technicality. Next up: Section 13 — EAS Submit.
+            </div>
+
+            <div class="topic-nav">
+              <a href="#production-builds"
+                >Previous<b>← Production Builds</b></a
+              >
+              <a class="next" href="section13.html#submit-to-app-store"
+                >Next section<b>Section 13: EAS Submit →</b></a
+              >
+            </div>
+          </section>
+
+          <!-- ================================================================ -->
+          <!-- SECTION 13: EAS SUBMIT                                           -->
+          <!-- ================================================================ -->
+        </div>
       </div>
-      <div class="quiz-explain">Correct — this is an app store requirement, independent of your semantic version string, which is why automating it removes an entire class of avoidable submission failures.</div>
     </div>
-  </div>
-
-  <div class="callout">
-    <b>Section 12 complete ??</b>
-    You've now watched an actual build pipeline stage-by-stage, understand all three build profiles and when to use each, and know how to automate version numbers so submissions never fail on a technicality. Next up: Section 13 — EAS Submit.
-  </div>
-
-  <div class="topic-nav">
-    <a href="#production-builds">Previous<b>← Production Builds</b></a>
-    <a class="next" href="section13.html#submit-to-app-store">Next section<b>Section 13: EAS Submit →</b></a>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SECTION 13: EAS SUBMIT                                           -->
-<!-- ================================================================ -->
-
-
-    </div>
-  </div>
-</div>
-<script>window.CURRENT_SECTION = 's12';</script>
-<script src="script.js"></script>
-</body>
+    <script>
+      window.CURRENT_SECTION = "s12";
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
