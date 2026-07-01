@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 9 · Push Notification — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 9 · Push Notification</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero" style="margin-top:10px;">
+  <div class="hero-eyebrow">SECTION 9 — PUSH NOTIFICATION</div>
+  <h1 style="font-size:clamp(24px,3.4vw,34px);">Push Notification</h1>
+  <p>Bring users back into your app with push notifications — using Expo's own free notification service, the more feature-rich OneSignal, and rich, media-enhanced notifications on iOS.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+    <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
+  </div>
+</div>
+
+<!-- ============ S9 TOPIC 1 ============ -->
+<section class="topic" id="expo-notifications">
+  <div class="topic-num">TOPIC 1 / 3</div>
+  <h2>Expo Notifications</h2>
+
+  <p>Every push notification system works the same basic way: your device registers with the OS's push service and receives a unique <b>token</b>, you send that token to your server, and your server later sends notifications to a push service using that token.</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 190" width="100%" height="190">
+      <rect x="20" y="30" width="170" height="110" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="105" y="20" text-anchor="middle" font-size="12" fill="var(--text)">DEVICE</text>
+      <text x="105" y="85" text-anchor="middle" font-size="11" fill="var(--text)">Registers, gets</text>
+      <text x="105" y="102" text-anchor="middle" font-size="11" fill="var(--text)">a push token</text>
+
+      <rect x="290" y="30" width="170" height="110" rx="12" fill="var(--paper-dim)" stroke="var(--line)"/>
+      <text x="375" y="20" text-anchor="middle" font-size="12" fill="var(--text)">YOUR SERVER</text>
+      <text x="375" y="85" text-anchor="middle" font-size="11" fill="var(--text)">Stores token,</text>
+      <text x="375" y="102" text-anchor="middle" font-size="11" fill="var(--text)">triggers sends</text>
+
+      <rect x="560" y="30" width="180" height="110" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="650" y="20" text-anchor="middle" font-size="12" fill="var(--text)">EXPO PUSH SERVICE</text>
+      <text x="650" y="85" text-anchor="middle" font-size="11" fill="var(--text)">Delivers to APNs</text>
+      <text x="650" y="102" text-anchor="middle" font-size="11" fill="var(--text)">/ FCM for you</text>
+
+      <path d="M190 85 H290" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a9)"/>
+      <path d="M460 85 H560" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a9)"/>
+      <defs><marker id="a9" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">hooks/usePushToken.ts</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> * <span class="tok-kw">as</span> Notifications <span class="tok-kw">from</span> <span class="tok-str">'expo-notifications'</span>;
+<span class="tok-kw">import</span> { <span class="tok-fn">useEffect</span>, <span class="tok-fn">useState</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+
+<span class="tok-kw">export function</span> <span class="tok-fn">usePushToken</span>() {
+  <span class="tok-kw">const</span> [token, setToken] = <span class="tok-fn">useState</span>&lt;<span class="tok-kw">string</span> | <span class="tok-kw">null</span>&gt;(<span class="tok-kw">null</span>);
+
+  <span class="tok-fn">useEffect</span>(() => {
+    (<span class="tok-kw">async</span> () => {
+      <span class="tok-kw">const</span> { status } = <span class="tok-kw">await</span> Notifications.<span class="tok-fn">requestPermissionsAsync</span>();
+      <span class="tok-kw">if</span> (status !== <span class="tok-str">'granted'</span>) <span class="tok-kw">return</span>;
+
+      <span class="tok-kw">const</span> { data } = <span class="tok-kw">await</span> Notifications.<span class="tok-fn">getExpoPushTokenAsync</span>();
+      <span class="tok-fn">setToken</span>(data);
+      <span class="tok-com">// send &#96;data&#96; to your backend here to store against the current user</span>
+    })();
+  }, []);
+
+  <span class="tok-kw">return</span> token;
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>requestPermissionsAsync()</code> — shows the OS's native permission prompt; without explicit permission, no notification can ever be delivered.</li>
+    <li><code>getExpoPushTokenAsync()</code> — returns a token in the format <code>ExponentPushToken[...]</code>, which Expo's push service uses to route notifications to this specific device.</li>
+    <li>The token must be sent to and stored by your backend — Expo's service doesn't know which "user" a token belongs to, only your server does.</li>
+  </ul>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">server: sending a notification</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">await fetch</span>(<span class="tok-str">'https://exp.host/--/api/v2/push/send'</span>, {
+  method: <span class="tok-str">'POST'</span>,
+  headers: { <span class="tok-str">'Content-Type'</span>: <span class="tok-str">'application/json'</span> },
+  body: JSON.<span class="tok-fn">stringify</span>({
+    to: pushToken,
+    title: <span class="tok-str">'New message'</span>,
+    body: <span class="tok-str">'You have a new message from Jane'</span>,
+  }),
+});</code></pre>
+  </div>
+
+  <div class="callout">
+    <b>Why "Expo's push service" and not APNs/FCM directly?</b>
+    Apple's APNs and Google's FCM each have their own separate, more complex authentication setup. Expo's push service acts as a unified layer in front of both — your server sends one consistent request format, and Expo handles routing to the correct platform-specific service.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting to request permission before trying to fetch a push token — the request will simply fail or return nothing.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Never updating a stored token when it changes (tokens can rotate) — leading to notifications silently failing for some users over time.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not handling the case where a user denies permission gracefully — the app should function normally, just without notifications, not break.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>What must happen before a device can receive any push notification?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">The app must be open in the foreground</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">The user must grant notification permission, and a push token must be registered</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">The app must be rebuilt with EAS Build</button>
+      </div>
+      <div class="quiz-explain">Correct — without permission and a valid, server-stored token, there's no way to route a notification to that device.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="section8.html#e2e-with-maestro">Previous<b>← Section 8: E2E with Maestro</b></a>
+    <a class="next" href="#onesignal-integration">Next topic<b>OneSignal Integration →</b></a>
+  </div>
+</section>
+
+<!-- ============ S9 TOPIC 2 ============ -->
+<section class="topic" id="onesignal-integration">
+  <div class="topic-num">TOPIC 2 / 3</div>
+  <h2>OneSignal Integration</h2>
+
+  <p>Expo's push service is great for getting started, but production apps with marketing/engagement needs often reach for <b>OneSignal</b> — a dedicated push notification platform with segmentation, scheduling, analytics, and A/B testing built in.</p>
+
+  <table class="cmp">
+    <tr><th></th><th>Expo Notifications</th><th>OneSignal</th></tr>
+    <tr><td>Cost</td><td>Free</td><td>Free tier, paid tiers for scale/features</td></tr>
+    <tr><td>Setup complexity</td><td>Minimal</td><td>Moderate (dashboard + SDK setup)</td></tr>
+    <tr><td>Audience segmentation</td><td>You build it yourself</td><td>Built-in dashboard tooling</td></tr>
+    <tr><td>Scheduling/campaigns</td><td>You build it yourself</td><td>Built-in</td></tr>
+    <tr><td>Analytics</td><td>Minimal</td><td>Detailed delivery/open analytics</td></tr>
+  </table>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/_layout.tsx</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">OneSignal</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-onesignal'</span>;
+<span class="tok-kw">import</span> { <span class="tok-fn">useEffect</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">RootLayout</span>() {
+  <span class="tok-fn">useEffect</span>(() => {
+    OneSignal.<span class="tok-fn">initialize</span>(<span class="tok-str">'YOUR_ONESIGNAL_APP_ID'</span>);
+    OneSignal.Notifications.<span class="tok-fn">requestPermission</span>(<span class="tok-kw">true</span>);
+  }, []);
+
+  <span class="tok-com">// ...rest of layout</span>
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>OneSignal.initialize(...)</code> — connects your app to your OneSignal dashboard project using its App ID, found in your OneSignal account settings.</li>
+    <li><code>Notifications.requestPermission(true)</code> — triggers the native permission prompt, same underlying OS mechanism as Expo Notifications.</li>
+  </ul>
+
+  <div class="callout teal">
+    <b>Deciding which to use</b>
+    Start with Expo Notifications for MVPs and simple transactional notifications (order updates, chat messages). Move to OneSignal once you need marketing campaigns, audience segments, or detailed delivery analytics that would otherwise require building your own dashboard.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Integrating a third-party push SDK like OneSignal directly inside Expo Go — like other custom native modules (Section 2), this requires a development build.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Running both Expo Notifications and OneSignal simultaneously without a clear reason, causing duplicate permission prompts and confusing token management.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#expo-notifications">Previous<b>← Expo Notifications</b></a>
+    <a class="next" href="#rich-notifications-ios">Next topic<b>Rich Notifications iOS →</b></a>
+  </div>
+</section>
+
+<!-- ============ S9 TOPIC 3 ============ -->
+<section class="topic" id="rich-notifications-ios">
+  <div class="topic-num">TOPIC 3 / 3</div>
+  <h2>Rich Notifications iOS</h2>
+
+  <p>A plain notification shows title and body text. A <b>rich notification</b> can include an image, video thumbnail, or custom UI — like a message preview showing the actual photo someone sent.</p>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">server: sending a rich notification</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">await fetch</span>(<span class="tok-str">'https://exp.host/--/api/v2/push/send'</span>, {
+  method: <span class="tok-str">'POST'</span>,
+  headers: { <span class="tok-str">'Content-Type'</span>: <span class="tok-str">'application/json'</span> },
+  body: JSON.<span class="tok-fn">stringify</span>({
+    to: pushToken,
+    title: <span class="tok-str">'Jane sent a photo'</span>,
+    body: <span class="tok-str">'Tap to view'</span>,
+    mutableContent: <span class="tok-kw">true</span>,
+    <span class="tok-com">// custom data your Notification Service Extension reads to fetch the image</span>
+    data: { imageUrl: <span class="tok-str">'https://example.com/photo.jpg'</span> },
+  }),
+});</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>mutableContent: true</code> — tells iOS this notification is allowed to be modified before display, which is required for attaching media.</li>
+    <li>Actually attaching the image requires a small native <b>Notification Service Extension</b> — a separate, tiny native target that downloads the image and attaches it before the notification is shown. This is native iOS configuration, set up once per project.</li>
+  </ul>
+
+  <div class="callout">
+    <b>Why this needs native configuration, not just a JS flag</b>
+    iOS delivers notifications to your app even when it's fully closed, via a special background extension process — this is lower-level than your main React Native JS bundle, which is why media attachments require native Xcode project setup (usually via an Expo config plugin) rather than pure JS code.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card int"><b>Intermediate mistake</b>Setting <code>mutableContent: true</code> without the accompanying Notification Service Extension configured — the flag alone does nothing without the native piece.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not handling image download failures inside the Service Extension, causing the entire notification to fail silently instead of gracefully falling back to text-only.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Section 9 final check</h4>
+    <div class="quiz-q">
+      <p>What's required to show an image inside an iOS push notification?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Just including an image URL in the notification's JSON body</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)"><code>mutableContent: true</code> plus a native Notification Service Extension to fetch and attach the image</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Nothing extra — all push notifications support images by default</button>
+      </div>
+      <div class="quiz-explain">Correct — rich media notifications require both the mutable content flag and a small native extension to actually process the attachment.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 9 complete ??</b>
+    You can now implement push notifications end-to-end — token registration, sending via Expo or OneSignal, and rich media notifications on iOS. Next up: Section 10 — Backend Basics.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#onesignal-integration">Previous<b>← OneSignal Integration</b></a>
+    <span></span>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- SECTION 10: BACKEND BASICS                                       -->
+<!-- ================================================================ -->
+
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's9';</script>
+<script src="script.js"></script>
+</body>
+</html>

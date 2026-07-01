@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 14 · EAS Update — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 14 · EAS Update</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero" style="margin-top:10px;">
+  <div class="hero-eyebrow">SECTION 14 — EAS UPDATE</div>
+  <h1 style="font-size:clamp(24px,3.4vw,34px);">EAS Update</h1>
+  <p>Ship JS/asset changes to users instantly — no app store review — by understanding channels and branches, watching a live update propagate, and simulating a real rollback.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+  </div>
+</div>
+
+<!-- ============ S14 TOPIC 1 ============ -->
+<section class="topic" id="configuring-eas-update">
+  <div class="topic-num">TOPIC 1 / 3</div>
+  <h2>Configuring EAS Update</h2>
+
+  <p>EAS Update delivers over-the-air (OTA) updates — new JavaScript and assets — directly to installed apps, without an app store review. It cannot ship new native code (that still requires a full build), but the vast majority of everyday changes (UI tweaks, bug fixes, copy changes, new screens built from existing native modules) qualify.</p>
+
+  <div class="callout">
+    <b>The critical mental model: channels and branches</b>
+    A <b>branch</b> holds a sequence of updates (like a git branch). A <b>channel</b> is what a build actually listens to. You map a channel to a branch — this indirection is what lets you point production users at a different update stream than internal testers, without rebuilding the app.
+  </div>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 220" width="100%" height="220">
+      <text x="20" y="24" font-size="12" fill="var(--text-mute)" font-family="'JetBrains Mono',monospace">BRANCHES</text>
+      <rect x="20" y="34" width="200" height="50" rx="10" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="120" y="64" text-anchor="middle" font-size="12" fill="var(--text)" font-family="'JetBrains Mono',monospace">production</text>
+      <rect x="20" y="100" width="200" height="50" rx="10" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="120" y="130" text-anchor="middle" font-size="12" fill="var(--text)" font-family="'JetBrains Mono',monospace">preview</text>
+
+      <text x="400" y="24" font-size="12" fill="var(--text-mute)" font-family="'JetBrains Mono',monospace">CHANNELS (in build)</text>
+      <rect x="400" y="34" width="180" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/>
+      <text x="490" y="64" text-anchor="middle" font-size="12" fill="var(--text)" font-family="'JetBrains Mono',monospace">production</text>
+      <rect x="400" y="100" width="180" height="50" rx="10" fill="var(--card)" stroke="var(--line)"/>
+      <text x="490" y="130" text-anchor="middle" font-size="12" fill="var(--text)" font-family="'JetBrains Mono',monospace">preview</text>
+
+      <text x="640" y="24" font-size="12" fill="var(--text-mute)" font-family="'JetBrains Mono',monospace">ACTUAL APPS</text>
+      <text x="700" y="64" text-anchor="middle" font-size="18" fill="var(--text)">??????</text>
+      <text x="700" y="130" text-anchor="middle" font-size="18" fill="var(--text)">??</text>
+
+      <path d="M220 59 H400" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a14)"/>
+      <path d="M220 125 H400" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a14)"/>
+      <path d="M580 59 H650" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a14)"/>
+      <path d="M580 125 H680" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a14)"/>
+      <defs><marker id="a14" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app.json</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>{
+  <span class="tok-attr">"expo"</span>: {
+    <span class="tok-attr">"updates"</span>: {
+      <span class="tok-attr">"url"</span>: <span class="tok-str">"https://u.expo.dev/your-project-id"</span>
+    },
+    <span class="tok-attr">"runtimeVersion"</span>: { <span class="tok-attr">"policy"</span>: <span class="tok-str">"appVersion"</span> }
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>runtimeVersion</code> — a critical safety check: an update can only reach a build if their runtime versions match, preventing an OTA update built against newer native code from being sent to a build that doesn't have it yet.</li>
+    <li>The <code>"appVersion"</code> policy ties runtime version to your app's version string automatically — a common, safe default for most projects.</li>
+  </ul>
+
+  <div class="callout teal">
+    <b>Why this indirection is worth the extra concept</b>
+    Without it, you'd need a hardcoded, one-to-one mapping of build to update stream. With channels, you can repoint which branch a channel serves at any time — for example, temporarily routing production to a hotfix branch — without needing a new build at all.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Confusing a channel and a branch as the same thing — a build's channel is fixed at build time; the branch it points to can change anytime.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Shipping a native-code-requiring change as if it were a simple OTA update — EAS Update will refuse or silently fail to apply changes needing new native modules.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>What's the difference between a branch and a channel in EAS Update?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">They're two names for the same thing</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">A branch holds a sequence of updates; a channel is what a build listens to, and maps to a branch</button>
+      </div>
+      <div class="quiz-explain">Correct — this indirection is exactly what lets you retarget which updates a build receives without a new native build.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="section13.html#submit-to-google-play">Previous<b>← Section 13: Submit to Google Play</b></a>
+    <a class="next" href="#deploying-updates">Next topic<b>Deploying Updates →</b></a>
+  </div>
+</section>
+
+<!-- ============ S14 TOPIC 2 ============ -->
+<section class="topic" id="deploying-updates">
+  <div class="topic-num">TOPIC 2 / 3</div>
+  <h2>Deploying Updates</h2>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>eas update --branch production --message "Fix checkout crash"</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>--branch production</code> — publishes this update to the <code>production</code> branch specifically.</li>
+    <li><code>--message</code> — a human-readable note shown in your EAS dashboard's update history, invaluable when tracing which update caused an issue later.</li>
+  </ul>
+
+  <div class="callout teal">
+    <b>Watch an update roll out live</b>
+    Press publish and watch the update propagate from your machine to connected devices, the same sequence that happens for real when you run the command above.
+  </div>
+
+  <div class="diagram-wrap" style="padding-bottom:24px;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:16px;">
+      <div id="updateSourceBox" style="padding:16px 20px; border-radius:12px; border:1px solid var(--line); background:var(--card); font-family:var(--font-mono); font-size:12px; text-align:center;">eas update<br>--branch production</div>
+      <div style="font-size:20px; color:var(--text-mute);">?</div>
+      <div id="updateServerBox" style="padding:16px 20px; border-radius:12px; border:1px solid var(--line); background:var(--card); font-family:var(--font-mono); font-size:12px; text-align:center;">EAS Update<br>servers</div>
+      <div style="font-size:20px; color:var(--text-mute);">?</div>
+      <div style="display:flex; gap:10px;">
+        <div class="update-device" data-device="0" style="font-size:26px; opacity:.3; transition:opacity .4s;">??</div>
+        <div class="update-device" data-device="1" style="font-size:26px; opacity:.3; transition:opacity .4s;">??</div>
+        <div class="update-device" data-device="2" style="font-size:26px; opacity:.3; transition:opacity .4s;">??</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <button class="demo-btn" id="updatePublishBtn" onclick="runUpdatePublish()">▶ Publish update</button>
+    </div>
+    <p id="updatePublishStatus" class="mute" style="text-align:center; font-size:13px; margin-top:12px; min-height:20px;"></p>
+  </div>
+
+  <div class="callout">
+    <b>When do devices actually receive it?</b>
+    By default, Expo apps check for updates on cold start (when the app is fully launched from closed). A user mid-session with the app already open won't see it until their next launch — this is normal and by design, avoiding disruptive changes underneath an active session.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Expecting an update to appear instantly inside an already-running app without relaunching it.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Publishing straight to the production branch without first testing the same update on a preview branch/channel.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not writing a meaningful <code>--message</code>, making it hard to identify which update introduced a regression weeks later.</div>
+  </div>
+
+  <ul class="exercises">
+    <li><span class="lvl i">Intermediate</span> Publish an update to a <code>preview</code> branch, verify it on a preview build, then promote the same update to <code>production</code>.</li>
+  </ul>
+
+  <div class="topic-nav">
+    <a href="#configuring-eas-update">Previous<b>← Configuring EAS Update</b></a>
+    <a class="next" href="#reverting-updates">Next topic<b>Reverting Updates →</b></a>
+  </div>
+</section>
+
+<!-- ============ S14 TOPIC 3 ============ -->
+<section class="topic" id="reverting-updates">
+  <div class="topic-num">TOPIC 3 / 3</div>
+  <h2>Reverting Updates</h2>
+
+  <p>Every published update is kept in your branch's history — reverting doesn't delete anything, it simply republishes an older update as the new "latest," so devices checking for updates receive the previous, known-good version.</p>
+
+  <div class="callout teal">
+    <b>Try a rollback yourself</b>
+    Below is a simulated update history for the <code>production</code> branch. Click "Revert to this" on an older entry to see exactly what a real rollback does.
+  </div>
+
+  <div class="phone-demo" style="align-items:stretch;">
+    <div style="flex:1; min-width:280px;">
+      <div id="updateHistoryList" style="display:flex; flex-direction:column; gap:8px;"></div>
+    </div>
+    <div class="demo-controls">
+      <h4>What "revert" really does</h4>
+      <p class="mute" style="font-size:13px; line-height:1.6;">Reverting publishes a <em>new</em> update entry that happens to contain the old version's code — the branch's history keeps growing forward, it never gets rewritten. This is why rollbacks are safe and instant.</p>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-com"># list recent updates on a branch to find the one to restore</span>
+eas update:list --branch production
+
+<span class="tok-com"># republish a specific earlier update as the new latest</span>
+eas update:republish --group &lt;update-group-id&gt;</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>eas update:list</code> — shows every published update on a branch with its ID, message, and timestamp — exactly the history simulated above.</li>
+    <li><code>eas update:republish</code> — doesn't create new code, it re-points "latest" back at a specific previous update group.</li>
+  </ul>
+
+  <div class="callout">
+    <b>Rollbacks vs. a fresh fix-forward update</b>
+    A rollback is fast and safe when the previous version was known-good. If the bug existed for a while and reverting would also remove other since-shipped fixes users need, publishing a new, forward-fixing update is usually the better call instead.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Panicking and trying to "delete" a bad update — EAS Update's model is append-only; you always publish forward, even when reverting.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Reverting a runtimeVersion-incompatible update onto a build that has since moved to a newer runtime version, which won't apply for the same safety reasons covered in Topic 1.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Section 14 final check</h4>
+    <div class="quiz-q">
+      <p>What actually happens when you "revert" an EAS Update?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">The bad update is deleted from history</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">A new update is published that republishes the old, known-good code as the new latest</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">The app is forced to rebuild from scratch</button>
+      </div>
+      <div class="quiz-explain">Correct — the branch history is append-only; reverting is really "publish forward with old content," not a deletion.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 14 complete ??</b>
+    You can now configure channels and branches, publish real OTA updates, and safely roll back when something goes wrong — all without an app store review cycle. Next up: Section 15 — EAS Workflows.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#deploying-updates">Previous<b>← Deploying Updates</b></a>
+    <a class="next" href="section15.html#getting-started-with-workflows">Next section<b>Section 15: EAS Workflows →</b></a>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- SECTION 15: EAS WORKFLOWS                                        -->
+<!-- ================================================================ -->
+
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's14';</script>
+<script src="script.js"></script>
+</body>
+</html>

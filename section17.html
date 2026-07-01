@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 17 · Payments — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 17 · Payments</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero" style="margin-top:10px;">
+  <div class="hero-eyebrow">SECTION 17 — PAYMENTS</div>
+  <h1 style="font-size:clamp(24px,3.4vw,34px);">Payments</h1>
+  <p>Figure out which payment system your app actually needs, then walk through a full in-app purchase — from tapping "Subscribe" to unlocking premium content — in a live simulator.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>2</b><span>TOPICS</span></div>
+    <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
+  </div>
+</div>
+
+<!-- ============ S17 TOPIC 1 ============ -->
+<section class="topic" id="payment-basics">
+  <div class="topic-num">TOPIC 1 / 2</div>
+  <h2>Payment Basics</h2>
+
+  <p>Before writing any payment code, the single most important question is: <b>what are you selling?</b> Apple and Google's store rules — not just convenience — dictate which payment system you're legally required to use.</p>
+
+  <div class="callout">
+    <b>The rule that decides everything</b>
+    If you're selling digital content or features consumed <em>inside</em> the app (premium features, subscriptions, virtual currency), Apple and Google require you to use their own in-app purchase systems — you are not allowed to use Stripe directly for this, even if you wanted to. Physical goods, services consumed outside the app (a ride, a hotel booking), and donations are typically exempt.
+  </div>
+
+  <h3>Try it: which one do you need?</h3>
+  <div class="phone-demo" style="align-items:stretch;">
+    <div style="flex:1; min-width:260px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px;">
+      <p style="font-size:13.5px; margin:0 0 14px; font-weight:600;">What are you charging for?</p>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <button class="pay-decision-btn" data-answer="digital" onclick="showPaymentAnswer('digital')" style="text-align:left; padding:10px 14px; border-radius:9px; border:1px solid var(--line); background:var(--paper); cursor:pointer; font-size:13px; color:var(--text);">Premium features / subscription inside the app</button>
+        <button class="pay-decision-btn" data-answer="physical" onclick="showPaymentAnswer('physical')" style="text-align:left; padding:10px 14px; border-radius:9px; border:1px solid var(--line); background:var(--paper); cursor:pointer; font-size:13px; color:var(--text);">Physical goods (e.g. an e-commerce order)</button>
+        <button class="pay-decision-btn" data-answer="service" onclick="showPaymentAnswer('service')" style="text-align:left; padding:10px 14px; border-radius:9px; border:1px solid var(--line); background:var(--paper); cursor:pointer; font-size:13px; color:var(--text);">A real-world service (ride, booking, delivery)</button>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>Recommendation</h4>
+      <div id="paymentAnswerBox" style="background:var(--paper-dim); border-radius:10px; padding:14px; font-size:13.5px; line-height:1.6; min-height:70px;">
+        Pick an option to see which payment system applies.
+      </div>
+    </div>
+  </div>
+
+  <table class="cmp">
+    <tr><th></th><th>In-App Purchase (RevenueCat/StoreKit)</th><th>Stripe</th></tr>
+    <tr><td>Required for</td><td>Digital content/features used in-app</td><td>Physical goods, external services, B2B</td></tr>
+    <tr><td>Store commission</td><td>15–30% platform cut</td><td>~2.9% + card fees, no platform cut</td></tr>
+    <tr><td>Payment methods</td><td>Card on file with Apple/Google account</td><td>Any card, wallet, or method Stripe supports</td></tr>
+    <tr><td>Subscription management UI</td><td>Handled by OS settings automatically</td><td>You build/manage it yourself</td></tr>
+  </table>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Integrating Stripe for a subscription that unlocks in-app features — this violates store policy and can get an app rejected or removed.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Assuming the ~15-30% store commission applies to a marketplace app's physical goods checkout — it doesn't; that's exactly the case Stripe is meant for.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>Why can't you use Stripe directly to sell an in-app subscription that unlocks app features?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Stripe doesn't support subscriptions technically</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">Apple and Google's store policies require their own in-app purchase system for digital content/features</button>
+      </div>
+      <div class="quiz-explain">Correct — this is a store policy requirement, not a technical limitation of Stripe.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="section16.html#play-store-submission">Previous<b>← Section 16: Play Store Submission</b></a>
+    <a class="next" href="#in-app-purchases">Next topic<b>In-app Purchases →</b></a>
+  </div>
+</section>
+
+<!-- ============ S17 TOPIC 2 ============ -->
+<section class="topic" id="in-app-purchases">
+  <div class="topic-num">TOPIC 2 / 2</div>
+  <h2>In-app Purchases</h2>
+
+  <p><b>RevenueCat</b> is the standard way to implement in-app purchases in React Native — it wraps Apple's StoreKit and Google's Billing Library behind one consistent API, and handles the genuinely tricky part: reliably verifying that a purchase actually happened.</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 190" width="100%" height="190">
+      <rect x="20" y="30" width="160" height="100" rx="12" fill="var(--card)" stroke="var(--line)"/>
+      <text x="100" y="20" text-anchor="middle" font-size="12" fill="var(--text)">Your app</text>
+      <text x="100" y="85" text-anchor="middle" font-size="11" fill="var(--text)">User taps</text>
+      <text x="100" y="102" text-anchor="middle" font-size="11" fill="var(--text)">"Subscribe"</text>
+
+      <rect x="240" y="30" width="160" height="100" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="320" y="20" text-anchor="middle" font-size="12" fill="var(--text)">App Store / Play</text>
+      <text x="320" y="85" text-anchor="middle" font-size="11" fill="var(--text)">Native purchase</text>
+      <text x="320" y="102" text-anchor="middle" font-size="11" fill="var(--text)">sheet + Face ID</text>
+
+      <rect x="460" y="30" width="160" height="100" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="540" y="20" text-anchor="middle" font-size="12" fill="var(--text)">RevenueCat</text>
+      <text x="540" y="85" text-anchor="middle" font-size="11" fill="var(--text)">Validates receipt,</text>
+      <text x="540" y="102" text-anchor="middle" font-size="11" fill="var(--text)">tracks entitlement</text>
+
+      <rect x="600" y="145" width="0" height="0"/>
+      <rect x="640" y="30" width="100" height="100" rx="12" fill="var(--card)" stroke="var(--line)"/>
+      <text x="690" y="85" text-anchor="middle" font-size="11" fill="var(--text)">Unlocked!</text>
+
+      <path d="M180 80 H240" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a17)"/>
+      <path d="M400 80 H460" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a17)"/>
+      <path d="M620 80 H640" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a17)"/>
+      <defs><marker id="a17" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/_layout.tsx</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> Purchases <span class="tok-kw">from</span> <span class="tok-str">'react-native-purchases'</span>;
+<span class="tok-kw">import</span> { <span class="tok-fn">useEffect</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">RootLayout</span>() {
+  <span class="tok-fn">useEffect</span>(() => {
+    Purchases.<span class="tok-fn">configure</span>({ apiKey: process.env.EXPO_PUBLIC_REVENUECAT_KEY<span class="tok-attr">!</span> });
+  }, []);
+  <span class="tok-com">// ...rest of layout</span>
+}</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/paywall.tsx</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">async function</span> <span class="tok-fn">handleSubscribe</span>() {
+  <span class="tok-kw">const</span> offerings = <span class="tok-kw">await</span> Purchases.<span class="tok-fn">getOfferings</span>();
+  <span class="tok-kw">const</span> pkg = offerings.current<span class="tok-attr">!</span>.availablePackages[<span class="tok-str">0</span>];
+
+  <span class="tok-kw">try</span> {
+    <span class="tok-kw">const</span> { customerInfo } = <span class="tok-kw">await</span> Purchases.<span class="tok-fn">purchasePackage</span>(pkg);
+    <span class="tok-kw">if</span> (customerInfo.entitlements.active[<span class="tok-str">'premium'</span>]) {
+      <span class="tok-com">// unlock premium features</span>
+    }
+  } <span class="tok-kw">catch</span> (e: <span class="tok-kw">any</span>) {
+    <span class="tok-kw">if</span> (!e.userCancelled) { <span class="tok-com">/* show a real error */</span> }
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>getOfferings()</code> — fetches the subscription/product options you've configured in the RevenueCat dashboard, which mirror what you set up in App Store Connect / Play Console.</li>
+    <li><code>purchasePackage(pkg)</code> — triggers the native purchase sheet (Face ID / fingerprint confirmation) and, on success, returns verified customer info.</li>
+    <li><code>entitlements.active['premium']</code> — the key check: RevenueCat's verified record of what this user is currently entitled to, regardless of which platform they purchased on.</li>
+    <li><code>e.userCancelled</code> — distinguishing a user backing out of the purchase sheet from a genuine error is important; don't show a scary error message for a simple cancellation.</li>
+  </ul>
+
+  <div class="callout teal">
+    <b>Try the full purchase flow live</b>
+    Tap Subscribe below to walk through exactly what the code above does — native purchase sheet, verification, and unlocking premium content.
+  </div>
+
+  <div class="phone-demo">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen" id="iapDemoScreen" style="flex-direction:column; padding:20px; align-items:center; justify-content:center; gap:12px; text-align:center;">
+        <div style="font-size:28px;">??</div>
+        <div style="font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:#1a1d24;">Unlock Premium</div>
+        <div style="font-family:'Inter',sans-serif; font-size:11px; color:#5c6070;">Ad-free, unlimited exports</div>
+        <button onclick="runIapDemo()" style="margin-top:6px; background:#ff5a3c; color:#fff; border:none; padding:9px 18px; border-radius:20px; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; cursor:pointer;">Subscribe $4.99/mo</button>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>What's happening at each step</h4>
+      <p id="iapDemoStatus" class="mute" style="font-size:13px; min-height:60px;">Tap "Subscribe" in the phone to start.</p>
+    </div>
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Checking a local boolean flag for "is premium" instead of RevenueCat's verified <code>entitlements</code> — locally-set flags can be tampered with or go stale.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Not handling <code>userCancelled</code> separately, showing a confusing "purchase failed" error every time a user simply closes the purchase sheet.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not testing subscription renewal, cancellation, and refund webhooks before launch — these edge cases are common and need graceful handling, not just the happy path.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Section 17 final check</h4>
+    <div class="quiz-q">
+      <p>Why check <code>customerInfo.entitlements</code> instead of a local "isPremium" flag your own code sets?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Entitlements load faster than local state</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">Entitlements are RevenueCat's verified record of purchase status, resistant to tampering or going stale</button>
+      </div>
+      <div class="quiz-explain">Correct — a locally-set flag can be manipulated or become out of sync; the verified entitlement is the source of truth.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 17 complete ??</b>
+    You now know which payment system a given feature requires, and how a real in-app purchase flows from tap to verified entitlement. Next up: Section 18 — Native Modules.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#payment-basics">Previous<b>← Payment Basics</b></a>
+    <span></span>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- SECTION 18: NATIVE MODULES                                       -->
+<!-- ================================================================ -->
+
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's17';</script>
+<script src="script.js"></script>
+</body>
+</html>
+

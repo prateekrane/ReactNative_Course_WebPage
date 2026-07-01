@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 19 · Bonus — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 19 · Bonus</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero" style="margin-top:10px;">
+  <div class="hero-eyebrow">SECTION 19 — BONUS</div>
+  <h1 style="font-size:clamp(24px,3.4vw,34px);">Bonus</h1>
+  <p>Three extras that push your app further: home screen widgets, safely upgrading your Expo SDK version over time, and integrating Meta's ad and attribution SDK.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>3</b><span>TOPICS</span></div>
+    <div class="hero-stat"><b>~2h</b><span>TO COMPLETE</span></div>
+  </div>
+</div>
+
+<!-- ============ S19 TOPIC 1 ============ -->
+<section class="topic" id="apple-widgets">
+  <div class="topic-num">TOPIC 1 / 3</div>
+  <h2>Apple Widgets</h2>
+
+  <p>iOS home screen widgets are built with <b>WidgetKit</b> — a separate mini-app "extension" that runs independently of your main app, refreshing on a timeline rather than staying constantly live.</p>
+
+  <h3>Click each size to preview it</h3>
+  <div class="phone-demo" style="align-items:stretch;">
+    <div style="display:flex; gap:8px;">
+      <button class="widget-size-btn" data-size="small" onclick="showWidgetSize('small')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--coral); background:var(--coral-dim); color:var(--coral); font-family:var(--font-display); font-size:12.5px; cursor:pointer; font-weight:600;">Small</button>
+      <button class="widget-size-btn" data-size="medium" onclick="showWidgetSize('medium')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">Medium</button>
+      <button class="widget-size-btn" data-size="large" onclick="showWidgetSize('large')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">Large</button>
+    </div>
+    <div style="margin-top:14px; display:flex; justify-content:center;">
+      <div id="widgetPreviewBox" style="width:150px; height:150px; border-radius:22px; background:#1c1e26; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-family:'Inter',sans-serif; transition:all .3s;">
+        <div style="font-size:22px;">??</div>
+        <div style="font-size:11px; margin-top:6px;">72—F</div>
+      </div>
+    </div>
+    <div class="demo-controls" style="margin-top:14px;">
+      <p id="widgetSizeDescription" class="mute" style="font-size:13px; text-align:center;">Small: one glanceable stat — a single piece of information, no interaction.</p>
+    </div>
+  </div>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 160" width="100%" height="160">
+      <rect x="20" y="30" width="200" height="90" rx="12" fill="var(--card)" stroke="var(--line)"/>
+      <text x="120" y="70" text-anchor="middle" font-size="11" fill="var(--text)">Your app updates</text>
+      <text x="120" y="87" text-anchor="middle" font-size="11" fill="var(--text)">shared data (App Group)</text>
+      <rect x="280" y="30" width="200" height="90" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="380" y="70" text-anchor="middle" font-size="11" fill="var(--text)">WidgetKit reads it on</text>
+      <text x="380" y="87" text-anchor="middle" font-size="11" fill="var(--text)">a scheduled timeline</text>
+      <rect x="540" y="30" width="200" height="90" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="640" y="70" text-anchor="middle" font-size="11" fill="var(--text)">Home screen widget</text>
+      <text x="640" y="87" text-anchor="middle" font-size="11" fill="var(--text)">re-renders</text>
+      <path d="M220 75 H280" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a19)"/>
+      <path d="M480 75 H540" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a19)"/>
+      <defs><marker id="a19" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">targets/widget/Widget.swift</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> WidgetKit
+<span class="tok-kw">import</span> SwiftUI
+
+<span class="tok-kw">struct</span> WeatherWidget: Widget {
+  <span class="tok-kw">var</span> body: <span class="tok-kw">some</span> WidgetConfiguration {
+    StaticConfiguration(kind: <span class="tok-str">"WeatherWidget"</span>, provider: Provider()) { entry <span class="tok-kw">in</span>
+      Text(<span class="tok-str">"\(entry.temperature)—"</span>)
+    }
+    .configurationDisplayName(<span class="tok-str">"Weather"</span>)
+    .supportedFamilies([.systemSmall, .systemMedium])
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>StaticConfiguration</code> — the simplest widget type: no user-configurable options, just data that changes over time.</li>
+    <li><code>provider: Provider()</code> — a small type you define that tells WidgetKit when to fetch new data and what the "timeline" of future updates looks like.</li>
+    <li><code>.supportedFamilies</code> — declares which sizes this widget supports; the same view logic typically renders differently per size, as you saw in the preview above.</li>
+  </ul>
+
+  <div class="callout">
+    <b>The key constraint to internalize</b>
+    A widget is <em>not</em> your running React Native app in miniature — it's a separate, lightweight native extension that can't run your JS bundle. Data must be shared between your app and the widget via a mechanism like an App Group's shared storage, updated periodically, not live-streamed.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Expecting a widget to update instantly when the main app's state changes — it only refreshes on its own timeline schedule.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting to configure an App Group, leaving the widget with no way to read data written by the main app.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="section18.html#native-modules-next-steps">Previous<b>← Section 18: Native Modules Next Steps</b></a>
+    <a class="next" href="#how-to-upgrade-expo-sdk">Next topic<b>How to Upgrade Expo SDK →</b></a>
+  </div>
+</section>
+
+<!-- ============ S19 TOPIC 2 ============ -->
+<section class="topic" id="how-to-upgrade-expo-sdk">
+  <div class="topic-num">TOPIC 2 / 3</div>
+  <h2>How to Upgrade Expo SDK</h2>
+
+  <p>Expo ships a new SDK version roughly every few months, tracking new React Native releases. Skipping upgrades for too long compounds risk — each version bump is manageable; jumping five versions at once often isn't.</p>
+
+  <div class="callout teal">
+    <b>Run through the upgrade process yourself</b>
+  </div>
+
+  <div class="diagram-wrap" style="padding-bottom:24px;">
+    <div id="upgradeStagesRow" style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-bottom:16px;">
+      <div class="upg-stage" data-stage="0" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Read changelog</div>
+      <div class="upg-stage" data-stage="1" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Bump expo package</div>
+      <div class="upg-stage" data-stage="2" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">expo install --fix</div>
+      <div class="upg-stage" data-stage="3" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Rebuild dev client</div>
+      <div class="upg-stage" data-stage="4" style="flex:1; min-width:110px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Test thoroughly</div>
+    </div>
+    <div style="text-align:center;">
+      <button class="demo-btn" id="upgradeBtn" onclick="runUpgradePipeline()">▶ Start upgrade</button>
+    </div>
+    <p id="upgradeStatus" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-com"># 1. Update the core expo package to the new SDK version</span>
+npx expo install expo@latest
+
+<span class="tok-com"># 2. Let Expo align every other dependency to compatible versions</span>
+npx expo install --fix
+
+<span class="tok-com"># 3. Rebuild your development build — native code has changed</span>
+eas build --profile development --platform all</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>expo install --fix</code> — scans your <code>package.json</code> and corrects any dependency versions that don't match what the new SDK expects, which is safer than manually guessing compatible versions.</li>
+    <li>A new development build is required after an SDK bump because native code genuinely changed — reusing an old development build against new JS can cause confusing native/JS version mismatches.</li>
+  </ul>
+
+  <div class="callout">
+    <b>Why "one version at a time" beats "skip ahead"</b>
+    Each SDK release's changelog documents breaking changes relative to the <em>immediately previous</em> version. Jumping from SDK 49 to 52 directly means reading and reconciling three changelogs' worth of breaking changes simultaneously — upgrading sequentially (49?50?51?52), testing at each step, isolates problems far more easily.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Manually editing dependency versions in <code>package.json</code> by guesswork instead of running <code>expo install --fix</code>.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Upgrading the JS/Expo package but forgetting to generate a new development/production build, running new JS against stale native code.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Letting a production app fall multiple SDK versions behind, turning a routine upgrade into a multi-day migration project.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>Why upgrade one SDK version at a time rather than jumping straight to the newest?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's not possible to skip versions technically</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">Each version's breaking changes are documented relative to the previous one, so sequential upgrades isolate problems more easily</button>
+      </div>
+      <div class="quiz-explain">Correct — skipping versions compounds the number of breaking changes you need to reconcile at once.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#apple-widgets">Previous<b>← Apple Widgets</b></a>
+    <a class="next" href="#meta-ads-and-facebook-sdk">Next topic<b>Meta Ads & Facebook SDK →</b></a>
+  </div>
+</section>
+
+<!-- ============ S19 TOPIC 3 ============ -->
+<section class="topic" id="meta-ads-and-facebook-sdk">
+  <div class="topic-num">TOPIC 3 / 3</div>
+  <h2>Meta Ads & Facebook SDK</h2>
+
+  <p>If you run Facebook/Instagram ad campaigns to acquire users, the Meta SDK lets you report back which in-app actions (signups, purchases) resulted from those ads — closing the loop between ad spend and real outcomes.</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 150" width="100%" height="150">
+      <rect x="20" y="30" width="200" height="90" rx="12" fill="var(--card)" stroke="var(--line)"/>
+      <text x="120" y="70" text-anchor="middle" font-size="11" fill="var(--text)">User taps a Meta ad,</text>
+      <text x="120" y="87" text-anchor="middle" font-size="11" fill="var(--text)">installs your app</text>
+      <rect x="280" y="30" width="200" height="90" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="380" y="70" text-anchor="middle" font-size="11" fill="var(--text)">App logs an event</text>
+      <text x="380" y="87" text-anchor="middle" font-size="11" fill="var(--text)">("Purchase") via SDK</text>
+      <rect x="540" y="30" width="200" height="90" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="640" y="70" text-anchor="middle" font-size="11" fill="var(--text)">Meta Ads Manager</text>
+      <text x="640" y="87" text-anchor="middle" font-size="11" fill="var(--text)">attributes it to the ad</text>
+      <path d="M220 75 H280" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a19b)"/>
+      <path d="M480 75 H540" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a19b)"/>
+      <defs><marker id="a19b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/checkout.tsx</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Settings</span>, <span class="tok-fn">AppEventsLogger</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native-fbsdk-next'</span>;
+
+<span class="tok-com">// after a successful purchase:</span>
+AppEventsLogger.<span class="tok-fn">logPurchase</span>(<span class="tok-str">9.99</span>, <span class="tok-str">'USD'</span>);</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>logPurchase(amount, currency)</code> — a standard, predefined event Meta's attribution system specifically understands, distinct from arbitrary custom events.</li>
+    <li>Using standard events (purchase, signup, add-to-cart) rather than only custom ones gives you access to Meta's built-in ad optimization tools that target users likely to complete that specific action.</li>
+  </ul>
+
+  <div class="callout">
+    <b>The App Tracking Transparency requirement (iOS)</b>
+    On iOS, cross-app attribution like this requires the user's explicit permission via Apple's App Tracking Transparency (ATT) prompt. Without permission granted, event data is still logged but in a limited, aggregated form — you cannot bypass this by not asking, and not asking when required is itself a policy violation.
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/_layout.tsx</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> * <span class="tok-kw">as</span> TrackingTransparency <span class="tok-kw">from</span> <span class="tok-str">'expo-tracking-transparency'</span>;
+
+<span class="tok-kw">const</span> { status } = <span class="tok-kw">await</span> TrackingTransparency.<span class="tok-fn">requestTrackingPermissionsAsync</span>();
+<span class="tok-com">// only enable full Meta attribution if status === 'granted'</span></code></pre>
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Integrating the Facebook SDK without implementing the ATT prompt on iOS — this is both a policy violation and legally required in relevant jurisdictions.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Logging only custom events instead of Meta's standard events, missing out on ad platform features built specifically around recognized event types.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not accounting for the significant data limitations when users decline tracking — campaign attribution should degrade gracefully, not assume full data is always available.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Section 19 final check</h4>
+    <div class="quiz-q">
+      <p>What must happen before full cross-app attribution data is available on iOS?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Nothing — it works automatically once the SDK is installed</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">The user must grant permission via the App Tracking Transparency prompt</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">The app must have over 10,000 downloads</button>
+      </div>
+      <div class="quiz-explain">Correct — ATT permission is a hard requirement for full attribution data on iOS, not an optional enhancement.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 19 complete ??</b>
+    You've now covered the full course — from your very first "Hello, React Native!" screen all the way through native modules, store publishing, and growth tooling.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#how-to-upgrade-expo-sdk">Previous<b>← How to Upgrade Expo SDK</b></a>
+    <span></span>
+  </div>
+</section>
+
+<!-- ============ COURSE COMPLETE ============ -->
+<section class="topic" id="course-complete" style="margin-top:20px;">
+  <div class="hero" style="text-align:center; padding:60px 34px;">
+    <div class="hero-eyebrow" style="text-align:center;">?? ALL 19 SECTIONS COMPLETE</div>
+    <h1 style="font-size:clamp(26px,4vw,40px);">You've finished the course.</h1>
+    <p style="margin:0 auto 22px; max-width:560px;">From "What is React Native?" to native modules, store publishing, CI/CD workflows, and growth SDKs — you've now covered the entire path from absolute beginner to production-ready React Native developer.</p>
+    <div class="hero-stats" style="justify-content:center;">
+      <div class="hero-stat"><b>19</b><span>SECTIONS</span></div>
+      <div class="hero-stat"><b>70+</b><span>TOPICS</span></div>
+      <div class="hero-stat"><b>1</b><span>REAL SKILL SET</span></div>
+    </div>
+  </div>
+  <div class="callout teal" style="margin-top:24px;">
+    <b>Where to go next</b>
+    Build something real. The fastest way to consolidate everything here is a small end-to-end project — pick an idea, scaffold it with Expo Router, wire up Supabase, add auth, and ship it through EAS Build to your own phone.
+  </div>
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's19';</script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 18 · Native Modules — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 18 · Native Modules</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero" style="margin-top:10px;">
+  <div class="hero-eyebrow">SECTION 18 — NATIVE MODULES</div>
+  <h1 style="font-size:clamp(24px,3.4vw,34px);">Native Modules</h1>
+  <p>Explore an interactive map of the JS-to-native architecture, watch a module get created stage by stage, and learn exactly when writing native code is (and isn't) the right call.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>4</b><span>TOPICS</span></div>
+    <div class="hero-stat"><b>~2.5h</b><span>TO COMPLETE</span></div>
+  </div>
+</div>
+
+<!-- ============ S18 TOPIC 1 ============ -->
+<section class="topic" id="introduction-to-native-modules">
+  <div class="topic-num">TOPIC 1 / 4</div>
+  <h2>Introduction to Native Modules</h2>
+
+  <p>Every time you've used a feature like the camera, notifications, or secure storage, you've been using a <b>native module</b> — JS-callable code backed by real Swift/Kotlin. The Expo Modules API is the modern, batteries-included way to write your own.</p>
+
+  <h3>Click each layer to see how a call actually travels</h3>
+  <div class="phone-demo" style="align-items:stretch;">
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="nm-layer-btn" data-layer="js" onclick="showNativeLayer('js')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--coral); background:var(--coral-dim); color:var(--coral); font-family:var(--font-display); font-size:12.5px; cursor:pointer; font-weight:600;">1. JS call</button>
+      <button class="nm-layer-btn" data-layer="jsi" onclick="showNativeLayer('jsi')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">2. JSI</button>
+      <button class="nm-layer-btn" data-layer="module" onclick="showNativeLayer('module')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">3. Expo Module</button>
+      <button class="nm-layer-btn" data-layer="os" onclick="showNativeLayer('os')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">4. OS API</button>
+    </div>
+    <div id="nativeLayerDetail" style="margin-top:14px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:13.5px; line-height:1.7;">
+      <b>1. JS call:</b> Your code calls something like <code>await Flashlight.toggle()</code> — an ordinary-looking async function call, no different from calling any other JS function.
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Why write one at all?</b>
+    Reach for a native module only when: (1) no existing Expo SDK or community library already does it, and (2) the capability genuinely requires platform APIs unavailable from pure JS — things like custom Bluetooth protocols, specialized camera processing, or OS-level widgets (Section 19).
+  </div>
+
+  <table class="cmp">
+    <tr><th>Layer</th><th>What it does</th></tr>
+    <tr><td>JS call</td><td>Your ordinary-looking async function call in React Native code</td></tr>
+    <tr><td>JSI</td><td>Passes the call and arguments directly to native code, no JSON serialization needed</td></tr>
+    <tr><td>Expo Module</td><td>Your Swift/Kotlin code, registered and exposed via the Expo Modules API</td></tr>
+    <tr><td>OS API</td><td>The actual platform capability being used — camera, sensors, file system, etc.</td></tr>
+  </table>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Writing a custom native module for something an existing, well-maintained Expo SDK package or community library already solves.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Assuming native modules require the old Bridge — modern Expo Modules are built on JSI/TurboModules from the New Architecture (Section 2) by default.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="section17.html#in-app-purchases">Previous<b>← Section 17: In-app Purchases</b></a>
+    <a class="next" href="#create-a-native-module">Next topic<b>Create a Native Module →</b></a>
+  </div>
+</section>
+
+<!-- ============ S18 TOPIC 2 ============ -->
+<section class="topic" id="create-a-native-module">
+  <div class="topic-num">TOPIC 2 / 4</div>
+  <h2>Create a Native Module</h2>
+
+  <p>Let's build a real, minimal native module: a flashlight toggle. Watch each creation stage animate below, then look at the actual code for each.</p>
+
+  <div class="diagram-wrap" style="padding-bottom:24px;">
+    <div id="nmCreateRow" style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:16px;">
+      <div class="nmc-stage" data-stage="0" style="min-width:120px; text-align:center; padding:12px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Scaffold module</div>
+      <div class="nmc-stage" data-stage="1" style="min-width:120px; text-align:center; padding:12px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Write Swift function</div>
+      <div class="nmc-stage" data-stage="2" style="min-width:120px; text-align:center; padding:12px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Write Kotlin function</div>
+      <div class="nmc-stage" data-stage="3" style="min-width:120px; text-align:center; padding:12px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Generate JS binding</div>
+      <div class="nmc-stage" data-stage="4" style="min-width:120px; text-align:center; padding:12px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11px; font-family:var(--font-mono); transition:all .3s;">Call from app</div>
+    </div>
+    <div style="text-align:center;">
+      <button class="demo-btn" id="nmCreateBtn" onclick="runNativeModuleCreation()">▶ Create module</button>
+    </div>
+    <p id="nmCreateStatus" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>npx create-expo-module flashlight --local</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>--local</code> — scaffolds the module directly inside your existing project's <code>modules/</code> folder, ideal for app-specific native code rather than a publishable standalone package.</li>
+  </ul>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">modules/flashlight/ios/FlashlightModule.swift</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> ExpoModulesCore
+<span class="tok-kw">import</span> AVFoundation
+
+<span class="tok-kw">public class</span> FlashlightModule: Module {
+  <span class="tok-kw">public func</span> definition() -&gt; ModuleDefinition {
+    Name(<span class="tok-str">"Flashlight"</span>)
+
+    AsyncFunction(<span class="tok-str">"toggle"</span>) { () -&gt; Bool <span class="tok-kw">in</span>
+      <span class="tok-kw">guard let</span> device = AVCaptureDevice.default(<span class="tok-kw">for</span>: .video) <span class="tok-kw">else</span> { <span class="tok-kw">return false</span> }
+      <span class="tok-kw">try</span> device.lockForConfiguration()
+      device.torchMode = device.torchMode == .on ? .off : .on
+      device.unlockForConfiguration()
+      <span class="tok-kw">return</span> device.torchMode == .on
+    }
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>Name("Flashlight")</code> — registers how this module will be addressed from JS, e.g. <code>requireNativeModule('Flashlight')</code>.</li>
+    <li><code>AsyncFunction("toggle")</code> — declares a function callable from JS as a Promise-returning async call — matching JS's own async/await model.</li>
+    <li>The actual torch-toggling logic uses Apple's <code>AVFoundation</code> — a real system API with no React Native equivalent exposed by default.</li>
+  </ul>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">modules/flashlight/android/FlashlightModule.kt</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> expo.modules.kotlin.modules.Module
+<span class="tok-kw">import</span> expo.modules.kotlin.modules.ModuleDefinition
+
+<span class="tok-kw">class</span> FlashlightModule : Module() {
+  <span class="tok-kw">override fun</span> definition() = ModuleDefinition {
+    Name(<span class="tok-str">"Flashlight"</span>)
+
+    AsyncFunction(<span class="tok-str">"toggle"</span>) {
+      <span class="tok-kw">val</span> cameraManager = appContext.reactContext?.getSystemService(Context.CAMERA_SERVICE) <span class="tok-kw">as</span> CameraManager
+      <span class="tok-com">// toggle torch via cameraManager.setTorchMode(...)</span>
+      <span class="tok-kw">true</span>
+    }
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li>Notice the structural mirror to the Swift file — <code>Name(...)</code> and <code>AsyncFunction(...)</code> are the same Expo Modules API concepts, just Kotlin syntax on Android's side.</li>
+  </ul>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> Flashlight <span class="tok-kw">from</span> <span class="tok-str">'flashlight'</span>;
+
+<span class="tok-kw">const</span> isOn = <span class="tok-kw">await</span> Flashlight.toggle();</code></pre>
+  </div>
+
+  <div class="callout teal">
+    <b>The payoff</b>
+    From the app's perspective, this is indistinguishable from calling any other async function — all the Swift/Kotlin complexity is completely hidden behind one clean JS API.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting to implement both the iOS and Android sides — a module missing one platform's implementation will crash or no-op there.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Doing expensive/blocking work inside a native function without it being properly async, freezing the native UI thread.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>What does <code>Name("Flashlight")</code> do inside a module's definition?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Sets the display name shown in App Store listings</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">Registers the identifier JS uses to reference this module</button>
+      </div>
+      <div class="quiz-explain">Correct — it's purely an internal identifier connecting the JS side to this specific native module.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#introduction-to-native-modules">Previous<b>← Introduction to Native Modules</b></a>
+    <a class="next" href="#create-a-native-view">Next topic<b>Create a Native View →</b></a>
+  </div>
+</section>
+
+<!-- ============ S18 TOPIC 3 ============ -->
+<section class="topic" id="create-a-native-view">
+  <div class="topic-num">TOPIC 3 / 4</div>
+  <h2>Create a Native View</h2>
+
+  <p>Beyond function calls, native modules can also expose entire <b>views</b> — real native UI, rendered inline in your React Native tree, exactly like the custom SwiftUI/Compose views from Section 7, but built through the plain native module system.</p>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">modules/flashlight/ios/FlashlightView.swift</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> ExpoModulesCore
+
+<span class="tok-kw">class</span> TorchIndicatorView: ExpoView {
+  <span class="tok-kw">let</span> onTorchChange = EventDispatcher()
+
+  <span class="tok-kw">required init</span>(appContext: AppContext? = <span class="tok-kw">nil</span>) {
+    <span class="tok-kw">super.init</span>(appContext: appContext)
+    backgroundColor = .black
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>ExpoView</code> — the base class for any custom native view exposed through Expo Modules; it slots directly into React Native's view hierarchy.</li>
+    <li><code>EventDispatcher()</code> — lets this native view fire events back up to JS (like an <code>onTorchChange</code> prop callback), the reverse direction of the function calls from the previous topic.</li>
+  </ul>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">modules/flashlight/ios/FlashlightModule.swift (registering the view)</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>View(TorchIndicatorView.<span class="tok-kw">self</span>) {
+  Events(<span class="tok-str">"onTorchChange"</span>)
+}</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { requireNativeViewManager } <span class="tok-kw">from</span> <span class="tok-str">'expo-modules-core'</span>;
+
+<span class="tok-kw">const</span> TorchIndicatorView = requireNativeViewManager(<span class="tok-str">'Flashlight'</span>);
+
+&lt;<span class="tok-tag">TorchIndicatorView</span> <span class="tok-attr">onTorchChange</span>={(e) =&gt; console.log(e.nativeEvent)} <span class="tok-attr">style</span>={{ width: <span class="tok-str">40</span>, height: <span class="tok-str">40</span> }} /&gt;</code></pre>
+  </div>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 700 150" width="100%" height="150">
+      <rect x="20" y="30" width="200" height="90" rx="12" fill="var(--card)" stroke="var(--line)"/>
+      <text x="120" y="80" text-anchor="middle" font-size="11" fill="var(--text)">Swift/Kotlin View class</text>
+      <rect x="270" y="30" width="200" height="90" rx="12" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="370" y="70" text-anchor="middle" font-size="11" fill="var(--text)">Registered via</text>
+      <text x="370" y="87" text-anchor="middle" font-size="11" fill="var(--text)">View(...) in module</text>
+      <rect x="520" y="30" width="160" height="90" rx="12" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="600" y="70" text-anchor="middle" font-size="11" fill="var(--text)">requireNativeView-</text>
+      <text x="600" y="87" text-anchor="middle" font-size="11" fill="var(--text)">Manager() in JSX</text>
+      <path d="M220 75 H270" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a18)"/>
+      <path d="M470 75 H520" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#a18)"/>
+      <defs><marker id="a18" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="callout">
+    <b>How this differs from Section 7's Expo UI</b>
+    Expo UI (Section 7) gives you pre-built components that already wrap SwiftUI/Compose for common needs. This lower-level native view system is what you reach for when you need something fully custom that neither Expo UI nor any existing library provides.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card int"><b>Intermediate mistake</b>Forgetting to register the view with <code>View(...)</code> inside the module definition — without it, <code>requireNativeViewManager</code> won't find anything on the JS side.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#create-a-native-module">Previous<b>← Create a Native Module</b></a>
+    <a class="next" href="#native-modules-next-steps">Next topic<b>Native Modules Next Steps →</b></a>
+  </div>
+</section>
+
+<!-- ============ S18 TOPIC 4 ============ -->
+<section class="topic" id="native-modules-next-steps">
+  <div class="topic-num">TOPIC 4 / 4</div>
+  <h2>Native Modules Next Steps</h2>
+
+  <p>Before reaching for a custom native module on your next project, run through this decision checklist — it'll save you significant time in most cases.</p>
+
+  <div id="nmDecisionChecklist" style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:18px 0;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+      <b style="font-family:var(--font-display); font-size:14px;">Should you write a custom native module?</b>
+    </div>
+    <div id="nmDecisionItems"></div>
+    <div id="nmDecisionResult" style="margin-top:14px; padding:12px; border-radius:10px; background:var(--paper-dim); font-size:13px; line-height:1.6;">Check items above that are true for your situation.</div>
+  </div>
+
+  <h3>Where to go from here</h3>
+  <ul>
+    <li><b>Search first.</b> Check the Expo SDK and popular community libraries (via a quick search of the React Native directory) before writing anything custom.</li>
+    <li><b>Start local.</b> Use <code>--local</code> modules (this section's approach) before extracting a standalone published package — you can always extract later once the API stabilizes.</li>
+    <li><b>Read real examples.</b> Expo's own SDK packages are open source — reading how <code>expo-camera</code> or <code>expo-notifications</code> are built is one of the best ways to learn real module patterns.</li>
+    <li><b>Revisit Section 7.</b> If your need is UI-shaped (a native-feeling control, not a system capability), Expo UI's higher-level components may already cover it without writing raw native view code.</li>
+  </ul>
+
+  <div class="callout teal">
+    <b>A healthy default</b>
+    Most successful React Native apps ship for years without ever writing a custom native module — reach for one only when you've confirmed, concretely, that nothing else solves the problem.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card pro"><b>Professional mistake</b>Treating native module authorship as a rite of passage rather than a genuine, justified engineering need — it adds real maintenance burden (two more languages, two more build targets) that should be earned, not defaulted to.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Section 18 final check</h4>
+    <div class="quiz-q">
+      <p>What should you check before writing a custom native module?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Nothing — always build your own for full control</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">Whether the Expo SDK or an existing community library already solves the problem</button>
+      </div>
+      <div class="quiz-explain">Correct — custom native modules add real long-term maintenance cost, so it's worth confirming nothing existing already covers the need.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 18 complete ??</b>
+    You now understand the JS-to-native architecture, have built a real module and a real native view, and know how to decide when writing one is actually justified. Next up: Section 19 — Bonus.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#create-a-native-view">Previous<b>← Create a Native View</b></a>
+    <a class="next" href="section19.html#apple-widgets">Next section<b>Section 19: Bonus →</b></a>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- SECTION 19: BONUS                                                -->
+<!-- ================================================================ -->
+
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's18';</script>
+<script src="script.js"></script>
+</body>
+</html>

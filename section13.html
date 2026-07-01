@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 13 · EAS Submit — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 13 · EAS Submit</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero" style="margin-top:10px;">
+  <div class="hero-eyebrow">SECTION 13 — EAS SUBMIT</div>
+  <h1 style="font-size:clamp(24px,3.4vw,34px);">EAS Submit</h1>
+  <p>Automate the last mile: sending your finished production build to the App Store and Play Store without manually uploading anything through Xcode or the Play Console web UI.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>2</b><span>TOPICS</span></div>
+    <div class="hero-stat"><b>~1.5h</b><span>TO COMPLETE</span></div>
+  </div>
+</div>
+
+<!-- ============ S13 TOPIC 1 ============ -->
+<section class="topic" id="submit-to-app-store">
+  <div class="topic-num">TOPIC 1 / 2</div>
+  <h2>Submit to App Store</h2>
+
+  <p><code>eas submit</code> takes a build you already produced (Section 12) and uploads it directly to App Store Connect, using credentials EAS manages for you — no dragging files into Xcode's Transporter app.</p>
+
+  <div class="callout teal">
+    <b>Run the submission pipeline yourself</b>
+    Press start and watch each real stage of an App Store submission light up in order.
+  </div>
+
+  <div class="diagram-wrap" style="padding-bottom:24px;">
+    <div id="appStorePipeline" class="pipeline-row" style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-bottom:16px;">
+      <div class="as-stage" data-stage="0" style="flex:1; min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Upload binary</div>
+      <div class="as-stage" data-stage="1" style="flex:1; min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Apple processing</div>
+      <div class="as-stage" data-stage="2" style="flex:1; min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Waiting for review</div>
+      <div class="as-stage" data-stage="3" style="flex:1; min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">In review</div>
+      <div class="as-stage" data-stage="4" style="flex:1; min-width:120px; text-align:center; padding:14px 8px; border-radius:10px; border:1px solid var(--line); background:var(--card); font-size:11.5px; font-family:var(--font-mono); transition:all .3s;">Ready for sale</div>
+    </div>
+    <div style="text-align:center;">
+      <button class="demo-btn" id="appStoreBtn" onclick="runAppStorePipeline()">▶ Run eas submit</button>
+    </div>
+    <p id="appStoreDescription" class="mute" style="text-align:center; font-size:13px; margin-top:14px; min-height:20px;"></p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>eas submit --platform ios --latest</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">eas.json</span>
+      <div class="code-actions"><button onclick="toggleCollapse(this)">Collapse</button><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>{
+  <span class="tok-attr">"submit"</span>: {
+    <span class="tok-attr">"production"</span>: {
+      <span class="tok-attr">"ios"</span>: {
+        <span class="tok-attr">"appleId"</span>: <span class="tok-str">"you@example.com"</span>,
+        <span class="tok-attr">"ascAppId"</span>: <span class="tok-str">"1234567890"</span>,
+        <span class="tok-attr">"appleTeamId"</span>: <span class="tok-str">"AB12CD34EF"</span>
+      }
+    }
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>--latest</code> — automatically submits the most recent successful production build, so you don't need to hunt for a build ID.</li>
+    <li><code>ascAppId</code> — your app's unique App Store Connect identifier, found in App Store Connect once your app record is created there.</li>
+    <li><code>appleTeamId</code> — identifies which Apple Developer team account this submission belongs to, important if you manage multiple client apps.</li>
+  </ul>
+
+  <div class="callout">
+    <b>Apple's review process is still manual on their end</b>
+    <code>eas submit</code> automates the <em>upload</em>, but Apple's human/automated review of your actual app content still applies — typically anywhere from hours to a couple of days. Nothing about EAS Submit bypasses or speeds up Apple's own review.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Not creating the app record in App Store Connect first — <code>ascAppId</code> requires an app entry to already exist there before you can submit to it.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Submitting a build with an unchanged build number after a rejection fix — Apple requires a genuinely new, incremented build for every resubmission.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>Does <code>eas submit</code> speed up Apple's app review itself?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Yes, it bypasses manual review for automated submissions</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">No — it only automates the upload step; Apple's own review timeline is unaffected</button>
+      </div>
+      <div class="quiz-explain">Correct — EAS Submit removes the manual upload friction, but the actual review by Apple happens exactly as it would for any submission.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="section12.html#automating-app-version-code">Previous<b>← Section 12: Automating App Version Code</b></a>
+    <a class="next" href="#submit-to-google-play">Next topic<b>Submit to Google Play →</b></a>
+  </div>
+</section>
+
+<!-- ============ S13 TOPIC 2 ============ -->
+<section class="topic" id="submit-to-google-play">
+  <div class="topic-num">TOPIC 2 / 2</div>
+  <h2>Submit to Google Play</h2>
+
+  <p>Google Play's submission model is different in one important way: instead of a single review queue, releases go through <b>tracks</b> that control exactly who receives them, with fine-grained rollout percentages even within the production track.</p>
+
+  <h3>Try it: pick a track and see what it means</h3>
+  <div class="phone-demo" style="align-items:stretch;">
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="play-track-btn" data-track="internal" onclick="showPlayTrack('internal')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--coral); background:var(--coral-dim); color:var(--coral); font-family:var(--font-display); font-size:12.5px; cursor:pointer; font-weight:600;">Internal testing</button>
+      <button class="play-track-btn" data-track="closed" onclick="showPlayTrack('closed')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">Closed testing</button>
+      <button class="play-track-btn" data-track="open" onclick="showPlayTrack('open')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">Open testing</button>
+      <button class="play-track-btn" data-track="production" onclick="showPlayTrack('production')" style="padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-family:var(--font-display); font-size:12.5px; cursor:pointer;">Production</button>
+    </div>
+    <div id="playTrackDetail" style="margin-top:14px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:13.5px; line-height:1.7;">
+      <b>Internal testing:</b> Up to 100 hand-picked testers, updates appear almost instantly, no Google review required — the fastest feedback loop.
+    </div>
+  </div>
+
+  <h3>Staged rollout: try it</h3>
+  <p>Even within the production track, you rarely release to 100% of users immediately. Drag the slider to see how a staged rollout limits exposure if something's wrong.</p>
+
+  <div class="phone-demo">
+    <div style="flex:1; min-width:260px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px;">
+      <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:12px; color:var(--text-mute); margin-bottom:10px;">
+        <span>Rollout percentage</span><span id="rolloutPct">20%</span>
+      </div>
+      <input type="range" min="0" max="100" value="20" style="width:100%;" oninput="updateRolloutDemo(this.value)">
+      <div style="margin-top:16px; font-size:13px; color:var(--text);" id="rolloutExplain">
+        ~20 out of every 100 users updating right now get the new version; the rest stay on the previous one until you increase the percentage.
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>Why stage a rollout at all</h4>
+      <p class="mute" style="font-size:13px; line-height:1.6;">If a crash-inducing bug ships, a 5% rollout means 95% of your users never see it. You can halt the rollout entirely from the Play Console before increasing further.</p>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>eas submit --platform android --latest</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">eas.json</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code>{
+  <span class="tok-attr">"submit"</span>: {
+    <span class="tok-attr">"production"</span>: {
+      <span class="tok-attr">"android"</span>: {
+        <span class="tok-attr">"serviceAccountKeyPath"</span>: <span class="tok-str">"./google-service-account.json"</span>,
+        <span class="tok-attr">"track"</span>: <span class="tok-str">"internal"</span>
+      }
+    }
+  }
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>serviceAccountKeyPath</code> — Android submission auth uses a downloadable service account JSON key from Google Cloud, rather than a personal login like Apple's flow.</li>
+    <li><code>"track": "internal"</code> — controls which of the four tracks this submission targets; change to <code>"production"</code> once ready for a real release.</li>
+  </ul>
+
+  <table class="cmp">
+    <tr><th>Track</th><th>Audience</th><th>Google review?</th></tr>
+    <tr><td>Internal testing</td><td>Up to 100 chosen testers</td><td>No</td></tr>
+    <tr><td>Closed testing</td><td>Specific groups/email lists</td><td>Light review</td></tr>
+    <tr><td>Open testing</td><td>Anyone who opts in via a public link</td><td>Full review</td></tr>
+    <tr><td>Production</td><td>All Play Store users, with optional staged rollout</td><td>Full review</td></tr>
+  </table>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Releasing straight to 100% production for a major update instead of using a staged rollout to catch issues early.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Losing track of the Google Cloud service account key, then having to regenerate submission credentials mid-release cycle.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Section 13 final check</h4>
+    <div class="quiz-q">
+      <p>What's the main benefit of a staged rollout on the production track?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">It makes the app review process faster</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">It limits how many users are exposed to a bad release before you catch and halt it</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's required by Google for every release</button>
+      </div>
+      <div class="quiz-explain">Correct — a staged rollout contains the blast radius of a bad release, which is exactly why it's a standard production practice.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 13 complete ??</b>
+    You can now automate submission to both stores and understand the Play Store's track-based rollout model. Next up: Section 14 — EAS Update.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#submit-to-app-store">Previous<b>← Submit to App Store</b></a>
+    <span></span>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- SECTION 14: EAS UPDATE                                           -->
+<!-- ================================================================ -->
+
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's13';</script>
+<script src="script.js"></script>
+</body>
+</html>

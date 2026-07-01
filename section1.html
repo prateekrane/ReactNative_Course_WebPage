@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 1 · React Native for Beginners — Learn React Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React Native logo"><rect width="30" height="30" rx="8" fill="#ff5a3c"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/><ellipse cx="15" cy="15" rx="10.5" ry="4.1" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/><circle cx="15" cy="15" r="2.2" fill="#fff"/></svg>
+      <div>
+        <div class="brand-name">Learn React Native</div>
+        <div class="brand-sub">from absolute zero</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics…">
+    </div>
+    <nav id="navRoot"></nav>
+    <div class="progress-widget">
+      <div class="label"><span>Course progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbBar">Section 1 · React Native for Beginners</div>
+      
+    </div>
+    <div class="content">
+
+<div class="hero">
+        <div class="hero-phone"></div>
+        <div class="hero-eyebrow">SECTION 1 — FREE CRASH COURSE</div>
+        <h1>React Native for Beginners</h1>
+        <p>Build your first app from scratch, fetch real data from an API, and learn the basics of navigation — no prior React or mobile experience assumed. We start from "what even is React Native" and end with a working app.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>12</b><span>TOPICS</span></div>
+          <div class="hero-stat"><b>~3–4h</b><span>TO COMPLETE</span></div>
+          <div class="hero-stat"><b>0</b><span>PRIOR KNOWLEDGE NEEDED</span></div>
+        </div>
+      </div>
+
+<!-- ============ TOPIC 1 ============ -->
+<section class="topic" id="what-is-react-native">
+  <div class="topic-num">TOPIC 1 / 12</div>
+  <h2>What is React Native?</h2>
+
+  <p>Imagine you want to build an app that works on both an iPhone and an Android phone. Historically, this meant writing the app <b>twice</b> — once in Swift (for iOS) and once in Kotlin or Java (for Android). Two codebases, two teams, two sets of bugs, two release schedules.</p>
+
+  <p>React Native is a framework that lets you write your app <b>once, using JavaScript</b>, and have it run as a real, native app on both platforms. Not a website wrapped in an app shell — an actual native app, with real native buttons, real native scroll behaviour, and real native performance.</p>
+
+  <div class="callout">
+    <b>Why it exists</b>
+    Facebook (now Meta) built React Native in 2015 because their engineers already knew React (a JavaScript library for building web interfaces) and wanted a way to reuse that knowledge and a large chunk of code across web, iOS, and Android — instead of maintaining three completely separate teams and codebases.
+  </div>
+
+  <h3>"Native" is the key word</h3>
+  <p>This is the part beginners misunderstand most, so let's be precise. There are three broad ways to build a mobile app:</p>
+
+  <div class="card-grid">
+    <div class="mini-card">
+      <div class="icon">1</div>
+      <h5>Fully Native</h5>
+      <p>Swift/Kotlin written directly for one platform. Fastest, but you write everything twice.</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">2</div>
+      <h5>WebView Wrapper</h5>
+      <p>A website stuffed inside an app shell. Easy to build, but feels and performs like a website, not an app.</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">3</div>
+      <h5>React Native</h5>
+      <p>JavaScript describes the UI, but it's rendered using <em>real native components</em> — a real <code>UIView</code> on iOS, a real <code>View</code> on Android.</p>
+    </div>
+  </div>
+
+  <p>So when you write <code>&lt;Text&gt;Hello&lt;/Text&gt;</code> in React Native, it does not draw text on a canvas or inside a browser. It creates an actual native text label on the device. That's why RN apps feel native — because they are.</p>
+
+  <h3>A first taste of the code</h3>
+  <p>Here is the smallest possible React Native screen. Don't worry about understanding every symbol yet — we'll build up to this piece by piece over the next topics.</p>
+
+  <div class="code-block">
+    <div class="code-head">
+      <span class="code-filename">App.tsx</span>
+      <div class="code-actions">
+        <button onclick="toggleCollapse(this)">Collapse</button>
+        <button onclick="copyCode(this)">Copy</button>
+      </div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Text</span>, <span class="tok-fn">View</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">App</span>() {
+  <span class="tok-kw">return</span> (
+    &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ flex: <span class="tok-str">1</span>, justifyContent: <span class="tok-str">'center'</span>, alignItems: <span class="tok-str">'center'</span> }}&gt;
+      &lt;<span class="tok-tag">Text</span>&gt;Hello, React Native! ??&lt;/<span class="tok-tag">Text</span>&gt;
+    &lt;/<span class="tok-tag">View</span>&gt;
+  );
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>import { Text, View }</code> — we're pulling in two building blocks from the <code>react-native</code> library. <code>View</code> is like a <code>&lt;div&gt;</code> on the web: an invisible container. <code>Text</code> is the only component allowed to actually display text.</li>
+    <li><code>export default function App()</code> — this defines your component. Every screen in React Native is just a JavaScript function that returns what should appear on screen.</li>
+    <li><code>style={{ flex: 1, ... }}</code> — this makes the container fill the whole screen and center its contents. We'll cover Flexbox in full detail in Section 4.</li>
+    <li>If you removed the <code>View</code> wrapper, the <code>Text</code> would still render, but you'd lose the ability to center or lay out multiple elements together.</li>
+  </ul>
+
+  <div class="phone-demo">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen" style="align-items:center; justify-content:center; display:flex;">
+        <span style="font-family:'Inter',sans-serif; font-size:15px; color:#1a1d24;">Hello, React Native! ??</span>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>What you're looking at</h4>
+      <p class="mute" style="font-size:13px; line-height:1.6;">This phone frame is what every code example in this course renders into. It's a simulated screen so you can see the result immediately, without installing anything yet. Once we reach "Setting Up Your Environment," you'll run this exact code on a real simulator or your own phone.</p>
+    </div>
+  </div>
+
+  <h3>Why should you learn it?</h3>
+  <ul>
+    <li><b>One codebase, two platforms.</b> Most business logic, and often 90%+ of UI code, is shared between iOS and Android.</li>
+    <li><b>Huge job market.</b> Companies like Instagram, Discord, Shopify, and Coinbase ship production apps built with React Native.</li>
+    <li><b>You already half-know it if you know React.</b> Components, props, state, hooks — all identical to web React. The main difference is which "building blocks" (components) you use.</li>
+    <li><b>Fast iteration.</b> Changes appear almost instantly during development thanks to Fast Refresh — no waiting minutes for a full native rebuild every time.</li>
+  </ul>
+
+  <h3>What problem does it actually solve?</h3>
+  <p>Before frameworks like this existed, a startup that wanted an iOS and an Android app needed two separate engineering teams with different skill sets, shipping features at different speeds, often with subtle behavioural differences between platforms. React Native collapses that into one team, one codebase, and one mental model — while still producing apps that look and feel fully native.</p>
+
+  <div class="callout teal">
+    <b>Real-world example</b>
+    Discord's mobile app is built with React Native. Their web team and mobile team can share logic (like message formatting or notification handling), and a single engineer familiar with React can meaningfully contribute to the mobile app without learning Swift or Kotlin from scratch.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Assuming React Native apps are "just websites in an app." They're not — there's no browser involved at runtime, and there's no HTML/CSS/DOM.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Trying to use web-only libraries (that touch the DOM, like jQuery or many CSS frameworks) inside React Native — they simply won't work, because there is no DOM.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Over-abstracting shared code between web-React and React Native too early, before understanding where the platforms genuinely diverge (navigation, gestures, native modules).</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <p class="mute" style="font-size:12.5px;">2 questions — pick an answer to see the explanation.</p>
+    <div class="quiz-q">
+      <p>1. When you use a <code>&lt;Text&gt;</code> component in React Native, what actually gets rendered on the device?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Text drawn onto an HTML canvas</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">A real native text label, like a native iOS/Android view</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">A screenshot generated on a server</button>
+      </div>
+      <div class="quiz-explain">Correct answer: a real native view. This is the whole point of React Native — your JS describes the UI, but native platform components render it, which is why it looks and performs like a native app.</div>
+    </div>
+    <div class="quiz-q">
+      <p>2. True or False: React Native apps run inside a mobile web browser.</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">True</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">False</button>
+      </div>
+      <div class="quiz-explain">False. There is no browser or DOM at runtime. JavaScript runs in a separate JS engine (like Hermes), and communicates with native code to render real native views.</div>
+    </div>
+  </div>
+
+  <h3>Practice</h3>
+  <ul class="exercises">
+    <li><span class="lvl b">Beginner</span> In your own words (2–3 sentences), explain to a friend who has never coded what React Native is and why it's useful.</li>
+    <li><span class="lvl i">Intermediate</span> List three apps you use daily. Research whether any of them are built with React Native, and if so, what changed for their engineering team after adopting it.</li>
+    <li><span class="lvl a">Advanced</span> Compare React Native to Flutter in one paragraph: what does each one render with, and what trade-off does that create?</li>
+  </ul>
+
+  <div class="topic-nav">
+    <span></span>
+    <a class="next" href="#how-react-native-works">Next topic<b>How React Native Works →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 2 ============ -->
+<section class="topic" id="how-react-native-works">
+  <div class="topic-num">TOPIC 2 / 12</div>
+  <h2>How React Native Works</h2>
+
+  <p>Now that you know <em>what</em> React Native is, let's open the hood and understand <em>how</em> your JavaScript code turns into a real native screen. You don't need to memorize this diagram, but having a mental model of it will make debugging far less confusing later.</p>
+
+  <h3>The three worlds</h3>
+  <p>A React Native app has three main "worlds" talking to each other:</p>
+  <ol>
+    <li><b>JavaScript world</b> — your React components, state, and logic. Runs inside a JS engine (usually <b>Hermes</b>, a JS engine built specifically for React Native).</li>
+    <li><b>Native world</b> — the actual iOS (Swift/Objective-C) or Android (Kotlin/Java) code and UI components.</li>
+    <li><b>The bridge / JSI</b> — the communication layer that lets the two worlds talk to each other.</li>
+  </ol>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 220" width="100%" height="220">
+      <rect x="10" y="40" width="220" height="140" rx="14" fill="var(--coral-dim)" stroke="var(--coral)"/>
+      <text x="120" y="30" text-anchor="middle" font-size="12" fill="var(--text)">JAVASCRIPT WORLD</text>
+      <text x="120" y="95" text-anchor="middle" font-size="12" fill="var(--text)">Your React</text>
+      <text x="120" y="112" text-anchor="middle" font-size="12" fill="var(--text)">components</text>
+      <text x="120" y="140" text-anchor="middle" font-size="11" fill="var(--text-mute)">(runs in Hermes engine)</text>
+
+      <rect x="270" y="60" width="220" height="100" rx="14" fill="var(--teal-dim)" stroke="var(--teal)"/>
+      <text x="380" y="50" text-anchor="middle" font-size="12" fill="var(--text)">JSI (BRIDGE)</text>
+      <text x="380" y="105" text-anchor="middle" font-size="12" fill="var(--text)">Serializes calls</text>
+      <text x="380" y="122" text-anchor="middle" font-size="12" fill="var(--text)">between JS ? Native</text>
+
+      <rect x="530" y="40" width="220" height="140" rx="14" fill="var(--paper-dim)" stroke="var(--line)"/>
+      <text x="640" y="30" text-anchor="middle" font-size="12" fill="var(--text)">NATIVE WORLD</text>
+      <text x="640" y="95" text-anchor="middle" font-size="12" fill="var(--text)">Real iOS / Android</text>
+      <text x="640" y="112" text-anchor="middle" font-size="12" fill="var(--text)">views &amp; APIs</text>
+      <text x="640" y="140" text-anchor="middle" font-size="11" fill="var(--text-mute)">(Swift, Kotlin, etc.)</text>
+
+      <path d="M230 110 H270" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M490 110 H530" stroke="var(--text-mute)" stroke-width="2" marker-end="url(#arrow)"/>
+      <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mute)"/></marker></defs>
+    </svg>
+  </div>
+
+  <h3>What happens when your app starts</h3>
+  <ol>
+    <li>The device launches your app's native shell (a real iOS/Android app container).</li>
+    <li>That shell starts the JavaScript engine and runs your app's JS bundle (all your code, compiled into one file).</li>
+    <li>Your React components run and describe what the UI should look like — this description is a tree of components, not pixels.</li>
+    <li>That description is sent across the bridge/JSI to the native side.</li>
+    <li>Native code creates <b>real native views</b> matching that description — a real <code>UILabel</code>, a real <code>TextView</code>, and so on.</li>
+    <li>When state changes (e.g., you tap a button), React recalculates what changed, and only the differences are sent over — not the whole screen again.</li>
+  </ol>
+
+  <div class="callout">
+    <b>Why this matters for you</b>
+    Because rendering is native, animations and scrolling can feel as smooth as a fully native app — but because communication crosses a bridge, doing too much heavy work that constantly crosses that bridge (like updating state 60 times a second naively) can cause performance issues. This is why later topics teach you patterns like <code>useNativeDriver</code> for animations.
+  </div>
+
+  <h3>The Old Architecture vs. the New Architecture</h3>
+  <table class="cmp">
+    <tr><th></th><th>Old Architecture (Bridge)</th><th>New Architecture (JSI + Fabric)</th></tr>
+    <tr><td>Communication</td><td>Asynchronous, batched JSON messages</td><td>Direct, synchronous-capable calls via JSI</td></tr>
+    <tr><td>Rendering</td><td>Separate rendering pipeline</td><td>Fabric renderer, tighter to native</td></tr>
+    <tr><td>Native modules</td><td>Bridge modules</td><td>TurboModules, loaded lazily</td></tr>
+    <tr><td>Performance</td><td>Good, but bridge can bottleneck</td><td>Lower overhead, better for heavy UI work</td></tr>
+  </table>
+  <p class="mute">We'll revisit the New Architecture in more depth in Section 2, since Expo now defaults new projects to it.</p>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Thinking your JavaScript directly draws pixels. It doesn't — it produces a description that native code turns into real views.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Blaming "React Native is slow" for issues actually caused by too many bridge crossings in a tight loop, rather than the architecture itself.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not profiling before optimizing — assuming you know where the bridge/JSI bottleneck is without measuring it first.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>Which statement is most accurate?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">React Native converts JS into HTML which the OS then renders</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">React Native's JS describes a component tree, and native code turns that into real platform views</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">React Native compiles JavaScript directly into Swift and Kotlin source code</button>
+      </div>
+      <div class="quiz-explain">Correct. There's no HTML involved, and JS isn't transpiled into Swift/Kotlin source — the JS engine runs your logic and the native side renders real views based on what your components describe.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#what-is-react-native">Previous<b>← What is React Native?</b></a>
+    <a class="next" href="#why-expo-and-expo-go">Next topic<b>Why Expo and Expo Go →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 3 ============ -->
+<section class="topic" id="why-expo-and-expo-go">
+  <div class="topic-num">TOPIC 3 / 12</div>
+  <h2>Why Expo and Expo Go</h2>
+
+  <p>Raw React Native requires you to install and configure Xcode (for iOS) and Android Studio (for Android) before you can even see "Hello World" on a screen. That setup alone can take beginners hours and is a common reason people give up before writing a single line of app logic.</p>
+
+  <p><b>Expo</b> is a set of tools and services built on top of React Native that removes almost all of that friction. Think of React Native as the engine, and Expo as the car built around it — steering wheel, dashboard, and all the parts that make it actually usable day-to-day.</p>
+
+  <div class="card-grid">
+    <div class="mini-card">
+      <div class="icon">??</div>
+      <h5>Expo SDK</h5>
+      <p>A curated library of ready-made modules — camera, location, notifications, file system — all pre-configured and tested together.</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">??</div>
+      <h5>Expo Go</h5>
+      <p>A free app you install on your own phone. Scan a QR code and your in-progress app runs instantly — no cables, no Xcode.</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">??</div>
+      <h5>EAS</h5>
+      <p>Expo Application Services — cloud build, submit, and update tooling, covered in depth in Sections 12–15.</p>
+    </div>
+  </div>
+
+  <h3>What Expo Go actually does</h3>
+  <p>Expo Go is a pre-built native app that already contains the native code for the entire Expo SDK. When you run <code>npx expo start</code>, your computer starts a local server serving your JS bundle. Expo Go downloads and runs <em>that JS</em> inside itself. This is why you can see live changes in seconds — you're not rebuilding native code every time, just re-running JavaScript inside an app that's already installed.</p>
+
+  <div class="callout teal">
+    <b>Where Expo Go stops being enough</b>
+    Because Expo Go ships with a fixed set of native code, it can't run <em>your own custom native modules</em> (Section 18) or third-party libraries that need native setup Expo Go doesn't already include. For those cases you'll build a "Development Build" — your own custom version of Expo Go, covered later in this course.
+  </div>
+
+  <table class="cmp">
+    <tr><th></th><th>Expo Go</th><th>Development Build</th><th>Bare React Native</th></tr>
+    <tr><td>Setup time</td><td>Minutes</td><td>~15–30 min</td><td>Hours</td></tr>
+    <tr><td>Custom native code</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+    <tr><td>Good for learning</td><td>✓ Excellent</td><td>✓ Good</td><td>✗ Steep</td></tr>
+    <tr><td>Full control</td><td>✗ Limited</td><td>✓ Yes</td><td>✓ Full</td></tr>
+  </table>
+
+  <h3>Why this course uses Expo</h3>
+  <ul>
+    <li>You'll be writing real app code within the first ten minutes, not fighting build tools.</li>
+    <li>The entire industry has largely converged on Expo for new React Native projects, including at companies with dedicated mobile teams.</li>
+    <li>Everything you learn transfers directly — Expo apps <em>are</em> React Native apps; nothing is "fake" or "training wheels only."</li>
+  </ul>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Thinking Expo and React Native are competing frameworks. Expo is built on top of, and ships, React Native.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Adding a native library that needs custom native code, then being confused why it "doesn't work" in Expo Go.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Avoiding Expo entirely for a production app "for control," without weighing the real maintenance cost of managing native build tooling yourself.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#how-react-native-works">Previous<b>← How React Native Works</b></a>
+    <a class="next" href="#setting-up-your-environment">Next topic<b>Setting Up Your Environment →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 4 ============ -->
+<section class="topic" id="setting-up-your-environment">
+  <div class="topic-num">TOPIC 4 / 12</div>
+  <h2>Setting Up Your Environment</h2>
+
+  <p>Thanks to Expo, setup is short. Here's exactly what you need, in order.</p>
+
+  <h3>1. Install Node.js</h3>
+  <p>React Native tooling runs on Node.js. Install the current LTS (Long-Term Support) version from nodejs.org, then confirm it worked:</p>
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-com">node -v</span>
+<span class="tok-com">npm -v</span></code></pre>
+  </div>
+
+  <h3>2. Install the Expo Go app on your phone</h3>
+  <p>Search "Expo Go" on the App Store or Google Play and install it. This is the fastest way to test your app on a real device without any native build tools.</p>
+
+  <h3>3. (Optional but recommended) A code editor</h3>
+  <p>Visual Studio Code is the industry-standard free editor for JavaScript/TypeScript. Install it, and consider the "ES7+ React/Redux/React-Native snippets" extension for faster typing later.</p>
+
+  <div class="callout">
+    <b>You do NOT need Xcode or Android Studio yet</b>
+    Those are only required if you want to use a simulator/emulator on your computer, or later build custom native code. For this entire beginner section, your own phone + Expo Go is enough.
+  </div>
+
+  <h3>Optional: Simulators</h3>
+  <div class="card-grid">
+    <div class="mini-card">
+      <div class="icon">??</div>
+      <h5>iOS Simulator</h5>
+      <p>Requires a Mac and Xcode. Lets you preview your app in a simulated iPhone without a physical device.</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">??</div>
+      <h5>Android Emulator</h5>
+      <p>Requires Android Studio, works on Mac/Windows/Linux. Simulates an Android phone on your computer.</p>
+    </div>
+  </div>
+  <p class="mute">Full step-by-step Android and iOS environment setup (for simulators and later custom native builds) is covered in depth in Section 2.</p>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Installing an old/very new Node version that's incompatible with current tooling. Stick to the current LTS release.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Installing Xcode/Android Studio before even trying Expo Go — an hours-long detour that isn't needed yet.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not using a Node version manager (like nvm) across multiple projects, leading to version conflicts between projects later.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#why-expo-and-expo-go">Previous<b>← Why Expo and Expo Go</b></a>
+    <a class="next" href="#creating-your-first-app">Next topic<b>Creating Your First App →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 5 ============ -->
+<section class="topic" id="creating-your-first-app">
+  <div class="topic-num">TOPIC 5 / 12</div>
+  <h2>Creating Your First App</h2>
+
+  <p>With Node installed and Expo Go on your phone, you're ready to create your first real project.</p>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">terminal</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-com"># create a new project called "my-first-app"</span>
+npx create-expo-app@latest my-first-app
+
+<span class="tok-com"># move into the project folder</span>
+cd my-first-app
+
+<span class="tok-com"># start the development server</span>
+npx expo start</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>npx create-expo-app@latest</code> — downloads and runs Expo's project generator, using the latest version, without permanently installing it on your machine.</li>
+    <li><code>cd my-first-app</code> — "change directory" into your new project folder, where all future commands should run.</li>
+    <li><code>npx expo start</code> — starts a local development server and shows a QR code in your terminal.</li>
+  </ul>
+
+  <div class="phone-demo">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen" style="align-items:center; justify-content:center; display:flex; flex-direction:column; gap:14px; background:#f6f4ef;">
+        <div style="width:120px; height:120px; background:repeating-linear-gradient(45deg,#1c1e26 0 6px,#fff 6px 12px); border-radius:8px;"></div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#5c6070;">Scan with Expo Go</span>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>What happens next</h4>
+      <p class="mute" style="font-size:13px; line-height:1.6;">Open Expo Go on your phone and scan the QR code shown in your terminal (Android: use Expo Go's built-in scanner. iOS: use the regular Camera app, which will prompt to open Expo Go). Within a few seconds, your brand-new app loads on your real device.</p>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <b>Real-world parallel</b>
+    This is exactly the workflow professional React Native teams use during early development — even at companies with dozens of engineers, day-to-day iteration often happens via Expo Go or a development build long before anything touches the App Store.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Running commands from the wrong folder (forgetting <code>cd my-first-app</code>) and wondering why nothing works.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Phone and computer on different WiFi networks — the QR code connection requires both devices on the same network.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Not committing the fresh project to git immediately, losing track of what was scaffolded vs. custom-written later.</div>
+  </div>
+
+  <h3>Practice</h3>
+  <ul class="exercises">
+    <li><span class="lvl b">Beginner</span> Create a project named <code>hello-app</code> and get it running in Expo Go on your phone.</li>
+    <li><span class="lvl i">Intermediate</span> Initialize a git repository in your new project and make your first commit.</li>
+  </ul>
+
+  <div class="topic-nav">
+    <a href="#setting-up-your-environment">Previous<b>← Setting Up Your Environment</b></a>
+    <a class="next" href="#project-structure">Next topic<b>Project Structure →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 6 ============ -->
+<section class="topic" id="project-structure">
+  <div class="topic-num">TOPIC 6 / 12</div>
+  <h2>Project Structure</h2>
+
+  <p>Open your new project folder and you'll see a number of files and folders. Here's what actually matters at this stage:</p>
+
+  <div class="diagram-wrap">
+    <pre style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.9; color:var(--text);">my-first-app/
++-- app/                  <span style="color:var(--text-mute)"># your screens live here (Expo Router)</span>
+│   +-- index.tsx         <span style="color:var(--text-mute)"># the first screen users see</span>
+│   +-- _layout.tsx       <span style="color:var(--text-mute)"># shared layout/navigation config</span>
++-- assets/               <span style="color:var(--text-mute)"># images, fonts, icons</span>
++-- components/           <span style="color:var(--text-mute)"># reusable UI pieces (you'll create this)</span>
++-- package.json          <span style="color:var(--text-mute)"># project metadata & dependencies</span>
++-- app.json              <span style="color:var(--text-mute)"># app name, icon, splash screen config</span>
++-- tsconfig.json         <span style="color:var(--text-mute)"># TypeScript configuration</span></pre>
+  </div>
+
+  <h3>The files that matter most right now</h3>
+  <table class="cmp">
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>app/index.tsx</code></td><td>The component rendered for your app's home screen.</td></tr>
+    <tr><td><code>app/_layout.tsx</code></td><td>Wraps every screen — good place for shared navigation setup, fonts, or providers.</td></tr>
+    <tr><td><code>package.json</code></td><td>Lists every library your project depends on, and defines scripts like <code>npm start</code>.</td></tr>
+    <tr><td><code>app.json</code></td><td>Configures your app's name, icon, splash screen, and platform-specific settings.</td></tr>
+  </table>
+
+  <div class="callout">
+    <b>Why a folder-based structure?</b>
+    Expo Router (Section 5) turns your folder structure inside <code>app/</code> directly into your navigation structure — a file named <code>app/profile.tsx</code> automatically becomes a screen reachable at <code>/profile</code>. This is why the folder layout matters more in RN+Expo than in a typical single-page setup.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Editing files inside auto-generated folders like <code>node_modules</code> — never edit these; they're regenerated and your changes will be lost.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Putting every component directly in <code>app/</code>, which conflates "screens" with "reusable pieces" and creates unintended routes.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#creating-your-first-app">Previous<b>← Creating Your First App</b></a>
+    <a class="next" href="#fetching-data-from-an-api">Next topic<b>Fetching Data from an API →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 7 ============ -->
+<section class="topic" id="fetching-data-from-an-api">
+  <div class="topic-num">TOPIC 7 / 12</div>
+  <h2>Fetching Data from an API</h2>
+
+  <p>Almost every real app needs data from a server — a list of products, messages, or posts. React Native uses the same <code>fetch</code> API you may have seen on the web, combined with React's <code>useState</code> and <code>useEffect</code> hooks.</p>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions">
+        <button onclick="toggleCollapse(this)">Collapse</button>
+        <button onclick="copyCode(this)">Copy</button>
+      </div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">useEffect</span>, <span class="tok-fn">useState</span> } <span class="tok-kw">from</span> <span class="tok-str">'react'</span>;
+<span class="tok-kw">import</span> { <span class="tok-fn">Text</span>, <span class="tok-fn">View</span>, <span class="tok-fn">ActivityIndicator</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">App</span>() {
+  <span class="tok-kw">const</span> [posts, setPosts] = <span class="tok-fn">useState</span>([]);
+  <span class="tok-kw">const</span> [loading, setLoading] = <span class="tok-fn">useState</span>(<span class="tok-kw">true</span>);
+
+  <span class="tok-fn">useEffect</span>(() => {
+    <span class="tok-fn">fetch</span>(<span class="tok-str">'https://jsonplaceholder.typicode.com/posts'</span>)
+      .then((res) => res.json())
+      .then((data) => {
+        <span class="tok-fn">setPosts</span>(data);
+        <span class="tok-fn">setLoading</span>(<span class="tok-kw">false</span>);
+      });
+  }, []);
+
+  <span class="tok-kw">if</span> (loading) <span class="tok-kw">return</span> &lt;<span class="tok-tag">ActivityIndicator</span> /&gt;;
+
+  <span class="tok-kw">return</span> (
+    &lt;<span class="tok-tag">View</span>&gt;
+      &lt;<span class="tok-tag">Text</span>&gt;Loaded {posts.length} posts!&lt;/<span class="tok-tag">Text</span>&gt;
+    &lt;/<span class="tok-tag">View</span>&gt;
+  );
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>useState([])</code> — creates a piece of state (<code>posts</code>) that starts empty and will hold the data once it arrives.</li>
+    <li><code>useEffect(() => {...}, [])</code> — runs the code inside once, right after the component first appears. The empty array <code>[]</code> means "don't re-run this."</li>
+    <li><code>fetch(url)</code> — makes an HTTP request. It's asynchronous, meaning the rest of the code doesn't wait around for it.</li>
+    <li><code>.then((res) => res.json())</code> — the response arrives as raw data; <code>.json()</code> parses it into a usable JavaScript object/array.</li>
+    <li>If you removed the <code>[]</code> dependency array, this fetch would re-run on every re-render — an easy way to accidentally hammer an API.</li>
+  </ul>
+
+  <div class="phone-demo">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen" id="fetchDemoScreen" style="padding:24px 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+        <span style="font-family:'Inter',sans-serif; font-size:14px; color:#1a1d24;">Press "Run fetch" →</span>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>Try it live</h4>
+      <p class="mute" style="font-size:13px;">This simulates the code above by calling a real public API from your browser right now.</p>
+      <button class="demo-btn" onclick="runFetchDemo()">▶ Run fetch</button>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Common mistake to avoid</b>
+    Forgetting to handle the loading state means your app briefly renders with broken/empty data before the request completes, which can cause layout flashes or crashes if code assumes data already exists.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Trying to read <code>posts[0].title</code> before the fetch has completed, causing a crash.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Not handling network errors — a real app must handle "no internet" or "server error" gracefully, not just the happy path.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Fetching directly inside components everywhere instead of centralizing data-fetching logic (e.g., with React Query), leading to duplicated loading/error handling across the app.</div>
+  </div>
+
+  <div class="quiz-box">
+    <h4>Quick check</h4>
+    <div class="quiz-q">
+      <p>Why does the code pass an empty array <code>[]</code> as the second argument to <code>useEffect</code>?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">It's required syntax with no real effect</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">So the effect runs only once, when the component first mounts</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">To make the fetch run every second</button>
+      </div>
+      <div class="quiz-explain">Correct. The dependency array controls when the effect re-runs. Empty means "only on first mount" — perfect for a one-time data fetch.</div>
+    </div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#project-structure">Previous<b>← Project Structure</b></a>
+    <a class="next" href="#rendering-lists-and-typescript">Next topic<b>Rendering Lists and TypeScript →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 8 ============ -->
+<section class="topic" id="rendering-lists-and-typescript">
+  <div class="topic-num">TOPIC 8 / 12</div>
+  <h2>Rendering Lists and TypeScript</h2>
+
+  <p>Showing one item is easy. Real apps need to show many — a feed, a chat history, a product catalog. React Native provides <code>FlatList</code>, purpose-built for rendering large lists efficiently.</p>
+
+  <div class="callout teal">
+    <b>Why not just use <code>.map()</code> in a <code>View</code>?</b>
+    You can, for short lists — but <code>FlatList</code> only renders items currently visible on screen ("virtualization"), which matters enormously for performance once a list has hundreds or thousands of items.
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions">
+        <button onclick="toggleCollapse(this)">Collapse</button>
+        <button onclick="copyCode(this)">Copy</button>
+      </div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">FlatList</span>, <span class="tok-fn">Text</span>, <span class="tok-fn">View</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+
+<span class="tok-com">// TypeScript: describe the shape of a Post</span>
+<span class="tok-kw">type</span> <span class="tok-fn">Post</span> = {
+  id: <span class="tok-kw">number</span>;
+  title: <span class="tok-kw">string</span>;
+};
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">PostList</span>({ posts }: { posts: Post[] }) {
+  <span class="tok-kw">return</span> (
+    &lt;<span class="tok-tag">FlatList</span>
+      <span class="tok-attr">data</span>={posts}
+      <span class="tok-attr">keyExtractor</span>={(item) => String(item.id)}
+      <span class="tok-attr">renderItem</span>={({ item }) => (
+        &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={{ padding: <span class="tok-str">12</span> }}&gt;
+          &lt;<span class="tok-tag">Text</span>&gt;{item.title}&lt;/<span class="tok-tag">Text</span>&gt;
+        &lt;/<span class="tok-tag">View</span>&gt;
+      )}
+    /&gt;
+  );
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>type Post = {...}</code> — TypeScript lets you describe exactly what shape your data has. If you accidentally typed <code>item.titel</code>, TypeScript would catch it before you even run the app.</li>
+    <li><code>data={posts}</code> — the array FlatList will render.</li>
+    <li><code>keyExtractor</code> — tells React how to uniquely identify each item, so it can efficiently update the list when data changes.</li>
+    <li><code>renderItem</code> — a function describing how each individual item should look.</li>
+  </ul>
+
+  <h3>Why TypeScript, specifically?</h3>
+  <ul>
+    <li><b>Catches mistakes early</b> — typos and wrong data shapes are flagged while you type, not after your app crashes.</li>
+    <li><b>Self-documenting</b> — a function's types tell you exactly what it expects, without reading its whole implementation.</li>
+    <li><b>Industry standard</b> — the vast majority of professional React Native codebases use TypeScript by default (Expo projects use it out of the box).</li>
+  </ul>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting <code>keyExtractor</code> — React will warn you, and list re-renders may behave unpredictably.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Using <code>.map()</code> inside a <code>ScrollView</code> for a genuinely long list, causing every single item to render at once and hurting performance.</div>
+    <div class="mistake-card pro"><b>Professional mistake</b>Over-typing everything with <code>any</code> "to move fast," which quietly defeats the entire purpose of using TypeScript.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#fetching-data-from-an-api">Previous<b>← Fetching Data from an API</b></a>
+    <a class="next" href="#working-with-images">Next topic<b>Working with Images →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 9 ============ -->
+<section class="topic" id="working-with-images">
+  <div class="topic-num">TOPIC 9 / 12</div>
+  <h2>Working with Images</h2>
+
+  <p>React Native's <code>Image</code> component handles both local images (bundled with your app) and remote images (loaded from a URL) — but they're used slightly differently.</p>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Image</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+
+<span class="tok-com">// Local image — path is resolved at build time</span>
+&lt;<span class="tok-tag">Image</span> <span class="tok-attr">source</span>={require(<span class="tok-str">'../assets/logo.png'</span>)} <span class="tok-attr">style</span>={{ width: <span class="tok-str">100</span>, height: <span class="tok-str">100</span> }} /&gt;
+
+<span class="tok-com">// Remote image — must always specify width/height</span>
+&lt;<span class="tok-tag">Image</span>
+  <span class="tok-attr">source</span>={{ uri: <span class="tok-str">'https://picsum.photos/200'</span> }}
+  <span class="tok-attr">style</span>={{ width: <span class="tok-str">200</span>, height: <span class="tok-str">200</span>, borderRadius: <span class="tok-str">12</span> }}
+/&gt;</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>require('../assets/logo.png')</code> — bundles the image into your app at build time; the path must be static (you can't build it dynamically with a variable).</li>
+    <li><code>source={{ uri: ... }}</code> — for remote images, React Native has no way to know the image's dimensions ahead of time, so you <b>must</b> specify <code>width</code>/<code>height</code> yourself, or the image won't appear.</li>
+  </ul>
+
+  <div class="callout">
+    <b>Performance tip</b>
+    For lists of remote images, consider <code>expo-image</code> instead of the core <code>Image</code> component — it adds disk caching, smoother loading transitions, and better memory handling out of the box.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Forgetting to set width/height on a remote image and wondering why nothing shows up.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Loading full-resolution images (e.g., 4000px wide) for a 100px thumbnail, wasting memory and bandwidth.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#rendering-lists-and-typescript">Previous<b>← Rendering Lists and TypeScript</b></a>
+    <a class="next" href="#styling-your-app">Next topic<b>Styling Your App →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 10 ============ -->
+<section class="topic" id="styling-your-app">
+  <div class="topic-num">TOPIC 10 / 12</div>
+  <h2>Styling Your App</h2>
+
+  <p>There's no CSS file in React Native. Instead, you style components using JavaScript objects, either written inline or organized with <code>StyleSheet.create</code>. The property names are very close to CSS, but written in camelCase.</p>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">StyleSheet</span>, <span class="tok-fn">Text</span>, <span class="tok-fn">View</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">Card</span>() {
+  <span class="tok-kw">return</span> (
+    &lt;<span class="tok-tag">View</span> <span class="tok-attr">style</span>={styles.card}&gt;
+      &lt;<span class="tok-tag">Text</span> <span class="tok-attr">style</span>={styles.title}&gt;Hello!&lt;/<span class="tok-tag">Text</span>&gt;
+    &lt;/<span class="tok-tag">View</span>&gt;
+  );
+}
+
+<span class="tok-kw">const</span> styles = StyleSheet.<span class="tok-fn">create</span>({
+  card: {
+    padding: <span class="tok-str">16</span>,
+    borderRadius: <span class="tok-str">12</span>,
+    backgroundColor: <span class="tok-str">'#ffffff'</span>,
+    shadowColor: <span class="tok-str">'#000'</span>,
+    shadowOpacity: <span class="tok-str">0.1</span>,
+  },
+  title: {
+    fontSize: <span class="tok-str">18</span>,
+    fontWeight: <span class="tok-str">'600'</span>,
+  },
+});</code></pre>
+  </div>
+
+  <div class="phone-demo">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen" style="padding:20px; background:#f2f0ea;">
+        <div id="styleDemoCard" style="padding:16px; border-radius:12px; background:#fff; box-shadow:0 4px 14px rgba(0,0,0,.08);">
+          <div id="styleDemoTitle" style="font-family:'Inter',sans-serif; font-size:18px; font-weight:600; color:#1a1d24;">Hello!</div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <h4>Play with the styles</h4>
+      <div class="field">
+        <label>borderRadius: <span id="rVal">12</span>px</label>
+        <input type="range" min="0" max="40" value="12" oninput="document.getElementById('styleDemoCard').style.borderRadius=this.value+'px'; document.getElementById('rVal').textContent=this.value;">
+      </div>
+      <div class="field">
+        <label>fontSize: <span id="fVal">18</span>px</label>
+        <input type="range" min="10" max="34" value="18" oninput="document.getElementById('styleDemoTitle').style.fontSize=this.value+'px'; document.getElementById('fVal').textContent=this.value;">
+      </div>
+      <div class="field">
+        <label>backgroundColor</label>
+        <input type="text" value="#ffffff" oninput="document.getElementById('styleDemoCard').style.backgroundColor=this.value;">
+      </div>
+    </div>
+  </div>
+
+  <h3>Why <code>StyleSheet.create</code> instead of plain objects?</h3>
+  <ul>
+    <li>Slightly better performance — styles are given IDs and can be referenced instead of recreated every render.</li>
+    <li>Editor autocomplete and type-checking for valid style properties.</li>
+    <li>Keeps components readable by separating layout logic from style definitions.</li>
+  </ul>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Using web CSS property names like <code>background</code> or <code>margin: '10px'</code> — React Native uses <code>backgroundColor</code> and plain numbers (no "px").</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Massive inline style objects recreated on every render instead of using <code>StyleSheet.create</code> or extracting constants.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#working-with-images">Previous<b>← Working with Images</b></a>
+    <a class="next" href="#navigation-basics">Next topic<b>Navigation Basics →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 11 ============ -->
+<section class="topic" id="navigation-basics">
+  <div class="topic-num">TOPIC 11 / 12</div>
+  <h2>Navigation Basics</h2>
+
+  <p>A real app has more than one screen. Expo Router (covered in full depth in Section 5) gives you file-based navigation: the files inside your <code>app/</code> folder automatically become your app's screens and routes.</p>
+
+  <div class="diagram-wrap">
+    <pre style="margin:0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.9; color:var(--text);">app/
++-- index.tsx        <span style="color:var(--text-mute)">?  "/"       (Home screen)</span>
++-- profile.tsx      <span style="color:var(--text-mute)">?  "/profile"</span>
++-- settings.tsx     <span style="color:var(--text-mute)">?  "/settings"</span></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span class="code-filename">app/index.tsx</span>
+      <div class="code-actions"><button onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <pre><code><span class="tok-kw">import</span> { <span class="tok-fn">Link</span> } <span class="tok-kw">from</span> <span class="tok-str">'expo-router'</span>;
+<span class="tok-kw">import</span> { <span class="tok-fn">Text</span>, <span class="tok-fn">View</span> } <span class="tok-kw">from</span> <span class="tok-str">'react-native'</span>;
+
+<span class="tok-kw">export default function</span> <span class="tok-fn">Home</span>() {
+  <span class="tok-kw">return</span> (
+    &lt;<span class="tok-tag">View</span>&gt;
+      &lt;<span class="tok-tag">Link</span> <span class="tok-attr">href</span>=<span class="tok-str">"/profile"</span>&gt;Go to Profile&lt;/<span class="tok-tag">Link</span>&gt;
+    &lt;/<span class="tok-tag">View</span>&gt;
+  );
+}</code></pre>
+  </div>
+
+  <ul class="line-notes">
+    <li><code>import { Link } from 'expo-router'</code> — similar to a web <code>&lt;a&gt;</code> tag, but for native screen navigation.</li>
+    <li><code>href="/profile"</code> — matches the filename <code>app/profile.tsx</code> automatically. No manual route configuration needed.</li>
+  </ul>
+
+  <div class="callout teal">
+    <b>Why file-based routing?</b>
+    It mirrors how Next.js handles routing on the web, so if you've used that, this feels immediately familiar. It also means your file structure <em>is</em> your app map — you can understand an app's navigation just by looking at its folders.
+  </div>
+
+  <div class="mistakes">
+    <div class="mistake-card beg"><b>Beginner mistake</b>Manually trying to configure routes/screens the way older "React Navigation only" tutorials show, when Expo Router handles this via the file system.</div>
+    <div class="mistake-card int"><b>Intermediate mistake</b>Not understanding the difference between <code>push</code>ing a new screen vs. <code>replace</code>ing the current one — covered in full in Section 5.</div>
+  </div>
+
+  <div class="topic-nav">
+    <a href="#styling-your-app">Previous<b>← Styling Your App</b></a>
+    <a class="next" href="#recap-and-next-steps">Next topic<b>Recap and Next Steps →</b></a>
+  </div>
+</section>
+
+<!-- ============ TOPIC 12 ============ -->
+<section class="topic" id="recap-and-next-steps">
+  <div class="topic-num">TOPIC 12 / 12</div>
+  <h2>Recap and Next Steps</h2>
+
+  <p>Take a moment — you've covered a lot of ground. Let's connect the dots.</p>
+
+  <div class="card-grid">
+    <div class="mini-card"><div class="icon">1</div><h5>What & How</h5><p>React Native renders real native views from JavaScript, communicating through a bridge/JSI.</p></div>
+    <div class="mini-card"><div class="icon">2</div><h5>Expo</h5><p>Removes native build friction; Expo Go lets you test instantly on your own phone.</p></div>
+    <div class="mini-card"><div class="icon">3</div><h5>Your first app</h5><p>Scaffolded with <code>create-expo-app</code>, structured around the <code>app/</code> folder.</p></div>
+    <div class="mini-card"><div class="icon">4</div><h5>Data & lists</h5><p><code>fetch</code> + <code>useEffect</code> for data, <code>FlatList</code> for efficient rendering, TypeScript for safety.</p></div>
+    <div class="mini-card"><div class="icon">5</div><h5>Images & style</h5><p><code>Image</code> for visuals, <code>StyleSheet.create</code> for camelCase, unit-less styling.</p></div>
+    <div class="mini-card"><div class="icon">6</div><h5>Navigation</h5><p>File-based routing via Expo Router — files become screens automatically.</p></div>
+  </div>
+
+  <h3>Where to go from here</h3>
+  <p>The next sections build directly on this foundation:</p>
+  <ul>
+    <li><b>Section 2 — Introduction</b> — proper environment setup for simulators, and the New Architecture in depth.</li>
+    <li><b>Section 3 — Components and APIs</b> — going from basic to advanced custom components.</li>
+    <li><b>Section 4 — Style and Design</b> — Flexbox mastery, design systems, and dark mode.</li>
+    <li><b>Section 5 — Expo Router</b> — the navigation basics you just saw, taken to a production level (auth flows, deep linking, and more).</li>
+  </ul>
+
+  <div class="quiz-box">
+    <h4>Section 1 final check</h4>
+    <div class="quiz-q">
+      <p>1. What does Expo Go allow you to skip during early development?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Writing any JavaScript at all</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">Installing and configuring Xcode/Android Studio just to preview your app</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Using React components</button>
+      </div>
+      <div class="quiz-explain">Correct — Expo Go is a pre-built native app that runs your JS instantly, so you don't need native build tools installed just to see your app running.</div>
+    </div>
+    <div class="quiz-q">
+      <p>2. Which component should you use to efficiently render a list of 1,000 items?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">ScrollView with .map()</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,true)">FlatList</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,false)">Image</button>
+      </div>
+      <div class="quiz-explain">Correct — FlatList virtualizes rendering, only drawing what's currently visible, which matters a lot at that scale.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Section 1 complete ??</b>
+    Next up: Section 2 — Introduction, where we go deeper on environment setup, both platforms, and the architecture that powers everything you just used.
+  </div>
+
+  <div class="topic-nav">
+    <a href="#navigation-basics">Previous<b>← Navigation Basics</b></a>
+    <a class="next" href="section2.html#how-to-take-this-course">Next section<b>Section 2: Introduction →</b></a>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+
+    </div>
+  </div>
+</div>
+<script>window.CURRENT_SECTION = 's1';</script>
+<script src="script.js"></script>
+</body>
+</html>
+
