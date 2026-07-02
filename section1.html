@@ -6,7 +6,7 @@
     <title>Section 1 · React Native for Beginners — Learn React Native</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -320,6 +320,361 @@
               </div>
             </div>
 
+            <h3>Where did the DOM go?</h3>
+            <div class="diagram-wrap" style="padding: 20px 0">
+              <svg
+                viewBox="0 0 760 220"
+                width="100%"
+                height="220"
+                style="max-width: 100%"
+              >
+                <!-- Web World Box -->
+                <rect
+                  x="20"
+                  y="20"
+                  width="300"
+                  height="180"
+                  rx="14"
+                  fill="var(--paper-dim)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="170"
+                  y="45"
+                  text-anchor="middle"
+                  font-family="var(--font-display)"
+                  font-weight="700"
+                  fill="var(--text)"
+                >
+                  Web Browser
+                </text>
+
+                <!-- DOM Tree -->
+                <text
+                  x="170"
+                  y="70"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text-mute)"
+                  font-weight="bold"
+                >
+                  DOM Tree (HTML)
+                </text>
+                <circle
+                  cx="170"
+                  cy="95"
+                  r="16"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="170"
+                  y="99"
+                  text-anchor="middle"
+                  font-size="10"
+                  font-family="var(--font-mono)"
+                >
+                  div
+                </text>
+
+                <path
+                  d="M160 108 L140 125"
+                  stroke="var(--line)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M180 108 L200 125"
+                  stroke="var(--line)"
+                  stroke-width="2"
+                />
+
+                <circle
+                  cx="130"
+                  cy="140"
+                  r="16"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="130"
+                  y="144"
+                  text-anchor="middle"
+                  font-size="10"
+                  font-family="var(--font-mono)"
+                >
+                  p
+                </text>
+
+                <circle
+                  cx="210"
+                  cy="140"
+                  r="16"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="210"
+                  y="144"
+                  text-anchor="middle"
+                  font-size="10"
+                  font-family="var(--font-mono)"
+                >
+                  span
+                </text>
+
+                <!-- jQuery arrow -->
+                <rect
+                  x="35"
+                  y="165"
+                  width="60"
+                  height="24"
+                  rx="4"
+                  fill="var(--teal-dim)"
+                  stroke="var(--teal)"
+                />
+                <text
+                  x="65"
+                  y="181"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--teal)"
+                  font-weight="bold"
+                >
+                  jQuery
+                </text>
+                <path
+                  d="M95 177 Q135 177 135 158"
+                  stroke="var(--teal)"
+                  stroke-width="2"
+                  fill="none"
+                  marker-end="url(#arrow-teal)"
+                />
+                <text
+                  x="135"
+                  y="196"
+                  text-anchor="middle"
+                  font-size="10"
+                  fill="var(--teal)"
+                >
+                  manipulates
+                </text>
+
+                <!-- Separator -->
+                <line
+                  x1="380"
+                  y1="20"
+                  x2="380"
+                  y2="200"
+                  stroke="var(--line)"
+                  stroke-dasharray="6 6"
+                  stroke-width="2"
+                />
+                <rect
+                  x="355"
+                  y="95"
+                  width="50"
+                  height="30"
+                  rx="15"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="380"
+                  y="115"
+                  text-anchor="middle"
+                  font-size="13"
+                  font-weight="bold"
+                  fill="var(--text-mute)"
+                >
+                  VS
+                </text>
+
+                <!-- React Native Box -->
+                <rect
+                  x="440"
+                  y="20"
+                  width="300"
+                  height="180"
+                  rx="14"
+                  fill="var(--coral-dim)"
+                  stroke="var(--coral)"
+                />
+                <text
+                  x="590"
+                  y="45"
+                  text-anchor="middle"
+                  font-family="var(--font-display)"
+                  font-weight="700"
+                  fill="var(--text)"
+                >
+                  React Native
+                </text>
+
+                <!-- Native Views Tree -->
+                <text
+                  x="590"
+                  y="70"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--text-mute)"
+                  font-weight="bold"
+                >
+                  Native Views
+                </text>
+                <circle
+                  cx="590"
+                  cy="95"
+                  r="18"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="590"
+                  y="99"
+                  text-anchor="middle"
+                  font-size="10"
+                  font-family="var(--font-mono)"
+                >
+                  View
+                </text>
+
+                <path
+                  d="M578 110 L555 125"
+                  stroke="var(--line)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M602 110 L625 125"
+                  stroke="var(--line)"
+                  stroke-width="2"
+                />
+
+                <circle
+                  cx="545"
+                  cy="140"
+                  r="18"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="545"
+                  y="144"
+                  text-anchor="middle"
+                  font-size="10"
+                  font-family="var(--font-mono)"
+                >
+                  Text
+                </text>
+
+                <circle
+                  cx="635"
+                  cy="140"
+                  r="18"
+                  fill="var(--card)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="635"
+                  y="144"
+                  text-anchor="middle"
+                  font-size="10"
+                  font-family="var(--font-mono)"
+                >
+                  Image
+                </text>
+
+                <!-- jQuery blocked -->
+                <rect
+                  x="455"
+                  y="165"
+                  width="60"
+                  height="24"
+                  rx="4"
+                  fill="var(--paper)"
+                  stroke="var(--line)"
+                />
+                <text
+                  x="485"
+                  y="181"
+                  text-anchor="middle"
+                  font-size="11"
+                  fill="var(--text-mute)"
+                  font-weight="bold"
+                >
+                  jQuery
+                </text>
+
+                <path
+                  d="M515 177 L545 177"
+                  stroke="var(--coral)"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <line
+                  x1="540"
+                  y1="172"
+                  x2="550"
+                  y2="182"
+                  stroke="var(--coral)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="550"
+                  y1="172"
+                  x2="540"
+                  y2="182"
+                  stroke="var(--coral)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+
+                <text
+                  x="620"
+                  y="181"
+                  text-anchor="middle"
+                  font-size="12"
+                  fill="var(--coral)"
+                  font-weight="bold"
+                >
+                  No DOM to target!
+                </text>
+
+                <defs>
+                  <marker
+                    id="arrow-teal"
+                    markerWidth="8"
+                    markerHeight="8"
+                    refX="6"
+                    refY="3"
+                    orient="auto"
+                  >
+                    <path d="M0,0 L6,3 L0,6 Z" fill="var(--teal)" />
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+
+            <p>
+              If you come from web development, you might be wondering why you
+              can't use your favorite web tools like <b>jQuery</b> in React
+              Native.
+            </p>
+            <p>
+              In a web browser, everything you see is built using HTML. The
+              browser reads this HTML and creates a tree-like structure in its
+              memory called the <b>DOM (Document Object Model)</b>. Libraries
+              like jQuery were designed specifically to search through this DOM
+              and manipulate it.
+            </p>
+            <p>
+              <b>React Native is not a web browser.</b> It does not use HTML,
+              and therefore, it <b>does not have a DOM</b>. Instead, it uses
+              real native components (like iOS views). Because there is no HTML
+              DOM for jQuery to interact with, it simply has nothing to do,
+              which is why web-only libraries don't work in React Native.
+            </p>
+
             <div class="quiz-box">
               <h4>Quick check</h4>
               <p class="mute" style="font-size: 12.5px">
@@ -388,13 +743,6 @@
                 what trade-off does that create?
               </li>
             </ul>
-
-            <div class="topic-nav">
-              <span></span>
-              <a class="next" href="#how-react-native-works"
-                >Next topic<b>How React Native Works →</b></a
-              >
-            </div>
           </section>
 
           <!-- ============ TOPIC 2 ============ -->
@@ -414,21 +762,125 @@
             <p>
               A React Native app has three main "worlds" talking to each other:
             </p>
-            <ol>
-              <li>
-                <b>JavaScript world</b> — your React components, state, and
-                logic. Runs inside a JS engine (usually <b>Hermes</b>, a JS
-                engine built specifically for React Native).
-              </li>
-              <li>
-                <b>Native world</b> — the actual iOS (Swift/Objective-C) or
-                Android (Kotlin/Java) code and UI components.
-              </li>
-              <li>
-                <b>The bridge / JSI</b> — the communication layer that lets the
-                two worlds talk to each other.
-              </li>
-            </ol>
+            <div class="worlds-explanation">
+              <div
+                class="world-card"
+                style="
+                  padding: 18px;
+                  border: 1px solid var(--line);
+                  border-radius: 12px;
+                  margin-bottom: 14px;
+                  background: var(--paper-dim);
+                "
+              >
+                <h4
+                  style="
+                    margin: 0 0 8px;
+                    font-family: var(--font-display);
+                    font-size: 18px;
+                    color: var(--text);
+                  "
+                >
+                  1. The JavaScript World
+                </h4>
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 15px;
+                    line-height: 1.65;
+                    color: var(--text-mute);
+                  "
+                >
+                  Think of this as the <b>"Brain"</b> of your app. This is where
+                  you spend almost all of your time. You write normal JavaScript
+                  (or TypeScript) and React code here. It holds all your app's
+                  logic, rules, and data (like whether a user is logged in).
+                  Because mobile phones can't naturally read JavaScript, this
+                  code runs inside a special environment called <b>Hermes</b> (a
+                  lightning-fast JavaScript engine built specifically for React
+                  Native).
+                </p>
+              </div>
+
+              <div
+                class="world-card"
+                style="
+                  padding: 18px;
+                  border: 1px solid var(--line);
+                  border-radius: 12px;
+                  margin-bottom: 14px;
+                  background: var(--paper-dim);
+                "
+              >
+                <h4
+                  style="
+                    margin: 0 0 8px;
+                    font-family: var(--font-display);
+                    font-size: 18px;
+                    color: var(--text);
+                  "
+                >
+                  2. The Native World
+                </h4>
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 15px;
+                    line-height: 1.65;
+                    color: var(--text-mute);
+                  "
+                >
+                  Think of this as the <b>"Body and Muscles"</b> of your app.
+                  This world is entirely made of the raw materials that Apple
+                  (iOS) and Google (Android) provide. It includes access to the
+                  phone's camera, GPS, and the actual physical buttons drawn on
+                  the screen. The native world is incredibly fast and smooth,
+                  but it only speaks its own languages (Swift for iOS, Kotlin
+                  for Android). It doesn't understand your JavaScript at all.
+                </p>
+              </div>
+
+              <div
+                class="world-card"
+                style="
+                  padding: 18px;
+                  border: 1px solid var(--line);
+                  border-radius: 12px;
+                  margin-bottom: 24px;
+                  background: var(--paper-dim);
+                "
+              >
+                <h4
+                  style="
+                    margin: 0 0 8px;
+                    font-family: var(--font-display);
+                    font-size: 18px;
+                    color: var(--text);
+                  "
+                >
+                  3. The Bridge / JSI
+                </h4>
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 15px;
+                    line-height: 1.65;
+                    color: var(--text-mute);
+                  "
+                >
+                  Think of this as the <b>"Nervous System" or "Translator"</b>.
+                  Since the JavaScript Brain and the Native Body speak
+                  completely different languages, they need a way to talk to
+                  each other. When your JavaScript code says,
+                  <i>"Draw a blue button,"</i> this layer translates that
+                  command and sends it to the Native world, which then
+                  physically draws a real iOS or Android button. Modern React
+                  Native uses a super-fast translator called
+                  <b>JSI (JavaScript Interface)</b> that lets them talk
+                  instantly without delays.
+                </p>
+              </div>
+            </div>
 
             <div class="diagram-wrap">
               <svg viewBox="0 0 760 220" width="100%" height="220">
@@ -589,46 +1041,237 @@
             </div>
 
             <h3>What happens when your app starts</h3>
-            <ol>
-              <li>
-                The device launches your app's native shell (a real iOS/Android
-                app container).
-              </li>
-              <li>
-                That shell starts the JavaScript engine and runs your app's JS
-                bundle (all your code, compiled into one file).
-              </li>
-              <li>
-                Your React components run and describe what the UI should look
-                like — this description is a tree of components, not pixels.
-              </li>
-              <li>
-                That description is sent across the bridge/JSI to the native
-                side.
-              </li>
-              <li>
-                Native code creates <b>real native views</b> matching that
-                description — a real <code>UILabel</code>, a real
-                <code>TextView</code>, and so on.
-              </li>
-              <li>
-                When state changes (e.g., you tap a button), React recalculates
-                what changed, and only the differences are sent over — not the
-                whole screen again.
-              </li>
-            </ol>
+            <div
+              style="
+                display: flex;
+                gap: 40px;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+              "
+            >
+              <!-- Left side: The text list -->
+              <div style="flex: 1; min-width: 320px">
+                <ol style="text-align: justify; line-height: 1.7">
+                  <li>
+                    <b>Starting the Engine:</b> When you tap the app icon on
+                    your phone, a standard, empty iOS or Android app opens up.
+                    Think of this as the empty frame of a car waiting for
+                    instructions.
+                  </li>
+                  <li>
+                    <b>Waking up the Brain:</b> Immediately, that empty app
+                    turns on the Hermes JavaScript Engine. It loads up your
+                    entire React Native code (which has been bundled into one
+                    big file) and brings the "JavaScript Brain" to life.
+                  </li>
+                  <li>
+                    <b>Drawing the Blueprint:</b> Your React code runs and
+                    creates a blueprint of what the screen should look like. It
+                    doesn't actually paint colors or pixels; instead, it makes a
+                    structured list of instructions like,
+                    <i
+                      >"I need a big title at the top, and a blue button below
+                      it."</i
+                    >
+                  </li>
+                  <li>
+                    <b>Sending the Instructions:</b> This blueprint is quickly
+                    passed over the Bridge (or JSI translator) from the
+                    JavaScript world to the Native world.
+                  </li>
+                  <li>
+                    <b>Building the Real UI:</b> The Native "Body" receives the
+                    blueprint and follows the instructions. It reaches into
+                    Apple or Google's official toolbox and constructs the
+                    actual, physical interface on your screen. You aren't
+                    getting a fake web button—you are getting a 100% real iPhone
+                    (<code>UILabel</code>) or Android (<code>TextView</code>)
+                    component.
+                  </li>
+                  <li>
+                    <b>Smart Updates:</b> When something in your app changes
+                    (like when you tap a button to 'Like' a post), React
+                    <i>doesn't</i> redraw the entire screen from scratch.
+                    Instead, the JavaScript "Brain" quickly figures out exactly
+                    what small piece changed (e.g., just the heart icon turning
+                    red). It then sends a tiny, fast message across the Bridge
+                    saying,
+                    <i>"Hey, just update the color of that one heart icon."</i>
+                    This smart process is what keeps your app running incredibly
+                    fast without draining the phone's battery.
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Right side: Animated Phone Frame -->
+              <style>
+                @keyframes cycle-anim {
+                  0% {
+                    opacity: 0;
+                    transform: translate(-50%, -40%) scale(0.95);
+                  }
+                  5%,
+                  15% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                  }
+                  20%,
+                  100% {
+                    opacity: 0;
+                    transform: translate(-50%, -60%) scale(1.05);
+                  }
+                }
+                .anim-step {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  width: 140px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  opacity: 0;
+                  animation: cycle-anim 15s infinite;
+                  transform: translate(-50%, -50%);
+                }
+                .anim-icon {
+                  font-size: 52px;
+                  margin-bottom: 14px;
+                  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+                }
+                .anim-title {
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                  font-size: 16px;
+                  color: var(--text);
+                  margin: 0;
+                }
+                .anim-desc {
+                  font-size: 12.5px;
+                  color: var(--text-mute);
+                  margin: 6px 0 0;
+                }
+
+                .anim-step:nth-child(1) {
+                  animation-delay: 0s;
+                } /* Engine */
+                .anim-step:nth-child(2) {
+                  animation-delay: 3s;
+                } /* Brain */
+                .anim-step:nth-child(3) {
+                  animation-delay: 6s;
+                } /* Blueprint */
+                .anim-step:nth-child(4) {
+                  animation-delay: 9s;
+                } /* Bridge */
+                .anim-step:nth-child(5) {
+                  animation-delay: 12s;
+                } /* UI */
+              </style>
+
+              <div
+                class="phone"
+                style="
+                  margin: 0 auto;
+                  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+                "
+              >
+                <div class="phone-notch"></div>
+                <div
+                  class="phone-screen"
+                  style="background: var(--paper-dim); position: relative"
+                >
+                  <div class="anim-step">
+                    <div class="anim-icon">📱</div>
+                    <p class="anim-title">1. Empty Shell</p>
+                    <p class="anim-desc">Native app starts</p>
+                  </div>
+
+                  <div class="anim-step">
+                    <div class="anim-icon">🧠</div>
+                    <p class="anim-title">2. Hermes JS</p>
+                    <p class="anim-desc">JavaScript engine wakes up</p>
+                  </div>
+
+                  <div class="anim-step">
+                    <div class="anim-icon">📐</div>
+                    <p class="anim-title">3. React Tree</p>
+                    <p class="anim-desc">Blueprint created</p>
+                  </div>
+
+                  <div class="anim-step">
+                    <div class="anim-icon">🌉</div>
+                    <p class="anim-title">4. The Bridge</p>
+                    <p class="anim-desc">Passing commands to Native</p>
+                  </div>
+
+                  <div class="anim-step">
+                    <div class="anim-icon">✅</div>
+                    <p class="anim-title">5. Native UI</p>
+                    <p class="anim-desc">Real physical UI is drawn</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="callout">
               <b>Why this matters for you</b>
-              Because rendering is native, animations and scrolling can feel as
-              smooth as a fully native app — but because communication crosses a
-              bridge, doing too much heavy work that constantly crosses that
-              bridge (like updating state 60 times a second naively) can cause
-              performance issues. This is why later topics teach you patterns
-              like <code>useNativeDriver</code> for animations.
+              React Native still uses a bridge to send instructions from the
+              JavaScript side to the native side. That means the app feels
+              smooth only when the JavaScript does not send too many updates at
+              once. If your app changes state too often — for example, updating
+              the screen 60 times every second without care — the bridge can
+              become a slowdown point. The app then feels less smooth because
+              the phone spends too much time moving data back and forth. Later
+              lessons teach safer ways to animate and update the UI, such as
+              using <code>useNativeDriver</code>. These techniques keep more
+              work on the native side and help your app stay fast.
             </div>
 
             <h3>The Old Architecture vs. the New Architecture</h3>
+
+            <div class="callout teal">
+              <b>Old vs New Architecture — explained simply</b>
+              <p>
+                Think of React Native's architecture like how you send messages
+                to a friend. The old way and new way both get the job done, but
+                they work differently.
+              </p>
+              <p>
+                <strong>Communication:</strong> In the old system, React Native
+                packs many instructions into JSON messages (like writing
+                letters) and sends them across a "bridge." This takes time
+                because messages have to travel back and forth. The new system
+                uses something called JSI (JavaScript Interface) that lets
+                JavaScript talk directly to native code — like having a direct
+                phone line instead of sending letters.
+              </p>
+              <p>
+                <strong>Rendering:</strong> The old system had a separate
+                renderer that converted your JavaScript into native views. The
+                new system uses "Fabric," which is smarter and works more like
+                how the phone's own system works. This means your app feels more
+                natural and responsive.
+              </p>
+              <p>
+                <strong>Native modules:</strong> When your app needs to use
+                phone features like the camera or GPS, it uses "native modules."
+                The old system loaded all of these at startup (like carrying a
+                heavy backpack everywhere). The new system uses "TurboModules"
+                that load only when you need them (like grabbing tools from a
+                toolbox only when you use them).
+              </p>
+              <p>
+                <strong>Performance:</strong> The old bridge can get crowded
+                when your app sends lots of updates — like traffic during rush
+                hour. The new system has less waiting and handles busy moments
+                better, especially for apps with lots of animations or frequent
+                screen updates.
+              </p>
+            </div>
+
             <table class="cmp">
               <tr>
                 <th></th>
@@ -660,6 +1303,96 @@
               We'll revisit the New Architecture in more depth in Section 2,
               since Expo now defaults new projects to it.
             </p>
+
+            <div class="diagram-wrap">
+              <svg
+                viewBox="0 0 760 380"
+                width="100%"
+                height="380"
+                aria-label="Comparison of Old Architecture versus New Architecture"
+              >
+                <!-- OLD ARCHITECTURE -->
+                <text x="380" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--text)" font-family="var(--font-display)">
+                  OLD ARCHITECTURE (BRIDGE)
+                </text>
+                
+                <!-- JS World -->
+                <rect x="20" y="40" width="200" height="120" rx="14" fill="var(--coral-dim)" stroke="var(--coral)" stroke-width="2" />
+                <text x="120" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--text)">JavaScript Thread</text>
+                
+                <!-- Bridge -->
+                <rect x="280" y="40" width="200" height="120" rx="14" fill="var(--teal-dim)" stroke="var(--teal)" stroke-width="2" />
+                <text x="380" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--text)">The Bridge</text>
+                <text x="380" y="90" text-anchor="middle" font-size="12" fill="var(--text-mute)">Asynchronous</text>
+                <text x="380" y="110" text-anchor="middle" font-size="12" fill="var(--text-mute)">Batched JSON</text>
+                <text x="380" y="130" text-anchor="middle" font-size="12" fill="var(--text-mute)">(Bottleneck)</text>
+                
+                <!-- Native World -->
+                <rect x="540" y="40" width="200" height="120" rx="14" fill="var(--paper-dim)" stroke="var(--line)" stroke-width="2" />
+                <text x="640" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--text)">Native Thread</text>
+                <text x="640" y="90" text-anchor="middle" font-size="12" fill="var(--text-mute)">Separate Renderer</text>
+                <text x="640" y="110" text-anchor="middle" font-size="12" fill="var(--text-mute)">All Modules Loaded</text>
+
+                <!-- Arrows Old -->
+                <path d="M220 100 L280 100" stroke="var(--text-mute)" stroke-width="2" stroke-dasharray="4" />
+                <path d="M480 100 L540 100" stroke="var(--text-mute)" stroke-width="2" stroke-dasharray="4" />
+
+                <!-- Divider -->
+                <line x1="20" y1="190" x2="740" y2="190" stroke="var(--line)" stroke-width="2" stroke-dasharray="8" />
+
+                <!-- NEW ARCHITECTURE -->
+                <text x="380" y="225" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--text)" font-family="var(--font-display)">
+                  NEW ARCHITECTURE (JSI)
+                </text>
+
+                <!-- JS World -->
+                <rect x="20" y="240" width="200" height="120" rx="14" fill="var(--coral-dim)" stroke="var(--coral)" stroke-width="2" />
+                <text x="120" y="265" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--text)">JavaScript Thread</text>
+                
+                <!-- JSI -->
+                <rect x="280" y="240" width="200" height="120" rx="14" fill="var(--teal-dim)" stroke="var(--teal)" stroke-width="2" />
+                <text x="380" y="265" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--text)">JSI</text>
+                <text x="380" y="290" text-anchor="middle" font-size="12" fill="var(--text-mute)">Direct Calls</text>
+                <text x="380" y="310" text-anchor="middle" font-size="12" fill="var(--text-mute)">Synchronous-Capable</text>
+                <text x="380" y="330" text-anchor="middle" font-size="12" fill="var(--text-mute)">(Fast & Efficient)</text>
+                
+                <!-- Native World -->
+                <rect x="540" y="240" width="200" height="120" rx="14" fill="var(--paper-dim)" stroke="var(--line)" stroke-width="2" />
+                <text x="640" y="265" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--text)">Native Thread</text>
+                <text x="640" y="290" text-anchor="middle" font-size="12" fill="var(--text-mute)">Fabric Renderer</text>
+                <text x="640" y="310" text-anchor="middle" font-size="12" fill="var(--text-mute)">TurboModules (Lazy)</text>
+
+                <!-- Arrows New -->
+                <path d="M220 300 L280 300" stroke="var(--text)" stroke-width="2" />
+                <path d="M480 300 L540 300" stroke="var(--text)" stroke-width="2" />
+
+                <!-- Animations Old (Batched JSON) -->
+                <g fill="var(--coral)">
+                  <circle cx="220" cy="100" r="5">
+                    <animate attributeName="cx" values="220; 380; 380; 540" keyTimes="0; 0.3; 0.7; 1" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="220" cy="100" r="5">
+                    <animate attributeName="cx" values="220; 380; 380; 540" keyTimes="0; 0.3; 0.7; 1" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="220" cy="100" r="5">
+                    <animate attributeName="cx" values="220; 380; 380; 540" keyTimes="0; 0.3; 0.7; 1" dur="3s" begin="1s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" begin="1s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+
+                <!-- Animations New (Direct Fast JSI) -->
+                <g fill="var(--teal)">
+                  <circle cx="220" cy="295" r="4">
+                    <animate attributeName="cx" values="220; 540; 220" keyTimes="0; 0.5; 1" dur="0.8s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="540" cy="305" r="4">
+                    <animate attributeName="cx" values="540; 220; 540" keyTimes="0; 0.5; 1" dur="0.9s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+              </svg>
+            </div>
 
             <div class="mistakes">
               <div class="mistake-card beg">
@@ -704,15 +1437,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="topic-nav">
-              <a href="#what-is-react-native"
-                >Previous<b>← What is React Native?</b></a
-              >
-              <a class="next" href="#why-expo-and-expo-go"
-                >Next topic<b>Why Expo and Expo Go →</b></a
-              >
-            </div>
           </section>
 
           <!-- ============ TOPIC 3 ============ -->
@@ -738,7 +1462,9 @@
 
             <div class="card-grid">
               <div class="mini-card">
-                <div class="icon">??</div>
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
                 <h5>Expo SDK</h5>
                 <p>
                   A curated library of ready-made modules — camera, location,
@@ -747,7 +1473,9 @@
                 </p>
               </div>
               <div class="mini-card">
-                <div class="icon">??</div>
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                </div>
                 <h5>Expo Go</h5>
                 <p>
                   A free app you install on your own phone. Scan a QR code and
@@ -755,7 +1483,9 @@
                 </p>
               </div>
               <div class="mini-card">
-                <div class="icon">??</div>
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                </div>
                 <h5>EAS</h5>
                 <p>
                   Expo Application Services — cloud build, submit, and update
@@ -777,12 +1507,15 @@
 
             <div class="callout teal">
               <b>Where Expo Go stops being enough</b>
-              Because Expo Go ships with a fixed set of native code, it can't
-              run <em>your own custom native modules</em> (Section 18) or
-              third-party libraries that need native setup Expo Go doesn't
-              already include. For those cases you'll build a "Development
-              Build" — your own custom version of Expo Go, covered later in this
-              course.
+              <p style="margin-top: 10px;">
+                Think of Expo Go like a pre-furnished apartment. It comes with almost everything you need to start building immediately (like camera access, GPS, and file storage). 
+              </p>
+              <p>
+                However, because it is a pre-packaged app, its underlying structure is locked. This means it <em>cannot</em> run completely custom native code (Section 18) or specific third-party libraries that require changes to the core iOS or Android files.
+              </p>
+              <p>
+                When your app grows and you need those advanced, custom features, you won't get stuck! Instead, you will create a <b>"Development Build"</b>. A Development Build is simply your very own, personalized version of the Expo Go app that contains your custom native code. We will cover exactly how to do this later in the course.
+              </p>
             </div>
 
             <table class="cmp">
@@ -852,15 +1585,6 @@
                 production app "for control," without weighing the real
                 maintenance cost of managing native build tooling yourself.
               </div>
-            </div>
-
-            <div class="topic-nav">
-              <a href="#how-react-native-works"
-                >Previous<b>← How React Native Works</b></a
-              >
-              <a class="next" href="#setting-up-your-environment"
-                >Next topic<b>Setting Up Your Environment →</b></a
-              >
             </div>
           </section>
 
@@ -954,15 +1678,6 @@
                 (like nvm) across multiple projects, leading to version
                 conflicts between projects later.
               </div>
-            </div>
-
-            <div class="topic-nav">
-              <a href="#why-expo-and-expo-go"
-                >Previous<b>← Why Expo and Expo Go</b></a
-              >
-              <a class="next" href="#creating-your-first-app"
-                >Next topic<b>Creating Your First App →</b></a
-              >
             </div>
           </section>
 
@@ -1095,15 +1810,6 @@ npx expo start</code></pre>
                 repository in your new project and make your first commit.
               </li>
             </ul>
-
-            <div class="topic-nav">
-              <a href="#setting-up-your-environment"
-                >Previous<b>← Setting Up Your Environment</b></a
-              >
-              <a class="next" href="#project-structure"
-                >Next topic<b>Project Structure →</b></a
-              >
-            </div>
           </section>
 
           <!-- ============ TOPIC 6 ============ -->
@@ -1189,15 +1895,6 @@ npx expo start</code></pre>
                 <code>app/</code>, which conflates "screens" with "reusable
                 pieces" and creates unintended routes.
               </div>
-            </div>
-
-            <div class="topic-nav">
-              <a href="#creating-your-first-app"
-                >Previous<b>← Creating Your First App</b></a
-              >
-              <a class="next" href="#fetching-data-from-an-api"
-                >Next topic<b>Fetching Data from an API →</b></a
-              >
             </div>
           </section>
 
@@ -1365,15 +2062,6 @@ npx expo start</code></pre>
                 </div>
               </div>
             </div>
-
-            <div class="topic-nav">
-              <a href="#project-structure"
-                >Previous<b>← Project Structure</b></a
-              >
-              <a class="next" href="#rendering-lists-and-typescript"
-                >Next topic<b>Rendering Lists and TypeScript →</b></a
-              >
-            </div>
           </section>
 
           <!-- ============ TOPIC 8 ============ -->
@@ -1484,15 +2172,6 @@ npx expo start</code></pre>
                 entire purpose of using TypeScript.
               </div>
             </div>
-
-            <div class="topic-nav">
-              <a href="#fetching-data-from-an-api"
-                >Previous<b>← Fetching Data from an API</b></a
-              >
-              <a class="next" href="#working-with-images"
-                >Next topic<b>Working with Images →</b></a
-              >
-            </div>
           </section>
 
           <!-- ============ TOPIC 9 ============ -->
@@ -1559,15 +2238,6 @@ npx expo start</code></pre>
                 4000px wide) for a 100px thumbnail, wasting memory and
                 bandwidth.
               </div>
-            </div>
-
-            <div class="topic-nav">
-              <a href="#rendering-lists-and-typescript"
-                >Previous<b>← Rendering Lists and TypeScript</b></a
-              >
-              <a class="next" href="#styling-your-app"
-                >Next topic<b>Styling Your App →</b></a
-              >
             </div>
           </section>
 
@@ -1722,15 +2392,6 @@ npx expo start</code></pre>
                 <code>StyleSheet.create</code> or extracting constants.
               </div>
             </div>
-
-            <div class="topic-nav">
-              <a href="#working-with-images"
-                >Previous<b>← Working with Images</b></a
-              >
-              <a class="next" href="#navigation-basics"
-                >Next topic<b>Navigation Basics →</b></a
-              >
-            </div>
           </section>
 
           <!-- ============ TOPIC 11 ============ -->
@@ -1812,13 +2473,6 @@ npx expo start</code></pre>
                 <code>replace</code>ing the current one — covered in full in
                 Section 5.
               </div>
-            </div>
-
-            <div class="topic-nav">
-              <a href="#styling-your-app">Previous<b>← Styling Your App</b></a>
-              <a class="next" href="#recap-and-next-steps"
-                >Next topic<b>Recap and Next Steps →</b></a
-              >
             </div>
           </section>
 
@@ -1960,15 +2614,6 @@ npx expo start</code></pre>
               Next up: Section 2 — Introduction, where we go deeper on
               environment setup, both platforms, and the architecture that
               powers everything you just used.
-            </div>
-
-            <div class="topic-nav">
-              <a href="#navigation-basics"
-                >Previous<b>← Navigation Basics</b></a
-              >
-              <a class="next" href="section2.html#how-to-take-this-course"
-                >Next section<b>Section 2: Introduction →</b></a
-              >
             </div>
           </section>
 

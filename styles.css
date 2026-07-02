@@ -13,8 +13,8 @@
   --text-mute: #5c6070;
   --card: #ffffff;
   --radius: 14px;
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Raleway", sans-serif;
+  --font-body: "DM Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 html.dark {
@@ -46,6 +46,25 @@ html.eye-safe {
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+::selection {
+  background: var(--coral-dim);
+  color: var(--text);
 }
 .tok-kw {
   color: var(--coral);
@@ -53,19 +72,11 @@ html.eye-safe {
 .tok-str {
   color: #a3e6b0;
 }
-  color: var(--text);
-  font-family: var(--font-body);
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
-}
-::selection {
 .tok-tag {
   color: var(--coral);
 }
 .tok-attr {
   color: var(--teal);
-}
 }
 
 /* ---------- Layout ---------- */
@@ -331,9 +342,11 @@ html.dark .hero {
 }
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 42px);
-  margin: 0 0 14px;
-  line-height: 1.1;
+  font-size: clamp(28px, 4.5vw, 46px);
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 .hero p {
   font-size: 15px;
@@ -386,18 +399,26 @@ html.dark .hero {
 }
 .topic h2 {
   font-family: var(--font-display);
-  font-size: 28px;
-  margin: 0 0 14px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  line-height: 1.2;
 }
 .topic h3 {
   font-family: var(--font-display);
-  font-size: 18px;
-  margin: 28px 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 32px 0 12px;
+  line-height: 1.3;
 }
 .topic p {
-  line-height: 1.75;
+  line-height: 1.85;
   color: var(--text);
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.008em;
 }
 .topic p.mute {
   color: var(--text-mute);
@@ -821,21 +842,23 @@ table.cmp th {
   margin: 14px 0;
 }
 .exercises li {
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  margin-bottom: 8px;
-  font-size: 13.5px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 14px;
+  align-items: start;
 }
 .exercises li .lvl {
   font-family: var(--font-mono);
-  font-size: 10px;
-  padding: 2px 7px;
+  font-size: 11px;
+  padding: 3px 8px;
   border-radius: 20px;
-  flex: none;
+  text-align: center;
+  font-weight: 600;
   margin-top: 2px;
 }
 .exercises li .lvl.b {
